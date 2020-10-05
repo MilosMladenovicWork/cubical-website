@@ -7,10 +7,12 @@ const NavMenuContainer = ({children}) => {
     
     const dispatch = useDispatch()
 
+    if(typeof window != 'undefined'){
+        window.addEventListener('scroll', () =>{
+            dispatch({type:'SCROLL_FROM_TOP_CHANGE', payload:window.pageYOffset})
+        })
+    }    
     
-    window.addEventListener('scroll', () =>{
-        dispatch({type:'SCROLL_FROM_TOP_CHANGE', payload:window.pageYOffset})
-    })
     let pageOffset = useSelector(state => state.scrollFromTop)
 
 
