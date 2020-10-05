@@ -1,0 +1,35 @@
+.nav-link-vertical{
+    display:flex;
+    position:relative;
+    padding:15px 15px;
+    margin:0;
+    > a{
+        display: inline-block;
+        padding:0;
+        text-decoration: none;
+        transform:rotateZ(0deg) translate(0%, -50%);
+        transition:transform 0.25s;
+        font-size:1.3rem;
+        padding:15px;
+    }
+    .nav-link-vertical-children{
+        padding:35px;
+        font-size:1.3rem;
+        display:none;
+        position:absolute;
+        bottom:100%;
+        left:50%;
+        transform:translate(-50%, -50%) rotateZ(90deg);
+    }
+}
+
+.nav-link-vertical:hover{
+    > a{
+        transform:rotateZ(90deg)  translate(-50%, 0%);
+        text-shadow: -0.06ex 0 black, 0.06ex 0 black;
+    }
+
+    .nav-link-vertical-children{
+        display:block;
+    }
+}

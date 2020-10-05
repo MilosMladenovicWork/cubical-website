@@ -1,0 +1,15 @@
+.newsletter-form{
+    display: flex;
+    align-items: center;
+    > input {
+        margin-right:20px;
+    }
+    > button{
+        height:30px;
+        background:none;
+        border:none;
+        > img{
+            height:100%;
+        }
+    }
+}
