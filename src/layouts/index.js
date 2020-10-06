@@ -19,25 +19,20 @@ const Layout = ({children}) => {
         <div className={styles.layout}>
             <NavMenuContainer>
                 <ul>
-                    <NavLink link={{href:'#', text: 'dienstleistungen'}} subLinks={[
-                        {href:'#', text: 'verkaufen'},
-                        {href:'#', text: 'vermieten'},
-                        {href:'#', text: 'investieren & begleiten'}
+                    <NavLink link={{href:'/immobilien/', text: 'immobilien'}}/>
+                    <NavLink link={{href:false, text: 'dienstleistungen'}} subLinks={[
+                        {href:'/dienstleistungen/verkaufen/', text: 'verkaufen'},
+                        {href:'/dienstleistungen/vermieten/', text: 'vermieten'},
+                        {href:'/dienstleistungen/investieren-begleiten/', text: 'investieren & begleiten'}
                     ]}/>
-                    <NavLink link={{href:'#', text: 'dienstleistungen'}} subLinks={[
-                        {href:'#', text: 'verkaufen'},
-                        {href:'#', text: 'vermieten'},
-                        {href:'#', text: 'investieren & begleiten'}
-                    ]}/>
-                    <NavLink link={{href:'#', text: 'dienstleistungen'}} subLinks={[
-                        {href:'#', text: 'verkaufen'},
-                        {href:'#', text: 'vermieten'},
-                        {href:'#', text: 'investieren & begleiten'}
-                    ]}/>
-                    <NavLink link={{href:'#', text: 'dienstleistungen'}} subLinks={[
-                        {href:'#', text: 'verkaufen'},
-                        {href:'#', text: 'vermieten'},
-                        {href:'#', text: 'investieren & begleiten'}
+                    <NavLink link={{href:'/gut-zu-wissen/', text: 'gut zu wissen'}}/>
+                    <NavLink link={{href:'/referenzen/', text: 'referenzen'}}/>
+                    <NavLink link={{href:'/ueber-uns/', text: 'über uns'}} subLinks={[
+                        {href:'/ueber-uns/team/', text: 'team'},
+                        {href:'/ueber-uns/medien/', text: 'medien'},
+                        {href:'/ueber-uns/soziales-engagement/', text: 'soziales engagement'},
+                        {href:'/ueber-uns/partner/', text: 'partner'},
+                        {href:'/ueber-uns/stellen/', text: 'stellen'},
                     ]}/>
                 </ul>
                 <div className={styles.logoContainer}>

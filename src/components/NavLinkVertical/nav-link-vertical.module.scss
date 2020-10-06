@@ -9,12 +9,13 @@
         text-decoration: none;
         transform:rotateZ(0deg) translate(0%, -50%);
         transition:transform 0.25s;
-        font-size:1.3rem;
+        font-size:1.5rem;
         padding:15px;
+        text-transform: uppercase;
     }
     .nav-link-vertical-children{
-        padding:35px;
-        font-size:1.3rem;
+        padding:45px;
+        font-size:1.5rem;
         display:none;
         position:absolute;
         bottom:100%;

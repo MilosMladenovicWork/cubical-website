@@ -1,0 +1,11 @@
+.button-bordered{
+    font-size:1.5rem;
+    > a{
+        text-decoration: none;
+    }
+    *{
+        color: #888888;
+    }
+    border:2px solid black;
+    padding: 5px 20px;
+}

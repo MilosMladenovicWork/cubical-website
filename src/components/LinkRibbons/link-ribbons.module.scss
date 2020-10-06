@@ -1,0 +1,28 @@
+.link-ribbon-container{
+    position: absolute;
+    bottom:10%;
+    left:-75px;
+    list-style: none;
+    padding:0;
+    margin:0;
+    z-index:2;
+    li{
+        transform:rotate(-45deg);
+        margin-top:100px;
+        background:#1995D2;
+        padding:30px 50px;
+        clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 75% 0);
+        transition: 0.3s;
+    }
+    a{
+        text-decoration: none;
+        font-size:1.5rem;
+        padding:40px;
+        padding-left:60px;
+        color:white;
+    }
+    li:hover{
+        transform:rotate(-45deg) scale(1.2);
+        clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0);
+    }
+}

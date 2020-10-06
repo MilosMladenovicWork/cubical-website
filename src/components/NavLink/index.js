@@ -3,6 +3,7 @@ import {Link} from 'gatsby'
 import {useSelector} from 'react-redux'
 
 import styles from './nav-link.module.scss'
+import RoofSVG from '../RoofSVG'
 
 const NavLink = ({link, subLinks}) => {
     
@@ -21,6 +22,7 @@ const NavLink = ({link, subLinks}) => {
 
     return(
         <li className={styles.navLink}>
+            <RoofSVG/>
             <Link to={link.href}>
                 {link.text}
             </Link>
@@ -28,8 +30,9 @@ const NavLink = ({link, subLinks}) => {
             backgroundColor:`rgba(255, 255, 255, ${backgroundHandler()})`
         }}>
                 {
-                    subLinks.map(link => {
+                    subLinks && subLinks.map(link => {
                         return <li>
+                            <RoofSVG/>
                             <Link to={link.href}>
                                 {link.text}
                             </Link>

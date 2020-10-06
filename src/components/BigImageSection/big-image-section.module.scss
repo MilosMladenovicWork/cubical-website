@@ -1,0 +1,16 @@
+.big-image-section{
+    min-height:85vh;
+    position: relative;
+    overflow: hidden;
+    padding:50px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom:130px;
+    margin-top:130px;
+    > h3{
+        width:400px;
+        text-align: center;
+    }
+}
