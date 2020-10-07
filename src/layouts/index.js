@@ -18,14 +18,11 @@ import facebookLogo from '../img/logo-facebook.svg'
 import instagramLogo from '../img/logo-instagram.svg'
 
 const Layout = ({children, location}) => {
-    
-    console.log(location)
 
     const [contactButtonClicked, setContactButtonClicked] = useState(false)
 
-    const [chatActive, setChatActive] = useState(false)
-
     const toggleChat = () => {
+        console.log(Tawk_API)
         Tawk_API.toggle()
     }
 
@@ -70,7 +67,7 @@ const Layout = ({children, location}) => {
                                     </a>
                                 </div>
                             </NavLinkVertical>
-                            <NavLinkVertical link={{href:false, text:'Chat'}} onClick={() => toggleChat()} active={chatActive}>
+                            <NavLinkVertical link={{href:false, text:'Chat'}} onClick={() => toggleChat()}>
                             </NavLinkVertical>
                             <NavLinkVertical active={contactButtonClicked} link={{href:false, text:'Kontakt'}} onClick={() => setContactButtonClicked(prevState => !prevState)}>
                                 <div style={{display: contactButtonClicked ? 'flex' : 'none'}} className={styles.contactFormContainer}>
