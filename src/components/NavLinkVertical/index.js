@@ -3,15 +3,17 @@ import {Link} from 'gatsby'
 
 import styles from './nav-link-vertical.module.scss'
 
-const NavLinkVertical = ({link, children}) => {
+const NavLinkVertical = ({link, children, onClick, active}) => {
     return(
-        <li className={styles.navLinkVertical}>
+        <li className={`${styles.navLinkVertical} ${active && styles.active}`}>
             <div className={styles.navLinkVerticalChildren}>
                 {children}
             </div>
-            <Link to={link.href}>
-                {link.text}
-            </Link>
+            <div onClick={onClick} className={styles.mainButton}>
+                <Link to={link.href}>
+                    {link.text}
+                </Link>
+            </div>
         </li>
     )
 }

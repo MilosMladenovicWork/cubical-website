@@ -7,8 +7,8 @@
         text-decoration: none;
         text-transform: uppercase;
     }
-    li:hover > svg path{
-        fill:#005b96;
+    li:hover > a > svg path{
+        fill:#47A8D7;
     }
 }
 
@@ -20,8 +20,12 @@
     width: max-content;
     margin:0;
     padding:0;
-    padding-left:7.5px;
-    padding-bottom: 15px;
+    padding-left:15px;
+    padding-bottom: 10px;
+    transition:0.1s;
+    > li{
+        transform:translateY(-15px)
+    }
     a {
         font-size: 1.3rem;
         padding-right:15px;
@@ -31,7 +35,13 @@
     > .sub-links{
         display: flex;
     }
+    > a > svg path{
+        fill:#47A8D7;
+    }
+}
+
+.active{
     > svg path{
-        fill:#005b96;
+        fill:#47A8D7;
     }
 }

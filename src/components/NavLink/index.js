@@ -22,24 +22,27 @@ const NavLink = ({link, subLinks}) => {
 
     return(
         <li className={styles.navLink}>
-            <RoofSVG/>
-            <Link to={link.href}>
+            <Link to={link.href} activeClassName={styles.active} partiallyActive={true}>
+                <RoofSVG/>
                 {link.text}
             </Link>
-            <ul className={styles.subLinks} style={{
-            backgroundColor:`rgba(255, 255, 255, ${backgroundHandler()})`
-        }}>
-                {
-                    subLinks && subLinks.map(link => {
-                        return <li>
-                            <RoofSVG/>
-                            <Link to={link.href}>
-                                {link.text}
-                            </Link>
-                        </li>
-                    })
-                }
-            </ul>
+            {
+                subLinks && 
+                <ul className={styles.subLinks} style={{
+                backgroundColor:`rgba(255, 255, 255, ${backgroundHandler()})`
+                }}>
+                    {
+                        subLinks.map(link => {
+                            return <li>
+                                <Link to={link.href} activeClassName={styles.active} partiallyActive={true}>
+                                    <RoofSVG/>
+                                    {link.text}
+                                </Link>
+                            </li>
+                        })
+                    }
+                </ul>
+            }
         </li>
     )
 }

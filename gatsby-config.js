@@ -63,6 +63,13 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-plugin-tawk`,
+      options: {
+        tawkId: process.env.TAWK_TO_PROPERTY_ID,
+        // get this from the tawk script widget
+      },
+    },
+    {
       resolve: `gatsby-plugin-react-redux`,
       options: {
         // [required] - path to your createStore module

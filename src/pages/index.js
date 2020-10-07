@@ -18,6 +18,7 @@ import BigImageSection from '../components/BigImageSection'
 import LinkRibbons from '../components/LinkRibbons'
 import PopularSectionItem from '../components/PopularSectionItem'
 import OurServicesItem from '../components/OurServicesItem'
+import RealEstateItem from '../components/RealEstateItem'
 
 const HomePage = () => {
     return(
@@ -67,6 +68,14 @@ const HomePage = () => {
             <BigImageSection image={background3} title={'IMMOBILIEN SIND VOLLER TRÄUME. LASSEN WIR SIE WAHR WERDEN.'}>
                 <LinkRibbons links={[{href:'/', text:'Dienstleistungen'}, {href:'/', text:'Dienstleistungen'}]}/>
             </BigImageSection>
+            <Section>
+                <h2>AKTUELLE IMMOBILIEN</h2>
+                <ul className={styles.realEstateContainer}>
+                    <RealEstateItem/>
+                    <RealEstateItem/>
+                    <RealEstateItem/>
+                </ul>
+            </Section>
             <Section>
                 <h2>REFERENZEN</h2>
                 <Reference/>

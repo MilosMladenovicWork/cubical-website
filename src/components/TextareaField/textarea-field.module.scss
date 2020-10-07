@@ -1,8 +1,10 @@
-.text-input-field{
+.textarea-field{
     background: none;
     padding:5px;
     border:2px solid black;
     width:290px;
     border-radius: 0;
+    resize:none;
     background:transparent;
+    min-height: 150px;
 }

@@ -1,8 +1,8 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {useSelector} from 'react-redux'
+
 import NavMenuContainer from '../components/NavMenuContainer'
 import NavLink from '../components/NavLink'
-
 import styles from './layout.module.scss'
 import Logo from '../components/Logo'
 import FooterContainer from '../components/FooterContainer'
@@ -12,8 +12,22 @@ import NewsletterForm from '../components/NewsletterForm'
 import AsideNavContainer from '../components/AsideNavContainer'
 import NavLinkVertical from '../components/NavLinkVertical'
 import footerImg from '../img/footer-background.png'
+import ContactForm from '../components/ContactForm'
+import closeWhite from '../img/close-white.svg'
+import facebookLogo from '../img/logo-facebook.svg'
+import instagramLogo from '../img/logo-instagram.svg'
 
-const Layout = ({children}) => {
+const Layout = ({children, location}) => {
+    
+    console.log(location)
+
+    const [contactButtonClicked, setContactButtonClicked] = useState(false)
+
+    const [chatActive, setChatActive] = useState(false)
+
+    const toggleChat = () => {
+        Tawk_API.toggle()
+    }
 
     return(
         <div className={styles.layout}>
@@ -46,14 +60,24 @@ const Layout = ({children}) => {
                 <div className={styles.mainContentNavigation}>
                     <div className={styles.navigationStickyContainer}>
                         <AsideNavContainer>
-                            <NavLinkVertical link={{href:'#', text:'Content'}}>
-                                Something
+                            <NavLinkVertical link={{href:false, text:'Folge uns'}}>
+                                <div className={styles.socialIcons}>
+                                    <a href='https://facebook.com'>
+                                        <img src={facebookLogo} alt='facebook'/>
+                                    </a>
+                                    <a href='https://instagram.com'>
+                                        <img src={instagramLogo} alt='instagram'/>
+                                    </a>
+                                </div>
                             </NavLinkVertical>
-                            <NavLinkVertical link={{href:'#', text:'Content'}}>
-                                Something
+                            <NavLinkVertical link={{href:false, text:'Chat'}} onClick={() => toggleChat()} active={chatActive}>
                             </NavLinkVertical>
-                            <NavLinkVertical link={{href:'#', text:'Content'}}>
-                                Something
+                            <NavLinkVertical active={contactButtonClicked} link={{href:false, text:'Kontakt'}} onClick={() => setContactButtonClicked(prevState => !prevState)}>
+                                <div style={{display: contactButtonClicked ? 'flex' : 'none'}} className={styles.contactFormContainer}>
+                                    <ContactForm>
+                                        <img style={{alignSelf:'flex-start', width:40, marginBottom:15, cursor:'pointer'}} src={closeWhite} alt='close' onClick={() => setContactButtonClicked(false)}/>
+                                    </ContactForm>
+                                </div>
                             </NavLinkVertical>
                         </AsideNavContainer>
                     </div>
@@ -83,14 +107,21 @@ const Layout = ({children}) => {
                 </div>
                 <div className={styles.footerNavigation}>
                     <AsideNavContainer>
-                        <NavLinkVertical link={{href:'#', text:'Content'}}>
-                            Something
+                        <NavLinkVertical link={{href:'/datenschutz/', text:'DATENSCHUTZ'}}>
+                            
                         </NavLinkVertical>
-                        <NavLinkVertical link={{href:'#', text:'Content'}}>
-                            Something
+                        <NavLinkVertical link={{href:'/impressum/', text:'IMPRESSUM'}}>
+                            
                         </NavLinkVertical>
-                        <NavLinkVertical link={{href:'#', text:'Content'}}>
-                            Something
+                        <NavLinkVertical link={{href:false, text:'Folge uns'}}>
+                            <div className={styles.socialIcons}>
+                                <a href='https://facebook.com'>
+                                    <img src={facebookLogo} alt='facebook'/>
+                                </a>
+                                <a href='https://instagram.com'>
+                                    <img src={instagramLogo} alt='instagram'/>
+                                </a>
+                            </div>
                         </NavLinkVertical>
                     </AsideNavContainer>
                 </div>

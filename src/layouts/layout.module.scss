@@ -59,3 +59,33 @@ main{
     justify-content: center;
     width:100%;
 }
+
+.contact-form-container{
+    position:absolute;
+    top:50%;
+    right:0%;
+    transform:translate(0%, -50%);
+    width:350px;
+    height:auto;
+    padding-right:20px;
+}
+
+.social-icons{
+    display:flex;
+    align-items: center;
+    position:absolute;
+    padding-right:20px;
+    top:50%;
+    right:0;
+    transform:translate(0, -50%);
+    width:auto;
+    height:50px;
+    a{
+        width:30px;
+        margin-left:5px;
+        transition:0.3s;
+    }
+    a:hover{
+        transform:scale(1.2);
+    }
+}

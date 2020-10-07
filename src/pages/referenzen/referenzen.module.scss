@@ -1,0 +1,14 @@
+.see-more-button{
+    text-align: center;
+    margin-top:50px;
+}
+
+.reference-item{
+    max-height:0;
+    transition:2s;
+    overflow: hidden;
+}
+
+.visible-item{
+    max-height:200vh;
+}
