@@ -22,7 +22,6 @@ const Layout = ({children, location}) => {
     const [contactButtonClicked, setContactButtonClicked] = useState(false)
 
     const toggleChat = () => {
-        console.log(Tawk_API)
         Tawk_API.toggle()
     }
 
