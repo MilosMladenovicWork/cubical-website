@@ -19,6 +19,7 @@ import LinkRibbons from '../components/LinkRibbons'
 import PopularSectionItem from '../components/PopularSectionItem'
 import OurServicesItem from '../components/OurServicesItem'
 import RealEstateItem from '../components/RealEstateItem'
+import OffsetItemContainer from '../components/OffsetItemContainer'
 
 const HomePage = () => {
     return(
@@ -70,11 +71,23 @@ const HomePage = () => {
             </BigImageSection>
             <Section>
                 <h2>AKTUELLE IMMOBILIEN</h2>
-                <ul className={styles.realEstateContainer}>
-                    <RealEstateItem/>
-                    <RealEstateItem/>
-                    <RealEstateItem/>
-                </ul>
+                <OffsetItemContainer>
+                    <RealEstateItem>
+                        <span>4,5 Zimmer</span>
+                        <span>CHF 500'000</span>
+                        <span>5316 Leuggern</span>
+                    </RealEstateItem>
+                    <RealEstateItem>
+                        <span>4,5 Zimmer</span>
+                        <span>CHF 500'000</span>
+                        <span>5316 Leuggern</span>
+                    </RealEstateItem>
+                    <RealEstateItem>
+                        <span>4,5 Zimmer</span>
+                        <span>CHF 500'000</span>
+                        <span>5316 Leuggern</span>
+                    </RealEstateItem>
+                </OffsetItemContainer>
             </Section>
             <Section>
                 <h2>REFERENZEN</h2>

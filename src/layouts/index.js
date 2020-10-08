@@ -22,7 +22,7 @@ const Layout = ({children, location}) => {
     const [contactButtonClicked, setContactButtonClicked] = useState(false)
 
     const toggleChat = () => {
-        Tawk_API.toggle()
+        tidioChatApi.open();
     }
 
     return(
@@ -30,7 +30,7 @@ const Layout = ({children, location}) => {
             <NavMenuContainer>
                 <ul>
                     <NavLink link={{href:'/immobilien/', text: 'immobilien'}}/>
-                    <NavLink link={{href:false, text: 'dienstleistungen'}} subLinks={[
+                    <NavLink deactivated link={{href:'/dienstleistungen/', text: 'dienstleistungen'}} subLinks={[
                         {href:'/dienstleistungen/verkaufen/', text: 'verkaufen'},
                         {href:'/dienstleistungen/vermieten/', text: 'vermieten'},
                         {href:'/dienstleistungen/investieren-begleiten/', text: 'investieren & begleiten'}

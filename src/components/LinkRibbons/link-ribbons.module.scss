@@ -13,16 +13,21 @@
         padding:30px 50px;
         clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 75% 0);
         transition: 0.3s;
+        max-width: 300px;
     }
     a{
         text-decoration: none;
         font-size:1.5rem;
-        padding:40px;
         padding-left:60px;
+        padding-right:40px;
         color:white;
+        display: inline-block;
     }
     li:hover{
         transform:rotate(-45deg) scale(1.2);
         clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0);
+        a{
+            color:white
+        }
     }
 }

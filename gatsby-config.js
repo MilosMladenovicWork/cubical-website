@@ -63,10 +63,10 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-tawk.to`,
+      resolve: `gatsby-plugin-tidio-chat`,
       options: {
-        tawkId: process.env.TAWK_TO_PROPERTY_ID,
-        // get this from the tawk script widget
+        tidioKey:process.env.TIDIO_ID,
+        enableDuringDevelop: true,
       },
     },
     {

@@ -5,7 +5,7 @@ import styles from './real-estate-item.module.scss'
 import RoofSVG from '../RoofSVG'
 import itemImage from '../../img/itemImage1.png'
 
-const RealEstateItem = () => {
+const RealEstateItem = ({children}) => {
     return(
         <li className={styles.realEstateItem}>
             <Link to='/'>
@@ -15,9 +15,7 @@ const RealEstateItem = () => {
                         <img src={itemImage} alt='' />
                         <div className={styles.text}>
                             <h3>Für Gross und Klein, schöne und barrierefreie Wohnoase im Grünen</h3>
-                            <span>4,5 Zimmer</span>
-                            <span>CHF 500'000</span>
-                            <span>5316 Leuggern</span>
+                            {children}
                         </div>
                     </div>
                 </article>

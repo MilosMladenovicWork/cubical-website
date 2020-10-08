@@ -1,0 +1,13 @@
+.text-image-box{
+    margin-bottom:100px;
+    display:flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    > img, .content{
+        width:48.5%
+    }
+}
+
+.reverse-direction{
+    flex-direction: row-reverse;
+}
