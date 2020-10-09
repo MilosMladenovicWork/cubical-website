@@ -9,11 +9,13 @@
     li{
         transform:rotate(-45deg);
         margin-top:100px;
-        background:#1995D2;
-        padding:30px 50px;
-        clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 75% 0);
         transition: 0.3s;
         max-width: 300px;
+        width:max-content;
+    }
+    .link-styled-container{
+        background:#1995D2;
+        padding:30px 50px;
     }
     a{
         text-decoration: none;
@@ -24,8 +26,6 @@
         display: inline-block;
     }
     li:hover{
-        transform:rotate(-45deg) scale(1.2);
-        clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0);
         a{
             color:white
         }

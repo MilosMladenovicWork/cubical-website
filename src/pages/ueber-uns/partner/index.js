@@ -8,6 +8,8 @@ import RoofSVG from '../../../components/RoofSVG'
 
 import styles from './partner.module.scss'
 import partnerImg from '../../../img/partner.png'
+import TiltableContainer from '../../../components/TiltableContainer'
+import SquareContainerItem from '../../../components/SquareContainerItem'
 
 const PartnerPage = () => {
     return(
@@ -27,54 +29,43 @@ const PartnerPage = () => {
             <Section>
                 <h5><RoofSVG/>NETZWERK</h5>
                 <SquareContainer>
-                    <li>
+                    <SquareContainerItem>
                         <img src={partnerImg} alt=''/>
-                    </li>
-                    <li>
+                    </SquareContainerItem>
+                    <SquareContainerItem>
                         <img src={partnerImg} alt=''/>
-                    </li>
-                    <li>
+                    </SquareContainerItem>
+                    <SquareContainerItem>
                         <img src={partnerImg} alt=''/>
-                    </li>
-                    <li>
+                    </SquareContainerItem>
+                    <SquareContainerItem>
                         <img src={partnerImg} alt=''/>
-                    </li>
-                    <li>
+                    </SquareContainerItem>
+                    <SquareContainerItem>
                         <img src={partnerImg} alt=''/>
-                    </li>
-                    <li>
+                    </SquareContainerItem>
+                    <SquareContainerItem>
                         <img src={partnerImg} alt=''/>
-                    </li>
-                    <li>
+                    </SquareContainerItem>
+                    <SquareContainerItem>
                         <img src={partnerImg} alt=''/>
-                    </li>
-                    <li>
+                    </SquareContainerItem>
+                    <SquareContainerItem>
                         <img src={partnerImg} alt=''/>
-                    </li>
-                    <li>
+                    </SquareContainerItem>
+                    <SquareContainerItem>
                         <img src={partnerImg} alt=''/>
-                    </li>
-                    <li>
+                    </SquareContainerItem>
+                    <SquareContainerItem>
                         <img src={partnerImg} alt=''/>
-                    </li>
-                    <li>
+                    </SquareContainerItem>
+                    <SquareContainerItem>
                         <img src={partnerImg} alt=''/>
-                    </li>
-                    <li>
+                    </SquareContainerItem>
+                    <SquareContainerItem>
                         <img src={partnerImg} alt=''/>
-                    </li>
-                    <li>
-                        <img src={partnerImg} alt=''/>
-                    </li>
-                    <li>
-                        <img src={partnerImg} alt=''/>
-                    </li>
-                    <li>
-                        <img src={partnerImg} alt=''/>
-                    </li>
-                    <li>
-                        <img src={partnerImg} alt=''/>
-                    </li>
+                    </SquareContainerItem>
+                    
                 </SquareContainer>
             </Section>
         </React.Fragment>

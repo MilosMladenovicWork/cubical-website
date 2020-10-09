@@ -20,6 +20,8 @@ import PopularSectionItem from '../components/PopularSectionItem'
 import OurServicesItem from '../components/OurServicesItem'
 import RealEstateItem from '../components/RealEstateItem'
 import OffsetItemContainer from '../components/OffsetItemContainer'
+import ScrollScreenButton from '../components/ScrollScreenButton'
+import downArrowImg from '../img/chevron-down-outline.svg'
 
 const HomePage = () => {
     return(
@@ -37,7 +39,10 @@ const HomePage = () => {
                         </div>
                     </SwiperSlide>
                 </Slider>
-            <LinkRibbons links={[{href:'/', text:'Dienstleistungen'}, {href:'/', text:'Dienstleistungen'}]}/>
+                <LinkRibbons links={[{href:'/', text:'Dienstleistungen'}, {href:'/', text:'Dienstleistungen'}]}/>
+                <ScrollScreenButton>
+                    <img src={downArrowImg} alt='scroll down'/>
+                </ScrollScreenButton>
             </div>
             <PageIntro title={'JEDE IMMO­BILIE HAT EINE GESCHICHTE'}>
                 <p>
@@ -66,9 +71,6 @@ const HomePage = () => {
                     <OurServicesItem/>
                 </ul>
             </BigImageSection>
-            <BigImageSection image={background3} title={'IMMOBILIEN SIND VOLLER TRÄUME. LASSEN WIR SIE WAHR WERDEN.'}>
-                <LinkRibbons links={[{href:'/', text:'Dienstleistungen'}, {href:'/', text:'Dienstleistungen'}]}/>
-            </BigImageSection>
             <Section>
                 <h2>AKTUELLE IMMOBILIEN</h2>
                 <OffsetItemContainer>
@@ -89,6 +91,9 @@ const HomePage = () => {
                     </RealEstateItem>
                 </OffsetItemContainer>
             </Section>
+            <BigImageSection image={background3} title={'IMMOBILIEN SIND VOLLER TRÄUME. LASSEN WIR SIE WAHR WERDEN.'}>
+                <LinkRibbons links={[{href:'/', text:'Dienstleistungen'}, {href:'/', text:'Dienstleistungen'}]}/>
+            </BigImageSection>
             <Section>
                 <h2>REFERENZEN</h2>
                 <Reference/>

@@ -14,6 +14,8 @@ import RealEstateItem from '../../components/RealEstateItem'
 import openIcon from '../../img/arrow-forward.svg'
 import Reference from '../../components/Reference'
 import ButtonBordered from '../../components/ButtonBordered'
+import downArrowImg from '../../img/chevron-down-outline.svg'
+import ScrollScreenButton from '../../components/ScrollScreenButton'
 
 const UeberUnsPage = () => {
     return(
@@ -31,6 +33,9 @@ const UeberUnsPage = () => {
                         </div>
                     </SwiperSlide>
                 </Slider>
+                <ScrollScreenButton>
+                    <img src={downArrowImg} alt='scroll down'/>
+                </ScrollScreenButton>
             </div>
             <Section>
                 <h1>VIER WÄNDE – EIN PARTNER</h1>

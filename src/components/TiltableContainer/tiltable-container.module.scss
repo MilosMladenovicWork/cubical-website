@@ -1,0 +1,11 @@
+.rounded-corners{
+    transition:border-radius 1s;
+}
+
+.rounded-corners:hover{
+    border-radius:30px;
+}
+
+.tiltable-container{
+    width:100%;
+}

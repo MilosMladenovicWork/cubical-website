@@ -16,6 +16,9 @@ import SelectHeadingContent from '../../../components/SelectHeadingContent'
 import OffsetItemContainer from '../../../components/OffsetItemContainer'
 import RealEstateItem from '../../../components/RealEstateItem'
 import BigImageSection from '../../../components/BigImageSection'
+import downArrowImg from '../../../img/chevron-down-outline.svg'
+import ScrollScreenButton from '../../../components/ScrollScreenButton'
+
 
 const InvestierenBegleitenPage = () => {
     return(
@@ -27,6 +30,9 @@ const InvestierenBegleitenPage = () => {
                     </div>
                 </SwiperSlide>
                 <LinkRibbons links={[{href:'/dienstleistungen/vermieten/', text: 'Vermieten'}, {href: '/dienstleistungen/verkaufen/', text:'Verkaufen'}]}/>
+                <ScrollScreenButton>
+                    <img src={downArrowImg} alt='scroll down'/>
+                </ScrollScreenButton>
             </Slider>
             <PageIntro title='WIR VERKAUFEN IHRE IMMOBILIE.'>
                 <p>Die Immo­bi­li­en­ver­mark­tung ist unsere Kern­kom­pe­tenz. Doch unser Angebot reicht weit darüber hinaus. Wir haben den Anspruch, Sie ganz­heit­lich und diskret zu beraten und unter­stützen. Zu unter­schied­lichsten Themen aus der Welt der Immo­bi­lien und mit viel­fäl­tigen Dienst­leis­tungen.</p>

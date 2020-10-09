@@ -13,6 +13,8 @@ import Reference from '../../components/Reference'
 import ButtonBordered from '../../components/ButtonBordered'
 import PageIntro from '../../components/PageIntro'
 import LinkRibbons from '../../components/LinkRibbons'
+import downArrowImg from '../../img/chevron-down-outline.svg'
+import ScrollScreenButton from '../../components/ScrollScreenButton'
 
 const ReferenzenPage = () => {
 
@@ -44,8 +46,6 @@ const ReferenzenPage = () => {
         window.scrollTo(0, scrollFromTop)
     }, [numOfLoadedItems])
 
-    console.log(scrollFromTop)
-
     return(
         <React.Fragment>
             <div className={styles.heroSlider}>
@@ -62,6 +62,9 @@ const ReferenzenPage = () => {
                     </SwiperSlide>
                 </Slider>
                 <LinkRibbons links={[{href:'/', text:'Dienstleistungen'}, {href:'/', text:'Dienstleistungen'}]}/>
+                <ScrollScreenButton>
+                    <img src={downArrowImg} alt='scroll down'/>
+                </ScrollScreenButton>
             </div>
             <PageIntro title={'REFERENZEN'}>
                 <p>

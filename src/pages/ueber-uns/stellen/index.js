@@ -16,42 +16,45 @@ const StellenPage = () => {
             <Section>
                 <h3>IMMO­­BI­­LI­EN­­BE­RATER/IN</h3>
                 <p>Ihre Aufgaben</p>
-                <ul className={styles.dashList}>
-                    <li>Aktiver Auf- und Ausbau des Kunden­­stammes</li>
-                    <li>Selbst­­stän­­dige Projek­t­­be­treuung und Vermark­tung von span­­nenden Neubau­pro­jekten</li>
-                    <li>Kaltak­­quise</li>
-                    <li>Aktiver Auf- und Ausbau des Kunden­­stammes</li>
-                    <li>Selbst­­stän­­dige Projek­t­­be­treuung und Vermark­tung von span­­nenden Neubau­pro­jekten</li>
-                    <li>Kaltak­­quise</li>
-                    <li>Aktiver Auf- und Ausbau des Kunden­­stammes</li>
-                    <li>Selbst­­stän­­dige Projek­t­­be­treuung und Vermark­tung von span­­nenden Neubau­pro­jekten</li>
-                    <li>Kaltak­­quise</li>
-                </ul>
-                <p>Ihre Aufgaben</p>
-                <ul className={styles.dashList}>
-                    <li>Aktiver Auf- und Ausbau des Kunden­­stammes</li>
-                    <li>Selbst­­stän­­dige Projek­t­­be­treuung und Vermark­tung von span­­nenden Neubau­pro­jekten</li>
-                    <li>Kaltak­­quise</li>
-                    <li>Aktiver Auf- und Ausbau des Kunden­­stammes</li>
-                    <li>Selbst­­stän­­dige Projek­t­­be­treuung und Vermark­tung von span­­nenden Neubau­pro­jekten</li>
-                    <li>Kaltak­­quise</li>
-                    <li>Aktiver Auf- und Ausbau des Kunden­­stammes</li>
-                    <li>Selbst­­stän­­dige Projek­t­­be­treuung und Vermark­tung von span­­nenden Neubau­pro­jekten</li>
-                    <li>Kaltak­­quise</li>
-                </ul>
-                <p>Ihre Aufgaben</p>
-                <ul className={styles.dashList}>
-                    <li>Aktiver Auf- und Ausbau des Kunden­­stammes</li>
-                    <li>Selbst­­stän­­dige Projek­t­­be­treuung und Vermark­tung von span­­nenden Neubau­pro­jekten</li>
-                    <li>Kaltak­­quise</li>
-                    <li>Aktiver Auf- und Ausbau des Kunden­­stammes</li>
-                    <li>Selbst­­stän­­dige Projek­t­­be­treuung und Vermark­tung von span­­nenden Neubau­pro­jekten</li>
-                    <li>Kaltak­­quise</li>
-                    <li>Aktiver Auf- und Ausbau des Kunden­­stammes</li>
-                    <li>Selbst­­stän­­dige Projek­t­­be­treuung und Vermark­tung von span­­nenden Neubau­pro­jekten</li>
-                    <li>Kaltak­­quise</li>
-                </ul>
-                <p>Haben wir Ihr Inter­esse geweckt? Dann bewerben Sie sich jetzt – Wir freuen uns darauf, Sie kennen­­zu­­lernen!</p>
+                <div className={styles.content}>
+
+                    <ul className={styles.dashList}>
+                        <li>Aktiver Auf- und Ausbau des Kunden­­stammes</li>
+                        <li>Selbst­­stän­­dige Projek­t­­be­treuung und Vermark­tung von span­­nenden Neubau­pro­jekten</li>
+                        <li>Kaltak­­quise</li>
+                        <li>Aktiver Auf- und Ausbau des Kunden­­stammes</li>
+                        <li>Selbst­­stän­­dige Projek­t­­be­treuung und Vermark­tung von span­­nenden Neubau­pro­jekten</li>
+                        <li>Kaltak­­quise</li>
+                        <li>Aktiver Auf- und Ausbau des Kunden­­stammes</li>
+                        <li>Selbst­­stän­­dige Projek­t­­be­treuung und Vermark­tung von span­­nenden Neubau­pro­jekten</li>
+                        <li>Kaltak­­quise</li>
+                    </ul>
+                    <p>Ihre Aufgaben</p>
+                    <ul className={styles.dashList}>
+                        <li>Aktiver Auf- und Ausbau des Kunden­­stammes</li>
+                        <li>Selbst­­stän­­dige Projek­t­­be­treuung und Vermark­tung von span­­nenden Neubau­pro­jekten</li>
+                        <li>Kaltak­­quise</li>
+                        <li>Aktiver Auf- und Ausbau des Kunden­­stammes</li>
+                        <li>Selbst­­stän­­dige Projek­t­­be­treuung und Vermark­tung von span­­nenden Neubau­pro­jekten</li>
+                        <li>Kaltak­­quise</li>
+                        <li>Aktiver Auf- und Ausbau des Kunden­­stammes</li>
+                        <li>Selbst­­stän­­dige Projek­t­­be­treuung und Vermark­tung von span­­nenden Neubau­pro­jekten</li>
+                        <li>Kaltak­­quise</li>
+                    </ul>
+                    <p>Ihre Aufgaben</p>
+                    <ul className={styles.dashList}>
+                        <li>Aktiver Auf- und Ausbau des Kunden­­stammes</li>
+                        <li>Selbst­­stän­­dige Projek­t­­be­treuung und Vermark­tung von span­­nenden Neubau­pro­jekten</li>
+                        <li>Kaltak­­quise</li>
+                        <li>Aktiver Auf- und Ausbau des Kunden­­stammes</li>
+                        <li>Selbst­­stän­­dige Projek­t­­be­treuung und Vermark­tung von span­­nenden Neubau­pro­jekten</li>
+                        <li>Kaltak­­quise</li>
+                        <li>Aktiver Auf- und Ausbau des Kunden­­stammes</li>
+                        <li>Selbst­­stän­­dige Projek­t­­be­treuung und Vermark­tung von span­­nenden Neubau­pro­jekten</li>
+                        <li>Kaltak­­quise</li>
+                    </ul>
+                    <p>Haben wir Ihr Inter­esse geweckt? Dann bewerben Sie sich jetzt – Wir freuen uns darauf, Sie kennen­­zu­­lernen!</p>
+                </div>
             </Section>
         </React.Fragment>
     )

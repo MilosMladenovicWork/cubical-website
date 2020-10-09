@@ -14,6 +14,8 @@ import ButtonBordered from '../../../components/ButtonBordered'
 import SelectHeadingContent from '../../../components/SelectHeadingContent'
 import OffsetItemContainer from '../../../components/OffsetItemContainer'
 import RealEstateItem from '../../../components/RealEstateItem'
+import downArrowImg from '../../../img/chevron-down-outline.svg'
+import ScrollScreenButton from '../../../components/ScrollScreenButton'
 
 const VerkaufenPage = () => {
     return(
@@ -25,6 +27,9 @@ const VerkaufenPage = () => {
                     </div>
                 </SwiperSlide>
                 <LinkRibbons links={[{href:'/dienstleistungen/vermieten/', text: 'Vermieten'}, {href: '/dienstleistungen/investieren-begleiten/', text:'Investieren & Begleiten'}]}/>
+                <ScrollScreenButton>
+                    <img src={downArrowImg} alt='scroll down'/>
+                </ScrollScreenButton>
             </Slider>
             <PageIntro title='WIR VERKAUFEN IHRE IMMOBILIE.'>
                 <p>Sie haben sich entschieden, Ihre Immo­bilie in neue Hände zu geben. Klar, möchten Sie es zum best­mög­li­chen Preis verkaufen – und das möglichst zeitnah und reibungslos. Wir wissen, wie Sie dieses Ziel errei­chen. Am besten mit einem Profi wie uns, der Sie Step by Step begleitet.</p>
