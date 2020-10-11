@@ -22,6 +22,7 @@ import RealEstateItem from '../components/RealEstateItem'
 import OffsetItemContainer from '../components/OffsetItemContainer'
 import ScrollScreenButton from '../components/ScrollScreenButton'
 import downArrowImg from '../img/chevron-down-outline.svg'
+import Map from '../components/Map'
 
 const HomePage = () => {
     return(
@@ -105,6 +106,11 @@ const HomePage = () => {
                     </ButtonBordered>
                 </div>
             </Section>
+            <section>
+                <div className={styles.mapContainer}>
+                    <Map/>
+                </div>
+            </section>
         </React.Fragment>
     )
 }
