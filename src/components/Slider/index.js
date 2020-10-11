@@ -7,7 +7,7 @@ import styles from './slider.module.scss'
 
 SwiperCore.use([Autoplay])
 
-const Slider  = ({children}) => {
+const Slider  = ({children, setSwiper, setActiveSlide}) => {
     return(
         <div className={styles.slider}>
             <Swiper
@@ -15,6 +15,8 @@ const Slider  = ({children}) => {
                 autoplay={{
                     delay:5000
                 }}
+                onInit={(swiper) => setSwiper && setSwiper(swiper)}
+                onSlideChange={(swiper) => {setActiveSlide && setActiveSlide(swiper.realIndex)}}
             >
                 {children}
             </Swiper>

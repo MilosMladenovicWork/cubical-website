@@ -1,0 +1,21 @@
+.slider-controller{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding:20px 0px;
+    > p{
+        margin:0;
+    }
+}
+
+.prev-slide-button, .next-slide-button{
+    width:30px;
+    height:30px;
+    display: flex;
+    align-items: center;
+    margin:0 10px;
+}
+
+.prev-slide-button{
+    transform: rotateZ(180deg);
+}

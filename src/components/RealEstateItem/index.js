@@ -9,7 +9,7 @@ import TiltableContainer from '../TiltableContainer'
 const RealEstateItem = ({children}) => {
     return(
         <li className={styles.realEstateItem}>
-            <Link to='/'>
+            <Link to='/immobilien-entry'>
                     <article>
                         <h5><RoofSVG/>5316 Leuggern</h5>
                         <TiltableContainer>

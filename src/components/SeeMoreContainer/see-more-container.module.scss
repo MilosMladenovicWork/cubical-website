@@ -1,0 +1,30 @@
+.see-more-container{
+    max-height:10rem;
+    overflow: hidden;
+    padding-bottom: 50px;
+    position: relative;
+    transition: 0.5s;
+}
+
+.add-more-button{
+    display: flex;
+    align-items: center;
+    padding:0;
+    > img{
+        display: inline-block;
+        width:30px;
+        height:30px;
+    }
+    > p{
+        width:100%;
+        margin:0;
+    }
+}
+
+.extended{
+    max-height: 500vh;
+}
+
+.not-visible{
+    display: none;
+}
