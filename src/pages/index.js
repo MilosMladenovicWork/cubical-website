@@ -26,6 +26,7 @@ import Map from '../components/Map'
 import realEstateItemImage from '../img/itemImage1.png'
 import popularSectionImg from '../img/popular-section1.png'
 import referenceImg from '../img/background1.jpg'
+import AppearOnViewContainer from '../components/AppearOnViewContainer'
 
 const HomePage = () => {
     return(
@@ -148,9 +149,11 @@ const HomePage = () => {
                 </div>
             </Section>
             <section>
-                <div className={styles.mapContainer}>
-                    <Map coords={[46.195602, 6.148113]} zoom={15}/>
-                </div>
+                <AppearOnViewContainer>
+                    <div className={styles.mapContainer}>
+                        <Map coords={[46.195602, 6.148113]} zoom={15}/>
+                    </div>
+                </AppearOnViewContainer>
             </section>
         </React.Fragment>
     )

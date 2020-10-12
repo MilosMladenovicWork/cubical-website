@@ -133,7 +133,7 @@ const ImmobilienEntry = () => {
                 <h5><RoofSVG/> LAGE</h5>
                 <AppearOnViewContainer>
                     <div className={styles.mapContainer}>
-                            <Map coords={[47.195602, 6.148113]} zoom={17}/>
+                        <Map coords={[47.195602, 6.148113]} zoom={17}/>
                     </div>
                 </AppearOnViewContainer>
             </Section>
