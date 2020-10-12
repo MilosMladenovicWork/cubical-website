@@ -10,12 +10,14 @@ import BackgroundImage from '../../components/BackgroundImage'
 import Section from '../../components/Section'
 import TextImageBox from '../../components/TextImageBox'
 import OffsetItemContainer from '../../components/OffsetItemContainer'
-import RealEstateItem from '../../components/RealEstateItem'
+import RealEstateItem from '../../components/SlidingOverlayItem'
 import openIcon from '../../img/arrow-forward.svg'
 import Reference from '../../components/Reference'
 import ButtonBordered from '../../components/ButtonBordered'
 import downArrowImg from '../../img/chevron-down-outline.svg'
 import ScrollScreenButton from '../../components/ScrollScreenButton'
+import realEstateItemImage from '../../img/itemImage1.png'
+import referenceImg from '../../img/background1.jpg'
 
 const UeberUnsPage = () => {
     return(
@@ -52,22 +54,42 @@ Das macht uns zum besten Partner für ihre vier Wände.» </p>
             <Section>
                 <h2>WIR ZEIGEN PERSÖNLICHKEIT</h2>
                 <OffsetItemContainer>
-                    <RealEstateItem>
+                    <RealEstateItem 
+                        link='/ueber-uns/team'
+                        title={'Für Gross und Klein, schöne und barrierefreie Wohnoase im Grünen'}
+                        image={realEstateItemImage}
+                        heading={'Leuggern'}
+                    >
                         <img src={openIcon} alt='' className={styles.showOffIcon}/>
                     </RealEstateItem>
-                    <RealEstateItem>
+                    <RealEstateItem 
+                        link='/ueber-uns/team'
+                        title={'Für Gross und Klein, schöne und barrierefreie Wohnoase im Grünen'}
+                        image={realEstateItemImage}
+                        heading={'Leuggern'}
+                    >
                         <img src={openIcon} alt='' className={styles.showOffIcon}/>
                     </RealEstateItem>
-                    <RealEstateItem>
+                    <RealEstateItem 
+                        link='/ueber-uns/team'
+                        title={'Für Gross und Klein, schöne und barrierefreie Wohnoase im Grünen'}
+                        image={realEstateItemImage}
+                        heading={'Leuggern'}
+                    >
                         <img src={openIcon} alt='' className={styles.showOffIcon}/>
                     </RealEstateItem>
-                    <RealEstateItem>
+                    <RealEstateItem 
+                        link='/ueber-uns/team'
+                        title={'Für Gross und Klein, schöne und barrierefreie Wohnoase im Grünen'}
+                        image={realEstateItemImage}
+                        heading={'Leuggern'}
+                    >
                         <img src={openIcon} alt='' className={styles.showOffIcon}/>
                     </RealEstateItem>
                 </OffsetItemContainer>
             </Section>
             <Section>
-                <Reference/>
+                <Reference videoLink={'https://www.youtube.com/embed/ZK9wtYOcChQ'} image={referenceImg} quote={'Es gibt nur eine – und das ist Cristina Cotoia.'}/>
                 <div class={styles.referenceButtonContainer}>
                     <ButtonBordered>
                         <Link to='/referenzen'>

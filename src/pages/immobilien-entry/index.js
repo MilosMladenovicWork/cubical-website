@@ -116,7 +116,7 @@ const ImmobilienEntry = () => {
             <Section>
                 <h5><RoofSVG/> LAGE</h5>
                 <div className={styles.mapContainer}>
-                    <Map/>
+                    <Map coords={[47.195602, 6.148113]} zoom={17}/>
                 </div>
             </Section>
         </React.Fragment>

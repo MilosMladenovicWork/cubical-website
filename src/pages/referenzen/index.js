@@ -15,6 +15,7 @@ import PageIntro from '../../components/PageIntro'
 import LinkRibbons from '../../components/LinkRibbons'
 import downArrowImg from '../../img/chevron-down-outline.svg'
 import ScrollScreenButton from '../../components/ScrollScreenButton'
+import referenceImg from '../../img/background1.jpg'
 
 const ReferenzenPage = () => {
 
@@ -75,7 +76,7 @@ const ReferenzenPage = () => {
                 {dummyArray.map((item, index) => {
                     if(index < numOfLoadedItems){
                         return <div className={`${styles.referenceItem} ${styles.visibleItem}`}>
-                        <Reference/>
+                        <Reference videoLink={'https://www.youtube.com/embed/ZK9wtYOcChQ'} image={referenceImg} quote={'Es gibt nur eine – und das ist Cristina Cotoia.'}/>
                         </div>
                     }
                 })}

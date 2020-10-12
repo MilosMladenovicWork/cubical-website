@@ -13,9 +13,10 @@ import boxImage from '../../../img/text-image-box-image-1.png'
 import ButtonBordered from '../../../components/ButtonBordered'
 import SelectHeadingContent from '../../../components/SelectHeadingContent'
 import OffsetItemContainer from '../../../components/OffsetItemContainer'
-import RealEstateItem from '../../../components/RealEstateItem'
+import RealEstateItem from '../../../components/SlidingOverlayItem'
 import downArrowImg from '../../../img/chevron-down-outline.svg'
 import ScrollScreenButton from '../../../components/ScrollScreenButton'
+import realEstateItemImage from '../../../img/itemImage1.png'
 
 const VermietenPage = () => {
     return(
@@ -57,11 +58,35 @@ const VermietenPage = () => {
             <Section>
                 <h2>AKTUELLES</h2>
                 <OffsetItemContainer>
-                    <RealEstateItem>
+                    <RealEstateItem 
+                        link='/immobilien-entry'
+                        title={'Für Gross und Klein, schöne und barrierefreie Wohnoase im Grünen'}
+                        image={realEstateItemImage}
+                        heading={'Leuggern'}
+                    >
+                        <span>4,5 Zimmer</span>
+                        <span>CHF 500'000</span>
+                        <span>5316 Leuggern</span>
                     </RealEstateItem>
-                    <RealEstateItem>
+                    <RealEstateItem 
+                        link='/immobilien-entry'
+                        title={'Für Gross und Klein, schöne und barrierefreie Wohnoase im Grünen'}
+                        image={realEstateItemImage}
+                        heading={'Leuggern'}
+                    >
+                        <span>4,5 Zimmer</span>
+                        <span>CHF 500'000</span>
+                        <span>5316 Leuggern</span>
                     </RealEstateItem>
-                    <RealEstateItem>
+                    <RealEstateItem 
+                        link='/immobilien-entry'
+                        title={'Für Gross und Klein, schöne und barrierefreie Wohnoase im Grünen'}
+                        image={realEstateItemImage}
+                        heading={'Leuggern'}
+                    >
+                        <span>4,5 Zimmer</span>
+                        <span>CHF 500'000</span>
+                        <span>5316 Leuggern</span>
                     </RealEstateItem>
                 </OffsetItemContainer>
             </Section>

@@ -3,20 +3,19 @@ import {Link} from 'gatsby'
 
 import styles from './real-estate-item.module.scss'
 import RoofSVG from '../RoofSVG'
-import itemImage from '../../img/itemImage1.png'
 import TiltableContainer from '../TiltableContainer'
 
-const RealEstateItem = ({children}) => {
+const SlidingOverlayItem = ({children, title, image, heading, link}) => {
     return(
-        <li className={styles.realEstateItem}>
-            <Link to='/immobilien-entry'>
+        <li className={styles.slidingOverlayItem}>
+            <Link to={link}>
                     <article>
-                        <h5><RoofSVG/>5316 Leuggern</h5>
+                        <h5><RoofSVG/>{heading}</h5>
                         <TiltableContainer>
                         <div className={styles.itemContent}>
-                            <img src={itemImage} alt='' />
+                            <img src={image} alt='' />
                             <div className={styles.text}>
-                                <h3>Für Gross und Klein, schöne und barrierefreie Wohnoase im Grünen</h3>
+                                <h3>{title}</h3>
                                 {children}
                             </div>
                         </div>
@@ -27,4 +26,4 @@ const RealEstateItem = ({children}) => {
     )
 }
 
-export default RealEstateItem
+export default SlidingOverlayItem

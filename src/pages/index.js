@@ -16,13 +16,16 @@ import ButtonBordered from '../components/ButtonBordered'
 import PageIntro from '../components/PageIntro'
 import BigImageSection from '../components/BigImageSection'
 import LinkRibbons from '../components/LinkRibbons'
-import PopularSectionItem from '../components/PopularSectionItem'
-import OurServicesItem from '../components/OurServicesItem'
-import RealEstateItem from '../components/RealEstateItem'
+import ImageInfoItem from '../components/ImageInfoItem'
+import RandomWidthItem from '../components/RandomWidthItem'
+import RealEstateItem from '../components/SlidingOverlayItem'
 import OffsetItemContainer from '../components/OffsetItemContainer'
 import ScrollScreenButton from '../components/ScrollScreenButton'
 import downArrowImg from '../img/chevron-down-outline.svg'
 import Map from '../components/Map'
+import realEstateItemImage from '../img/itemImage1.png'
+import popularSectionImg from '../img/popular-section1.png'
+import referenceImg from '../img/background1.jpg'
 
 const HomePage = () => {
     return(
@@ -55,37 +58,75 @@ const HomePage = () => {
             </PageIntro>
             <Section>
                 <ul className={styles.popularSectionsContainer}>
-                    <PopularSectionItem/>
-                    <PopularSectionItem/>
-                    <PopularSectionItem/>
-                    <PopularSectionItem/>
-                    <PopularSectionItem/>
+                    <ImageInfoItem link='/dienstleistungen/verkaufen/' image={popularSectionImg} title={'Step by Step erfolg­reich verkauft'} heading={'IMMOBILIENVERKAUF'}>
+                        <p>Wir freuen uns, Sie auf dem Weg zur erfolg­reich verkauften Immo­bilie zu begleiten – mit umfas­senden Dienst­leis­tungen vom ersten Kennen­lernen bis zur Umzugs­pla­nung.</p>
+                    </ImageInfoItem>
+                    <ImageInfoItem link='/dienstleistungen/verkaufen/' image={popularSectionImg} title={'Step by Step erfolg­reich verkauft'} heading={'IMMOBILIENVERKAUF'}>
+                        <p>Wir freuen uns, Sie auf dem Weg zur erfolg­reich verkauften Immo­bilie zu begleiten – mit umfas­senden Dienst­leis­tungen vom ersten Kennen­lernen bis zur Umzugs­pla­nung.</p>
+                    </ImageInfoItem>
+                    <ImageInfoItem link='/dienstleistungen/verkaufen/' image={popularSectionImg} title={'Step by Step erfolg­reich verkauft'} heading={'IMMOBILIENVERKAUF'}>
+                        <p>Wir freuen uns, Sie auf dem Weg zur erfolg­reich verkauften Immo­bilie zu begleiten – mit umfas­senden Dienst­leis­tungen vom ersten Kennen­lernen bis zur Umzugs­pla­nung.</p>
+                    </ImageInfoItem>
+                    <ImageInfoItem link='/dienstleistungen/verkaufen/' image={popularSectionImg} title={'Step by Step erfolg­reich verkauft'} heading={'IMMOBILIENVERKAUF'}>
+                        <p>Wir freuen uns, Sie auf dem Weg zur erfolg­reich verkauften Immo­bilie zu begleiten – mit umfas­senden Dienst­leis­tungen vom ersten Kennen­lernen bis zur Umzugs­pla­nung.</p>
+                    </ImageInfoItem>
+                    <ImageInfoItem link='/dienstleistungen/verkaufen/' image={popularSectionImg} title={'Step by Step erfolg­reich verkauft'} heading={'IMMOBILIENVERKAUF'}>
+                        <p>Wir freuen uns, Sie auf dem Weg zur erfolg­reich verkauften Immo­bilie zu begleiten – mit umfas­senden Dienst­leis­tungen vom ersten Kennen­lernen bis zur Umzugs­pla­nung.</p>
+                    </ImageInfoItem>
                 </ul>
             </Section>
             <BigImageSection image={background4}>
                 <h2 style={{alignSelf:'left'}}>UNSERE DIENSTLEISTUNGEN</h2>
                 <ul className={styles.ourServicesContainer}>
-                    <OurServicesItem/>
-                    <OurServicesItem/>
-                    <OurServicesItem/>
-                    <OurServicesItem/>
-                    <OurServicesItem/>
+                    <RandomWidthItem link='/dienstleistungen/verkaufen/'>
+                        <h3>Verkauf von Immobilien</h3>
+                        <p>Wir wissen, wie man Ihre Immobilie ins beste Licht rückt und wickeln den kompletten Verkaufsprozess für Sie ab – inklusive individuell abgestimmter, kreativer Vermarktungsmassnahmen.</p>
+                    </RandomWidthItem>
+                    <RandomWidthItem link='/dienstleistungen/verkaufen/'>
+                        <h3>Verkauf von Immobilien</h3>
+                        <p>Wir wissen, wie man Ihre Immobilie ins beste Licht rückt und wickeln den kompletten Verkaufsprozess für Sie ab – inklusive individuell abgestimmter, kreativer Vermarktungsmassnahmen.</p>
+                    </RandomWidthItem>
+                    <RandomWidthItem link='/dienstleistungen/verkaufen/'>
+                        <h3>Verkauf von Immobilien</h3>
+                        <p>Wir wissen, wie man Ihre Immobilie ins beste Licht rückt und wickeln den kompletten Verkaufsprozess für Sie ab – inklusive individuell abgestimmter, kreativer Vermarktungsmassnahmen.</p>
+                    </RandomWidthItem>
+                    <RandomWidthItem link='/dienstleistungen/verkaufen/'>
+                        <h3>Verkauf von Immobilien</h3>
+                        <p>Wir wissen, wie man Ihre Immobilie ins beste Licht rückt und wickeln den kompletten Verkaufsprozess für Sie ab – inklusive individuell abgestimmter, kreativer Vermarktungsmassnahmen.</p>
+                    </RandomWidthItem>
+                    <RandomWidthItem link='/dienstleistungen/verkaufen/'>
+                        <h3>Verkauf von Immobilien</h3>
+                        <p>Wir wissen, wie man Ihre Immobilie ins beste Licht rückt und wickeln den kompletten Verkaufsprozess für Sie ab – inklusive individuell abgestimmter, kreativer Vermarktungsmassnahmen.</p>
+                    </RandomWidthItem>
                 </ul>
             </BigImageSection>
             <Section>
                 <h2>AKTUELLE IMMOBILIEN</h2>
                 <OffsetItemContainer>
-                    <RealEstateItem>
+                    <RealEstateItem 
+                        link='/immobilien-entry'
+                        title={'Für Gross und Klein, schöne und barrierefreie Wohnoase im Grünen'}
+                        image={realEstateItemImage}
+                        heading={'Leuggern'}
+                    >
                         <span>4,5 Zimmer</span>
                         <span>CHF 500'000</span>
                         <span>5316 Leuggern</span>
                     </RealEstateItem>
-                    <RealEstateItem>
+                    <RealEstateItem 
+                        title={'Für Gross und Klein, schöne und barrierefreie Wohnoase im Grünen'}
+                        image={realEstateItemImage}
+                        heading={'Leuggern'}
+                    >
                         <span>4,5 Zimmer</span>
                         <span>CHF 500'000</span>
                         <span>5316 Leuggern</span>
                     </RealEstateItem>
-                    <RealEstateItem>
+                    <RealEstateItem 
+                        title={'Für Gross und Klein, schöne und barrierefreie Wohnoase im Grünen'}
+                        image={realEstateItemImage}
+                        heading={'Leuggern'}
+                    >
                         <span>4,5 Zimmer</span>
                         <span>CHF 500'000</span>
                         <span>5316 Leuggern</span>
@@ -97,7 +138,7 @@ const HomePage = () => {
             </BigImageSection>
             <Section>
                 <h2>REFERENZEN</h2>
-                <Reference/>
+                <Reference videoLink={'https://www.youtube.com/embed/ZK9wtYOcChQ'} image={referenceImg} quote={'Es gibt nur eine – und das ist Cristina Cotoia.'}/>
                 <div class={styles.referenceButtonContainer}>
                     <ButtonBordered>
                         <Link to='/referenzen'>
@@ -108,7 +149,7 @@ const HomePage = () => {
             </Section>
             <section>
                 <div className={styles.mapContainer}>
-                    <Map/>
+                    <Map coords={[46.195602, 6.148113]} zoom={15}/>
                 </div>
             </section>
         </React.Fragment>
