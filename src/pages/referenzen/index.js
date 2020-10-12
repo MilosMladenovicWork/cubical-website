@@ -62,7 +62,6 @@ const ReferenzenPage = () => {
                         </div>
                     </SwiperSlide>
                 </Slider>
-                <LinkRibbons links={[{href:'/', text:'Dienstleistungen'}, {href:'/', text:'Dienstleistungen'}]}/>
                 <ScrollScreenButton>
                     <img src={downArrowImg} alt='scroll down'/>
                 </ScrollScreenButton>

@@ -43,7 +43,7 @@ const HomePage = () => {
                         </div>
                     </SwiperSlide>
                 </Slider>
-                <LinkRibbons links={[{href:'/', text:'Dienstleistungen'}, {href:'/', text:'Dienstleistungen'}]}/>
+                <LinkRibbons links={[{href:'/immobilien/', text:'Aktuelle Objekte'}, {href:'/ueber-uns/partner/', text:'Partner Programm'}]}/>
                 <ScrollScreenButton>
                     <img src={downArrowImg} alt='scroll down'/>
                 </ScrollScreenButton>
