@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 
 import NavMenuContainer from '../components/NavMenuContainer'
 import NavLink from '../components/NavLink'
@@ -16,10 +16,15 @@ import ContactForm from '../components/ContactForm'
 import closeWhite from '../img/close-white.svg'
 import facebookLogo from '../img/logo-facebook.svg'
 import instagramLogo from '../img/logo-instagram.svg'
+import ButtonBordered from '../components/ButtonBordered'
 
 const Layout = ({children, location}) => {
 
-    const [contactButtonClicked, setContactButtonClicked] = useState(false)
+    const dispatch = useDispatch()
+
+    let contactButtonClicked = useSelector(state => state.contactFormOpened)
+
+    console.log(contactButtonClicked)
 
     const toggleChat = () => {
         tidioChatApi.open();
@@ -68,10 +73,10 @@ const Layout = ({children, location}) => {
                             </NavLinkVertical>
                             <NavLinkVertical link={{href:false, text:'Chat'}} onClick={() => toggleChat()}>
                             </NavLinkVertical>
-                            <NavLinkVertical active={contactButtonClicked} link={{href:false, text:'Kontakt'}} onClick={() => setContactButtonClicked(prevState => !prevState)}>
+                            <NavLinkVertical active={contactButtonClicked} link={{href:false, text:'Kontakt'}} onClick={() => dispatch({type:'toggle_contact_form'})}>
                                 <div style={{display: contactButtonClicked ? 'flex' : 'none'}} className={styles.contactFormContainer}>
                                     <ContactForm>
-                                        <img style={{alignSelf:'flex-start', width:40, marginBottom:15, cursor:'pointer'}} src={closeWhite} alt='close' onClick={() => setContactButtonClicked(false)}/>
+                                        <img style={{alignSelf:'flex-start', width:40, marginBottom:15, cursor:'pointer'}} src={closeWhite} alt='close' onClick={() => dispatch({type:'toggle_contact_form'})}/>
                                     </ContactForm>
                                 </div>
                             </NavLinkVertical>
@@ -98,8 +103,11 @@ const Layout = ({children, location}) => {
                         <br/>
                         <span>Tel +41 44 202 01 05</span> , <span>info@nobilimmo.ch</span>
                     </p>
-                    <h2>NEWSLETTER</h2>
-                    <NewsletterForm/>
+                    <div onClick={() => {dispatch({type:'toggle_contact_form'});window.scrollBy(0, -Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0))}}>
+                        <ButtonBordered>
+                            Kontakt
+                        </ButtonBordered>
+                    </div>
                 </div>
                 <div className={styles.footerNavigation}>
                     <AsideNavContainer>
