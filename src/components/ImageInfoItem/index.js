@@ -7,23 +7,26 @@ import RoofSVG from '../RoofSVG'
 
 import forwardArrowImg from '../../img/arrow-forward.svg'
 import TiltableContainer from '../TiltableContainer'
+import AppearOnViewContainer from '../AppearOnViewContainer'
 
 const ImageInfoItem = ({heading, title, image, children, link}) => {
     return(
         <li className={styles.imageInfoItem}>
-            <TiltableContainer>
-                <Link to={link}>
-                    <article>
-                        <h5><RoofSVG/>{heading}</h5>
-                        <img className={styles.representativeImg} src={image} alt=''/>
-                        <div className={styles.textContent}>
-                            <h3>{title}</h3>
-                            {children}
-                            <img className={styles.openSectionIcon} src={forwardArrowImg} alt='see more'/>
-                        </div>
-                    </article>
-                </Link>
-            </TiltableContainer>
+            <AppearOnViewContainer>
+                <TiltableContainer>
+                    <Link to={link}>
+                        <article>
+                            <h5><RoofSVG/>{heading}</h5>
+                            <img className={styles.representativeImg} src={image} alt=''/>
+                            <div className={styles.textContent}>
+                                <h3>{title}</h3>
+                                {children}
+                                <img className={styles.openSectionIcon} src={forwardArrowImg} alt='see more'/>
+                            </div>
+                        </article>
+                    </Link>
+                </TiltableContainer>
+            </AppearOnViewContainer>
         </li>
     )
 }

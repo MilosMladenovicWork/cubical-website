@@ -4,13 +4,13 @@
     flex-wrap: wrap;
     justify-content: space-between;
     margin:0;
-    > li{
+    li{
         width: 220px;
         margin-bottom:20px;
     }
 }
 
-.less-children > li{
+.less-children li{
     width:300px;
     margin-bottom:15px;
 }
