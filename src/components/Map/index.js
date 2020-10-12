@@ -13,8 +13,7 @@ const Map = ({coords, zoom}) => {
                     url='https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png'
                     attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
                 />
-                <Marker position={coords} icon={icon({iconUrl: mapPin, iconSize: [50, 50]})}>
-                </Marker>
+                <Marker position={coords} icon={icon({iconUrl: mapPin, iconSize: [50, 50]})}/>
             </LeafletMap>
         </div>
     )
