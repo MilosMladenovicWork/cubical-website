@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
 import styles from './blog.module.scss'
 import PageIntro from '../../components/PageIntro'
@@ -7,8 +7,38 @@ import OffsetItemContainer from '../../components/OffsetItemContainer'
 import ImageInfoItem from '../../components/ImageInfoItem'
 import blogImg from '../../img/blog.jpg'
 import Section from '../../components/Section'
+import ButtonBordered from '../../components/ButtonBordered'
 
 const BlogPage = () => {
+
+    const [numOfLoadedItems, setNumOfLoadedItems] = useState(5)
+    const [scrollFromTop, setScrollFromTop] = useState(0)
+
+    const dummyArray = [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ]
+
+    const setScrollPosition = () => {
+        setScrollFromTop(window.pageYOffset)
+    }
+
+    useEffect(() => {   
+        window.scrollTo(0, scrollFromTop)
+    }, [numOfLoadedItems])
+
     return(
         <React.Fragment>
             <MarginContainer/>
@@ -17,31 +47,23 @@ const BlogPage = () => {
             </PageIntro>
             <Section>
                 <OffsetItemContainer>
-                    <ImageInfoItem link='/blog-entry/' image={blogImg} title={'Blog Title'} heading={'Real Estate'}>
-                        <small>12/10/2020</small>
-                        <p>
-                            Some blog post about real estate text here. Some blog post about real estate text here. Some blog post about real estate text here. 
-                        </p>
-                    </ImageInfoItem>
-                    <ImageInfoItem link='/blog-entry/' image={blogImg} title={'Blog Title'} heading={'Real Estate'}>
-                        <small>12/10/2020</small>
-                        <p>
-                            Some blog post about real estate text here. Some blog post about real estate text here. Some blog post about real estate text here. 
-                        </p>
-                    </ImageInfoItem>
-                    <ImageInfoItem link='/blog-entry/' image={blogImg} title={'Blog Title'} heading={'Real Estate'}>
-                        <small>12/10/2020</small>
-                        <p>
-                            Some blog post about real estate text here. Some blog post about real estate text here. Some blog post about real estate text here. 
-                        </p>
-                    </ImageInfoItem>
-                    <ImageInfoItem link='/blog-entry/' image={blogImg} title={'Blog Title'} heading={'Real Estate'}>
-                        <small>12/10/2020</small>
-                        <p>
-                            Some blog post about real estate text here. Some blog post about real estate text here. Some blog post about real estate text here. 
-                        </p>
-                    </ImageInfoItem>
+                    {dummyArray.map((item, index) => {
+                        if(index < numOfLoadedItems){
+                        return <ImageInfoItem link='/blog-entry/' image={blogImg} title={'Blog Title'} heading={'Real Estate'}>
+                                    <small>12/10/2020</small>
+                                    <p>
+                                        Some blog post about real estate text here. Some blog post about real estate text here. Some blog post about real estate text here. 
+                                    </p>
+                                </ImageInfoItem>
+                        }
+                    })
+                    }
                 </OffsetItemContainer>
+                <div className={styles.seeMoreButton}>
+                    <ButtonBordered onClick={() => {setScrollPosition();setNumOfLoadedItems(prevState => prevState + 5)}}>
+                        Mehr Anzeigen
+                    </ButtonBordered>
+                </div>
             </Section>
         </React.Fragment>
     )
