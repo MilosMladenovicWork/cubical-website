@@ -17,24 +17,24 @@ const GutZuWissenPage = () => {
             <Section>
                 <h5><RoofSVG/> FÜR VERMIETER</h5>
                 <SquareContainer lessChildren={true}>
-                    <ItemAppearOverlay/>
+                    <ItemAppearOverlay text='Check­liste Gewerbe-objekt Vermieten' linkToSee='/' linkToDownload='/'/>
                 </SquareContainer>
             </Section>
             <Section>
                 <h5><RoofSVG/> FÜR VERMIETER</h5>
                 <SquareContainer lessChildren={true}>
-                    <ItemAppearOverlay/>
-                    <ItemAppearOverlay/>
-                    <ItemAppearOverlay/>
-                    <ItemAppearOverlay/>
+                    <ItemAppearOverlay text='Check­liste Gewerbe-objekt Vermieten' linkToSee='/' linkToDownload='/'/>
+                    <ItemAppearOverlay text='Check­liste Gewerbe-objekt Vermieten' linkToSee='/' linkToDownload='/'/>
+                    <ItemAppearOverlay text='Check­liste Gewerbe-objekt Vermieten' linkToSee='/' linkToDownload='/'/>
+                    <ItemAppearOverlay text='Check­liste Gewerbe-objekt Vermieten' linkToSee='/' linkToDownload='/'/>
                 </SquareContainer>
             </Section>
             <Section>
                 <h5><RoofSVG/> FÜR VERMIETER</h5>
                 <SquareContainer lessChildren={true}>
-                    <ItemAppearOverlay/>
-                    <ItemAppearOverlay/>
-                    <ItemAppearOverlay/>
+                    <ItemAppearOverlay text='Check­liste Gewerbe-objekt Vermieten' linkToSee='/' linkToDownload='/'/>
+                    <ItemAppearOverlay text='Check­liste Gewerbe-objekt Vermieten' linkToSee='/' linkToDownload='/'/>
+                    <ItemAppearOverlay text='Check­liste Gewerbe-objekt Vermieten' linkToSee='/' linkToDownload='/'/>
                 </SquareContainer>
             </Section>
         </React.Fragment>

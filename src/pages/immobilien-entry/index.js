@@ -124,7 +124,7 @@ const ImmobilienEntry = () => {
                     </AppearOnViewContainer>
                     <div>
                         <div className={styles.box}>
-                            <ItemAppearOverlay/>
+                            <ItemAppearOverlay text='Check­liste Gewerbe-objekt Vermieten' linkToSee='/' linkToDownload='/'/>
                         </div>
                     </div>
                 </div>
