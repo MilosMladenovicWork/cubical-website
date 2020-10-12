@@ -35,6 +35,7 @@ const Layout = ({children, location}) => {
             <NavMenuContainer>
                 <ul>
                     <NavLink link={{href:'/immobilien/', text: 'immobilien'}}/>
+                    <NavLink link={{href:'/blog/', text: 'blog'}}/>
                     <NavLink deactivated link={{href:'/dienstleistungen/', text: 'dienstleistungen'}} subLinks={[
                         {href:'/dienstleistungen/verkaufen/', text: 'verkaufen'},
                         {href:'/dienstleistungen/vermieten/', text: 'vermieten'},

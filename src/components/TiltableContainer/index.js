@@ -24,8 +24,8 @@ const TiltableContainer = ({children, roundedCorners}) => {
                 function(e){
                     set(
                         {
-                            transform:`scale(1.05) rotateX(${(e.pageY - e.currentTarget.getBoundingClientRect().top - window.pageYOffset - e.currentTarget.offsetHeight/2)/7}deg) rotateY(${(e.currentTarget.getBoundingClientRect().left - e.pageX + e.currentTarget.offsetWidth / 2) / 7}deg)`,
-                            boxShadow: `${(e.currentTarget.getBoundingClientRect().left - e.pageX + e.currentTarget.offsetWidth / 2) / 7}px ${(e.pageY - e.currentTarget.getBoundingClientRect().top - window.pageYOffset - e.currentTarget.offsetHeight/2)/7}px 10px rgba(0, 0, 0, 0.3)`
+                            transform:`scale(1.05) rotateX(${(e.pageY - e.currentTarget.getBoundingClientRect().top - window.pageYOffset - e.currentTarget.offsetHeight/2)/(e.currentTarget.offsetHeight/40)}deg) rotateY(${(e.currentTarget.getBoundingClientRect().left - e.pageX + e.currentTarget.offsetWidth / 2) / (e.currentTarget.offsetWidth/40)}deg)`,
+                            boxShadow: `${-(e.currentTarget.getBoundingClientRect().left - e.pageX + e.currentTarget.offsetWidth / 2) / (e.currentTarget.offsetWidth/40)}px ${(e.pageY - e.currentTarget.getBoundingClientRect().top - window.pageYOffset - e.currentTarget.offsetHeight/2)/(e.currentTarget.offsetHeight/40)}px 10px rgba(0, 0, 0, 0.3)`
                         }
                     );
             }}
