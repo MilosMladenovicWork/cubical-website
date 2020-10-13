@@ -16,13 +16,13 @@ const MobileMenuLink = ({link, subLinks, deactivated, onClick}) => {
 
     return(
         <li className={styles.navLink}>
-            <Link onClick={(e) => {(deactivated || !clickedOnce) && e.preventDefault() ; clickedOnce && onClick(); setClickedOnce(true)}} to={link.href} activeClassName={styles.active} partiallyActive={true}>
+            <Link onClick={(e) => {!clickedOnce && setClickedOnce(true);(deactivated || !clickedOnce) && e.preventDefault() ; !deactivated && clickedOnce && onClick(); setClickedOnce(true)}} to={link.href} activeClassName={styles.active} partiallyActive={true} activeClassName={styles.active} partiallyActive={true}>
                 <RoofSVG/>
                 {link.text}
             </Link>
             {
                 subLinks && 
-                <ul className={`${styles.subLinks} ${clickedOnce && styles.visible}`}>
+                <ul className={`${styles.subLinks} ${clickedOnce && styles.visible}`} activeClassName={styles.active} partiallyActive={true}>
                     {
                         subLinks.map(link => {
                             return <li onClick={() => onClick()}>

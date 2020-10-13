@@ -28,9 +28,10 @@
         svg{
             width:75px;
         }
-        @include breakpoint(xs){
-            a:nth-of-type(2){
-                display:none;
+        a:nth-of-type(2){
+            display:none;
+            @include breakpoint(lg){
+                display: unset;
             }
         }
     }

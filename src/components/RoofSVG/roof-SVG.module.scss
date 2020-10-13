@@ -1,5 +1,13 @@
+@import '../../styles/utils/breakpoints.scss';
+
 .roof-SVG{
     height:7.5px;
     transform:rotate(-45deg) translate(0, -50%);
     margin-right:-2.5px;
+    @include breakpoint(sm){
+        height:5px;
+    }
+    @include breakpoint(lg){
+        height:7.5px;
+    }
 }

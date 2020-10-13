@@ -9,11 +9,11 @@
         align-items: center;
         justify-content: center;
         flex-wrap: wrap;
-        @include breakpoint(lg){
+        @include breakpoint(sm){
             flex-wrap: unset;
         }
     }
-    @include breakpoint(lg){
+    @include breakpoint(sm){
         width:unset;
     }
 }

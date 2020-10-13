@@ -1,9 +1,17 @@
+@import '../../styles/utils/breakpoints.scss';
+
 .see-more-container{
-    max-height:10rem;
+    max-height:14rem;
     overflow: hidden;
     padding-bottom: 50px;
     position: relative;
     transition: 0.5s;
+    @include breakpoint(sm){
+        max-height: 8.25rem;
+    }
+    @include breakpoint(lg){
+        max-height:10rem;
+    }
 }
 
 .add-more-button{

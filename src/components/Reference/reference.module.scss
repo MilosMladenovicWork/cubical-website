@@ -8,7 +8,7 @@
     }
     .text-overlay{
         width:100%;
-        @include breakpoint(lg){
+        @include breakpoint(sm){
             min-height:10px;
             width:380px;
             transform:translate(0, -50%);
@@ -20,7 +20,9 @@
     .reference-image{
         position: relative;
         .reference-video{
-            display:block;
+            @include breakpoint(xs){
+                display:block;
+            }
         }
     }
     blockquote{
@@ -46,11 +48,14 @@
             > img{
                 margin-right:0;
             }
+            z-index:10;
         }
         > button:hover{
             transform:scale(1.1) translate(0, -50%);
         }
-        @include breakpoint(lg){
+    }
+    figure > .reference-video{
+        @include breakpoint(sm){
             display: unset;
         }
     }
@@ -69,7 +74,7 @@
     button:hover{
         transform:scale(1.1);
     }
-    @include breakpoint(lg){
+    @include breakpoint(sm){
         position: relative;
     }
 }

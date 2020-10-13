@@ -1,17 +1,30 @@
+@import '../../styles/utils/breakpoints.scss';
+
 .row-border-layout{
     display: flex;
     flex-wrap: wrap;
+    flex-direction:column;
     justify-content: space-between;
     margin:50px 0;
+    @include breakpoint(sm){
+        flex-direction:row;
+    }
 }
 
 .row-border-layout > :nth-child(even){
-    border-left:1px solid black;
-    padding-left:25px;
+    @include breakpoint(sm){
+        border-left:1px solid black;
+        padding-left:25px;
+    }
 }
 
 .row-border-layout > *{
-    width:49.5%;
+    width:100%;
+    margin-bottom:50px;
+    @include breakpoint(sm){
+        margin-bottom:unset;
+        width:49.5%;
+    }
 }
 
 .info-list{
@@ -26,8 +39,11 @@
         width:150px;
     }
     > span:nth-of-type(even){
-        min-width:275px;
         flex-grow: 1;
+        min-width: 150px;
+        @include breakpoint(lg){
+            min-width:275px;
+        }
     }
 }
 

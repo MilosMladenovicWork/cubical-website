@@ -11,16 +11,16 @@
         padding:0;
         width:max-content;
         text-decoration: none;
-        transform:rotateZ(0deg) translate(0%, -50%);
+        transform:rotateZ(0deg) translate(0%, 0%);
         transition:transform 0.25s;
         text-transform: uppercase;
-        @include breakpoint(lg){
+        @include breakpoint(sm){
             padding:15px;
         }
     }
     a{
         font-size:1.2rem;
-        @include breakpoint(lg){
+        @include breakpoint(sm){
             font-size:1.5rem;
         }
         text-decoration: none;
@@ -35,7 +35,7 @@
         bottom:50%;
         left:50%;
         transform: translate(-50%, 0%);
-        @include breakpoint(lg){
+        @include breakpoint(sm){
             bottom:100%;
             left:50%;
             transform:translate(-50%, -50%) rotateZ(90deg);
@@ -46,8 +46,8 @@
 .nav-link-vertical:hover{
     .main-button{
         text-shadow: -0.06ex 0 black, 0.06ex 0 black;
-        @include breakpoint(lg){
-            transform:rotateZ(90deg)  translate(-50%, 0%);
+        @include breakpoint(sm){
+            transform:rotateZ(90deg)  translate(0%, 0%);
         }
     }
 

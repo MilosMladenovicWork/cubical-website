@@ -94,7 +94,6 @@ const ImmobilienEntry = () => {
                     <SliderController swiper={swiper} numberOfSlides={3} activeSlide={activeSlide}/>
                 </AppearOnViewContainer>
                 <AppearOnViewContainer>
-
                     <SeeMoreContainer>
                         <div className={styles.content}>
                             <h5><RoofSVG/> BESCHREIBUNG</h5>

@@ -16,11 +16,11 @@
     > ul{
         display: none;
         margin:0;
-        @include breakpoint(lg){
+        @include breakpoint(sm){
             display: flex;
         }
     }
-    @include breakpoint(lg){
+    @include breakpoint(sm){
         padding:unset;
         padding-top:15px;
         justify-content: center;

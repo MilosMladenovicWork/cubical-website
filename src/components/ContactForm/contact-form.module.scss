@@ -9,6 +9,9 @@
     height:100%;
     background:#1995D2;
     border:2px solid white;
+    max-width: 450px;
+    min-width:300px;
+    margin-bottom:0;
     > input, > textarea{
         border-color:white;
         margin-bottom:10px;

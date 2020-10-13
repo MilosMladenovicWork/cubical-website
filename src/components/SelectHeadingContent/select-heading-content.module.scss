@@ -20,7 +20,7 @@
             }
         }
     }
-    @include breakpoint(lg){
+    @include breakpoint(sm){
         flex-direction: row;
     }
 }
