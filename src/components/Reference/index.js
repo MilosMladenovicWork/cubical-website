@@ -25,7 +25,17 @@ const Reference = ({videoLink, image, quote}) => {
                     </div>
                     }
                     <div className={styles.referenceInformation}>
-                        <img src={image} alt=''/>
+                        <div className={styles.referenceImage} >
+                            <img src={image} alt=''/>
+                            {showVideo &&
+                                <div className={styles.referenceVideo}>
+                                    <iframe width="100%" height="100%" src={videoLink} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <button onClick={() => setShowVideo(false)}>
+                                        <img src={closeCircle} alt='close'/>
+                                    </button>
+                                </div>
+                            }
+                        </div>
                         <figcaption className={styles.textOverlay}>
                             <TiltableContainer roundedCorners>
                                 <div className={styles.overlayStyledContainer}>

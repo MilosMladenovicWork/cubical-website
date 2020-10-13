@@ -1,16 +1,25 @@
+@import '../../styles/utils/breakpoints.scss';
+
 .big-image-section{
     min-height:85vh;
     position: relative;
     overflow: hidden;
-    padding:50px;
+    padding:50px 25px;
     display:flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     margin-bottom:130px;
     margin-top:130px;
     > h3{
-        width:400px;
+        width:100%;
         text-align: center;
+        @include breakpoint(lg){
+            width:400px;
+        }
+    }
+    @include breakpoint(lg){
+        padding:50px;
+        justify-content: center;
     }
 }

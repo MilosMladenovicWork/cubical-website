@@ -14,9 +14,12 @@ import NavLinkVertical from '../components/NavLinkVertical'
 import footerImg from '../img/footer-background.png'
 import ContactForm from '../components/ContactForm'
 import closeWhite from '../img/close-white.svg'
+import close from '../img/close.svg'
 import facebookLogo from '../img/logo-facebook.svg'
 import instagramLogo from '../img/logo-instagram.svg'
 import ButtonBordered from '../components/ButtonBordered'
+import RoofSVG from '../components/RoofSVG'
+import MobileMenuLink from '../components/MobileMenuLink'
 
 const Layout = ({children, location}) => {
 
@@ -29,6 +32,8 @@ const Layout = ({children, location}) => {
     const toggleChat = () => {
         tidioChatApi.open();
     }
+
+    const [mobileMenuActive, setMobileMenuActive] = useState(false)
 
     return(
         <div className={styles.layout}>
@@ -53,6 +58,32 @@ const Layout = ({children, location}) => {
                 </ul>
                 <div className={styles.logoContainer}>
                     <Logo/>
+                </div>
+                <div className={styles.mobile}>
+                    <h5 onClick={() => setMobileMenuActive(true)}><RoofSVG/>Menü</h5>
+                    <div className={`${styles.mobileMenu} ${mobileMenuActive && styles.mobileMenuActive}`}>
+                        <img className={styles.closeMobileMenuButton} style={{alignSelf:'flex-start', width:40, marginBottom:15, cursor:'pointer'}} src={close} alt='close' onClick={() => setMobileMenuActive(false)}/>
+                        <MobileMenuLink link={{href:'/immobilien/', text: 'immobilien'}} onClick={() => setMobileMenuActive(false)}/>
+                        <MobileMenuLink link={{href:'/blog/', text: 'blog'}} onClick={() => setMobileMenuActive(false)}/>
+                        <MobileMenuLink deactivated link={{href:'/dienstleistungen/', text: 'dienstleistungen'}} subLinks={[
+                            {href:'/dienstleistungen/verkaufen/', text: 'verkaufen'},
+                            {href:'/dienstleistungen/vermieten/', text: 'vermieten'},
+                            {href:'/dienstleistungen/investieren-begleiten/', text: 'investieren & begleiten'}
+                        ]}
+                        onClick={() => setMobileMenuActive(false)}
+                        />
+                        <MobileMenuLink link={{href:'/gut-zu-wissen/', text: 'gut zu wissen'}} onClick={() => setMobileMenuActive(false)}/>
+                        <MobileMenuLink link={{href:'/referenzen/', text: 'referenzen'}} onClick={() => setMobileMenuActive(false)}/>
+                        <MobileMenuLink link={{href:'/ueber-uns/', text: 'über uns'}} subLinks={[
+                            {href:'/ueber-uns/team/', text: 'team'},
+                            {href:'/ueber-uns/medien/', text: 'medien'},
+                            {href:'/ueber-uns/soziales-engagement/', text: 'soziales engagement'},
+                            {href:'/ueber-uns/partner/', text: 'partner'},
+                            {href:'/ueber-uns/stellen/', text: 'stellen'},
+                        ]}
+                        onClick={() => setMobileMenuActive(false)}
+                        />
+                    </div>
                 </div>
             </NavMenuContainer>
             <main>
@@ -131,6 +162,13 @@ const Layout = ({children, location}) => {
                     </AsideNavContainer>
                 </div>
             </FooterContainer>
+            {contactButtonClicked &&
+            <div className={styles.mobileForm}>
+                    <ContactForm>
+                        <img style={{alignSelf:'flex-start', width:40, marginBottom:15, cursor:'pointer'}} src={closeWhite} alt='close' onClick={() => dispatch({type:'toggle_contact_form'})}/>
+                    </ContactForm>
+            </div>
+            }
         </div>
     )
 }

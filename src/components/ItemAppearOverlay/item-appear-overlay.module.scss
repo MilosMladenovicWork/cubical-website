@@ -1,3 +1,5 @@
+@import '../../styles/utils/breakpoints.scss';
+
 .item-appear-overlay{
     width:100%;
     height:auto;
@@ -25,6 +27,11 @@
         background:rgba(0, 43, 102, 1);
         svg{
             width:75px;
+        }
+        @include breakpoint(xs){
+            a:nth-of-type(2){
+                display:none;
+            }
         }
     }
 }

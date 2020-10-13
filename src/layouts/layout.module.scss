@@ -1,6 +1,12 @@
+@import '../styles/utils/breakpoints.scss';
+
 .logo-container{
-    width:150px;
-    margin-left:30px;
+    width:30%;
+    z-index:5;
+    @include breakpoint(lg){
+        width:150px;
+        margin-left:30px;
+    }
 }
 
 .footer-info-content{
@@ -26,10 +32,13 @@
 
 .footer-navigation{
     display:flex;
-    position:absolute;
-    right:-100px;
-    top:50%;
-    transform:translate(0, -50%) rotateZ(-90deg);
+    margin-top:50px;
+    @include breakpoint(lg){
+        position:absolute;
+        right:-100px;
+        top:50%;
+        transform:translate(0, -50%) rotateZ(-90deg);
+    }
 }
 
 .main-content-navigation{
@@ -42,11 +51,14 @@
 }
 
 .navigation-sticky-container{
-    display:flex;
-    position:absolute;
-    right:-100px;
-    top:50%;
-    transform:translate(0, -50%) rotateZ(-90deg);
+    display:none;
+    @include breakpoint(lg){
+        display:flex;
+        position:absolute;
+        right:-100px;
+        top:50%;
+        transform:translate(0, -50%) rotateZ(-90deg);
+    }
 }
 
 .main-content{
@@ -89,4 +101,59 @@ main{
     a:hover{
         transform:scale(1.2);
     }
+}
+
+.mobile-form{
+    display:none;
+    @include breakpoint(xs){
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index:4;
+        background:#1995D2;
+        padding:15px;
+        position:fixed;
+        top:0;
+        left:0;
+        width:100vw;
+        height:100vh;
+        overflow: auto;
+    }
+}
+
+.mobile{
+    h5{
+        margin:0;
+    }
+    @include breakpoint(lg){
+        display:none;
+    }
+}
+
+.mobile-menu{
+    position:fixed;
+    display:flex;
+    flex-direction: column;
+    top:0;
+    left:0;
+    padding:85px 15px;
+    background: white;
+    z-index:0;
+    width:100%;
+    height:100vh;
+    overflow: auto;
+    transform: translateY(100%);
+    opacity:0;
+    transition:0.5s;
+}
+
+.mobile-menu-active{
+    opacity:1;
+    transform:translateY(0%);
+}
+
+.close-mobile-menu-button{
+    position:absolute;
+    top:10px;
+    right:15px;
 }

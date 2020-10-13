@@ -1,8 +1,11 @@
+@import '../../styles/utils/breakpoints.scss';
+
 .select-heading-content{
     margin-top:35px;
     margin-bottom:35px;
     display:flex;
-
+    flex-direction: column;
+    
     .headings{
         padding-right:40px;
         h5{
@@ -16,6 +19,9 @@
                 fill:#47A8D7;
             }
         }
+    }
+    @include breakpoint(lg){
+        flex-direction: row;
     }
 }
 

@@ -1,7 +1,10 @@
+@import '../../styles/utils/breakpoints.scss';
+
 .primary-menu{
     display:flex;
-    justify-content: center;
-    padding-top:15px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 15px;
     width:100%;
     position:fixed;
     top:0;
@@ -11,7 +14,16 @@
         list-style-type: none;
     }
     > ul{
-        display: flex;
+        display: none;
         margin:0;
+        @include breakpoint(lg){
+            display: flex;
+        }
+    }
+    @include breakpoint(lg){
+        padding:unset;
+        padding-top:15px;
+        justify-content: center;
+        align-items: unset;
     }
 }

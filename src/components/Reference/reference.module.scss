@@ -1,17 +1,27 @@
+@import '../../styles/utils/breakpoints.scss';
+
 .reference{
     margin-top:75px;
-    position: relative;
     >h3{
         font-size:1.5rem;
         text-transform: uppercase;
     }
     .text-overlay{
-        position:absolute;
-        right:40px;
-        top:50%;
-        width:380px;
-        min-height:10px;
-        transform:translate(0, -50%);
+        width:100%;
+        @include breakpoint(lg){
+            min-height:10px;
+            width:380px;
+            transform:translate(0, -50%);
+            position:absolute;
+            right:40px;
+            top:50%;
+        }
+    }
+    .reference-image{
+        position: relative;
+        .reference-video{
+            display:block;
+        }
     }
     blockquote{
         font-size:3rem;
@@ -26,6 +36,7 @@
         left:50%;
         transform:translate(-50%, -50%);
         z-index:2;
+        display:none;
         > button{
             background:white;
             position:absolute;
@@ -38,6 +49,9 @@
         }
         > button:hover{
             transform:scale(1.1) translate(0, -50%);
+        }
+        @include breakpoint(lg){
+            display: unset;
         }
     }
     button{
@@ -54,6 +68,9 @@
     }
     button:hover{
         transform:scale(1.1);
+    }
+    @include breakpoint(lg){
+        position: relative;
     }
 }
 

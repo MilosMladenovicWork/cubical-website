@@ -1,3 +1,5 @@
+@import '../../styles/utils/breakpoints.scss';
+
 .square-container{
     list-style: none;
     display:flex;
@@ -5,12 +7,18 @@
     justify-content: space-between;
     margin:0;
     li{
-        width: 220px;
         margin-bottom:20px;
+        width:47.5%;
+        @include breakpoint(lg){
+            width: 220px;
+        }
     }
 }
 
 .less-children li{
-    width:300px;
+    width:65%;
     margin-bottom:15px;
+    @include breakpoint(lg){
+        width:300px;
+    }
 }
