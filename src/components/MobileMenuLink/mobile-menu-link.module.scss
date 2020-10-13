@@ -1,11 +1,13 @@
 .sub-links{
     max-height:0;
     overflow: hidden;
-    transition:0.3s;
+    margin-left:15px;
+    transition:0.5s;
 }
 
 .visible{
-    max-height:120vh;
+    padding-top:10px;
+    max-height:100vh;
 }
 
 .nav-link{
@@ -18,10 +20,4 @@
         text-decoration: none;
         text-transform: uppercase;
     }
-}
-
-.sub-links{
-    margin:0;
-    margin-top:10px;
-    margin-left:15px;
 }
