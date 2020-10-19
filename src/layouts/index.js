@@ -105,7 +105,7 @@ const Layout = ({children, location}) => {
                             </NavLinkVertical>
                             <NavLinkVertical link={{href:false, text:'Chat'}} onClick={() => toggleChat()}>
                             </NavLinkVertical>
-                            <NavLinkVertical active={contactButtonClicked} link={{href:false, text:'Kontakt'}} onClick={() => dispatch({type:'toggle_contact_form'})}>
+                            <NavLinkVertical active={contactButtonClicked} link={{href:false, text:'Kontakt'}} invisible onClick={() => dispatch({type:'toggle_contact_form'})}>
                                 <div style={{display: contactButtonClicked ? 'flex' : 'none'}} className={styles.contactFormContainer}>
                                     <ContactForm>
                                         <img style={{alignSelf:'flex-start', width:40, marginBottom:15, cursor:'pointer'}} src={closeWhite} alt='close' onClick={() => dispatch({type:'toggle_contact_form'})}/>

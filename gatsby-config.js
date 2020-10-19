@@ -63,7 +63,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `Nunito:wght@100;200;300;400;600;800` // you can also specify font weights and styles
+          `Nunito:wght@100;200;300;400;600;800;900` // you can also specify font weights and styles
         ],
         display: 'swap'
       }

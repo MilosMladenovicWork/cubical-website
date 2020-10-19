@@ -5,7 +5,7 @@
     position:relative;
     padding:15px 15px;
     margin:0;
-    .main-button{   
+    .main-button{
         cursor: pointer;
         display: inline-block;
         padding:0;
@@ -47,7 +47,7 @@
     .main-button{
         text-shadow: -0.06ex 0 black, 0.06ex 0 black;
         @include breakpoint(sm){
-            transform:rotateZ(90deg)  translate(0%, 0%);
+            transform:rotateZ(90deg)  translate(-50%, 0%);
         }
     }
 

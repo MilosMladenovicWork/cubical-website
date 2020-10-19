@@ -4,8 +4,8 @@
     width:30%;
     z-index:5;
     @include breakpoint(sm){
-        width:125px;
-        margin-left:20px;
+        width:12.5vw;
+        margin-left:150px;
     }
 }
 
@@ -63,7 +63,7 @@
         transform:translate(0, -50%) rotateZ(-90deg);
     }
     @include breakpoint(lg){
-        right:-100px;
+        right:-20px;
     }
 }
 

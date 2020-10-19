@@ -5,8 +5,8 @@ import {Link} from 'gatsby'
 import styles from './index.module.scss'
 import Slider from '../components/Slider'
 
-import imgSlide1 from '../img/background1.jpg'
-import imgSlide2 from '../img/background2.jpg'
+import imgSlide1 from '../img/slider-image-1.jpg'
+import imgSlide2 from '../img/slider-image-2.jpg'
 import background3 from '../img/background3.png'
 import background4 from '../img/background4.png'
 import BackgroundImage from '../components/BackgroundImage'
@@ -27,6 +27,7 @@ import realEstateItemImage from '../img/itemImage1.png'
 import popularSectionImg from '../img/popular-section1.png'
 import referenceImg from '../img/background1.jpg'
 import AppearOnViewContainer from '../components/AppearOnViewContainer'
+import TiltableContainer from '../components/TiltableContainer'
 
 const HomePage = () => {
     return(
@@ -44,7 +45,12 @@ const HomePage = () => {
                         </div>
                     </SwiperSlide>
                 </Slider>
-                <LinkRibbons links={[{href:'/immobilien/', text:'Aktuelle Objekte'}, {href:'/ueber-uns/partner/', text:'Partner Programm'}]}/>
+                <div className={styles.motoTextContainer}>
+                    <TiltableContainer roundedCorners>
+                        <h1 className={styles.motoText}>The keys to your home</h1>
+                    </TiltableContainer>
+                </div>
+                <LinkRibbons links={[{href:'/blog/', text:'News'}]}/>
                 <ScrollScreenButton>
                     <img src={downArrowImg} alt='scroll down'/>
                 </ScrollScreenButton>
