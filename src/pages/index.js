@@ -47,7 +47,7 @@ const HomePage = () => {
                 </Slider>
                 <div className={styles.motoTextContainer}>
                     <TiltableContainer roundedCorners>
-                        <h1 className={styles.motoText}>The keys to your home</h1>
+                        <h1 className={styles.motoText}><span>T</span><span>h</span><span>e</span> <span>k</span><span>e</span><span>y</span><span>s</span> <span>t</span><span>0</span> <span>y</span><span>o</span><span>u</span><span>r</span> <span>h</span><span>o</span><span>m</span><span>e</span></h1>
                     </TiltableContainer>
                 </div>
                 <LinkRibbons links={[{href:'/blog/', text:'News'}]}/>
