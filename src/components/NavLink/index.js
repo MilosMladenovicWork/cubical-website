@@ -5,7 +5,7 @@ import {useSelector} from 'react-redux'
 import styles from './nav-link.module.scss'
 import RoofSVG from '../RoofSVG'
 
-const NavLink = ({link, subLinks, deactivated}) => {
+const NavLink = ({link, subLinks, deactivated, onClick}) => {
     
     let pageOffset = useSelector(state => state.scrollFromTop)
 
@@ -21,7 +21,7 @@ const NavLink = ({link, subLinks, deactivated}) => {
     }
 
     return(
-        <li className={styles.navLink}>
+        <li className={styles.navLink} onClick={() => onClick && onClick()}>
             <Link onClick={(e) => deactivated && e.preventDefault()} to={link.href} activeClassName={styles.active} partiallyActive={true}>
                 <RoofSVG/>
                 {link.text}

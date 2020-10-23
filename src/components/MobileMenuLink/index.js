@@ -4,7 +4,7 @@ import {Link} from 'gatsby'
 import styles from './mobile-menu-link.module.scss'
 import RoofSVG from '../RoofSVG'
 
-const MobileMenuLink = ({link, subLinks, deactivated, onClick}) => {
+const MobileMenuLink = ({link, subLinks, deactivated, onClick, button}) => {
 
     const [clickedOnce, setClickedOnce] = useState(false)
 
@@ -16,7 +16,7 @@ const MobileMenuLink = ({link, subLinks, deactivated, onClick}) => {
 
     return(
         <li className={styles.navLink}>
-            <Link onClick={(e) => {!clickedOnce && setClickedOnce(true);(deactivated || !clickedOnce) && e.preventDefault() ; !deactivated && clickedOnce && onClick(); setClickedOnce(true)}} to={link.href} activeClassName={styles.active} partiallyActive={true} activeClassName={styles.active} partiallyActive={true}>
+            <Link onClick={(e) => {!clickedOnce && setClickedOnce(true);(deactivated || !clickedOnce) && e.preventDefault() ; !deactivated && clickedOnce && onClick(); setClickedOnce(true); button && onClick()}} to={link.href} activeClassName={styles.active} partiallyActive={true} activeClassName={styles.active} partiallyActive={true}>
                 <RoofSVG/>
                 {link.text}
             </Link>

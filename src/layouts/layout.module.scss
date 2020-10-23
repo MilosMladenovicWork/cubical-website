@@ -58,7 +58,7 @@
     @include breakpoint(sm){
         display:flex;
         position:absolute;
-        right:-140px;
+        right:-40px;
         top:50%;
         transform:translate(0, -50%) rotateZ(-90deg);
     }

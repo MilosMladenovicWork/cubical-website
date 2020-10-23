@@ -41,6 +41,9 @@
             transform:translate(-50%, -50%) rotateZ(90deg);
         }
     }
+    .show-children{
+        display: block;
+    }
 }
 
 .nav-link-vertical:hover{

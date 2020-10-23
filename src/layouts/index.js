@@ -33,13 +33,20 @@ const Layout = ({children, location}) => {
         tidioChatApi.open();
     }
 
+    console.log(contactButtonClicked)
+
     const [mobileMenuActive, setMobileMenuActive] = useState(false)
 
     return(
         <div className={styles.layout}>
             <NavMenuContainer>
                 <ul>
-                    <NavLink link={{href:'/immobilien/', text: 'immobilien'}}/>
+                    <NavLink link={{href:'/dienstleistungen/verkaufen/', text: 'kaufen'}}/>
+                    <NavLink link={{href:'/dienstleistungen/vermieten/', text: 'mieten'}}/>
+                    <NavLink link={{href:'/dienstleistungen/verkaufen/', text: 'verkaufen'}}/>
+                    <NavLink link={{href:'/interessen/', text: 'interessen'}}/>
+                    <NavLink link={{href:'/kontakt/', text: 'kontakt'}} deactivated onClick={() => dispatch({type:'toggle_contact_form'})}/>
+                    {/* <NavLink link={{href:'/immobilien/', text: 'immobilien'}}/>
                     <NavLink link={{href:'/blog/', text: 'blog'}}/>
                     <NavLink deactivated link={{href:'/dienstleistungen/', text: 'dienstleistungen'}} subLinks={[
                         {href:'/dienstleistungen/verkaufen/', text: 'verkaufen'},
@@ -54,7 +61,7 @@ const Layout = ({children, location}) => {
                         {href:'/ueber-uns/soziales-engagement/', text: 'soziales engagement'},
                         {href:'/ueber-uns/partner/', text: 'partner'},
                         {href:'/ueber-uns/stellen/', text: 'stellen'},
-                    ]}/>
+                    ]}/> */}
                 </ul>
                 <div className={styles.logoContainer}>
                     <Logo/>
@@ -63,7 +70,12 @@ const Layout = ({children, location}) => {
                     <h5 onClick={() => setMobileMenuActive(true)}><RoofSVG/>Menü</h5>
                     <div className={`${styles.mobileMenu} ${mobileMenuActive && styles.mobileMenuActive}`}>
                         <img className={styles.closeMobileMenuButton} style={{alignSelf:'flex-start', width:40, marginBottom:15, cursor:'pointer'}} src={close} alt='close' onClick={() => setMobileMenuActive(false)}/>
-                        <MobileMenuLink link={{href:'/immobilien/', text: 'immobilien'}} onClick={() => setMobileMenuActive(false)}/>
+                        <MobileMenuLink link={{href:'/dienstleistungen/verkaufen/', text: 'kaufen'}} onClick={() => setMobileMenuActive(false)}/>
+                        <MobileMenuLink link={{href:'/dienstleistungen/vermieten/', text: 'mieten'}} onClick={() => setMobileMenuActive(false)}/>
+                        <MobileMenuLink link={{href:'/dienstleistungen/verkaufen/', text: 'verkaufen'}} onClick={() => setMobileMenuActive(false)}/>
+                        <MobileMenuLink link={{href:'/interessen/', text: 'interessen'}} onClick={() => setMobileMenuActive(false)}/>
+                        <MobileMenuLink link={{href:'/kontakt/', text: 'kontakt'}} button deactivated onClick={() => {setMobileMenuActive(false); dispatch({type:'toggle_contact_form'})}}/>
+                        {/* <MobileMenuLink link={{href:'/immobilien/', text: 'immobilien'}} onClick={() => setMobileMenuActive(false)}/>
                         <MobileMenuLink link={{href:'/blog/', text: 'blog'}} onClick={() => setMobileMenuActive(false)}/>
                         <MobileMenuLink deactivated link={{href:'/dienstleistungen/', text: 'dienstleistungen'}} subLinks={[
                             {href:'/dienstleistungen/verkaufen/', text: 'verkaufen'},
@@ -82,7 +94,7 @@ const Layout = ({children, location}) => {
                             {href:'/ueber-uns/stellen/', text: 'stellen'},
                         ]}
                         onClick={() => setMobileMenuActive(false)}
-                        />
+                        /> */}
                     </div>
                 </div>
             </NavMenuContainer>
@@ -105,7 +117,7 @@ const Layout = ({children, location}) => {
                             </NavLinkVertical>
                             <NavLinkVertical link={{href:false, text:'Chat'}} onClick={() => toggleChat()}>
                             </NavLinkVertical>
-                            <NavLinkVertical active={contactButtonClicked} link={{href:false, text:'Kontakt'}} invisible onClick={() => dispatch({type:'toggle_contact_form'})}>
+                            <NavLinkVertical active={contactButtonClicked} link={{href:false, text:'Kontakt'}} invisible onClick={() => dispatch({type:'toggle_contact_form'})} showChildren={true}>
                                 <div style={{display: contactButtonClicked ? 'flex' : 'none'}} className={styles.contactFormContainer}>
                                     <ContactForm>
                                         <img style={{alignSelf:'flex-start', width:40, marginBottom:15, cursor:'pointer'}} src={closeWhite} alt='close' onClick={() => dispatch({type:'toggle_contact_form'})}/>
