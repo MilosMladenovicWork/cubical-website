@@ -11,7 +11,7 @@ import flagImg from '../img/flag.svg'
 import NewsletterForm from '../components/NewsletterForm'
 import AsideNavContainer from '../components/AsideNavContainer'
 import NavLinkVertical from '../components/NavLinkVertical'
-import footerImg from '../img/footer-background.png'
+import footerImg from '../img/footer-background.jpg'
 import ContactForm from '../components/ContactForm'
 import closeWhite from '../img/close-white.svg'
 import close from '../img/close.svg'
@@ -132,13 +132,13 @@ const Layout = ({children, location}) => {
                 <BackgroundImage image={footerImg}/>
                 <div className={styles.footerInfoContent}>
                     <img src={flagImg} alt=''/>
-                    <h2>Cubical AG</h2>
+                    <h2>cubical AG</h2>
                     <p>
                         <span>
                             Heimstrasse 12, 8953
                         </span>
                         <br/>
-                        <span>Tel <a href={'tel:+41447421818'}>+41 44 742 18 18</a></span> , <span><a href={'mailto:info@cubical.ag'}>info@nobilimmo.ch</a></span>
+                        <span>Tel <a href={'tel:+41447421818'}>+41 44 742 18 18</a></span> , <span><a href={'mailto:info@cubical.ag'}>info@cubical.ag</a></span>
                     </p>
                     <div onClick={() => {dispatch({type:'toggle_contact_form'});window.scrollBy(0, -Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0))}}>
                         <ButtonBordered>
