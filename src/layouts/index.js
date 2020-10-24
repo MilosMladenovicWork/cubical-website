@@ -132,20 +132,13 @@ const Layout = ({children, location}) => {
                 <BackgroundImage image={footerImg}/>
                 <div className={styles.footerInfoContent}>
                     <img src={flagImg} alt=''/>
-                    <h2>NOBIL IMMO GMBH</h2>
+                    <h2>Cubical AG</h2>
                     <p>
                         <span>
-                            Baslerstrasse 30, 8048 Zürich
+                            Heimstrasse 12, 8953
                         </span>
                         <br/>
-                        <span>Tel +41 44 202 01 05</span> , <span>info@nobilimmo.ch</span>
-                    </p>
-                    <p>
-                        <span>
-                            Baslerstrasse 30, 8048 Zürich
-                        </span>
-                        <br/>
-                        <span>Tel +41 44 202 01 05</span> , <span>info@nobilimmo.ch</span>
+                        <span>Tel <a href={'tel:+41447421818'}>+41 44 742 18 18</a></span> , <span><a href={'mailto:info@cubical.ag'}>info@nobilimmo.ch</a></span>
                     </p>
                     <div onClick={() => {dispatch({type:'toggle_contact_form'});window.scrollBy(0, -Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0))}}>
                         <ButtonBordered>
