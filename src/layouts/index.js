@@ -41,10 +41,10 @@ const Layout = ({children, location}) => {
         <div className={styles.layout}>
             <NavMenuContainer>
                 <ul>
-                    <NavLink link={{href:'/dienstleistungen/verkaufen/', text: 'kaufen'}}/>
-                    <NavLink link={{href:'/dienstleistungen/vermieten/', text: 'mieten'}}/>
+                    <NavLink link={{href:'/kaufen/', text: 'kaufen'}}/>
+                    <NavLink link={{href:'/dienstleistungen/mieten/', text: 'mieten'}}/>
                     <NavLink link={{href:'/dienstleistungen/verkaufen/', text: 'verkaufen'}}/>
-                    <NavLink link={{href:'/interessen/', text: 'interessen'}}/>
+                    <NavLink link={{href:'/dienstleistung/', text: 'dienstleistung'}}/>
                     <NavLink link={{href:'/kontakt/', text: 'kontakt'}} deactivated onClick={() => dispatch({type:'toggle_contact_form'})}/>
                     {/* <NavLink link={{href:'/immobilien/', text: 'immobilien'}}/>
                     <NavLink link={{href:'/blog/', text: 'blog'}}/>

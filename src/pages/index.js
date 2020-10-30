@@ -47,7 +47,7 @@ const HomePage = () => {
                 </Slider>
                 <div className={styles.motoTextContainer}>
                     <TiltableContainer roundedCorners>
-                        <h1 className={styles.motoText}><span>T</span><span>h</span><span>e</span> <span>k</span><span>e</span><span>y</span><span>s</span> <span>t</span><span>o</span> <span>y</span><span>o</span><span>u</span><span>r</span> <span>h</span><span>o</span><span>m</span><span>e</span><span>.</span></h1>
+                        <h1 className={styles.motoText}><span>T</span><span>h</span><span>e</span> <span>k</span><span>e</span><span>y</span> <span>t</span><span>o</span> <span>y</span><span>o</span><span>u</span><span>r</span> <span>h</span><span>o</span><span>m</span><span>e</span><span>.</span></h1>
                     </TiltableContainer>
                 </div>
                 <LinkRibbons links={[{href:'/blog/', text:'News'}]}/>
@@ -55,12 +55,15 @@ const HomePage = () => {
                     <img src={downArrowImg} alt='scroll down'/>
                 </ScrollScreenButton>
             </div>
-            <PageIntro title={'JEDE IMMO­BILIE HAT EINE GESCHICHTE'}>
+            <PageIntro title={'Ein Haus sollte mehr sein, als nur eine Immobilie.'}>
                 <p>
-                    Der Verkauf einer Immo­bilie ist weit mehr als ein ratio­naler Handel: Hier kommen Geschichten, Erin­ne­rungen und auch Emotionen ins Spiel. Wir gehen jeweils indi­vi­duell auf unsere Kunden und ihre Immo­bi­lien ein, deshalb sind Sie bei uns richtig. Wir verlieren keine Zeit, enga­gieren uns für Ihren Erfolg und behan­deln Ihr Objekt so, als wäre es unser eigenes. Das heisst: Wir kennen jedes Objekt, jeden Eigen­tümer und seine Bedürf­nisse persön­lich. Gemeinsam mit etablierten Part­nern entwi­ckeln wir eine indi­vi­du­elle Vermark­tungs­stra­tegie mit mass­ge­schnei­derten Lösungen – und verkaufen Ihre Immo­bilie profes­sio­nell, kompe­tent und zum besten Preis. Ob Foto­grafie, Verkauf oder Vermark­tung: Unser Team besteht aus erfah­renen Fach­s­pe­zia­listen und garan­tiert Ihnen heraus­ra­gende Qualität. Sie sind für uns nicht nur eine Nummer – Sie sind für uns der Mittel­punkt des Gesche­hens.
+                    Es ist ein Zuhause, eine Wohfühl Oase, ein Ort, an dem man sich ausruhen kann, um eventuell auch Zeit mit der Familie zu verbringen.
                 </p>
                 <p>
-                    Wir sind Mitglied der Schwei­ze­ri­schen Makler­kammer (SMK) und verpflichten uns zu höchster Qualität und Leis­tung.
+                    Deswegen bauen wir das Haus genau nach Ihren Bedürfnissen. Wir schauen, dass es für Sie als Kunden wahrscheinlich ist, dass es das erste und das letzte Haus sein wird, welches gebaut wird – da ist es umso wichtiger, dass alles zu 100% passt. Aus diesem Grund arbeiten wir mit einem mit Hochdruck zusammenarbeitendem Team, welches Ihre Wünsche und Träume verwirklichen wird.
+                </p>
+                <p>
+                    Lassen Sie sich von unserer individuellen Beratung begeistern und Ihre Träume wahrwerden.
                 </p>
             </PageIntro>
             <Section>
