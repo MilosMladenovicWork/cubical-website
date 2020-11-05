@@ -149,6 +149,7 @@ const HomePage = () => {
             <Section>
                 <h2>REFERENZEN</h2>
                 <Reference videoLink={'https://www.youtube.com/embed/ZK9wtYOcChQ'} image={referenceImg} quote={'Es gibt nur eine – und das ist Cristina Cotoia.'}/>
+                <Reference videoLink={'https://www.youtube.com/embed/ZK9wtYOcChQ'} image={referenceImg} quote={'Es gibt nur eine – und das ist Cristina Cotoia.'}/>
                 <div class={styles.referenceButtonContainer}>
                     <ButtonBordered>
                         <Link to='/referenzen'>

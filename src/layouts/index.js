@@ -44,7 +44,7 @@ const Layout = ({children, location}) => {
                     <NavLink link={{href:'/kaufen/', text: 'kaufen'}}/>
                     <NavLink link={{href:'/dienstleistungen/mieten/', text: 'mieten'}}/>
                     <NavLink link={{href:'/dienstleistungen/verkaufen/', text: 'verkaufen'}}/>
-                    <NavLink link={{href:'/dienstleistung/', text: 'dienstleistung'}}/>
+                    <NavLink link={{href:'/referenzen/', text: 'referenzen'}}/>
                     <NavLink link={{href:'/kontakt/', text: 'kontakt'}} deactivated onClick={() => dispatch({type:'toggle_contact_form'})}/>
                     {/* <NavLink link={{href:'/immobilien/', text: 'immobilien'}}/>
                     <NavLink link={{href:'/blog/', text: 'blog'}}/>
@@ -70,10 +70,10 @@ const Layout = ({children, location}) => {
                     <h5 onClick={() => setMobileMenuActive(true)}><RoofSVG/>Menü</h5>
                     <div className={`${styles.mobileMenu} ${mobileMenuActive && styles.mobileMenuActive}`}>
                         <img className={styles.closeMobileMenuButton} style={{alignSelf:'flex-start', width:40, marginBottom:15, cursor:'pointer'}} src={close} alt='close' onClick={() => setMobileMenuActive(false)}/>
-                        <MobileMenuLink link={{href:'/dienstleistungen/verkaufen/', text: 'kaufen'}} onClick={() => setMobileMenuActive(false)}/>
-                        <MobileMenuLink link={{href:'/dienstleistungen/vermieten/', text: 'mieten'}} onClick={() => setMobileMenuActive(false)}/>
+                        <MobileMenuLink link={{href:'/kaufen/', text: 'kaufen'}} onClick={() => setMobileMenuActive(false)}/>
+                        <MobileMenuLink link={{href:'/dienstleistungen/mieten/', text: 'mieten'}} onClick={() => setMobileMenuActive(false)}/>
                         <MobileMenuLink link={{href:'/dienstleistungen/verkaufen/', text: 'verkaufen'}} onClick={() => setMobileMenuActive(false)}/>
-                        <MobileMenuLink link={{href:'/interessen/', text: 'interessen'}} onClick={() => setMobileMenuActive(false)}/>
+                        <MobileMenuLink link={{href:'/referenzen/', text: 'referenzen'}} onClick={() => setMobileMenuActive(false)}/>
                         <MobileMenuLink link={{href:'/kontakt/', text: 'kontakt'}} button deactivated onClick={() => {setMobileMenuActive(false); dispatch({type:'toggle_contact_form'})}}/>
                         {/* <MobileMenuLink link={{href:'/immobilien/', text: 'immobilien'}} onClick={() => setMobileMenuActive(false)}/>
                         <MobileMenuLink link={{href:'/blog/', text: 'blog'}} onClick={() => setMobileMenuActive(false)}/>
