@@ -1,7 +1,7 @@
 @import '../../styles/utils/breakpoints.scss';
 
 .nav-link{
-    padding:40px 10px 25px;
+    padding:40px 10px 15px;
     position: relative;
     font-size:1.5rem;
     margin-bottom:0;
@@ -26,16 +26,15 @@
     flex-direction: column;
     display:none;
     position:absolute;
-    top:86.2px;
+    top:71.2px;
     width: max-content;
     margin:0;
     padding:0;
+    padding-top:15px;
     padding-left:15px;
     padding-bottom: 10px;
     transition:0.1s;
-    > li{
-        transform:translateY(-15px)
-    }
+    background:rgba(255, 255, 255, 0.2);
     a {
         font-size: 1.3rem;
         padding-right:15px;
@@ -45,8 +44,11 @@
     > .sub-links{
         display: flex;
     }
-    > a > svg path{
-        fill:#47A8D7;
+    > a {
+        color:#47A8D7;
+        > svg path {
+            fill:#47A8D7;
+        }
     }
 }
 

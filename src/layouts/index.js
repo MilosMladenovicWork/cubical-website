@@ -20,6 +20,9 @@ import instagramLogo from '../img/logo-instagram.svg'
 import ButtonBordered from '../components/ButtonBordered'
 import RoofSVG from '../components/RoofSVG'
 import MobileMenuLink from '../components/MobileMenuLink'
+import phoneIcon from '../img/phone-icon-transparent.png'
+import emailIcon from '../img/email-icon-transparent.png'
+import homeIcon from '../img/home-icon-transparent.png'
 
 const Layout = ({children, location}) => {
 
@@ -41,10 +44,15 @@ const Layout = ({children, location}) => {
         <div className={styles.layout}>
             <NavMenuContainer>
                 <ul>
-                    <NavLink link={{href:'/kaufen/', text: 'kaufen'}}/>
-                    <NavLink link={{href:'/dienstleistungen/mieten/', text: 'mieten'}}/>
-                    <NavLink link={{href:'/dienstleistungen/verkaufen/', text: 'verkaufen'}}/>
-                    <NavLink link={{href:'/referenzen/', text: 'referenzen'}}/>
+                    <NavLink link={{href:'/immobilien/', text: 'immobilien'}} subLinks={[
+                        {href:'/dienstleistungen/kaufen/', text: 'kaufen'},
+                        {href:'/dienstleistungen/mieten/', text: 'mieten'},
+                    ]}/>
+                    <NavLink link={{href:'/dienstleistungen/', text: 'dienstleistungen'}} subLinks={[
+                        {href:'/verkaufen/', text: 'verkaufen'},
+                        {href:'/finanzierungsberatung/', text: 'finanzierungsberatung'},
+                    ]}/>
+                    <NavLink link={{href:'/uber-uns/', text: 'ÜBER UNS'}}/>
                     <NavLink link={{href:'/kontakt/', text: 'kontakt'}} deactivated onClick={() => dispatch({type:'toggle_contact_form'})}/>
                     {/* <NavLink link={{href:'/immobilien/', text: 'immobilien'}}/>
                     <NavLink link={{href:'/blog/', text: 'blog'}}/>
@@ -99,6 +107,21 @@ const Layout = ({children, location}) => {
                 </div>
             </NavMenuContainer>
             <main>
+                <div className={`${styles.mainContentNavigation}`}>
+                    <div className={`${styles.navigationStickyContainer} ${styles.navigationStickyContainerLeft}`}>
+                        <AsideNavContainer>
+                            <a href='tel:+111111111'>
+                                <img src={phoneIcon} alt='call us'/>
+                            </a>
+                            <a href='mailto:test@email.com'>
+                                <img src={emailIcon} alt='send mail to us'/>
+                            </a>
+                            <a href='/'>
+                                <img src={homeIcon} alt='home page'/>
+                            </a>
+                        </AsideNavContainer>
+                    </div>
+                </div>
                 <div className={styles.mainContent}>
                     {children}
                 </div>
@@ -134,17 +157,19 @@ const Layout = ({children, location}) => {
                     <img src={flagImg} alt=''/>
                     <h2>cubical AG</h2>
                     <p>
-                        <span>
-                            Heimstrasse 12, 8953
-                        </span>
-                        <br/>
-                        <span>Tel <a href={'tel:+41447421818'}>+41 44 742 18 18</a></span> , <span><a href={'mailto:info@cubical.ag'}>info@cubical.ag</a></span>
+                        Heimstrasse 12, 8953
                     </p>
-                    <div onClick={() => {dispatch({type:'toggle_contact_form'});window.scrollBy(0, -Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0))}}>
-                        <ButtonBordered>
-                            Kontakt
-                        </ButtonBordered>
-                    </div>
+                    <p>
+                        Tel: <a href={'tel:+41447421818'}>+41 44 742 18 18</a>
+                    </p>
+                    <p>
+                        Email: <a href={'mailto:info@cubical.ag'}>info@cubical.ag</a>
+                    </p>
+                </div>
+                <div className={styles.horizontallyCentered} onClick={() => {dispatch({type:'toggle_contact_form'});window.scrollBy(0, -Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0))}}>
+                    <ButtonBordered>
+                        Kontakt
+                    </ButtonBordered>
                 </div>
                 <div className={styles.footerNavigation}>
                     <AsideNavContainer>

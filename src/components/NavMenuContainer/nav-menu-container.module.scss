@@ -1,6 +1,6 @@
 @import '../../styles/utils/breakpoints.scss';
 
-.primary-menu{
+.primary-menu, .menu-container{
     display:flex;
     justify-content: space-between;
     align-items: center;
@@ -10,6 +10,7 @@
     top:0;
     z-index:5;
     transition:0.1s;
+    background:white;
     ul{
         list-style-type: none;
     }
@@ -25,5 +26,15 @@
         padding-top:15px;
         justify-content: center;
         align-items: flex-end;
+    }
+}
+
+.menu-container{
+    position:unset;
+    padding:0;
+    @include breakpoint(lg){
+        width:auto;
+        justify-content: space-between;
+        min-width:60vw;
     }
 }

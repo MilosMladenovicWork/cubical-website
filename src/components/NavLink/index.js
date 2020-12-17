@@ -28,9 +28,7 @@ const NavLink = ({link, subLinks, deactivated, onClick}) => {
             </Link>
             {
                 subLinks && 
-                <ul className={styles.subLinks} style={{
-                backgroundColor:`rgba(255, 255, 255, ${backgroundHandler()})`
-                }}>
+                <ul className={styles.subLinks}>
                     {
                         subLinks.map(link => {
                             return <li>

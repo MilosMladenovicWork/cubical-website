@@ -27,10 +27,10 @@ const NavMenuContainer = ({children}) => {
     }
 
     return(
-        <nav className={styles.primaryMenu} style={{
-            backgroundColor:`rgba(255, 255, 255, ${backgroundHandler()})`
-        }}>
-            {children}
+        <nav className={styles.primaryMenu}>
+            <div className={styles.menuContainer}>
+                {children}
+            </div>
         </nav>
     )
 }

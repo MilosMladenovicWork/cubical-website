@@ -5,10 +5,9 @@ import {Link} from 'gatsby'
 import styles from './index.module.scss'
 import Slider from '../components/Slider'
 
-import imgSlide1 from '../img/slider-image-1.jpg'
-import imgSlide2 from '../img/slider-image-2.jpg'
+import imgSlide1 from '../img/home-page.png'
 import background3 from '../img/background3.png'
-import background4 from '../img/background4.png'
+import background4 from '../img/dienstleistungen.png'
 import BackgroundImage from '../components/BackgroundImage'
 import Section from '../components/Section'
 import Reference from '../components/Reference'
@@ -39,18 +38,13 @@ const HomePage = () => {
                             <BackgroundImage image={imgSlide1}/>
                         </div>
                     </SwiperSlide>
-                    <SwiperSlide>
-                        <div style={{height: '100vh'}}>
-                            <BackgroundImage image={imgSlide2}/>
-                        </div>
-                    </SwiperSlide>
                 </Slider>
                 <div className={styles.motoTextContainer}>
                     <TiltableContainer roundedCorners>
                         <h1 className={styles.motoText}><span>T</span><span>h</span><span>e</span> <span>k</span><span>e</span><span>y</span> <span>t</span><span>o</span> <span>y</span><span>o</span><span>u</span><span>r</span> <span>h</span><span>o</span><span>m</span><span>e</span><span>.</span></h1>
                     </TiltableContainer>
                 </div>
-                <LinkRibbons links={[{href:'/blog/', text:'News'}]}/>
+                <LinkRibbons links={[{href:'/aktuelles', text:'Aktuelles'}]}/>
                 <ScrollScreenButton>
                     <img src={downArrowImg} alt='scroll down'/>
                 </ScrollScreenButton>
@@ -86,7 +80,7 @@ const HomePage = () => {
                 </ul>
             </Section>
             <BigImageSection image={background4}>
-                <h2 style={{alignSelf:'left'}}>UNSERE DIENSTLEISTUNGEN</h2>
+                <h2>DIENSTLEISTUNGEN</h2>
                 <ul className={styles.ourServicesContainer}>
                     <RandomWidthItem link='/dienstleistungen/verkaufen/'>
                         <h3>Verkauf von Immobilien</h3>
@@ -110,7 +104,7 @@ const HomePage = () => {
                     </RandomWidthItem>
                 </ul>
             </BigImageSection>
-            <Section>
+            {/* <Section>
                 <h2>AKTUELLE IMMOBILIEN</h2>
                 <OffsetItemContainer>
                     <RealEstateItem 
@@ -164,7 +158,7 @@ const HomePage = () => {
                         <Map coords={[46.195602, 6.148113]} zoom={15}/>
                     </div>
                 </AppearOnViewContainer>
-            </section>
+            </section> */}
         </React.Fragment>
     )
 }
