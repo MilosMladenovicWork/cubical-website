@@ -38,11 +38,7 @@ const Layout = ({children, location}) => {
     }
 
     useEffect(() => {
-        document.onreadystatechange = function () {
-            if (document.readyState === 'interactive') {
-              dispatch({type:'PAGE_LOADED'})
-            }
-          }
+        dispatch({type:'PAGE_LOADED'})
           
         setTimeout(() => {
             dispatch({type:'PAGE_LOADED_MINIMAL'})
