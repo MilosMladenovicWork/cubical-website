@@ -8,10 +8,13 @@ import styles from './slider.module.scss'
 SwiperCore.use([Autoplay])
 
 const Slider  = ({children, setSwiper, setActiveSlide}) => {
+    
+    console.log(children)
+    
     return(
         <div className={styles.slider}>
             <Swiper
-                loop={true}
+                loop={React.Children.toArray(children).length > 1 ? true : false}
                 autoplay={{
                     delay:5000
                 }}

@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
+import {animated, useSpring} from 'react-spring'
 
 import NavMenuContainer from '../components/NavMenuContainer'
 import NavLink from '../components/NavLink'
@@ -36,14 +37,38 @@ const Layout = ({children, location}) => {
         tidioChatApi.open();
     }
 
-    console.log(contactButtonClicked)
+    useEffect(() => {
+        document.onreadystatechange = function () {
+            if (document.readyState === 'complete') {
+              dispatch({type:'PAGE_LOADED'})
+            }
+          }
+          
+        setTimeout(() => {
+            dispatch({type:'PAGE_LOADED_MINIMAL'})
+        }, 1500)
+    }, [])
+
+    const pageLoaded = useSelector(state => state.pageLoaded)
+    const pageLoadedMinimal = useSelector(state => state.pageLoadedMinimal)
+
+    const linkListProps = useSpring({
+        opacity: (pageLoaded && pageLoadedMinimal) ? 1 : 0
+    })
+
+    const logoProps = useSpring({
+        position:'absolute',
+        top: (pageLoaded && pageLoadedMinimal) ? '0%' : '-50%',
+        right: (pageLoaded && pageLoadedMinimal) ? '0%' : '50%',
+        transform: (pageLoaded && pageLoadedMinimal) ? 'translateX(0%)' :'translateX(50%)'
+    })
 
     const [mobileMenuActive, setMobileMenuActive] = useState(false)
 
     return(
         <div className={styles.layout}>
             <NavMenuContainer>
-                <ul>
+                <animated.ul style={linkListProps}>
                     <NavLink link={{href:'/immobilien/', text: 'immobilien'}} subLinks={[
                         {href:'/dienstleistungen/kaufen/', text: 'kaufen'},
                         {href:'/dienstleistungen/mieten/', text: 'mieten'},
@@ -70,11 +95,8 @@ const Layout = ({children, location}) => {
                         {href:'/ueber-uns/partner/', text: 'partner'},
                         {href:'/ueber-uns/stellen/', text: 'stellen'},
                     ]}/> */}
-                </ul>
-                <div className={styles.logoContainer}>
-                    <Logo/>
-                </div>
-                <div className={styles.mobile}>
+                </animated.ul>
+                <animated.div style={linkListProps} className={styles.mobile}>
                     <h5 onClick={() => setMobileMenuActive(true)}><RoofSVG/>Menü</h5>
                     <div className={`${styles.mobileMenu} ${mobileMenuActive && styles.mobileMenuActive}`}>
                         <img className={styles.closeMobileMenuButton} style={{alignSelf:'flex-start', width:40, marginBottom:15, cursor:'pointer'}} src={close} alt='close' onClick={() => setMobileMenuActive(false)}/>
@@ -104,6 +126,14 @@ const Layout = ({children, location}) => {
                         onClick={() => setMobileMenuActive(false)}
                         /> */}
                     </div>
+                </animated.div>
+                <animated.div style={logoProps} className={styles.logoContainer}>
+                    <Logo/>
+                </animated.div>
+                <div style={{
+                    visibility:'hidden'
+                }} className={styles.logoContainer}>
+                    <Logo/>
                 </div>
             </NavMenuContainer>
             <main>

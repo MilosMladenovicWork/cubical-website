@@ -1,12 +1,25 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
+import {animated, useSpring} from 'react-spring'
+import useMeasure from 'react-use-measure'
 
 import styles from './nav-menu-container.module.scss'
 
 const NavMenuContainer = ({children}) => {
     
-    const dispatch = useDispatch()
+    const [ref, { height }] = useMeasure();
 
+    const pageLoaded = useSelector(state => state.pageLoaded)
+    const pageLoadedMinimal = useSelector(state => state.pageLoadedMinimal)
+    
+    const vhToPixel = value => `${(window.innerHeight * value) / 100}px`
+    
+    const props = useSpring({
+        height: (pageLoaded && pageLoadedMinimal) ? `${height}px` : vhToPixel(100)
+    })
+    
+    const dispatch = useDispatch()
+    
     if(typeof window != 'undefined'){
         window.addEventListener('scroll', () =>{
             dispatch({type:'SCROLL_FROM_TOP_CHANGE', payload:window.pageYOffset})
@@ -14,8 +27,8 @@ const NavMenuContainer = ({children}) => {
     }    
     
     let pageOffset = useSelector(state => state.scrollFromTop)
-
-
+    
+    
     let backgroundHandler = () =>{
         if(pageOffset < 5){
             return 0
@@ -26,12 +39,15 @@ const NavMenuContainer = ({children}) => {
         }
     }
 
+
     return(
-        <nav className={styles.primaryMenu}>
-            <div className={styles.menuContainer}>
-                {children}
+        <animated.nav style={props} className={styles.primaryMenu}>
+            <div className={styles.relativeMenu}>
+                <div ref={ref} className={styles.menuContainer}>
+                    {children}
+                </div>
             </div>
-        </nav>
+        </animated.nav>
     )
 }
 

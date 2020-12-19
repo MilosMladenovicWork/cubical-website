@@ -5,7 +5,6 @@
     z-index:5;
     @include breakpoint(sm){
         width:12.5vw;
-        margin-left:150px;
     }
 }
 
@@ -178,5 +177,5 @@ main{
 .close-mobile-menu-button{
     position:absolute;
     top:10px;
-    right:15px;
+    left:15px;
 }
