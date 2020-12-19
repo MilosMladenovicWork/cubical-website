@@ -12,7 +12,7 @@ const NavMenuContainer = ({children}) => {
     const pageLoaded = useSelector(state => state.pageLoaded)
     const pageLoadedMinimal = useSelector(state => state.pageLoadedMinimal)
     
-    const vhToPixel = value => `${(window.innerHeight * value) / 100}px`
+    const vhToPixel = value => `${typeof window != 'undefined' && (window.innerHeight * value) / 100}px`
     
     const props = useSpring({
         height: (pageLoaded && pageLoadedMinimal) ? `${height}px` : vhToPixel(100)
