@@ -39,7 +39,7 @@ const Layout = ({children, location}) => {
 
     useEffect(() => {
         document.onreadystatechange = function () {
-            if (document.readyState === 'complete') {
+            if (document.readyState === 'interactive') {
               dispatch({type:'PAGE_LOADED'})
             }
           }
