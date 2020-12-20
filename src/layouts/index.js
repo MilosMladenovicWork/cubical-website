@@ -66,12 +66,12 @@ const Layout = ({children, location}) => {
             <NavMenuContainer>
                 <animated.ul style={linkListProps}>
                     <NavLink link={{href:'/immobilien/', text: 'immobilien'}} subLinks={[
-                        {href:'/dienstleistungen/kaufen/', text: 'kaufen'},
-                        {href:'/dienstleistungen/mieten/', text: 'mieten'},
+                        {href:'/immobilien/kaufen/', text: 'kaufen'},
+                        {href:'/immobilien/mieten/', text: 'mieten'},
                     ]}/>
                     <NavLink link={{href:'/dienstleistungen/', text: 'dienstleistungen'}} subLinks={[
-                        {href:'/verkaufen/', text: 'verkaufen'},
-                        {href:'/finanzierungsberatung/', text: 'finanzierungsberatung'},
+                        {href:'/dienstleistungen/verkaufen/', text: 'verkaufen'},
+                        {href:'/dienstleistungen/finanzierungsberatung/', text: 'finanzierungsberatung'},
                     ]}/>
                     <NavLink link={{href:'/uber-uns/', text: 'ÜBER UNS'}}/>
                     <NavLink link={{href:'/kontakt/', text: 'kontakt'}} deactivated onClick={() => dispatch({type:'toggle_contact_form'})}/>
@@ -96,11 +96,21 @@ const Layout = ({children, location}) => {
                     <h5 onClick={() => setMobileMenuActive(true)}><RoofSVG/>Menü</h5>
                     <div className={`${styles.mobileMenu} ${mobileMenuActive && styles.mobileMenuActive}`}>
                         <img className={styles.closeMobileMenuButton} style={{alignSelf:'flex-start', width:40, marginBottom:15, cursor:'pointer'}} src={close} alt='close' onClick={() => setMobileMenuActive(false)}/>
-                        <MobileMenuLink link={{href:'/kaufen/', text: 'kaufen'}} onClick={() => setMobileMenuActive(false)}/>
+                        {/* <MobileMenuLink link={{href:'/kaufen/', text: 'kaufen'}} onClick={() => setMobileMenuActive(false)}/>
                         <MobileMenuLink link={{href:'/dienstleistungen/mieten/', text: 'mieten'}} onClick={() => setMobileMenuActive(false)}/>
                         <MobileMenuLink link={{href:'/dienstleistungen/verkaufen/', text: 'verkaufen'}} onClick={() => setMobileMenuActive(false)}/>
                         <MobileMenuLink link={{href:'/referenzen/', text: 'referenzen'}} onClick={() => setMobileMenuActive(false)}/>
-                        <MobileMenuLink link={{href:'/kontakt/', text: 'kontakt'}} button deactivated onClick={() => {setMobileMenuActive(false); dispatch({type:'toggle_contact_form'})}}/>
+                        <MobileMenuLink link={{href:'/kontakt/', text: 'kontakt'}} button deactivated onClick={() => {setMobileMenuActive(false); dispatch({type:'toggle_contact_form'})}}/> */}
+                        <MobileMenuLink link={{href:'/immobilien/', text: 'immobilien'}} subLinks={[
+                            {href:'/immobilien/kaufen/', text: 'kaufen'},
+                            {href:'/immobilien/mieten/', text: 'mieten'},
+                        ]} onClick={()=> setMobileMenuActive(false)}/>
+                        <MobileMenuLink link={{href:'/dienstleistungen/', text: 'dienstleistungen'}} subLinks={[
+                            {href:'/dienstleistungen/verkaufen/', text: 'verkaufen'},
+                            {href:'/dienstleistungen/finanzierungsberatung/', text: 'finanzierungsberatung'},
+                        ]} onClick={()=> setMobileMenuActive(false)}/>
+                        <MobileMenuLink link={{href:'/uber-uns/', text: 'ÜBER UNS'}} onClick={()=> setMobileMenuActive(false)}/>
+                        <MobileMenuLink link={{href:'/kontakt/', text: 'kontakt'}} deactivated onClick={() => {setMobileMenuActive(false);dispatch({type:'toggle_contact_form'})}}/>
                         {/* <MobileMenuLink link={{href:'/immobilien/', text: 'immobilien'}} onClick={() => setMobileMenuActive(false)}/>
                         <MobileMenuLink link={{href:'/blog/', text: 'blog'}} onClick={() => setMobileMenuActive(false)}/>
                         <MobileMenuLink deactivated link={{href:'/dienstleistungen/', text: 'dienstleistungen'}} subLinks={[

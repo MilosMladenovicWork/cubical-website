@@ -22,9 +22,20 @@
     }
 }
 
+.primary-link{
+    display: flex;
+    justify-content: space-between;
+}
+
 .active{
     color:#47A8D7;
     > svg path{
         fill:#47A8D7;
+    }
+    .primary-link-content{
+        color:#47A8D7;
+        > svg path{
+            fill:#47A8D7;
+        }
     }
 }

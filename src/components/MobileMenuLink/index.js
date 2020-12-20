@@ -6,23 +6,44 @@ import RoofSVG from '../RoofSVG'
 
 const MobileMenuLink = ({link, subLinks, deactivated, onClick, button}) => {
 
-    const [clickedOnce, setClickedOnce] = useState(false)
-
-    useEffect(() => {
-        if(!subLinks){
-            setClickedOnce(true)
-        }
-    }, [])
+    const [showSubLinks, setShowSubLinks] = useState(false)
 
     return(
         <li className={styles.navLink}>
-            <Link onClick={(e) => {!clickedOnce && setClickedOnce(true);(deactivated || !clickedOnce) && e.preventDefault() ; !deactivated && clickedOnce && onClick(); setClickedOnce(true); button && onClick()}} to={link.href} activeClassName={styles.active} partiallyActive={true} activeClassName={styles.active} partiallyActive={true}>
-                <RoofSVG/>
-                {link.text}
+            <Link 
+            className={styles.primaryLink}
+            onClick={(e) => {
+                deactivated && e.preventDefault();
+                !deactivated && onClick(); 
+                button && onClick()
+            }} 
+            to={link.href} 
+            activeClassName={styles.active} 
+            partiallyActive={true}
+            >
+                <div className={styles.primaryLinkContent}>
+                    <RoofSVG/>
+                    {link.text}
+                </div>
+                <div 
+                onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setShowSubLinks((prevState) => !prevState)
+                }} 
+                className={styles.showMoreButton}
+                >
+                    {
+                        showSubLinks ?
+                        '⯅'
+                        :
+                        '⯆'
+                    }
+                </div>
             </Link>
             {
                 subLinks && 
-                <ul className={`${styles.subLinks} ${clickedOnce && styles.visible}`} activeClassName={styles.active} partiallyActive={true}>
+                <ul className={`${styles.subLinks} ${showSubLinks && styles.visible}`} activeClassName={styles.active} partiallyActive={true}>
                     {
                         subLinks.map(link => {
                             return <li onClick={() => onClick()}>
