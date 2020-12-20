@@ -27,6 +27,7 @@ import popularSectionImg from '../img/popular-section1.png'
 import referenceImg from '../img/background1.jpg'
 import AppearOnViewContainer from '../components/AppearOnViewContainer'
 import TiltableContainer from '../components/TiltableContainer'
+import MotoText from '../components/MotoText'
 
 const HomePage = () => {
     return(
@@ -39,6 +40,7 @@ const HomePage = () => {
                         </div>
                     </SwiperSlide>
                 </Slider>
+                <MotoText text={'The key to your home'}/>
                 <div className={styles.motoTextContainer}>
                     <TiltableContainer roundedCorners>
                         <h1 className={styles.motoText}><span>T</span><span>h</span><span>e</span> <span>k</span><span>e</span><span>y</span> <span>t</span><span>o</span> <span>y</span><span>o</span><span>u</span><span>r</span> <span>h</span><span>o</span><span>m</span><span>e</span><span>.</span></h1>

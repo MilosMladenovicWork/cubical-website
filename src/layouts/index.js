@@ -177,11 +177,7 @@ const Layout = ({children, location}) => {
                             <NavLinkVertical link={{href:false, text:'Chat'}} onClick={() => toggleChat()}>
                             </NavLinkVertical>
                             <NavLinkVertical active={contactButtonClicked} link={{href:false, text:'Kontakt'}} invisible onClick={() => dispatch({type:'toggle_contact_form'})} showChildren={true}>
-                                <div style={{display: contactButtonClicked ? 'flex' : 'none'}} className={styles.contactFormContainer}>
-                                    <ContactForm>
-                                        <img style={{alignSelf:'flex-start', width:40, marginBottom:15, cursor:'pointer'}} src={closeWhite} alt='close' onClick={() => dispatch({type:'toggle_contact_form'})}/>
-                                    </ContactForm>
-                                </div>
+                                
                             </NavLinkVertical>
                         </AsideNavContainer>
                     </div>
@@ -228,6 +224,11 @@ const Layout = ({children, location}) => {
                     </AsideNavContainer>
                 </div>
             </FooterContainer>
+            <div style={{display: contactButtonClicked ? 'flex' : 'none'}} className={styles.contactFormContainer}>
+                <ContactForm>
+                    <img style={{alignSelf:'flex-start', width:40, marginBottom:15, cursor:'pointer'}} src={closeWhite} alt='close' onClick={() => dispatch({type:'toggle_contact_form'})}/>
+                </ContactForm>
+            </div>
             {contactButtonClicked &&
             <div className={styles.mobileForm}>
                     <ContactForm>

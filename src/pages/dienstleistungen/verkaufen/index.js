@@ -4,7 +4,7 @@ import LinkRibbons from '../../../components/LinkRibbons'
 
 import Slider from '../../../components/Slider'
 import styles from './verkaufen.module.scss'
-import imgSlide1 from '../../../img/background1.jpg'
+import imgSlide1 from '../../../img/verkaufen-banner.png'
 import BackgroundImage from '../../../components/BackgroundImage'
 import PageIntro from '../../../components/PageIntro'
 import Section from '../../../components/Section'
@@ -28,13 +28,11 @@ const VerkaufenPage = () => {
                     </div>
                 </SwiperSlide>
             </Slider>
-            <LinkRibbons links={[{href:'/dienstleistungen/vermieten/', text: 'Vermieten'}, {href: '/dienstleistungen/investieren-begleiten/', text:'Investieren & Begleiten'}]}/>
             <ScrollScreenButton>
                 <img src={downArrowImg} alt='scroll down'/>
             </ScrollScreenButton>
-            <PageIntro title='WIR VERKAUFEN IHRE IMMOBILIE.'>
-                <p>Sie haben sich entschieden, Ihre Immo­bilie in neue Hände zu geben. Klar, möchten Sie es zum best­mög­li­chen Preis verkaufen – und das möglichst zeitnah und reibungslos. Wir wissen, wie Sie dieses Ziel errei­chen. Am besten mit einem Profi wie uns, der Sie Step by Step begleitet.</p>
-                <p>Wir sind Mitglied der Schwei­­ze­ri­­schen Makler­­kammer (SMK) und verpflichten uns zu höchster Qualität und Leis­tung.</p>
+            <PageIntro title='Abschied nehmen ist schwer.'>
+                <p>Und trotzdem kommt der Moment, wo man sich entscheidet sein Haus zu verkaufen. Wir schauen uns mit Ihnen Ihr zu Hause an und überprüfen, ob ein Ankauf der Liegenschaft für uns möglich ist. So ist ein einfacher und transparenter Verkauf der Immobilie möglich. Auch wenn der Abschied schwer fällt, sie wissen ihr Haus ist in guten Händen.</p>
             </PageIntro>
             <Section>
                 <h3><span className={styles.bigNumber}>1</span> UNVERBINDLICHES ERSTGESPRÄCH</h3>
@@ -73,7 +71,7 @@ const VerkaufenPage = () => {
             <PageIntro title='DER PASSENDE INVESTOR FÜR IHR RENDITEOBJEKT.'>
                 <p>Sind Sie auf der Suche nach einem geeig­neten Investor für Ihre Anla­ge­im­mo­bilie? Dabei können wir Sie ganz gezielt unter­stützen. Denn für grosse Immo­bi­lie­nin­ves­toren im In- und Ausland suchen wir laufend nach exklu­siven Rendi­te­ob­jekten: Wohnim­mo­bi­lien, Mehr­fa­mi­li­en­häuser oder attrak­tive Grund­stücke. Holen Sie uns ins Boot – wir stehen Ihnen gerne zur Seite.</p>
             </PageIntro>
-            <Section>
+            {/* <Section>
                 <h2>AKTUELLES</h2>
                 <OffsetItemContainer>
                     <RealEstateItem 
@@ -107,7 +105,7 @@ const VerkaufenPage = () => {
                         <span>5316 Leuggern</span>
                     </RealEstateItem>
                 </OffsetItemContainer>
-            </Section>
+            </Section> */}
         </React.Fragment>
     )
 }
