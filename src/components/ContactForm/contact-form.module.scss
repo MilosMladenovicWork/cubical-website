@@ -7,16 +7,16 @@
     align-items: center;
     width:100%;
     height:100%;
-    background:#1995D2;
-    border:2px solid white;
+    background:white;
+    border:2px solid #1995D2;
     max-width: 450px;
     min-width:300px;
     margin-bottom:0;
     > input, > textarea{
-        border-color:white;
+        border-color:#1995D2;
         margin-bottom:10px;
         width:100%;
-        color:white;
+        color:#1995D2;
     }
     .send-button{
         width:50px;

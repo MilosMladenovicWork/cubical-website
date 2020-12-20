@@ -16,6 +16,7 @@ import footerImg from '../img/footer-background.jpg'
 import ContactForm from '../components/ContactForm'
 import closeWhite from '../img/close-white.svg'
 import close from '../img/close.svg'
+import closeBlue from '../img/closeBlue.svg'
 import facebookLogo from '../img/logo-facebook.svg'
 import instagramLogo from '../img/logo-instagram.svg'
 import ButtonBordered from '../components/ButtonBordered'
@@ -110,7 +111,7 @@ const Layout = ({children, location}) => {
                             {href:'/dienstleistungen/finanzierungsberatung/', text: 'finanzierungsberatung'},
                         ]} onClick={()=> setMobileMenuActive(false)}/>
                         <MobileMenuLink link={{href:'/uber-uns/', text: 'ÜBER UNS'}} onClick={()=> setMobileMenuActive(false)}/>
-                        <MobileMenuLink link={{href:'/kontakt/', text: 'kontakt'}} deactivated onClick={() => {setMobileMenuActive(false);dispatch({type:'toggle_contact_form'})}}/>
+                        <MobileMenuLink link={{href:'/kontakt/', text: 'kontakt'}} button onClick={() => {dispatch({type:'toggle_contact_form'});setMobileMenuActive(false); console.log('activated')}}/>
                         {/* <MobileMenuLink link={{href:'/immobilien/', text: 'immobilien'}} onClick={() => setMobileMenuActive(false)}/>
                         <MobileMenuLink link={{href:'/blog/', text: 'blog'}} onClick={() => setMobileMenuActive(false)}/>
                         <MobileMenuLink deactivated link={{href:'/dienstleistungen/', text: 'dienstleistungen'}} subLinks={[
@@ -226,13 +227,13 @@ const Layout = ({children, location}) => {
             </FooterContainer>
             <div style={{display: contactButtonClicked ? 'flex' : 'none'}} className={styles.contactFormContainer}>
                 <ContactForm>
-                    <img style={{alignSelf:'flex-start', width:40, marginBottom:15, cursor:'pointer'}} src={closeWhite} alt='close' onClick={() => dispatch({type:'toggle_contact_form'})}/>
+                    <img style={{alignSelf:'flex-start', width:40, marginBottom:15, cursor:'pointer'}} src={closeBlue} alt='close' onClick={() => dispatch({type:'toggle_contact_form'})}/>
                 </ContactForm>
             </div>
             {contactButtonClicked &&
             <div className={styles.mobileForm}>
                     <ContactForm>
-                        <img style={{alignSelf:'flex-start', width:40, marginBottom:15, cursor:'pointer'}} src={closeWhite} alt='close' onClick={() => dispatch({type:'toggle_contact_form'})}/>
+                        <img style={{alignSelf:'flex-start', width:40, marginBottom:15, cursor:'pointer'}} src={closeBlue} alt='close' onClick={() => dispatch({type:'toggle_contact_form'})}/>
                     </ContactForm>
             </div>
             }

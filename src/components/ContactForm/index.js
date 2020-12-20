@@ -3,7 +3,7 @@ import React from 'react'
 import styles from './contact-form.module.scss'
 import TextInputField from '../TextInputField'
 import TextareaField from '../TextareaField'
-import sendWhiteImg from '../../img/sendWhite.svg'
+import sendBlueImg from '../../img/sendBlue.svg'
 import TiltableContainer from '../TiltableContainer'
 
 const ContactForm = ({children}) => {
@@ -17,7 +17,7 @@ const ContactForm = ({children}) => {
                 <TextInputField placeholder='Desired call time' />
                 <TextareaField placeholder='Your request'/>
                 <button className={styles.sendButton}>
-                    <img src={sendWhiteImg} alt='send'/>
+                    <img src={sendBlueImg} alt='send'/>
                 </button>
             </form>
         </TiltableContainer>

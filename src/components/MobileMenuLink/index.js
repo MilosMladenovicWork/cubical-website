@@ -13,9 +13,9 @@ const MobileMenuLink = ({link, subLinks, deactivated, onClick, button}) => {
             <Link 
             className={styles.primaryLink}
             onClick={(e) => {
-                deactivated && e.preventDefault();
-                !deactivated && onClick(); 
-                button && onClick()
+                (deactivated || button) && e.preventDefault();
+                !deactivated && !button && onClick(); 
+                button && onClick();
             }} 
             to={link.href} 
             activeClassName={styles.active} 
