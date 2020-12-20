@@ -3,7 +3,11 @@
 .logo-container{
     width:30%;
     z-index:5;
+    margin-left:50px;
     @include breakpoint(sm){
+        width:15vw;
+    }
+    @include breakpoint(lg){
         width:12.5vw;
     }
 }
