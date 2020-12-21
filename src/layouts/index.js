@@ -54,6 +54,12 @@ const Layout = ({children, location}) => {
         leave: {transform: 'translate(-100%, -50%)'}
     })
 
+    const contactFormTransition = useTransition(contactButtonClicked, null, {
+        from: {opacity: '0'},
+        enter: {opacity: '1'},
+        leave: {opacity: '0'}
+    })
+
     useEffect(() => {
         if(typeof window != 'undefined'){
             window.addEventListener('scroll', () => {
@@ -251,17 +257,25 @@ const Layout = ({children, location}) => {
                     </AsideNavContainer>
                 </div>
             </FooterContainer>
-            <div style={{display: contactButtonClicked ? 'flex' : 'none'}} className={styles.contactFormContainer}>
-                <ContactForm>
-                    <img style={{alignSelf:'flex-start', width:40, marginBottom:15, cursor:'pointer'}} src={closeBlue} alt='close' onClick={() => dispatch({type:'toggle_contact_form'})}/>
-                </ContactForm>
-            </div>
-            {contactButtonClicked &&
-            <div className={styles.mobileForm}>
-                    <ContactForm>
-                        <img style={{alignSelf:'flex-start', width:40, marginBottom:15, cursor:'pointer'}} src={closeBlue} alt='close' onClick={() => dispatch({type:'toggle_contact_form'})}/>
-                    </ContactForm>
-            </div>
+            {
+                contactFormTransition.map(({item, key, props}) => 
+                    item && 
+                    <animated.div key={key} style={props} className={styles.contactFormContainer}>
+                        <ContactForm>
+                            <img style={{alignSelf:'flex-start', width:40, marginBottom:15, cursor:'pointer'}} src={closeBlue} alt='close' onClick={() => dispatch({type:'toggle_contact_form'})}/>
+                        </ContactForm>
+                    </animated.div> 
+
+                )
+            }
+            { contactFormTransition.map(({item, key, props}) => 
+                item &&
+                <animated.div style={props} key={key} className={styles.mobileForm}>
+                        <ContactForm>
+                            <img style={{alignSelf:'flex-start', width:40, marginBottom:15, cursor:'pointer'}} src={closeBlue} alt='close' onClick={() => dispatch({type:'toggle_contact_form'})}/>
+                        </ContactForm>
+                </animated.div>
+            ) 
             }
         </div>
     )
