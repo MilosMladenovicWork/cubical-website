@@ -5,7 +5,7 @@
     z-index:5;
     margin-left:50px;
     @include breakpoint(sm){
-        width:15vw;
+        width:20vw;
     }
     @include breakpoint(lg){
         width:12.5vw;
