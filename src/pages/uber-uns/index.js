@@ -4,8 +4,7 @@ import {Link} from 'gatsby'
 
 import styles from './ueber-uns.module.scss'
 import Slider from '../../components/Slider'
-import imgSlide1 from '../../img/background1.jpg'
-import imgSlide2 from '../../img/background2.jpg'
+import imgSlide1 from '../../img/uber-uns-banner.png'
 import BackgroundImage from '../../components/BackgroundImage'
 import Section from '../../components/Section'
 import TextImageBox from '../../components/TextImageBox'
@@ -27,11 +26,6 @@ const UeberUnsPage = () => {
                     <SwiperSlide>
                         <div style={{height: '100vh'}}>
                             <BackgroundImage image={imgSlide1}/>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div style={{height: '100vh'}}>
-                            <BackgroundImage image={imgSlide2}/>
                         </div>
                     </SwiperSlide>
                 </Slider>

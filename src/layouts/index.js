@@ -34,8 +34,6 @@ const Layout = ({children, location}) => {
 
     const [showNavIcons, setShowNavIcons] = useState(false)
 
-    console.log(contactButtonClicked)
-
     const toggleChat = () => {
         tidioChatApi.open();
     }

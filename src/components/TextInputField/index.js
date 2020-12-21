@@ -1,11 +1,12 @@
+import { rest } from 'lodash'
 import React from 'react'
 
 import styles from './text-input-field.module.scss'
 
-const TextInputField = ({value, placeholder, onChange, type}) => {
+const TextInputField = ({value, placeholder, onChange, type, ...rest}) => {
 
     return(
-        <input className={styles.textInputField} type={type ? type : 'text'} value={value} placeholder={placeholder} onChange={onChange}/>
+        <input {...rest} className={styles.textInputField} type={type ? type : 'text'} value={value} placeholder={placeholder} onChange={onChange}/>
     )
 }
 
