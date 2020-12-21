@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {animated, useSpring} from 'react-spring'
+import {animated, useSpring, useTransition} from 'react-spring'
 
 import NavMenuContainer from '../components/NavMenuContainer'
 import NavLink from '../components/NavLink'
@@ -32,11 +32,15 @@ const Layout = ({children, location}) => {
 
     let contactButtonClicked = useSelector(state => state.contactFormOpened)
 
+    const [showNavIcons, setShowNavIcons] = useState(false)
+
     console.log(contactButtonClicked)
 
     const toggleChat = () => {
         tidioChatApi.open();
     }
+
+    const vhToPixel = value => `${typeof window != 'undefined' && (window.innerHeight * value) / 100}`
 
     useEffect(() => {
         dispatch({type:'PAGE_LOADED'})
@@ -45,6 +49,25 @@ const Layout = ({children, location}) => {
             dispatch({type:'PAGE_LOADED_MINIMAL'})
         }, 1500)
     }, [])
+
+    const navIconsTransition = useTransition(showNavIcons, null, {
+        from: {transform:'translate(-100%, -50%)'},
+        enter: {transform: 'translate(0%, -50%)'},
+        leave: {transform: 'translate(-100%, -50%)'}
+    })
+
+    useEffect(() => {
+        if(typeof window != 'undefined'){
+            window.addEventListener('scroll', () => {
+                let scrolledPixels = vhToPixel(75)
+                if(window.scrollY > Number(scrolledPixels)){
+                    setShowNavIcons(true)
+                }else{
+                    setShowNavIcons(false)
+                }
+            })
+        }
+    })
 
     const pageLoaded = useSelector(state => state.pageLoaded)
     const pageLoadedMinimal = useSelector(state => state.pageLoadedMinimal)
@@ -145,19 +168,24 @@ const Layout = ({children, location}) => {
             </NavMenuContainer>
             <main>
                 <div className={`${styles.mainContentNavigation}`}>
-                    <div className={`${styles.navigationStickyContainer} ${styles.navigationStickyContainerLeft}`}>
-                        <AsideNavContainer>
-                            <a href='tel:+111111111'>
-                                <img src={phoneIcon} alt='call us'/>
-                            </a>
-                            <a href='mailto:test@email.com'>
-                                <img src={emailIcon} alt='send mail to us'/>
-                            </a>
-                            <a href='/'>
-                                <img src={homeIcon} alt='home page'/>
-                            </a>
-                        </AsideNavContainer>
-                    </div>
+                    {
+                        navIconsTransition.map(({item, key, props}) => 
+                            item && 
+                            <animated.div key={key} style={props} className={`${styles.navigationStickyContainer} ${styles.navigationStickyContainerLeft}`}>
+                                    <AsideNavContainer>
+                                        <a href='tel:+111111111'>
+                                            <img src={phoneIcon} alt='call us'/>
+                                        </a>
+                                        <a href='mailto:test@email.com'>
+                                            <img src={emailIcon} alt='send mail to us'/>
+                                        </a>
+                                        <a href='/'>
+                                            <img src={homeIcon} alt='home page'/>
+                                        </a>
+                                    </AsideNavContainer>
+                            </animated.div>
+                        )
+                    }
                 </div>
                 <div className={styles.mainContent}>
                     {children}
