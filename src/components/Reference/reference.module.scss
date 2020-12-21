@@ -8,6 +8,8 @@
     }
     .text-overlay{
         width:100%;
+        height:auto;
+        transition:0.5s;
         @include breakpoint(sm){
             min-height:10px;
             width:380px;
@@ -17,8 +19,16 @@
             top:50%;
         }
     }
+    .expanded{
+        transform:translate(0, -40px);
+        @include breakpoint(lg){
+            width:60%;
+            right:0;
+        }
+    }
     .reference-image{
         position: relative;
+        transition:0.5s;
         .reference-video{
             @include breakpoint(xs){
                 display:block;
@@ -90,4 +100,20 @@
 
 .overlay-styled-container:hover{
     border-radius:30px;
+}
+
+.shrinked{
+    @include breakpoint(lg){
+        transform: scale(0.7) translate(-50%, 0%);
+    }
+}
+
+.description{
+    max-height:0;
+    transition:0.5s;
+    overflow: hidden;
+}
+
+.visible-description{
+    max-height:250vh;
 }

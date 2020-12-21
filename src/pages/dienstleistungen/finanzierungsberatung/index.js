@@ -20,10 +20,12 @@ import BottomBorderedContainer from '../../../components/BottomBorderedContainer
 import SpacedItemsContainer from '../../../components/SpacedItemsContainer'
 import property from '../../../img/property.png'
 import MotoText from '../../../components/MotoText'
+import Reference from '../../../components/Reference'
+import referenceImg from '../../../img/background1.jpg'
 
 const FinanzierungsberatungPage = () => {
 
-    const [numOfLoadedItems, setNumOfLoadedItems] = useState(2)
+    const [numOfLoadedItems, setNumOfLoadedItems] = useState(1)
     const [scrollFromTop, setScrollFromTop] = useState(0)
 
     const setScrollPosition = () => {
@@ -66,9 +68,26 @@ const FinanzierungsberatungPage = () => {
             <PageIntro title='Finanzierungsberatung.'>
                 <p>Jedes unserer verkauften oder vermie­teten Objekte ist eine Erfolgs­ge­schichte, die uns stolz macht. Eine Auswahl dieser Geschichten möchten wir hier mit Ihnen teilen. Viel Vergnügen beim Entde­cken.</p>
             </PageIntro>
-            <PageIntro title='DER PASSENDE INVESTOR FÜR IHR RENDITEOBJEKT.'>
-                <p>Sind Sie auf der Suche nach einem geeig­neten Investor für Ihre Anla­ge­im­mo­bilie? Dabei können wir Sie ganz gezielt unter­stützen. Denn für grosse Immo­bi­lie­nin­ves­toren im In- und Ausland suchen wir laufend nach exklu­siven Rendi­te­ob­jekten: Wohnim­mo­bi­lien, Mehr­fa­mi­li­en­häuser oder attrak­tive Grund­stücke. Holen Sie uns ins Boot – wir stehen Ihnen gerne zur Seite.</p>
-            </PageIntro>
+            <Section>
+                {dummyArray.map((item, index) => {
+                    if(index < numOfLoadedItems){
+                        return <div className={`${styles.referenceItem} ${styles.visibleItem}`}>
+                        <Reference videoLink={'https://www.youtube.com/embed/ZK9wtYOcChQ'} image={referenceImg} quote={'Es gibt nur eine – und das ist Cristina Cotoia.'} text={
+                            <>
+                                <p>Es ist ein Zuhause, eine Wohfühl Oase, ein Ort, an dem man sich ausruhen kann, um eventuell auch Zeit mit der Familie zu verbringen.</p>
+                                <p>Deswegen bauen wir das Haus genau nach Ihren Bedürfnissen. Wir schauen, dass es für Sie als Kunden wahrscheinlich ist, dass es das erste und das letzte Haus sein wird, welches gebaut wird – da ist es umso wichtiger, dass alles zu 100% passt. Aus diesem Grund arbeiten wir mit einem mit Hochdruck zusammenarbeitendem Team, welches Ihre Wünsche und Träume verwirklichen wird.</p>
+                                <p>Lassen Sie sich von unserer individuellen Beratung begeistern und Ihre Träume wahrwerden</p>
+                            </>
+                        }/>
+                        </div>
+                    }
+                })}
+                <div className={styles.seeMoreButton}>
+                    <ButtonBordered onClick={() => {setScrollPosition();setNumOfLoadedItems(prevState => prevState + 5)}}>
+                        Mehr Anzeigen
+                    </ButtonBordered>
+                </div>
+            </Section>
         </React.Fragment>
     )
 }
