@@ -16,41 +16,10 @@ import OffsetItemContainer from '../../../components/OffsetItemContainer'
 import RealEstateItem from '../../../components/SlidingOverlayItem'
 import downArrowImg from '../../../img/chevron-down-outline.svg'
 import ScrollScreenButton from '../../../components/ScrollScreenButton'
-import realEstateItemImage from '../../../img/itemImage1.png'
-import BottomBorderedContainer from '../../../components/BottomBorderedContainer'
-import SpacedItemsContainer from '../../../components/SpacedItemsContainer'
-import property from '../../../img/property.png'
 import MotoText from '../../../components/MotoText'
+import FilterPropertySection from '../../../components/FilterPropertySection'
 
 const KaufenPage = () => {
-
-    const [numOfLoadedItems, setNumOfLoadedItems] = useState(2)
-    const [scrollFromTop, setScrollFromTop] = useState(0)
-
-    const setScrollPosition = () => {
-        setScrollFromTop(window.pageYOffset)
-    }
-
-    useEffect(() => {   
-        window.scrollTo(0, scrollFromTop)
-    }, [numOfLoadedItems])
-
-    const dummyArray = [
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1
-    ]
 
     return(
         <React.Fragment>
@@ -69,39 +38,7 @@ const KaufenPage = () => {
                 <p>Wer besitzt, der bestimmt: Ob farbige Wände, Blumenbeet im Garten oder ein neues Badezimmer. Als Eigentümer eines Hauses oder einer Wohnung, sind Sie freigestellt, ihr Haus nach ihren Wünschen zu gestalten. </p>
                 <p>Der Kauf eines Hauses wird einer der wichtigsten Entscheidungen, die Sie treffen. Wir freuen uns Sie dabei zu unterstützen und Ihnen zur Seite zu stehen.</p>
             </PageIntro>
-            <Section>
-                <h2>KAUFEN</h2>
-                {dummyArray.map((item, index) => {
-                        if(index < numOfLoadedItems){
-                            return <TextImageBox image={property}>
-                            <h3>Some text about properties...</h3>
-                            <BottomBorderedContainer>
-                                <SpacedItemsContainer>
-                                    <p>Adresse</p>
-                                    <p>8200 Schaffhausen</p>
-                                </SpacedItemsContainer>
-                            </BottomBorderedContainer>
-                            <BottomBorderedContainer>
-                                <SpacedItemsContainer>
-                                    <p>Adresse</p>
-                                    <p>8200 Schaffhausen</p>
-                                </SpacedItemsContainer>
-                            </BottomBorderedContainer>
-                            <BottomBorderedContainer>
-                                <SpacedItemsContainer>
-                                    <p>Adresse</p>
-                                    <p>8200 Schaffhausen</p>
-                                </SpacedItemsContainer>
-                            </BottomBorderedContainer>
-                        </TextImageBox> 
-                        }
-                    })}
-                <div className={styles.seeMoreButton}>
-                    <ButtonBordered onClick={() => {setScrollPosition();setNumOfLoadedItems(prevState => prevState + 2)}}>
-                        Mehr Anzeigen
-                    </ButtonBordered>
-                </div>
-            </Section>
+            <FilterPropertySection/>
             <Section>
                 <h3><span className={styles.bigNumber}>1</span> UNVERBINDLICHES ERSTGESPRÄCH</h3>
                 <p>Wir treffen Sie direkt vor Ort zum unver­bind­li­chen Gespräch. So entwi­ckeln wir das beste Gefühl für Sie und Ihre Immo­bilie, können alle rele­vanten Fragen klären und ein passendes Vorgehen erar­beiten.</p>
