@@ -28,16 +28,19 @@
     position:absolute;
     top:71.2px;
     width: max-content;
+    min-width: max-content;
     margin:0;
     padding:0;
     padding-top:15px;
     padding-left:15px;
     padding-bottom: 10px;
     transition:0.1s;
-    background:rgba(255, 255, 255, 0.2);
+    background:rgba(255, 255, 255, 0.8);
     a {
         font-size: 1.3rem;
         padding-right:15px;
+        display: flex;
+        align-items:center;
     }
 }
 .nav-link:hover{
