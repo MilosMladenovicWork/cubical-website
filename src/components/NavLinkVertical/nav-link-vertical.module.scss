@@ -5,7 +5,9 @@
     position:relative;
     padding:55px 15px;
     margin:0;
-    transform: rotateZ(-90deg);
+    @include breakpoint(sm){
+        transform: rotateZ(-90deg);
+    }
     .main-button{
         cursor: pointer;
         display: inline-block;

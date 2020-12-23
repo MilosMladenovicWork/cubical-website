@@ -19,6 +19,8 @@
 }
 
 .rotated{
-    display: flex;
-    flex-direction: column;
+    @include breakpoint(sm){
+        display: flex;
+        flex-direction: column;
+    }
 }

@@ -228,7 +228,7 @@ const Layout = ({children, location}) => {
                     </ButtonBordered>
                 </div>
                 <div className={styles.footerNavigation}>
-                    <AsideNavContainer>
+                    <AsideNavContainer rotated>
                         <NavLinkVertical link={{href:'/datenschutz/', text:'DATENSCHUTZ'}}>
                             
                         </NavLinkVertical>

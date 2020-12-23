@@ -47,12 +47,12 @@
     margin-top:50px;
     @include breakpoint(sm){
         position:absolute;
-        right:-150px;
+        right:0px;
         top:50%;
-        transform:translate(0, -50%) rotateZ(-90deg);
+        transform:translate(0, -50%) rotateZ(0deg);
     }
     @include breakpoint(lg){
-        right:-100px;
+        right:0px;
     }
 }
 
