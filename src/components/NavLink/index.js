@@ -24,7 +24,9 @@ const NavLink = ({link, subLinks, deactivated, onClick}) => {
         <li className={styles.navLink} onClick={() => onClick && onClick()}>
             <Link onClick={(e) => deactivated && e.preventDefault()} to={link.href} activeClassName={styles.active} partiallyActive={true}>
                 <RoofSVG/>
-                {link.text}
+                <span>
+                    {link.text}
+                </span>
             </Link>
             {
                 subLinks && 

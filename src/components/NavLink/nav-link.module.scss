@@ -41,6 +41,9 @@
         padding-right:15px;
         display: flex;
         align-items:center;
+        > svg > g{
+            flex-grow: 1;
+        }
     }
 }
 .nav-link:hover{
