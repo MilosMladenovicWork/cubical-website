@@ -36,6 +36,9 @@
 }
 
 .properties{
+  h2{
+    font-size:3rem;
+  }
   @include breakpoint(lg){
     max-width:50vw;
   }
@@ -48,5 +51,55 @@
   @include breakpoint(lg){
     width:15vw;
     right:16.5vw;
+  }
+}
+
+.row-spaced{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-direction: column-reverse;
+  @include breakpoint(lg){
+    flex-direction: row;
+  }
+}
+
+.info-and-sorting{
+  margin:auto;
+  margin-bottom:100px;
+  width:100%;
+  @include breakpoint(sm){
+    width:50%;
+  }
+  @include breakpoint(lg){
+    width:100%;
+  }
+}
+
+.sorting-settings{
+  > label{
+    display:flex;
+    flex-direction: column;
+    @include breakpoint(lg){
+      flex-direction: row;
+    }
+    > * {
+      display: flex;
+      align-items: center;
+      margin-bottom:10px;
+      @include breakpoint(lg){
+        margin-left:15px;
+        margin-bottom:0px;
+      }
+    }
+  }
+  
+  .sorting-description, select{
+    padding: 5px 10px;
+  }
+
+  select{
+    border:none;
+    width:100%;
   }
 }

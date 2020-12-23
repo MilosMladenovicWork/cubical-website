@@ -8,6 +8,7 @@ import property from '../../img/property.png'
 import ButtonBordered from '../ButtonBordered'
 
 import styles from './filter-property-section.module.scss'
+import TiltableContainer from '../TiltableContainer'
 
 const FilterPropertySection = () => {
 
@@ -48,6 +49,33 @@ const FilterPropertySection = () => {
           </div>
         </div>
         <div className={styles.properties}>
+          <div className={`${styles.infoAndSorting} ${styles.rowSpaced}`}>
+            <h2>{dummyArray.length} Immobilien gefunded</h2>
+            <form className={styles.sortingSettings}>
+              <label>
+              <TiltableContainer>
+                <div className={styles.sortingDescription}>
+                  Sortieren nach:
+                </div>
+              </TiltableContainer>
+              <TiltableContainer>
+                <select name='preis'>
+                  <option value=''>Preis</option>
+                </select>
+              </TiltableContainer>
+              <TiltableContainer>
+                <select name='zimmer'>
+                  <option value=''>Zimmer</option>
+                </select>
+              </TiltableContainer>
+              <TiltableContainer>
+                <select name='wohnflache'>
+                  <option value=''>Wohnflache</option>
+                </select>
+              </TiltableContainer>
+              </label>
+            </form>
+          </div>
           {dummyArray.map((item, index) => {
                 if(index < numOfLoadedItems){
                     return <TextImageBox image={property}>
