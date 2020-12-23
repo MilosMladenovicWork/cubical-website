@@ -3,7 +3,7 @@ import {Link} from 'gatsby'
 
 import styles from './nav-link-vertical.module.scss'
 
-const NavLinkVertical = ({link, children, onClick, active, invisible, showChildren}) => {
+const NavLinkVertical = ({link, children, onClick, active, vertical, invisible, showChildren}) => {
     return(
         <li className={`${styles.navLinkVertical} ${active && styles.active}`}>
             <div className={`${styles.navLinkVerticalChildren} ${showChildren && styles.showChildren}`}>

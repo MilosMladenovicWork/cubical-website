@@ -34,10 +34,6 @@ const Layout = ({children, location}) => {
 
     const [showNavIcons, setShowNavIcons] = useState(false)
 
-    const toggleChat = () => {
-        tidioChatApi.open();
-    }
-
     const vhToPixel = value => `${typeof window != 'undefined' && (window.innerHeight * value) / 100}`
 
     useEffect(() => {
@@ -196,7 +192,7 @@ const Layout = ({children, location}) => {
                 </div>
                 <div className={styles.mainContentNavigation}>
                     <div className={styles.navigationStickyContainer}>
-                        <AsideNavContainer>
+                        <AsideNavContainer rotated>
                             <NavLinkVertical link={{href:false, text:'Folge uns'}}>
                                 <div className={styles.socialIcons}>
                                     <a href='https://facebook.com'>
@@ -206,11 +202,6 @@ const Layout = ({children, location}) => {
                                         <img src={instagramLogo} alt='instagram'/>
                                     </a>
                                 </div>
-                            </NavLinkVertical>
-                            <NavLinkVertical link={{href:false, text:'Chat'}} onClick={() => toggleChat()}>
-                            </NavLinkVertical>
-                            <NavLinkVertical active={contactButtonClicked} link={{href:false, text:'Kontakt'}} invisible onClick={() => dispatch({type:'toggle_contact_form'})} showChildren={true}>
-                                
                             </NavLinkVertical>
                         </AsideNavContainer>
                     </div>

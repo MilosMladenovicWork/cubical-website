@@ -2,11 +2,11 @@ import React from 'react'
 
 import styles from './aside-nav-container.module.scss'
 
-const AsideNavContainer = ({children}) => {
+const AsideNavContainer = ({children, rotated}) => {
     return(
         <aside className={styles.asideNavContainer}>
             <nav>
-                <ul>
+                <ul className={rotated && styles.rotated}>
                     {children}
                 </ul>
             </nav>
