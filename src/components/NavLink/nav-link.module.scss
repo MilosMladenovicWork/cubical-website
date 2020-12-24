@@ -17,8 +17,15 @@
         text-decoration: none;
         text-transform: uppercase;
     }
-    li:hover > a > svg path{
-        fill:#47A8D7;
+    li:hover{
+        > a {
+            span{
+                color:#47A8D7;
+            }
+            > svg path {
+                fill:#47A8D7;
+            }
+        }
     }
 }
 
@@ -51,7 +58,9 @@
         display: flex;
     }
     > a {
-        color:#47A8D7;
+        span{
+            color:#47A8D7;
+        }
         > svg path {
             fill:#47A8D7;
         }
@@ -60,6 +69,9 @@
 
 .active{
     color:#47A8D7;
+    span{
+        color:#47A8D7;
+    }
     > svg path{
         fill:#47A8D7;
     }
