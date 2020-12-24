@@ -4,17 +4,21 @@ import styles from './page-intro.module.scss'
 import Section from '../Section'
 import AppearOnViewContainer from '../AppearOnViewContainer'
 
-const PageIntro = ({title, children}) => {
+const PageIntro = ({data, children}) => {
+
     return(
         <Section>
-            <AppearOnViewContainer>
-                <h1>{title}</h1>
-            </AppearOnViewContainer>
-            <AppearOnViewContainer>
-                <div className={styles.introText}>
-                    {children}
-                </div>
-            </AppearOnViewContainer>
+            {data.primary.heading &&
+                <AppearOnViewContainer>
+                    <div dangerouslySetInnerHTML={{__html:data.primary.heading.html}}></div>
+                </AppearOnViewContainer>
+            }
+            {data.primary.body1 && 
+                <AppearOnViewContainer>
+                    <div className={styles.introText} dangerouslySetInnerHTML={{__html:data.primary.body1.html}}>
+                    </div>
+                </AppearOnViewContainer>
+            }
         </Section>
     )
 }

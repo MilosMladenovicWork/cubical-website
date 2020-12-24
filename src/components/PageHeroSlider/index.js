@@ -11,27 +11,42 @@ import TiltableContainer from '../../components/TiltableContainer'
 import MotoText from '../../components/MotoText'
 import Slider from '../../components/Slider'
 
-const PageHeroSlider = () => {
+const PageHeroSlider = ({data}) => {
     
   return (
     <div className={styles.heroSlider}>
-        <Slider>
-            <SwiperSlide>
-                <div style={{height: '100vh'}}>
-                    <BackgroundImage image={imgSlide1}/>
-                </div>
-            </SwiperSlide>
-        </Slider>
-        <MotoText text={'The key to your home'}/>
-        <div className={styles.motoTextContainer}>
-            <TiltableContainer roundedCorners>
-                <h1 className={styles.motoText}><span>T</span><span>h</span><span>e</span> <span>k</span><span>e</span><span>y</span> <span>t</span><span>o</span> <span>y</span><span>o</span><span>u</span><span>r</span> <span>h</span><span>o</span><span>m</span><span>e</span><span>.</span></h1>
-            </TiltableContainer>
-        </div>
-        <LinkRibbons links={[{href:'/aktuelles', text:'Aktuelles'}]}/>
-        <ScrollScreenButton>
-            <img src={downArrowImg} alt='scroll down'/>
-        </ScrollScreenButton>
+        {
+            data &&
+            <>
+                <Slider>
+                    {data.items &&
+                    data.items.length > 0 &&
+                        data.items.map(image => {
+                            return <SwiperSlide>
+                                <div style={{height: '100vh'}}>
+                                    { 
+                                        image &&
+                                        image.hero_images &&
+                                        <BackgroundImage image={image.hero_images.localFile.childImageSharp.fluid}/>
+                                    }
+                                </div>
+                            </SwiperSlide>
+                        })
+                    }
+                </Slider>
+                {
+                    data.fields.heading &&
+                    <MotoText text={data.fields.heading}/>
+                }
+                {
+                    data.fields.ribbon_text && data.fields.ribbon_link &&
+                    <LinkRibbons links={[{href: data.fields.ribbon_link.url, text:data.fields.ribbon_text}]}/>
+                }
+                <ScrollScreenButton>
+                    <img src={downArrowImg} alt='scroll down'/>
+                </ScrollScreenButton>
+            </>
+        }
     </div>
   )
 }

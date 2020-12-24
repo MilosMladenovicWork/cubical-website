@@ -38,62 +38,93 @@ const HomePage = () => {
     const data = useStaticQuery(graphql`
     query HomePageQuery {
         prismicPage(data: {page_path: {eq: "/"}}) {
-          data {
-            body {
-              ... on PrismicPageBodyHeroSlider {
-                id
-                items {
-                  hero_images {
-                    localFile {
-                      absolutePath
+            data {
+              body {
+                ... on PrismicPageBodyHeroSlider {
+                  id
+                  items {
+                    hero_images {
+                      localFile {
+                        childImageSharp {
+                            fluid(maxWidth: 1920, quality: 100) {
+                              ...GatsbyImageSharpFluid_withWebp
+                            }
+                        }
+                      }
                     }
                   }
-                }
-              }
-              ... on PrismicPageBodyIntroText {
-                primary {
-                  body1 {
-                    html
-                  }
-                  heading {
-                    html
-                  }
-                }
-              }
-              ... on PrismicPageBodyIrregularCards {
-                id
-                items {
-                  card_heading
-                  card_body {
-                    html
-                  }
-                }
-                primary {
-                  background_image {
-                    localFile {
-                      absolutePath
+                  fields: primary {
+                    heading
+                    ribbon_text
+                    ribbon_link{
+                        url
                     }
                   }
-                  section_heading
+                  slice_type
                 }
-              }
-              ... on PrismicPageBodyRegularCards {
-                id
-                items {
-                  card_body {
-                    html
-                  }
-                  card_image {
-                    localFile {
-                      absolutePath
+                ... on PrismicPageBodyIntroText {
+                  primary {
+                    body1 {
+                      html
+                    }
+                    heading {
+                      html
                     }
                   }
-                  heading
-                  small_heading
+                  slice_type
+                }
+                ... on PrismicPageBodyIrregularCards {
+                  id
+                  items {
+                    card_heading
+                    card_body {
+                      html
+                    }
+                    card_link{
+                        url
+                    }
+                  }
+                  primary {
+                    background_image {
+                      localFile {
+                        childImageSharp {
+                            fluid(maxWidth: 1920, quality: 100) {
+                              ...GatsbyImageSharpFluid_withWebp
+                            }
+                        }
+                      }
+                      alt
+                    }
+                    section_heading
+                  }
+                  slice_type
+                }
+                ... on PrismicPageBodyRegularCards {
+                  id
+                  items {
+                    card_body {
+                      html
+                    }
+                    card_link{
+                        url
+                    }
+                    card_image {
+                      localFile {
+                        childImageSharp {
+                            fluid(maxWidth: 460, quality: 100) {
+                              ...GatsbyImageSharpFluid_withWebp
+                            }
+                        }
+                      }
+                      alt
+                    }
+                    heading
+                    small_heading
+                  }
+                  slice_type
                 }
               }
             }
-          }
         }
       }
     `)
@@ -102,20 +133,26 @@ const HomePage = () => {
 
     return(
         <React.Fragment>
-            <PageHeroSlider/>
-            <PageIntro title={'Ein Haus sollte mehr sein, als nur eine Immobilie.'}>
-                <p>
-                    Es ist ein Zuhause, eine Wohfühl Oase, ein Ort, an dem man sich ausruhen kann, um eventuell auch Zeit mit der Familie zu verbringen.
-                </p>
-                <p>
-                    Deswegen bauen wir das Haus genau nach Ihren Bedürfnissen. Wir schauen, dass es für Sie als Kunden wahrscheinlich ist, dass es das erste und das letzte Haus sein wird, welches gebaut wird – da ist es umso wichtiger, dass alles zu 100% passt. Aus diesem Grund arbeiten wir mit einem mit Hochdruck zusammenarbeitendem Team, welches Ihre Wünsche und Träume verwirklichen wird.
-                </p>
-                <p>
-                    Lassen Sie sich von unserer individuellen Beratung begeistern und Ihre Träume wahrwerden.
-                </p>
-            </PageIntro>
-            <PageRegularCardsSection/>
-            <PageIrregularCardsSection/>
+            {   
+                data.prismicPage.data.body &&
+                data.prismicPage.data.body.length > 0 &&
+                data.prismicPage.data.body.map(slice => {
+                    switch(slice.slice_type){
+                        case 'hero_slider':
+                            return <PageHeroSlider data={slice}/>
+                        case 'intro_text':
+                            return (
+                            <PageIntro data={slice} />
+                            ) 
+                        case 'regular_cards':
+                            return  <PageRegularCardsSection data={slice}/>
+                        case 'irregular_cards':
+                            return <PageIrregularCardsSection data={slice}/>
+                        default:
+                            return
+                    }
+                })
+            }
             {/* <PageMapSection/> */}
             {/* <Section>
                 <h2>AKTUELLE IMMOBILIEN</h2>

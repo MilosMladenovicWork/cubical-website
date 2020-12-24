@@ -5,17 +5,26 @@ import styles from './our-services-item.module.scss'
 import arrowRightImg from '../../img/arrow-forward.svg'
 import AppearOnViewContainer from '../AppearOnViewContainer'
 
-const OurServicesItem = ({children, link}) => {
+const OurServicesItem = ({children, data}) => {
     return(
         <li style={{
             width: `${Math.floor(Math.random()*(45-30+1)+30)}%`
         }}>
             <AppearOnViewContainer>
                 <div className={styles.randomWidthItem}>
-                        <Link to={link}>
-                            {children}
-                            <img src={arrowRightImg} className={styles.openServiceIcon} alt='see more'/>
-                        </Link>
+                    <Link to={data.card_link && data.card_link.url}>
+                        {
+                            data.card_heading &&
+                            <h3>{data.card_heading}</h3>
+                        }
+                        {
+                            data.card_body &&
+                            <div dangerouslySetInnerHTML={{__html:data.card_body.html}}>
+
+                            </div>
+                        }
+                        <img src={arrowRightImg} className={styles.openServiceIcon} alt='see more'/>
+                    </Link>
                 </div>
             </AppearOnViewContainer>
         </li>
