@@ -75,31 +75,3 @@
     width:100%;
   }
 }
-
-.sorting-settings{
-  > label{
-    display:flex;
-    flex-direction: column;
-    @include breakpoint(lg){
-      flex-direction: row;
-    }
-    > * {
-      display: flex;
-      align-items: center;
-      margin-bottom:10px;
-      @include breakpoint(lg){
-        margin-left:15px;
-        margin-bottom:0px;
-      }
-    }
-  }
-  
-  .sorting-description, select{
-    padding: 5px 10px;
-  }
-
-  select{
-    border:none;
-    width:100%;
-  }
-}

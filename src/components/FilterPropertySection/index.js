@@ -9,11 +9,15 @@ import ButtonBordered from '../ButtonBordered'
 
 import styles from './filter-property-section.module.scss'
 import TiltableContainer from '../TiltableContainer'
+import PropertySorting from '../PropertySorting'
 
 const FilterPropertySection = () => {
 
   const [numOfLoadedItems, setNumOfLoadedItems] = useState(1)
   const [scrollFromTop, setScrollFromTop] = useState(0)
+  const [filters, setFilters] = useState({})
+
+  console.log(filters)
 
   const setScrollPosition = () => {
       setScrollFromTop(window.pageYOffset)
@@ -45,36 +49,13 @@ const FilterPropertySection = () => {
       <div className={styles.row}>
         <div className={styles.stickyFilterContainer}>
           <div className={styles.filterContainer}>
-            <PropertyFilter/>
+            <PropertyFilter filters={filters} setFilters={setFilters}/>
           </div>
         </div>
         <div className={styles.properties}>
           <div className={`${styles.infoAndSorting} ${styles.rowSpaced}`}>
             <h2>{dummyArray.length} Immobilien gefunded</h2>
-            <form className={styles.sortingSettings}>
-              <label>
-              <TiltableContainer>
-                <div className={styles.sortingDescription}>
-                  Sortieren nach:
-                </div>
-              </TiltableContainer>
-              <TiltableContainer>
-                <select name='preis'>
-                  <option value=''>Preis</option>
-                </select>
-              </TiltableContainer>
-              <TiltableContainer>
-                <select name='zimmer'>
-                  <option value=''>Zimmer</option>
-                </select>
-              </TiltableContainer>
-              <TiltableContainer>
-                <select name='wohnflache'>
-                  <option value=''>Wohnflache</option>
-                </select>
-              </TiltableContainer>
-              </label>
-            </form>
+            <PropertySorting/>
           </div>
           {dummyArray.map((item, index) => {
                 if(index < numOfLoadedItems){
