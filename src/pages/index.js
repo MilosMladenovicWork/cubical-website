@@ -1,6 +1,6 @@
 import React from 'react'
 import {SwiperSlide} from 'swiper/react'
-import {Link} from 'gatsby'
+import {useStaticQuery, graphql, Link} from 'gatsby'
 
 import styles from './index.module.scss'
 import Slider from '../components/Slider'
@@ -34,6 +34,72 @@ import PageIrregularCardsSection from '../components/PageIrregularCardsSection'
 import PageMapSection from '../components/PageMapSection'
 
 const HomePage = () => {
+
+    const data = useStaticQuery(graphql`
+    query HomePageQuery {
+        prismicPage(data: {page_path: {eq: "/"}}) {
+          data {
+            body {
+              ... on PrismicPageBodyHeroSlider {
+                id
+                items {
+                  hero_images {
+                    localFile {
+                      absolutePath
+                    }
+                  }
+                }
+              }
+              ... on PrismicPageBodyIntroText {
+                primary {
+                  body1 {
+                    html
+                  }
+                  heading {
+                    html
+                  }
+                }
+              }
+              ... on PrismicPageBodyIrregularCards {
+                id
+                items {
+                  card_heading
+                  card_body {
+                    html
+                  }
+                }
+                primary {
+                  background_image {
+                    localFile {
+                      absolutePath
+                    }
+                  }
+                  section_heading
+                }
+              }
+              ... on PrismicPageBodyRegularCards {
+                id
+                items {
+                  card_body {
+                    html
+                  }
+                  card_image {
+                    localFile {
+                      absolutePath
+                    }
+                  }
+                  heading
+                  small_heading
+                }
+              }
+            }
+          }
+        }
+      }
+    `)
+
+      console.log(data)
+
     return(
         <React.Fragment>
             <PageHeroSlider/>

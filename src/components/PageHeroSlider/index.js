@@ -12,6 +12,7 @@ import MotoText from '../../components/MotoText'
 import Slider from '../../components/Slider'
 
 const PageHeroSlider = () => {
+    
   return (
     <div className={styles.heroSlider}>
         <Slider>

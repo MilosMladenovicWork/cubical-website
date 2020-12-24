@@ -1,6 +1,6 @@
 import React from 'react'
 import {SwiperSlide} from 'swiper/react'
-import {Link} from 'gatsby'
+import { Link} from 'gatsby'
 
 import styles from './ueber-uns.module.scss'
 import Slider from '../../components/Slider'
@@ -19,6 +19,8 @@ import realEstateItemImage from '../../img/itemImage1.png'
 import referenceImg from '../../img/background1.jpg'
 
 const UeberUnsPage = () => {
+
+
     return(
         <React.Fragment>
             <div className={styles.heroSlider}>

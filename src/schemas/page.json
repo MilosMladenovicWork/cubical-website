@@ -1,0 +1,203 @@
+{
+  "Main" : {
+    "page_cms_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Page CMS Title",
+        "useAsTitle" : true
+      }
+    },
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "labels" : {
+          "hero_slider" : [ {
+            "name" : "hero_slider",
+            "display" : "Hero Slider"
+          } ],
+          "intro_text" : [ ],
+          "regular_cards" : [ {
+            "name" : "regular_cards",
+            "display" : "Regular Cards"
+          } ],
+          "irregular_cards" : [ {
+            "name" : "irregular_cards",
+            "display" : "Irregular Cards"
+          } ]
+        },
+        "choices" : {
+          "hero_slider" : {
+            "type" : "Slice",
+            "fieldset" : "Hero Slider",
+            "description" : "Hero slider with Big Image",
+            "icon" : "airplay",
+            "display" : "list",
+            "non-repeat" : {
+              "heading" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Heading"
+                }
+              },
+              "ribbon_text" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Ribbon Text"
+                }
+              },
+              "ribbon_link" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Ribbon Link"
+                }
+              }
+            },
+            "repeat" : {
+              "hero_images" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 1920,
+                    "height" : 1080
+                  },
+                  "thumbnails" : [ ],
+                  "label" : "Hero Images"
+                }
+              }
+            }
+          },
+          "intro_text" : {
+            "type" : "Slice",
+            "fieldset" : "Intro Text",
+            "description" : "Text with heading and centered body",
+            "icon" : "format_align_center",
+            "display" : "grid",
+            "non-repeat" : {
+              "heading" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label" : "Heading"
+                }
+              },
+              "body1" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label" : "Body"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "regular_cards" : {
+            "type" : "Slice",
+            "fieldset" : "Regular Cards",
+            "description" : "Symetric card section",
+            "icon" : "crop_square",
+            "display" : "list",
+            "non-repeat" : { },
+            "repeat" : {
+              "card_image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 460,
+                    "height" : 300
+                  },
+                  "thumbnails" : [ ],
+                  "label" : "Card Image"
+                }
+              },
+              "small_heading" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Small Heading",
+                  "placeholder" : "Over image heading"
+                }
+              },
+              "heading" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Heading",
+                  "placeholder" : "Over text heading"
+                }
+              },
+              "card_body" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label" : "Card Body",
+                  "placeholder" : "Longer card text"
+                }
+              },
+              "card_link" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Card Link"
+                }
+              }
+            }
+          },
+          "irregular_cards" : {
+            "type" : "Slice",
+            "fieldset" : "Irregular Cards",
+            "description" : "Irregular card section with background",
+            "icon" : "branding_watermark",
+            "display" : "list",
+            "non-repeat" : {
+              "section_heading" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Section heading"
+                }
+              },
+              "background_image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 1920,
+                    "height" : 1080
+                  },
+                  "thumbnails" : [ ],
+                  "label" : "Background Image"
+                }
+              }
+            },
+            "repeat" : {
+              "card_heading" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Card Heading"
+                }
+              },
+              "card_body" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label" : "Card Body"
+                }
+              },
+              "card_link" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Card Link"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Slug" : {
+    "page_path" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Page path",
+        "placeholder" : "/something"
+      }
+    }
+  }
+}

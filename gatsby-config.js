@@ -48,6 +48,32 @@ module.exports = {
     `gatsby-plugin-layout`,
     `gatsby-plugin-sass`,
     {
+      resolve: 'gatsby-source-prismic',
+      options: {
+        repositoryName: 'mladenovic',
+        accessToken: `${process.env.PRISMIC_API_KEY}`,
+        schemas: {
+          page: require('./src/schemas/page.json'),
+        },
+        shouldDownloadImage: ({ node, key, value }) => {
+          return true
+        },
+        // Get the correct URLs in blog posts
+        // linkResolver: () => (doc) => {
+        //   if (doc.type == 'product') {
+        //     if (doc.data) {
+        //       return `/shop/${doc.data.product_category.uid}/${doc.uid}`
+        //     }
+        //   } else {
+        //     return `/${doc.uid}`
+        //   }
+        // },
+        // fetchLinks: ['product.product_category'],
+        // PrismJS highlighting for labels and slices
+        htmlSerializer: () => prismicHtmlSerializer,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-typography',
       options: {
         pathToConfigModule: 'config/typography.js',
