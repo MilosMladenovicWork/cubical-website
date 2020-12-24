@@ -16,8 +16,9 @@ const FilterPropertySection = () => {
   const [numOfLoadedItems, setNumOfLoadedItems] = useState(1)
   const [scrollFromTop, setScrollFromTop] = useState(0)
   const [filters, setFilters] = useState({})
+  const [sorting, setSorting] = useState({})
 
-  console.log(filters)
+  console.log(sorting)
 
   const setScrollPosition = () => {
       setScrollFromTop(window.pageYOffset)
@@ -55,7 +56,7 @@ const FilterPropertySection = () => {
         <div className={styles.properties}>
           <div className={`${styles.infoAndSorting} ${styles.rowSpaced}`}>
             <h2>{dummyArray.length} Immobilien gefunded</h2>
-            <PropertySorting/>
+            <PropertySorting sorting={sorting} setSorting={setSorting}/>
           </div>
           {dummyArray.map((item, index) => {
                 if(index < numOfLoadedItems){

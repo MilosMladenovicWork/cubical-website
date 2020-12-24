@@ -3,6 +3,8 @@ import {Link} from 'gatsby'
 
 import styles from './mobile-menu-link.module.scss'
 import RoofSVG from '../RoofSVG'
+import caretUp from '../../img/caret-up-outline.svg'
+import caretDown from '../../img/caret-down-outline.svg'
 
 const MobileMenuLink = ({link, subLinks, deactivated, onClick, button}) => {
 
@@ -35,9 +37,9 @@ const MobileMenuLink = ({link, subLinks, deactivated, onClick, button}) => {
                 >
                     {
                         showSubLinks ?
-                        '⯅'
+                        <img src={caretUp} alt="" />
                         :
-                        '⯆'
+                        <img src={caretDown} alt="" />
                     }
                 </div>
             </Link>
