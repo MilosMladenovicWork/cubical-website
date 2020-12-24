@@ -27,21 +27,24 @@ const MobileMenuLink = ({link, subLinks, deactivated, onClick, button}) => {
                     <RoofSVG/>
                     {link.text}
                 </div>
-                <div 
-                onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    setShowSubLinks((prevState) => !prevState)
-                }} 
-                className={styles.showMoreButton}
-                >
-                    {
-                        showSubLinks ?
-                        <img src={caretUp} alt="" />
-                        :
-                        <img src={caretDown} alt="" />
-                    }
-                </div>
+                {
+                    subLinks &&
+                    <div 
+                    onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setShowSubLinks((prevState) => !prevState)
+                    }} 
+                    className={styles.showMoreButton}
+                    >
+                        {
+                            showSubLinks ?
+                            <img src={caretUp} alt="" />
+                            :
+                            <img src={caretDown} alt="" />
+                        }
+                    </div>
+                }
             </Link>
             {
                 subLinks && 
