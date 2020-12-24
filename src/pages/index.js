@@ -28,29 +28,15 @@ import referenceImg from '../img/background1.jpg'
 import AppearOnViewContainer from '../components/AppearOnViewContainer'
 import TiltableContainer from '../components/TiltableContainer'
 import MotoText from '../components/MotoText'
+import PageHeroSlider from '../components/PageHeroSlider'
+import PageRegularCardsSection from '../components/PageRegularCardsSection'
+import PageIrregularCardsSection from '../components/PageIrregularCardsSection'
+import PageMapSection from '../components/PageMapSection'
 
 const HomePage = () => {
     return(
         <React.Fragment>
-            <div className={styles.heroSlider}>
-                <Slider>
-                    <SwiperSlide>
-                        <div style={{height: '100vh'}}>
-                            <BackgroundImage image={imgSlide1}/>
-                        </div>
-                    </SwiperSlide>
-                </Slider>
-                <MotoText text={'The key to your home'}/>
-                <div className={styles.motoTextContainer}>
-                    <TiltableContainer roundedCorners>
-                        <h1 className={styles.motoText}><span>T</span><span>h</span><span>e</span> <span>k</span><span>e</span><span>y</span> <span>t</span><span>o</span> <span>y</span><span>o</span><span>u</span><span>r</span> <span>h</span><span>o</span><span>m</span><span>e</span><span>.</span></h1>
-                    </TiltableContainer>
-                </div>
-                <LinkRibbons links={[{href:'/aktuelles', text:'Aktuelles'}]}/>
-                <ScrollScreenButton>
-                    <img src={downArrowImg} alt='scroll down'/>
-                </ScrollScreenButton>
-            </div>
+            <PageHeroSlider/>
             <PageIntro title={'Ein Haus sollte mehr sein, als nur eine Immobilie.'}>
                 <p>
                     Es ist ein Zuhause, eine Wohfühl Oase, ein Ort, an dem man sich ausruhen kann, um eventuell auch Zeit mit der Familie zu verbringen.
@@ -62,50 +48,9 @@ const HomePage = () => {
                     Lassen Sie sich von unserer individuellen Beratung begeistern und Ihre Träume wahrwerden.
                 </p>
             </PageIntro>
-            <Section>
-                <ul className={styles.popularSectionsContainer}>
-                    <ImageInfoItem link='/dienstleistungen/verkaufen/' image={popularSectionImg} title={'Step by Step erfolg­reich verkauft'} heading={'IMMOBILIENVERKAUF'}>
-                        <p>Wir freuen uns, Sie auf dem Weg zur erfolg­reich verkauften Immo­bilie zu begleiten – mit umfas­senden Dienst­leis­tungen vom ersten Kennen­lernen bis zur Umzugs­pla­nung.</p>
-                    </ImageInfoItem>
-                    <ImageInfoItem link='/dienstleistungen/verkaufen/' image={popularSectionImg} title={'Step by Step erfolg­reich verkauft'} heading={'IMMOBILIENVERKAUF'}>
-                        <p>Wir freuen uns, Sie auf dem Weg zur erfolg­reich verkauften Immo­bilie zu begleiten – mit umfas­senden Dienst­leis­tungen vom ersten Kennen­lernen bis zur Umzugs­pla­nung.</p>
-                    </ImageInfoItem>
-                    <ImageInfoItem link='/dienstleistungen/verkaufen/' image={popularSectionImg} title={'Step by Step erfolg­reich verkauft'} heading={'IMMOBILIENVERKAUF'}>
-                        <p>Wir freuen uns, Sie auf dem Weg zur erfolg­reich verkauften Immo­bilie zu begleiten – mit umfas­senden Dienst­leis­tungen vom ersten Kennen­lernen bis zur Umzugs­pla­nung.</p>
-                    </ImageInfoItem>
-                    <ImageInfoItem link='/dienstleistungen/verkaufen/' image={popularSectionImg} title={'Step by Step erfolg­reich verkauft'} heading={'IMMOBILIENVERKAUF'}>
-                        <p>Wir freuen uns, Sie auf dem Weg zur erfolg­reich verkauften Immo­bilie zu begleiten – mit umfas­senden Dienst­leis­tungen vom ersten Kennen­lernen bis zur Umzugs­pla­nung.</p>
-                    </ImageInfoItem>
-                    <ImageInfoItem link='/dienstleistungen/verkaufen/' image={popularSectionImg} title={'Step by Step erfolg­reich verkauft'} heading={'IMMOBILIENVERKAUF'}>
-                        <p>Wir freuen uns, Sie auf dem Weg zur erfolg­reich verkauften Immo­bilie zu begleiten – mit umfas­senden Dienst­leis­tungen vom ersten Kennen­lernen bis zur Umzugs­pla­nung.</p>
-                    </ImageInfoItem>
-                </ul>
-            </Section>
-            <BigImageSection image={background4}>
-                <h2>DIENSTLEISTUNGEN</h2>
-                <ul className={styles.ourServicesContainer}>
-                    <RandomWidthItem link='/dienstleistungen/verkaufen/'>
-                        <h3>Verkauf von Immobilien</h3>
-                        <p>Wir wissen, wie man Ihre Immobilie ins beste Licht rückt und wickeln den kompletten Verkaufsprozess für Sie ab – inklusive individuell abgestimmter, kreativer Vermarktungsmassnahmen.</p>
-                    </RandomWidthItem>
-                    <RandomWidthItem link='/dienstleistungen/verkaufen/'>
-                        <h3>Verkauf von Immobilien</h3>
-                        <p>Wir wissen, wie man Ihre Immobilie ins beste Licht rückt und wickeln den kompletten Verkaufsprozess für Sie ab – inklusive individuell abgestimmter, kreativer Vermarktungsmassnahmen.</p>
-                    </RandomWidthItem>
-                    <RandomWidthItem link='/dienstleistungen/verkaufen/'>
-                        <h3>Verkauf von Immobilien</h3>
-                        <p>Wir wissen, wie man Ihre Immobilie ins beste Licht rückt und wickeln den kompletten Verkaufsprozess für Sie ab – inklusive individuell abgestimmter, kreativer Vermarktungsmassnahmen.</p>
-                    </RandomWidthItem>
-                    <RandomWidthItem link='/dienstleistungen/verkaufen/'>
-                        <h3>Verkauf von Immobilien</h3>
-                        <p>Wir wissen, wie man Ihre Immobilie ins beste Licht rückt und wickeln den kompletten Verkaufsprozess für Sie ab – inklusive individuell abgestimmter, kreativer Vermarktungsmassnahmen.</p>
-                    </RandomWidthItem>
-                    <RandomWidthItem link='/dienstleistungen/verkaufen/'>
-                        <h3>Verkauf von Immobilien</h3>
-                        <p>Wir wissen, wie man Ihre Immobilie ins beste Licht rückt und wickeln den kompletten Verkaufsprozess für Sie ab – inklusive individuell abgestimmter, kreativer Vermarktungsmassnahmen.</p>
-                    </RandomWidthItem>
-                </ul>
-            </BigImageSection>
+            <PageRegularCardsSection/>
+            <PageIrregularCardsSection/>
+            {/* <PageMapSection/> */}
             {/* <Section>
                 <h2>AKTUELLE IMMOBILIEN</h2>
                 <OffsetItemContainer>
@@ -153,14 +98,7 @@ const HomePage = () => {
                         </Link>
                     </ButtonBordered>
                 </div>
-            </Section>
-            <section>
-                <AppearOnViewContainer>
-                    <div className={styles.mapContainer}>
-                        <Map coords={[46.195602, 6.148113]} zoom={15}/>
-                    </div>
-                </AppearOnViewContainer>
-            </section> */}
+            </Section> */}
         </React.Fragment>
     )
 }
