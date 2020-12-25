@@ -54,6 +54,7 @@ module.exports = {
         accessToken: `${process.env.PRISMIC_API_KEY}`,
         schemas: {
           page: require('./src/schemas/page.json'),
+          page: require('./src/schemas/layout.json'),
         },
         shouldDownloadImage: ({ node, key, value }) => {
           return true

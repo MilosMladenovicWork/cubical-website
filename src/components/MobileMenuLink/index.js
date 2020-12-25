@@ -29,6 +29,7 @@ const MobileMenuLink = ({link, subLinks, deactivated, onClick, button}) => {
                 </div>
                 {
                     subLinks &&
+                    subLinks.length > 0 &&
                     <div 
                     onClick={(e) => {
                         e.preventDefault();

@@ -1,5 +1,5 @@
 import React, {useRef} from 'react'
-import {Link} from 'gatsby'
+import {Link, useStaticQuery, graphql} from 'gatsby'
 import {useSpring, animated, useChain} from 'react-spring'
 import {useSelector} from 'react-redux'
 
@@ -9,6 +9,27 @@ import logoMoto from '../../img/logo-moto.png'
 
 
 const Logo = () => {
+
+    const data = useStaticQuery(graphql`
+    query LogoQuery {
+        prismicLayout {
+          data {
+            logo_primary_image {
+              alt
+              localFile {
+                url
+              }
+            }
+            logo_secondary_image {
+              alt
+              localFile {
+                url
+              }
+            }
+          }
+        }
+      }
+    `)
 
     const pageLoaded = useSelector(state => state.pageLoaded)
     const pageLoadedMinimal = useSelector(state => state.pageLoadedMinimal)
@@ -44,8 +65,14 @@ const Logo = () => {
     return(
         <div class0Name={styles.logo}>
             <Link to={'/'}>
-                <animated.img style={logoProps} src={logo} alt='cubical.ag - the keys to your home'/>
-                <animated.img style={motoProps} src={logoMoto} alt='' className={styles.logoMoto}/>
+                {
+                    data.prismicLayout.data.logo_primary_image &&
+                    <animated.img style={logoProps} src={data.prismicLayout.data.logo_primary_image.localFile.url} alt='cubical.ag - the keys to your home'/>
+                }
+                {
+                    data.prismicLayout.data.logo_secondary_image &&
+                    <animated.img style={motoProps} src={data.prismicLayout.data.logo_secondary_image.localFile.url} alt={data.prismicLayout.data.logo_secondary_image.alt} className={styles.logoMoto}/>
+                }
             </Link>
         </div>
     )

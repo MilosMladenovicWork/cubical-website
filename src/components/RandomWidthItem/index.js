@@ -23,7 +23,10 @@ const OurServicesItem = ({children, data}) => {
 
                             </div>
                         }
-                        <img src={arrowRightImg} className={styles.openServiceIcon} alt='see more'/>
+                        {
+                            data.card_link &&
+                            <img src={arrowRightImg} className={styles.openServiceIcon} alt='see more'/>
+                        }
                     </Link>
                 </div>
             </AppearOnViewContainer>

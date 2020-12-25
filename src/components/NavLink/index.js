@@ -30,6 +30,7 @@ const NavLink = ({link, subLinks, deactivated, onClick}) => {
             </Link>
             {
                 subLinks && 
+                subLinks.length > 0 &&
                 <ul className={styles.subLinks}>
                     {
                         subLinks.map(link => {

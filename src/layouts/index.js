@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {animated, useSpring, useTransition} from 'react-spring'
+import {useStaticQuery, graphql} from 'gatsby'
 
 import NavMenuContainer from '../components/NavMenuContainer'
 import NavLink from '../components/NavLink'
@@ -27,6 +28,99 @@ import emailIcon from '../img/email-icon-transparent.png'
 import homeIcon from '../img/home-icon-transparent.png'
 
 const Layout = ({children, location}) => {
+
+    const data = useStaticQuery(graphql`
+    query LayoutQuery {
+        prismicLayout {
+          data {
+            background_image {
+              localFile {
+                childImageSharp {
+                    fluid(maxWidth: 1920, quality: 100) {
+                      ...GatsbyImageSharpFluid_withWebp
+                    }
+                }
+              }
+            }
+            footer_content {
+              html
+            }
+            footer_links {
+              link {
+                url
+              }
+              link_text
+            }
+            left_side_links {
+              link {
+                url
+              }
+              image {
+                localFile {
+                  url
+                }
+                alt
+              }
+            }
+            link_hover_icons {
+              image {
+                alt
+                localFile{
+                    url
+                }
+              }
+              link {
+                url
+              }
+              parent_link
+            }
+            links {
+              link {
+                url
+              }
+              link_text
+            }
+            logo_primary_image {
+              alt
+              localFile {
+                absolutePath
+              }
+            }
+            logo_secondary_image {
+              alt
+              localFile {
+                absolutePath
+              }
+            }
+            right_side_link_hover_icons {
+              image {
+                alt
+                localFile{
+                    url
+                }
+              }
+              link {
+                url
+              }
+              parent_link
+            }
+            right_side_links {
+              link {
+                url
+              }
+              link_text
+            }
+            sublinks {
+              parent_link
+              sublink_text
+              sublink {
+                url
+              }
+            }
+          }
+        }
+      }
+    `)
 
     const dispatch = useDispatch()
 
@@ -89,7 +183,20 @@ const Layout = ({children, location}) => {
         <div className={styles.layout}>
             <NavMenuContainer>
                 <animated.ul style={linkListProps}>
-                    <NavLink link={{href:'/immobilien/', text: 'immobilien'}} subLinks={[
+                    {
+                        data.prismicLayout.data.links &&
+                        data.prismicLayout.data.links.length > 0 &&
+                        data.prismicLayout.data.links.map((link, index) => {
+
+                            let sublinks = data.prismicLayout.data.sublinks && data.prismicLayout.data.sublinks.length > 0 && (
+                                data.prismicLayout.data.sublinks.filter(sublink => sublink.parent_link == index + 1).map(sublink => ({href:sublink.sublink && sublink.sublink.url, text: sublink.sublink_text}))
+                            )
+
+                            return <NavLink link={{href:link.link && link.link.url, text: link.link_text}} subLinks={sublinks}/>
+                        })
+                    }
+                    <NavLink link={{href:'/kontakt/', text: 'kontakt'}} deactivated onClick={() => dispatch({type:'toggle_contact_form'})}/>
+                    {/* <NavLink link={{href:'/immobilien/', text: 'immobilien'}} subLinks={[
                         {href:'/immobilien/kaufen/', text: 'kaufen'},
                         {href:'/immobilien/mieten/', text: 'mieten'},
                     ]}/>
@@ -97,8 +204,7 @@ const Layout = ({children, location}) => {
                         {href:'/dienstleistungen/verkaufen/', text: 'verkaufen'},
                         {href:'/dienstleistungen/finanzierungsberatung/', text: 'finanzierungsberatung'},
                     ]}/>
-                    <NavLink link={{href:'/uber-uns/', text: 'ÜBER UNS'}}/>
-                    <NavLink link={{href:'/kontakt/', text: 'kontakt'}} deactivated onClick={() => dispatch({type:'toggle_contact_form'})}/>
+                    <NavLink link={{href:'/uber-uns/', text: 'ÜBER UNS'}}/> */}
                     {/* <NavLink link={{href:'/immobilien/', text: 'immobilien'}}/>
                     <NavLink link={{href:'/blog/', text: 'blog'}}/>
                     <NavLink deactivated link={{href:'/dienstleistungen/', text: 'dienstleistungen'}} subLinks={[
@@ -125,15 +231,18 @@ const Layout = ({children, location}) => {
                         <MobileMenuLink link={{href:'/dienstleistungen/verkaufen/', text: 'verkaufen'}} onClick={() => setMobileMenuActive(false)}/>
                         <MobileMenuLink link={{href:'/referenzen/', text: 'referenzen'}} onClick={() => setMobileMenuActive(false)}/>
                         <MobileMenuLink link={{href:'/kontakt/', text: 'kontakt'}} button deactivated onClick={() => {setMobileMenuActive(false); dispatch({type:'toggle_contact_form'})}}/> */}
-                        <MobileMenuLink link={{href:'/immobilien/', text: 'immobilien'}} subLinks={[
-                            {href:'/immobilien/kaufen/', text: 'kaufen'},
-                            {href:'/immobilien/mieten/', text: 'mieten'},
-                        ]} onClick={()=> setMobileMenuActive(false)}/>
-                        <MobileMenuLink link={{href:'/dienstleistungen/', text: 'dienstleistungen'}} subLinks={[
-                            {href:'/dienstleistungen/verkaufen/', text: 'verkaufen'},
-                            {href:'/dienstleistungen/finanzierungsberatung/', text: 'finanzierungsberatung'},
-                        ]} onClick={()=> setMobileMenuActive(false)}/>
-                        <MobileMenuLink link={{href:'/uber-uns/', text: 'ÜBER UNS'}} onClick={()=> setMobileMenuActive(false)}/>
+                        {
+                            data.prismicLayout.data.links &&
+                            data.prismicLayout.data.links.length > 0 &&
+                            data.prismicLayout.data.links.map((link, index) => {
+
+                                let sublinks = data.prismicLayout.data.sublinks && data.prismicLayout.data.sublinks.length > 0 && (
+                                    data.prismicLayout.data.sublinks.filter(sublink => sublink.parent_link == index + 1).map(sublink => ({href:sublink.sublink && sublink.sublink.url, text: sublink.sublink_text}))
+                                )
+                                
+                                return <MobileMenuLink link={{href:link.link && link.link.url, text: link.link_text}} subLinks={sublinks} onClick={()=> setMobileMenuActive(false)}/>
+                            })
+                        }
                         <MobileMenuLink link={{href:'/kontakt/', text: 'kontakt'}} button onClick={() => {dispatch({type:'toggle_contact_form'});setMobileMenuActive(false); console.log('activated')}}/>
                         {/* <MobileMenuLink link={{href:'/immobilien/', text: 'immobilien'}} onClick={() => setMobileMenuActive(false)}/>
                         <MobileMenuLink link={{href:'/blog/', text: 'blog'}} onClick={() => setMobileMenuActive(false)}/>
@@ -172,17 +281,22 @@ const Layout = ({children, location}) => {
                         navIconsTransition.map(({item, key, props}) => 
                             item && 
                             <animated.div key={key} style={props} className={`${styles.navigationStickyContainer} ${styles.navigationStickyContainerLeft}`}>
-                                    <AsideNavContainer>
-                                        <a href='tel:+111111111'>
-                                            <img src={phoneIcon} alt='call us'/>
-                                        </a>
-                                        <a href='mailto:test@email.com'>
-                                            <img src={emailIcon} alt='send mail to us'/>
-                                        </a>
-                                        <a href='/'>
-                                            <img src={homeIcon} alt='home page'/>
-                                        </a>
-                                    </AsideNavContainer>
+                                    {
+                                        data.prismicLayout.data.left_side_links &&
+                                        data.prismicLayout.data.left_side_links.length > 0 &&
+                                        <AsideNavContainer>
+                                            {
+                                                data.prismicLayout.data.left_side_links.map(link => {
+                                                    return <a href={link.link && link.link.url}>
+                                                        {
+                                                            link.image && 
+                                                            <img src={link.image.localFile.url} alt={link.image.alt}/>
+                                                        }
+                                                    </a>
+                                                })
+                                            }
+                                        </AsideNavContainer>
+                                    }
                             </animated.div>
                         )
                     }
@@ -193,34 +307,44 @@ const Layout = ({children, location}) => {
                 <div className={styles.mainContentNavigation}>
                     <div className={styles.navigationStickyContainer}>
                         <AsideNavContainer rotated>
-                            <NavLinkVertical link={{href:false, text:'Folge uns'}}>
-                                <div className={styles.socialIcons}>
-                                    <a href='https://facebook.com'>
-                                        <img src={facebookLogo} alt='facebook'/>
-                                    </a>
-                                    <a href='https://instagram.com'>
-                                        <img src={instagramLogo} alt='instagram'/>
-                                    </a>
-                                </div>
-                            </NavLinkVertical>
+                            {
+                                data.prismicLayout.data.right_side_links &&
+                                data.prismicLayout.data.right_side_links.length > 0 &&
+                                data.prismicLayout.data.right_side_links.map((link, index) => {
+                                    return <NavLinkVertical link={{href:link.link && link.link.url, text:link.link_text}}>
+                                        <div className={styles.socialIcons}>
+                                        {   
+                                            data.prismicLayout.data.right_side_link_hover_icons &&
+                                            data.prismicLayout.data.right_side_link_hover_icons.length > 0 &&
+                                            data.prismicLayout.data.right_side_link_hover_icons.filter(link => link.parent_link == index + 1).map(sublink => {
+                                                return <a href={sublink.link && sublink.link.url}>
+                                                        {
+                                                            sublink.image && 
+                                                            <img src={sublink.image.localFile.url} alt={sublink.image.alt}/>
+                                                        }
+                                                    </a>
+                                            })
+                                        }
+                                        </div>
+                                    </NavLinkVertical>
+                                })
+                            }
                         </AsideNavContainer>
                     </div>
                 </div>
             </main>
             <FooterContainer>
-                <BackgroundImage image={footerImg}/>
+                {
+                    data.prismicLayout.data.background_image &&
+                    <BackgroundImage image={data.prismicLayout.data.background_image.localFile.childImageSharp.fluid}/>
+                }
                 <div className={styles.footerInfoContent}>
                     <img src={flagImg} alt=''/>
-                    <h2>cubical AG</h2>
-                    <p>
-                        Heimstrasse 12, 8953
-                    </p>
-                    <p>
-                        Tel: <a href={'tel:+41447421818'}>+41 44 742 18 18</a>
-                    </p>
-                    <p>
-                        Email: <a href={'mailto:info@cubical.ag'}>info@cubical.ag</a>
-                    </p>
+                    {
+                        data.prismicLayout.data.footer_content &&
+                        <div dangerouslySetInnerHTML={{__html:data.prismicLayout.data.footer_content.html}}>
+                        </div>
+                    }
                 </div>
                 <div className={styles.horizontallyCentered} onClick={() => {dispatch({type:'toggle_contact_form'});window.scrollBy(0, -Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0))}}>
                     <ButtonBordered>
@@ -229,10 +353,29 @@ const Layout = ({children, location}) => {
                 </div>
                 <div className={styles.footerNavigation}>
                     <AsideNavContainer rotated>
-                        <NavLinkVertical link={{href:'/datenschutz/', text:'DATENSCHUTZ'}}>
-                            
-                        </NavLinkVertical>
-                        <NavLinkVertical link={{href:'/impressum/', text:'IMPRESSUM'}}>
+                        {
+                            data.prismicLayout.data.footer_links &&
+                            data.prismicLayout.data.footer_links.length > 0 &&
+                            data.prismicLayout.data.footer_links.map((link, index) => {
+                                return <NavLinkVertical link={{href:link.link && link.link.url, text:link.link_text}}>
+                                    <div className={styles.socialIcons}>
+                                    {   
+                                        data.prismicLayout.data.link_hover_icons &&
+                                        data.prismicLayout.data.link_hover_icons.length > 0 &&
+                                        data.prismicLayout.data.link_hover_icons.filter(link => link.parent_link == index + 1).map(sublink => {
+                                            return <a href={sublink.link && sublink.link.url}>
+                                                    {
+                                                        sublink.image && 
+                                                        <img src={sublink.image.localFile.url} alt={sublink.image.alt}/>
+                                                    }
+                                                </a>
+                                        })
+                                    }
+                                    </div>
+                                </NavLinkVertical>
+                            })
+                        }
+                        {/* <NavLinkVertical link={{href:'/impressum/', text:'IMPRESSUM'}}>
                             
                         </NavLinkVertical>
                         <NavLinkVertical link={{href:false, text:'Folge uns'}}>
@@ -244,7 +387,7 @@ const Layout = ({children, location}) => {
                                     <img src={instagramLogo} alt='instagram'/>
                                 </a>
                             </div>
-                        </NavLinkVertical>
+                        </NavLinkVertical> */}
                     </AsideNavContainer>
                 </div>
             </FooterContainer>

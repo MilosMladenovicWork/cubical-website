@@ -39,7 +39,10 @@ const ImageInfoItem = ({heading, title, image, children, link, data}) => {
                                         <div dangerouslySetInnerHTML={{__html:data.card_body.html}}>
                                         </div>
                                     }
-                                    <img className={styles.openSectionIcon} src={forwardArrowImg} alt='see more'/>
+                                    {
+                                        data.card_link &&
+                                        <img className={styles.openSectionIcon} src={forwardArrowImg} alt='see more'/>
+                                    }
                                 </div>
                             </article>
                         </Link>

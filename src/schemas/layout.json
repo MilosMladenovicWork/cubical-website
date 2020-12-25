@@ -1,0 +1,232 @@
+{
+  "Main": {
+    "title": {
+      "type": "Text",
+      "config": {
+        "label": "Title",
+        "placeholder": "Title that appears in CMS"
+      }
+    }
+  },
+  "Header": {
+    "logo_primary_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {
+          "width": null,
+          "height": null
+        },
+        "thumbnails": [],
+        "label": "Logo Primary Image"
+      }
+    },
+    "logo_secondary_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {
+          "width": null,
+          "height": null
+        },
+        "thumbnails": [],
+        "label": "Logo Secondary Image"
+      }
+    },
+    "links": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "link_text": {
+            "type": "Text",
+            "config": {
+              "label": "Link Text"
+            }
+          },
+          "link": {
+            "type": "Link",
+            "config": {
+              "label": "Link"
+            }
+          }
+        },
+        "label": "Links"
+      }
+    },
+    "sublinks": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "parent_link": {
+            "type": "Number",
+            "config": {
+              "label": "Parent Link"
+            }
+          },
+          "sublink_text": {
+            "type": "Text",
+            "config": {
+              "label": "Sublink Text"
+            }
+          },
+          "sublink": {
+            "type": "Link",
+            "config": {
+              "label": "Sublink"
+            }
+          }
+        },
+        "label": "Sublinks"
+      }
+    }
+  },
+  "Footer": {
+    "background_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {
+          "width": 1920,
+          "height": 1080
+        },
+        "thumbnails": [],
+        "label": "Background Image"
+      }
+    },
+    "footer_content": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Footer Content"
+      }
+    },
+    "footer_links": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "link_text": {
+            "type": "Text",
+            "config": {
+              "label": "Link Text"
+            }
+          },
+          "link": {
+            "type": "Link",
+            "config": {
+              "label": "Link"
+            }
+          }
+        },
+        "label": "Footer Links"
+      }
+    },
+    "link_hover_icons": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "image": {
+            "type": "Image",
+            "config": {
+              "constraint": {
+                "width": 36,
+                "height": 36
+              },
+              "thumbnails": [],
+              "label": "Image"
+            }
+          },
+          "parent_link": {
+            "type": "Number",
+            "config": {
+              "label": "Parent Link",
+              "placeholder": "1"
+            }
+          },
+          "link": {
+            "type": "Link",
+            "config": {
+              "label": "Link"
+            }
+          }
+        },
+        "label": "Link Hover Icons"
+      }
+    }
+  },
+  "Other": {
+    "right_side_links": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "link_text": {
+            "type": "Text",
+            "config": {
+              "label": "Link Text"
+            }
+          },
+          "link": {
+            "type": "Link",
+            "config": {
+              "label": "Link"
+            }
+          }
+        },
+        "label": "Right Side Links"
+      }
+    },
+    "right_side_link_hover_icons": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "image": {
+            "type": "Image",
+            "config": {
+              "constraint": {
+                "width": 36,
+                "height": 36
+              },
+              "thumbnails": [],
+              "label": "Image"
+            }
+          },
+          "parent_link": {
+            "type": "Number",
+            "config": {
+              "label": "Parent Link",
+              "placeholder": "1"
+            }
+          },
+          "link": {
+            "type": "Link",
+            "config": {
+              "label": "Link"
+            }
+          }
+        },
+        "label": "Right Side Link Hover Icons"
+      }
+    },
+    "left_side_links": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "image": {
+            "type": "Image",
+            "config": {
+              "constraint": {
+                "width": 55,
+                "height": 55
+              },
+              "thumbnails": [],
+              "label": "Image"
+            }
+          },
+          "link": {
+            "type": "Link",
+            "config": {
+              "label": "Link"
+            }
+          }
+        },
+        "label": "Left Side Links"
+      }
+    }
+  }
+}
