@@ -1,7 +1,8 @@
 import React, {useState, useEffect}  from 'react'
 import {SwiperSlide} from 'swiper/react'
-import LinkRibbons from '../../../components/LinkRibbons'
+import {Link} from 'gatsby'
 
+import LinkRibbons from '../../../components/LinkRibbons'
 import Slider from '../../../components/Slider'
 import styles from './kaufen.module.scss'
 import imgSlide1 from '../../../img/kaufen-banner.png'
@@ -47,9 +48,11 @@ const KaufenPage = () => {
                 <TextImageBox image={boxImage}>
                     <h3><span className={styles.bigNumber}>2</span> UNVERBINDLICHES ERSTGESPRÄCH</h3>
                     <p>In Zusam­men­ar­beit mit renom­mierten Part­nern – Versi­che­rungen, Banken und weiteren Finan­z­in­sti­tuten – schätzen wir Ihre Immo­bilie und evalu­ieren den besten Preis unter Berück­sich­ti­gung der lokalen Situa­tion. So garan­tieren wir eine markt­ge­rechte Preis­emp­feh­lung.</p>
-                    <ButtonBordered>
-                        BEWERTUNG ANFRAGEN
-                    </ButtonBordered>
+                    <Link to='google.com'>
+                        <ButtonBordered>
+                                BEWERTUNG ANFRAGEN
+                        </ButtonBordered>
+                    </Link>
                 </TextImageBox>
             </Section>
             <Section>
@@ -62,6 +65,11 @@ const KaufenPage = () => {
                     <h3><span className={styles.bigNumber}>4</span> UNVERBINDLICHES ERSTGESPRÄCH</h3>
                     <p>In Zusam­men­ar­beit mit renom­mierten Part­nern – Versi­che­rungen, Banken und weiteren Finan­z­in­sti­tuten – schätzen wir Ihre Immo­bilie und evalu­ieren den besten Preis unter Berück­sich­ti­gung der lokalen Situa­tion. So garan­tieren wir eine markt­ge­rechte Preis­emp­feh­lung.</p>
                     <SelectHeadingContent column/>
+                    <Link to='google.com'>
+                        <ButtonBordered>
+                                BEWERTUNG ANFRAGEN
+                        </ButtonBordered>
+                    </Link>
                 </TextImageBox>
             </Section>
             <Section>

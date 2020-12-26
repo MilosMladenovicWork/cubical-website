@@ -32,6 +32,12 @@ import PageHeroSlider from '../components/PageHeroSlider'
 import PageRegularCardsSection from '../components/PageRegularCardsSection'
 import PageIrregularCardsSection from '../components/PageIrregularCardsSection'
 import PageMapSection from '../components/PageMapSection'
+import PageKaufenPropertySection from '../components/PageKaufenPropertySection'
+import PageMietenProperty from '../components/PageMietenProperty'
+import PageOrderSection from '../components/PageOrderSection'
+import PageReferenceSection from '../components/PageReferenceSection'
+import PageOffsetCardsSection from '../components/PageOffsetCardsSection'
+import PageRichTextSection from '../components/PageRichTextSection'
 
 const HomePage = () => {
 
@@ -118,10 +124,80 @@ const HomePage = () => {
                       }
                       alt
                     }
-                    heading
+                    cardHeading:heading
                     small_heading
                   }
                   slice_type
+                }
+                ... on PrismicPageBodyKaufenPropertySection {
+                  slice_type
+                }
+                ... on PrismicPageBodyMietenProperty {
+                  slice_type
+                }
+                ... on PrismicPageBodyOffsetCards {
+                  slice_type
+                  primary {
+                    section_heading
+                  }
+                  items {
+                    card_text
+                    card_small_heading
+                    card_link {
+                      url
+                    }
+                    card_cover {
+                      localFile {
+                        childImageSharp {
+                          fluid(maxWidth: 450, quality: 100) {
+                            ...GatsbyImageSharpFluid_withWebp
+                          }
+                        }
+                      }
+                      alt
+                    }
+                  }
+                }
+                ... on PrismicPageBodyReferenceSection {
+                  slice_type
+                }
+                ... on PrismicPageBodyRichTextSection {
+                  slice_type
+                  primary {
+                    body1 {
+                      html
+                    }
+                  }
+                }
+                ... on PrismicPageBodySimpleOrderSection {
+                  slice_type
+                  primary {
+                    body1 {
+                      html
+                    }
+                    button_link {
+                      url
+                    }
+                    button_text
+                    cardHeading:heading
+                    order_number
+                    image {
+                      alt
+                      localFile {
+                        childImageSharp {
+                          fluid(maxWidth: 460, quality: 100) {
+                            ...GatsbyImageSharpFluid_withWebp
+                          }
+                        }
+                      }
+                    }
+                  }
+                  items {
+                    select_heading_content_body {
+                      html
+                    }
+                    select_heading_content_heading
+                  }
                 }
               }
             }
@@ -141,13 +217,23 @@ const HomePage = () => {
                         case 'hero_slider':
                             return <PageHeroSlider data={slice}/>
                         case 'intro_text':
-                            return (
-                            <PageIntro data={slice} />
-                            ) 
+                            return <PageIntro data={slice} />
                         case 'regular_cards':
                             return  <PageRegularCardsSection data={slice}/>
                         case 'irregular_cards':
                             return <PageIrregularCardsSection data={slice}/>
+                        case 'kaufen_property_section':
+                            return <PageKaufenPropertySection/>
+                        case 'mieten_property':
+                            return <PageMietenProperty/>
+                        case 'simple_order_section':
+                            return <PageOrderSection data={slice}/>
+                        case 'reference_section':
+                            return <PageReferenceSection/>
+                        case 'offset_cards':
+                            return <PageOffsetCardsSection data={slice}/>
+                        case 'rich_text_section':
+                            return <PageRichTextSection data={slice}/>
                         default:
                             return
                     }

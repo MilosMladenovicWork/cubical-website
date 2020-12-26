@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import Image from 'gatsby-image'
 
 import styles from './reference.module.scss'
 import playCircle from '../../img/play-circle.svg'
@@ -9,7 +10,7 @@ import RoofSVG from '../RoofSVG'
 import TiltableContainer from '../TiltableContainer'
 import AppearOnViewContainer from '../AppearOnViewContainer'
 
-const Reference = ({videoLink, image, quote, text}) => {
+const Reference = ({videoLink, image, quote, text, alt}) => {
 
     const [showVideo, setShowVideo] = useState(false)
     const [seeMore, setSeeMore] = useState(false)
@@ -28,7 +29,7 @@ const Reference = ({videoLink, image, quote, text}) => {
                     }
                     <div className={styles.referenceInformation}>
                         <div className={`${styles.referenceImage} ${seeMore ? styles.shrinked : ''}`} >
-                            <img src={image} alt=''/>
+                            <Image fluid={image} alt={alt}/>
                             {/* {showVideo &&
                                 <div className={styles.referenceVideo}>
                                     <iframe width="100%" height="100%" src={videoLink} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

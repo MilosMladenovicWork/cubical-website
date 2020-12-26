@@ -1,202 +1,401 @@
 {
-  "Main" : {
-    "page_cms_title" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "Page CMS Title",
-        "useAsTitle" : true
+  "Main": {
+    "page_cms_title": {
+      "type": "Text",
+      "config": {
+        "label": "Page CMS Title",
+        "useAsTitle": true
       }
     },
-    "body" : {
-      "type" : "Slices",
-      "fieldset" : "Slice zone",
-      "config" : {
-        "labels" : {
-          "hero_slider" : [ {
-            "name" : "hero_slider",
-            "display" : "Hero Slider"
-          } ],
-          "intro_text" : [ ],
-          "regular_cards" : [ {
-            "name" : "regular_cards",
-            "display" : "Regular Cards"
-          } ],
-          "irregular_cards" : [ {
-            "name" : "irregular_cards",
-            "display" : "Irregular Cards"
-          } ]
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "hero_slider": [
+            {
+              "name": "hero_slider",
+              "display": "Hero Slider"
+            }
+          ],
+          "intro_text": [],
+          "regular_cards": [
+            {
+              "name": "regular_cards",
+              "display": "Regular Cards"
+            }
+          ],
+          "irregular_cards": [
+            {
+              "name": "irregular_cards",
+              "display": "Irregular Cards"
+            }
+          ],
+          "kaufen_property_section": [
+            {
+              "name": "kaufen_property",
+              "display": "Kaufen Property"
+            }
+          ],
+          "mieten_property": [
+            {
+              "name": "mieten_property",
+              "display": "Mieten Property"
+            }
+          ],
+          "simple_order_section": [
+            {
+              "name": "simple_order_section",
+              "display": "Simple Order Section"
+            }
+          ],
+          "reference_section": [
+            {
+              "name": "reference_section",
+              "display": "Reference Section"
+            }
+          ],
+          "offset_cards": [
+            {
+              "name": "offset_cards",
+              "display": "Offset Cards"
+            }
+          ],
+          "rich_text_section": [
+            {
+              "name": "rich_text_section",
+              "display": "Rich Text Section"
+            }
+          ]
         },
-        "choices" : {
-          "hero_slider" : {
-            "type" : "Slice",
-            "fieldset" : "Hero Slider",
-            "description" : "Hero slider with Big Image",
-            "icon" : "airplay",
-            "display" : "list",
-            "non-repeat" : {
-              "heading" : {
-                "type" : "Text",
-                "config" : {
-                  "label" : "Heading"
+        "choices": {
+          "hero_slider": {
+            "type": "Slice",
+            "fieldset": "Hero Slider",
+            "description": "Hero slider with Big Image",
+            "icon": "airplay",
+            "display": "list",
+            "non-repeat": {
+              "heading": {
+                "type": "Text",
+                "config": {
+                  "label": "Heading"
                 }
               },
-              "ribbon_text" : {
-                "type" : "Text",
-                "config" : {
-                  "label" : "Ribbon Text"
+              "ribbon_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Ribbon Text"
                 }
               },
-              "ribbon_link" : {
-                "type" : "Link",
-                "config" : {
-                  "label" : "Ribbon Link"
+              "ribbon_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Ribbon Link"
                 }
               }
             },
-            "repeat" : {
-              "hero_images" : {
-                "type" : "Image",
-                "config" : {
-                  "constraint" : {
-                    "width" : 1920,
-                    "height" : 1080
+            "repeat": {
+              "hero_images": {
+                "type": "Image",
+                "config": {
+                  "constraint": {
+                    "width": 1920,
+                    "height": 1080
                   },
-                  "thumbnails" : [ ],
-                  "label" : "Hero Images"
+                  "thumbnails": [],
+                  "label": "Hero Images"
                 }
               }
             }
           },
-          "intro_text" : {
-            "type" : "Slice",
-            "fieldset" : "Intro Text",
-            "description" : "Text with heading and centered body",
-            "icon" : "format_align_center",
-            "display" : "grid",
-            "non-repeat" : {
-              "heading" : {
-                "type" : "StructuredText",
-                "config" : {
-                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-                  "label" : "Heading"
+          "intro_text": {
+            "type": "Slice",
+            "fieldset": "Intro Text",
+            "description": "Text with heading and centered body",
+            "icon": "format_align_center",
+            "display": "grid",
+            "non-repeat": {
+              "heading": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label": "Heading"
                 }
               },
-              "body1" : {
-                "type" : "StructuredText",
-                "config" : {
-                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-                  "label" : "Body"
+              "body1": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label": "Body"
                 }
               }
             },
-            "repeat" : { }
+            "repeat": {}
           },
-          "regular_cards" : {
-            "type" : "Slice",
-            "fieldset" : "Regular Cards",
-            "description" : "Symetric card section",
-            "icon" : "crop_square",
-            "display" : "list",
-            "non-repeat" : { },
-            "repeat" : {
-              "card_image" : {
-                "type" : "Image",
-                "config" : {
-                  "constraint" : {
-                    "width" : 460,
-                    "height" : 300
+          "regular_cards": {
+            "type": "Slice",
+            "fieldset": "Regular Cards",
+            "description": "Symetric card section",
+            "icon": "crop_square",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {
+              "card_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {
+                    "width": 460,
+                    "height": 300
                   },
-                  "thumbnails" : [ ],
-                  "label" : "Card Image"
+                  "thumbnails": [],
+                  "label": "Card Image"
                 }
               },
-              "small_heading" : {
-                "type" : "Text",
-                "config" : {
-                  "label" : "Small Heading",
-                  "placeholder" : "Over image heading"
+              "small_heading": {
+                "type": "Text",
+                "config": {
+                  "label": "Small Heading",
+                  "placeholder": "Over image heading"
                 }
               },
-              "heading" : {
-                "type" : "Text",
-                "config" : {
-                  "label" : "Heading",
-                  "placeholder" : "Over text heading"
+              "heading": {
+                "type": "Text",
+                "config": {
+                  "label": "Heading",
+                  "placeholder": "Over text heading"
                 }
               },
-              "card_body" : {
-                "type" : "StructuredText",
-                "config" : {
-                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-                  "label" : "Card Body",
-                  "placeholder" : "Longer card text"
+              "card_body": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label": "Card Body",
+                  "placeholder": "Longer card text"
                 }
               },
-              "card_link" : {
-                "type" : "Link",
-                "config" : {
-                  "label" : "Card Link"
+              "card_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Card Link"
                 }
               }
             }
           },
-          "irregular_cards" : {
-            "type" : "Slice",
-            "fieldset" : "Irregular Cards",
-            "description" : "Irregular card section with background",
-            "icon" : "branding_watermark",
-            "display" : "list",
-            "non-repeat" : {
-              "section_heading" : {
-                "type" : "Text",
-                "config" : {
-                  "label" : "Section heading"
+          "irregular_cards": {
+            "type": "Slice",
+            "fieldset": "Irregular Cards",
+            "description": "Irregular card section with background",
+            "icon": "branding_watermark",
+            "display": "list",
+            "non-repeat": {
+              "section_heading": {
+                "type": "Text",
+                "config": {
+                  "label": "Section heading"
                 }
               },
-              "background_image" : {
-                "type" : "Image",
-                "config" : {
-                  "constraint" : {
-                    "width" : 1920,
-                    "height" : 1080
+              "background_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {
+                    "width": 1920,
+                    "height": 1080
                   },
-                  "thumbnails" : [ ],
-                  "label" : "Background Image"
+                  "thumbnails": [],
+                  "label": "Background Image"
                 }
               }
             },
-            "repeat" : {
-              "card_heading" : {
-                "type" : "Text",
-                "config" : {
-                  "label" : "Card Heading"
+            "repeat": {
+              "card_heading": {
+                "type": "Text",
+                "config": {
+                  "label": "Card Heading"
                 }
               },
-              "card_body" : {
-                "type" : "StructuredText",
-                "config" : {
-                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-                  "label" : "Card Body"
+              "card_body": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label": "Card Body"
                 }
               },
-              "card_link" : {
-                "type" : "Link",
-                "config" : {
-                  "label" : "Card Link"
+              "card_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Card Link"
                 }
               }
             }
+          },
+          "kaufen_property_section": {
+            "type": "Slice",
+            "fieldset": "Kaufen Property Section",
+            "description": "Section with filters and properties for kaufen properties",
+            "icon": "account_balance",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {}
+          },
+          "mieten_property": {
+            "type": "Slice",
+            "fieldset": "Mieten Property",
+            "description": "Section with filters and properties for mieten properties",
+            "icon": "business",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {}
+          },
+          "simple_order_section": {
+            "type": "Slice",
+            "fieldset": "Order Section",
+            "description": "Order section with many elements (image, heading, order number, body text,...)",
+            "icon": "format_list_numbered",
+            "display": "list",
+            "non-repeat": {
+              "order_number": {
+                "type": "Number",
+                "config": {
+                  "label": "Order Number",
+                  "placeholder": "1"
+                }
+              },
+              "heading": {
+                "type": "Text",
+                "config": {
+                  "label": "Heading"
+                }
+              },
+              "body1": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label": "Body"
+                }
+              },
+              "button_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Button Text"
+                }
+              },
+              "button_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Button Link"
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {
+                    "width": 460,
+                    "height": 460
+                  },
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              }
+            },
+            "repeat": {
+              "select_heading_content_heading": {
+                "type": "Text",
+                "config": {
+                  "label": "Select Heading Content:Heading"
+                }
+              },
+              "select_heading_content_body": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label": "Select Heading Content:Body"
+                }
+              }
+            }
+          },
+          "reference_section": {
+            "type": "Slice",
+            "fieldset": "Reference Section",
+            "description": "Section with references and button to show more",
+            "icon": "contacts",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {}
+          },
+          "offset_cards": {
+            "type": "Slice",
+            "fieldset": "Offset Cards",
+            "description": "Container with cards with zig zag layout",
+            "icon": "dashboard",
+            "display": "list",
+            "non-repeat": {
+              "section_heading": {
+                "type": "Text",
+                "config": {
+                  "label": "Section Heading"
+                }
+              }
+            },
+            "repeat": {
+              "card_cover": {
+                "type": "Image",
+                "config": {
+                  "constraint": {
+                    "width": 450,
+                    "height": 290
+                  },
+                  "thumbnails": [],
+                  "label": "Card Cover"
+                }
+              },
+              "card_small_heading": {
+                "type": "Text",
+                "config": {
+                  "label": "Card Small Heading"
+                }
+              },
+              "card_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Card Text"
+                }
+              },
+              "card_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Card Link"
+                }
+              }
+            }
+          },
+          "rich_text_section": {
+            "type": "Slice",
+            "fieldset": "Rich Text Section",
+            "description": "Section with one field for editing text",
+            "icon": "short_text",
+            "display": "list",
+            "non-repeat": {
+              "body1": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label": "Body"
+                }
+              }
+            },
+            "repeat": {}
           }
         }
       }
     }
   },
-  "Slug" : {
-    "page_path" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "Page path",
-        "placeholder" : "/something"
+  "Slug": {
+    "page_path": {
+      "type": "Text",
+      "config": {
+        "label": "Page path",
+        "placeholder": "/something"
       }
     }
   }

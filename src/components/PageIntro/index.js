@@ -6,21 +6,25 @@ import AppearOnViewContainer from '../AppearOnViewContainer'
 
 const PageIntro = ({data, children}) => {
 
-    return(
-        <Section>
-            {data.primary.heading &&
-                <AppearOnViewContainer>
-                    <div dangerouslySetInnerHTML={{__html:data.primary.heading.html}}></div>
-                </AppearOnViewContainer>
-            }
-            {data.primary.body1 && 
-                <AppearOnViewContainer>
-                    <div className={styles.introText} dangerouslySetInnerHTML={{__html:data.primary.body1.html}}>
-                    </div>
-                </AppearOnViewContainer>
-            }
-        </Section>
-    )
+    if(data){
+        return(
+            <Section>
+                {data.primary.heading &&
+                    <AppearOnViewContainer>
+                        <div dangerouslySetInnerHTML={{__html:data.primary.heading.html}}></div>
+                    </AppearOnViewContainer>
+                }
+                {data.primary.body1 && 
+                    <AppearOnViewContainer>
+                        <div className={styles.introText} dangerouslySetInnerHTML={{__html:data.primary.body1.html}}>
+                        </div>
+                    </AppearOnViewContainer>
+                }
+            </Section>
+        )
+    }else{
+        return <></>
+    }
 }
 
 export default PageIntro

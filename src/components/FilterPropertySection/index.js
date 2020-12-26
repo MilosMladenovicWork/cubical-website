@@ -11,7 +11,7 @@ import styles from './filter-property-section.module.scss'
 import TiltableContainer from '../TiltableContainer'
 import PropertySorting from '../PropertySorting'
 
-const FilterPropertySection = () => {
+const FilterPropertySection = ({kaufenProperties, mietenProperties}) => {
 
   const [numOfLoadedItems, setNumOfLoadedItems] = useState(1)
   const [scrollFromTop, setScrollFromTop] = useState(0)

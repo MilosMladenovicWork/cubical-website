@@ -1,0 +1,13 @@
+.see-more-button{
+  text-align: center;
+  margin-top:50px;
+}
+
+.reference-item{
+  max-height:0;
+  transition:2s;
+}
+
+.visible-item{
+  max-height:200vh;
+}
