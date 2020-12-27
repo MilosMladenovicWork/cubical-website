@@ -8,17 +8,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       prismicLayout: PrismicLayout
     }
 
-    type PagePath{
-      page_path: String
-    }
-
-    type PageDocumentData{
-      data:PagePath
-    }
-
     type Url{
       url: String
-      document: PageDocumentData
     }
 
     type Link{

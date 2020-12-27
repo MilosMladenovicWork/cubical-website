@@ -226,7 +226,7 @@ const Layout = ({children, location}) => {
                             let sublinks = data.prismicLayout.data.sublinks && data.prismicLayout.data.sublinks.length > 0 && (
                                 data.prismicLayout.data.sublinks.filter(sublink => sublink.parent_link == index + 1).map(sublink => ({href:(sublink.sublink) && ((sublink.sublink.document && sublink.sublink.document[0].data.page_path) ? sublink.sublink.document[0].data.page_path : sublink.sublink.url), text: sublink.sublink_text}))
                             )
-
+                            console.log(link)
                             return <NavLink link={{href:(link.link) && ((link.link.document && link.link.document[0].data.page_path) ? link.link.document[0].data.page_path : link.link.url), text: link.link_text}} subLinks={sublinks}/>
                         })
                     }
@@ -322,7 +322,7 @@ const Layout = ({children, location}) => {
                                         <AsideNavContainer>
                                             {
                                                 data.prismicLayout.data.left_side_links.map(link => {
-                                                    return <a href={link.link && link.link.url}>
+                                                    return <a href={(link.link) && ((link.link.document && link.link.document[0].data.page_path) ? link.link.document[0].data.page_path : link.link.url)}>
                                                         {
                                                             link.image && 
                                                             <img src={link.image.localFile.url} alt={link.image.alt}/>
@@ -346,13 +346,13 @@ const Layout = ({children, location}) => {
                                 data.prismicLayout.data.right_side_links &&
                                 data.prismicLayout.data.right_side_links.length > 0 &&
                                 data.prismicLayout.data.right_side_links.map((link, index) => {
-                                    return <NavLinkVertical link={{href:link.link && link.link.url, text:link.link_text}}>
+                                    return <NavLinkVertical link={{href:(link.link) && ((link.link.document && link.link.document[0].data.page_path) ? link.link.document[0].data.page_path : link.link.url), text:link.link_text}}>
                                         <div className={styles.socialIcons}>
                                         {   
                                             data.prismicLayout.data.right_side_link_hover_icons &&
                                             data.prismicLayout.data.right_side_link_hover_icons.length > 0 &&
                                             data.prismicLayout.data.right_side_link_hover_icons.filter(link => link.parent_link == index + 1).map(sublink => {
-                                                return <a href={sublink.link && sublink.link.url}>
+                                                return <a href={(sublink.link) && ((sublink.link.document && sublink.link.document[0].data.page_path) ? sublink.link.document[0].data.page_path : sublink.link.url)}>
                                                         {
                                                             sublink.image && 
                                                             <img src={sublink.image.localFile.url} alt={sublink.image.alt}/>
@@ -398,7 +398,7 @@ const Layout = ({children, location}) => {
                                         data.prismicLayout.data.link_hover_icons &&
                                         data.prismicLayout.data.link_hover_icons.length > 0 &&
                                         data.prismicLayout.data.link_hover_icons.filter(link => link.parent_link == index + 1).map(sublink => {
-                                            return <a href={sublink.link && sublink.link.url}>
+                                            return <a href={(sublink.link) && ((sublink.link.document && sublink.link.document[0].data.page_path) ? sublink.link.document[0].data.page_path : sublink.link.url)}>
                                                     {
                                                         sublink.image && 
                                                         <img src={sublink.image.localFile.url} alt={sublink.image.alt}/>
