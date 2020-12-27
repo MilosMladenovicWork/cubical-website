@@ -59,6 +59,11 @@ const Layout = ({children, location}) => {
             left_side_links {
               link {
                 url
+                document {
+                    data {
+                      page_path
+                    }
+                }
               }
               image {
                 localFile {
@@ -76,6 +81,11 @@ const Layout = ({children, location}) => {
               }
               link {
                 url
+                document {
+                    data {
+                      page_path
+                    }
+                }
               }
               parent_link
             }
@@ -111,12 +121,22 @@ const Layout = ({children, location}) => {
               }
               link {
                 url
+                document {
+                    data {
+                      page_path
+                    }
+                }
               }
               parent_link
             }
             right_side_links {
               link {
                 url
+                document {
+                    data {
+                      page_path
+                    }
+                }
               }
               link_text
             }
