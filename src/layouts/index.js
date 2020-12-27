@@ -48,6 +48,11 @@ const Layout = ({children, location}) => {
             footer_links {
               link {
                 url
+                document {
+                    data {
+                      page_path
+                    }
+                }
               }
               link_text
             }
@@ -77,6 +82,11 @@ const Layout = ({children, location}) => {
             links {
               link {
                 url
+                document {
+                    data {
+                      page_path
+                    }
+                }
               }
               link_text
             }
@@ -115,6 +125,11 @@ const Layout = ({children, location}) => {
               sublink_text
               sublink {
                 url
+                document {
+                    data {
+                      page_path
+                    }
+                }
               }
             }
           }
@@ -189,10 +204,10 @@ const Layout = ({children, location}) => {
                         data.prismicLayout.data.links.map((link, index) => {
 
                             let sublinks = data.prismicLayout.data.sublinks && data.prismicLayout.data.sublinks.length > 0 && (
-                                data.prismicLayout.data.sublinks.filter(sublink => sublink.parent_link == index + 1).map(sublink => ({href:sublink.sublink && sublink.sublink.url, text: sublink.sublink_text}))
+                                data.prismicLayout.data.sublinks.filter(sublink => sublink.parent_link == index + 1).map(sublink => ({href:(sublink.sublink) && ((link.link.document && sublink.sublink.document[0].data.page_path) ? sublink.sublink.document[0].data.page_path : sublink.sublink.url), text: sublink.sublink_text}))
                             )
 
-                            return <NavLink link={{href:link.link && link.link.url, text: link.link_text}} subLinks={sublinks}/>
+                            return <NavLink link={{href:(link.link) && ((link.link.document && link.link.document[0].data.page_path) ? link.link.document[0].data.page_path : link.link.url), text: link.link_text}} subLinks={sublinks}/>
                         })
                     }
                     <NavLink link={{href:'/kontakt/', text: 'kontakt'}} deactivated onClick={() => dispatch({type:'toggle_contact_form'})}/>
@@ -237,10 +252,10 @@ const Layout = ({children, location}) => {
                             data.prismicLayout.data.links.map((link, index) => {
 
                                 let sublinks = data.prismicLayout.data.sublinks && data.prismicLayout.data.sublinks.length > 0 && (
-                                    data.prismicLayout.data.sublinks.filter(sublink => sublink.parent_link == index + 1).map(sublink => ({href:sublink.sublink && sublink.sublink.url, text: sublink.sublink_text}))
+                                    data.prismicLayout.data.sublinks.filter(sublink => sublink.parent_link == index + 1).map(sublink => ({href:(sublink.sublink) && ((sublink.sublink.document && sublink.sublink.document[0].data.page_path) ? sublink.sublink.document[0].data.page_path : sublink.sublink.url), text: sublink.sublink_text}))
                                 )
                                 
-                                return <MobileMenuLink link={{href:link.link && link.link.url, text: link.link_text}} subLinks={sublinks} onClick={()=> setMobileMenuActive(false)}/>
+                                return <MobileMenuLink link={{href:(link.link) && ((link.link.document && link.link.document[0].data.page_path) ? link.link.document[0].data.page_path : link.link.url), text: link.link_text}} subLinks={sublinks} onClick={()=> setMobileMenuActive(false)}/>
                             })
                         }
                         <MobileMenuLink link={{href:'/kontakt/', text: 'kontakt'}} button onClick={() => {dispatch({type:'toggle_contact_form'});setMobileMenuActive(false); console.log('activated')}}/>
@@ -357,7 +372,7 @@ const Layout = ({children, location}) => {
                             data.prismicLayout.data.footer_links &&
                             data.prismicLayout.data.footer_links.length > 0 &&
                             data.prismicLayout.data.footer_links.map((link, index) => {
-                                return <NavLinkVertical link={{href:link.link && link.link.url, text:link.link_text}}>
+                                return <NavLinkVertical link={{href:(link.link) && ((link.link.document && link.link.document[0].data.page_path) ? link.link.document[0].data.page_path : link.link.url), text:link.link_text}}>
                                     <div className={styles.socialIcons}>
                                     {   
                                         data.prismicLayout.data.link_hover_icons &&
