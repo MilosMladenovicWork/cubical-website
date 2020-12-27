@@ -7,7 +7,7 @@ import AppearOnViewContainer from '../AppearOnViewContainer'
 
 const TextImageBox = ({children, reverse, image, alt}) => {
     return(
-        <article className={`${styles.textImageBox} ${reverse && styles.reverseDirection}`}>
+        <article className={`${styles.textImageBox} ${reverse && styles.reverseDirection}  ${!image ? styles.fullWidthContent : ''}`}>
             {
                 image &&
                 <AppearOnViewContainer>

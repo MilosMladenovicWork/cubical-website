@@ -13,7 +13,7 @@ const PageOrderSection = ({data}) => {
 
   return(
     <Section>
-      <TextImageBox image={data.primary.image && data.primary.image.localFile.childImageSharp.fluid} alt={data.primary.image && data.primary.image.alt}>
+      <TextImageBox image={data.primary.image && data.primary.image.localFile && data.primary.image.localFile.childImageSharp.fluid} alt={data.primary.image && data.primary.image.localFile && data.primary.image.alt}>
           <h3>
             {
               data.primary.order_number &&

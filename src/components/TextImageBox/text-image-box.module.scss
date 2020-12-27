@@ -31,3 +31,11 @@
         flex-direction: row-reverse;
     }
 }
+
+.full-width-content{
+    > *{
+        @include breakpoint(sm){
+            width:100%;
+        }
+    }
+}

@@ -9,69 +9,39 @@ const wrapper = (promise) =>
     return result
   })
 
-// exports.createPages = async ({ graphql, actions }) => {
-//   const { createPage } = actions
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
 
-//   const postTemplate = require.resolve('./src/templates/post.jsx')
-//   const categoryTemplate = require.resolve('./src/templates/category.jsx')
+  const pageTemplate = require.resolve('./src/templates/page/index.js')
+  
+  const result = await wrapper(
+    graphql(`
+      {
+        allPrismicPage(filter: {data: {page_path: {ne: "/"}}}) {
+          edges {
+            node {
+              data {
+                page_path
+              }
+            }
+          }
+        }
+      }
+    `)
+  )
 
-//   const result = await wrapper(
-//     graphql(`
-//       {
-//         allPrismicPost {
-//           edges {
-//             node {
-//               id
-//               uid
-//               data {
-//                 categories {
-//                   category {
-//                     document {
-//                       data {
-//                         name
-//                       }
-//                     }
-//                   }
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       }
-//     `)
-//   )
+  const pages = result.data.allPrismicPage.edges
 
-//   const categorySet = new Set()
-//   const postsList = result.data.allPrismicPost.edges
-
-//   // Double check that the post has a category assigned
-//   postsList.forEach((edge) => {
-//     if (edge.node.data.categories[0].category) {
-//       edge.node.data.categories.forEach((cat) => {
-//         categorySet.add(cat.category.document[0].data.name)
-//       })
-//     }
-
-//     // The uid you assigned in Prismic is the slug!
-//     createPage({
-//       path: `/${edge.node.uid}`,
-//       component: postTemplate,
-//       context: {
-//         // Pass the unique ID (uid) through context so the template can filter by it
-//         uid: edge.node.uid,
-//       },
-//     })
-//   })
-
-//   const categoryList = Array.from(categorySet)
-
-//   categoryList.forEach((category) => {
-//     createPage({
-//       path: `/categories/${_.kebabCase(category)}`,
-//       component: categoryTemplate,
-//       context: {
-//         category,
-//       },
-//     })
-//   })
-// }
+  pages.forEach((edge) => {
+    
+    if(edge.node.data.page_path){
+      createPage({
+        path: `${edge.node.data.page_path}`,
+        component: pageTemplate,
+        context: {
+          page_path: edge.node.data.page_path,
+        },
+      })
+    }
+  })
+}
