@@ -204,7 +204,7 @@ const Layout = ({children, location}) => {
                         data.prismicLayout.data.links.map((link, index) => {
 
                             let sublinks = data.prismicLayout.data.sublinks && data.prismicLayout.data.sublinks.length > 0 && (
-                                data.prismicLayout.data.sublinks.filter(sublink => sublink.parent_link == index + 1).map(sublink => ({href:(sublink.sublink) && ((link.link.document && sublink.sublink.document[0].data.page_path) ? sublink.sublink.document[0].data.page_path : sublink.sublink.url), text: sublink.sublink_text}))
+                                data.prismicLayout.data.sublinks.filter(sublink => sublink.parent_link == index + 1).map(sublink => ({href:(sublink.sublink) && ((sublink.sublink.document && sublink.sublink.document[0].data.page_path) ? sublink.sublink.document[0].data.page_path : sublink.sublink.url), text: sublink.sublink_text}))
                             )
 
                             return <NavLink link={{href:(link.link) && ((link.link.document && link.link.document[0].data.page_path) ? link.link.document[0].data.page_path : link.link.url), text: link.link_text}} subLinks={sublinks}/>
