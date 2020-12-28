@@ -44,7 +44,7 @@
       -moz-text-fill-color: transparent;
       font-size:20px;
       @include breakpoint(sm){
-          font-size:unset;
+          font-size:5rem;
       }
   }
 }
