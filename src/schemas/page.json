@@ -398,5 +398,51 @@
         "placeholder": "/something"
       }
     }
+  },
+  "SEO": {
+    "seo_lang_code": {
+      "type": "Text",
+      "config": {
+        "label": "SEO lang code",
+        "placeholder": "en"
+      }
+    },
+    "seo_title": {
+      "type": "Text",
+      "config": {
+        "label": "SEO Title"
+      }
+    },
+    "seo_description": {
+      "type": "Text",
+      "config": {
+        "label": "SEO Description"
+      }
+    },
+    "icon": {
+      "type": "Image",
+      "config": {
+        "constraint": {
+          "width": 180,
+          "height": 180
+        },
+        "thumbnails": [],
+        "label": "Icon"
+      }
+    },
+    "theme_color": {
+      "type": "Color",
+      "config": {
+        "label": "Theme color"
+      }
+    },
+    "website_url": {
+      "type": "Link",
+      "config": {
+        "label": "Website URL",
+        "placeholder": "https://cubical.ag",
+        "select": "web"
+      }
+    }
   }
 }

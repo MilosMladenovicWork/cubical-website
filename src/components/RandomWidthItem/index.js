@@ -12,7 +12,7 @@ const OurServicesItem = ({children, data}) => {
         }}>
             <AppearOnViewContainer>
                 <div className={styles.randomWidthItem}>
-                    <Link to={data.card_link && data.card_link.url}>
+                    <Link to={(data.card_link) && ((data.card_link.document && data.card_link.document[0].data.page_path) ? data.card_link.document[0].data.page_path : data.card_link.url)}>
                         {
                             data.card_heading &&
                             <h3>{data.card_heading}</h3>

@@ -39,6 +39,11 @@ const HomePage = () => {
                     ribbon_text
                     ribbon_link{
                         url
+                        document{
+                          data{
+                            page_path
+                          }
+                        }
                     }
                   }
                   slice_type
@@ -63,6 +68,11 @@ const HomePage = () => {
                     }
                     card_link{
                         url
+                        document{
+                          data{
+                            page_path
+                          }
+                        }
                     }
                   }
                   primary {
@@ -88,6 +98,11 @@ const HomePage = () => {
                     }
                     card_link{
                         url
+                        document{
+                          data{
+                            page_path
+                          }
+                        }
                     }
                     card_image {
                       localFile {
@@ -120,6 +135,11 @@ const HomePage = () => {
                     card_small_heading
                     card_link {
                       url
+                      document{
+                        data{
+                          page_path
+                        }
+                      }
                     }
                     card_cover {
                       localFile {
@@ -152,6 +172,11 @@ const HomePage = () => {
                     }
                     button_link {
                       url
+                      document{
+                        data{
+                          page_path
+                        }
+                      }
                     }
                     button_text
                     cardHeading:heading

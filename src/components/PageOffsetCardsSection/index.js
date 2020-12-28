@@ -33,7 +33,7 @@ const PageOffsetCardsSection = ({data}) => {
             {data.items.map((item, index) => {
                 if(index < numOfLoadedItems){
                     return <RealEstateItem 
-                                link={item.card_link && item.card_link.url}
+                                link={(item.card_link.document && item.card_link.document[0].data.page_path) ? item.card_link.document[0].data.page_path : item.card_link.url}
                                 text={item.card_text && item.card_text}
                                 image={item.card_cover && item.card_cover.localFile.childImageSharp.fluid}
                                 heading={item.card_small_heading}

@@ -10,22 +10,15 @@ import Logo from '../components/Logo'
 import FooterContainer from '../components/FooterContainer'
 import BackgroundImage from '../components/BackgroundImage'
 import flagImg from '../img/flag.svg'
-import NewsletterForm from '../components/NewsletterForm'
 import AsideNavContainer from '../components/AsideNavContainer'
 import NavLinkVertical from '../components/NavLinkVertical'
-import footerImg from '../img/footer-background.jpg'
 import ContactForm from '../components/ContactForm'
-import closeWhite from '../img/close-white.svg'
 import close from '../img/close.svg'
 import closeBlue from '../img/closeBlue.svg'
-import facebookLogo from '../img/logo-facebook.svg'
-import instagramLogo from '../img/logo-instagram.svg'
 import ButtonBordered from '../components/ButtonBordered'
 import RoofSVG from '../components/RoofSVG'
 import MobileMenuLink from '../components/MobileMenuLink'
-import phoneIcon from '../img/phone-icon-transparent.png'
-import emailIcon from '../img/email-icon-transparent.png'
-import homeIcon from '../img/home-icon-transparent.png'
+import SEO from '../components/SEO'
 
 const Layout = ({children, location}) => {
 
@@ -152,6 +145,17 @@ const Layout = ({children, location}) => {
                 }
               }
             }
+            icon {
+                url
+            }
+            seo_description
+            seo_lang_code
+            seo_title
+            theme_color
+            title
+            website_url {
+                url
+            }
           }
         }
       }
@@ -216,6 +220,54 @@ const Layout = ({children, location}) => {
 
     return(
         <div className={styles.layout}>
+            <SEO>
+                {
+                    data.prismicLayout.data.seo_lang_code &&
+                    <html lang={data.prismicLayout.data.seo_lang_code} />
+                }
+                {
+                    data.prismicLayout.data.seo_title &&
+                        <title>{data.prismicLayout.data.seo_title}</title>
+                }
+                {
+                    data.prismicLayout.data.seo_title &&
+                        <meta property="og:title" content={data.prismicLayout.data.seo_title} />
+                }
+                {
+                    data.prismicLayout.data.seo_description &&
+                    <meta name="description" content={data.prismicLayout.data.seo_description} />
+                }
+                {
+                    data.prismicLayout.data.icon && data.prismicLayout.data.icon.url &&
+                        <link rel="apple-touch-icon" sizes="180x180" href={data.prismicLayout.data.icon.url} />}
+                {
+                    data.prismicLayout.data.icon && data.prismicLayout.data.icon.url &&
+                        <link rel="icon" type="image/png" href={data.prismicLayout.data.icon.url} sizes="32x32" />
+                    }
+                {
+                    data.prismicLayout.data.icon && data.prismicLayout.data.icon.url &&
+                        <link rel="icon" type="image/png" href={data.prismicLayout.data.icon.url} sizes="16x16" />
+                }
+                {
+                    data.prismicLayout.data.icon && data.prismicLayout.data.icon.url &&
+                        <link rel="mask-icon" href={data.prismicLayout.data.icon.url} color="#ff4400" />
+                }
+                {
+                    data.prismicLayout.data.icon && data.prismicLayout.data.icon.url &&
+                        <meta property="og:image" content={data.prismicLayout.data.icon.url} />
+                }
+                {
+                    data.prismicLayout.data.theme_color &&                    
+                    <meta name="theme-color" content={data.prismicLayout.data.theme_color} />
+                }
+
+                <meta property="og:type" content="business.business" />
+
+                {
+                    data.prismicLayout.data.website_url && data.prismicLayout.data.website_url.url &&
+                    <meta property="og:url" content={data.prismicLayout.data.website_url.url} />
+                }
+            </SEO>
             <NavMenuContainer>
                 <animated.ul style={linkListProps}>
                     {

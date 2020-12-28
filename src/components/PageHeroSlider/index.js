@@ -40,7 +40,7 @@ const PageHeroSlider = ({data}) => {
                 }
                 {
                     data.fields.ribbon_text && data.fields.ribbon_link &&
-                    <LinkRibbons links={[{href: data.fields.ribbon_link.url, text:data.fields.ribbon_text}]}/>
+                    <LinkRibbons links={[{href: (data.fields.ribbon_link.document && data.fields.ribbon_link.document[0].data.page_path) ? data.fields.ribbon_link.document[0].data.page_path : data.fields.ribbon_link.url, text:data.fields.ribbon_text}]}/>
                 }
                 <ScrollScreenButton>
                     <img src={downArrowImg} alt='scroll down'/>

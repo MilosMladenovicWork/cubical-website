@@ -8,6 +8,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       prismicLayout: PrismicLayout
     }
 
+    type PrismicPage implements Node {
+      prismicPage: PrismicPage
+    }
+
     type Url{
       url: String
     }
@@ -28,6 +32,39 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type PrismicLayout {
       data:Fields
+    }
+
+    type PageFields {
+      icon: Url
+      seo_description: String
+      seo_lang_code: String
+      seo_title: String
+      theme_color: String
+      website_url: Url
+    }
+
+    type PagePath{
+      page_path: String
+    }
+
+    type DocumentLink {
+      data: PagePath
+    }
+
+    type PrismicPageBodyRegularCardsItemsCard_link implements Node {
+      document: [DocumentLink]
+    }
+
+    type PrismicPageBodyIrregularCardsItemsCard_link implements Node {
+      document: [DocumentLink]
+    }
+    
+    type PrismicPageBodyHeroSliderPrimaryRibbon_link implements Node{
+      document: [DocumentLink]
+    }
+
+    type PrismicPage{
+      data:PageFields
     }
   `
   createTypes(typeDefs)

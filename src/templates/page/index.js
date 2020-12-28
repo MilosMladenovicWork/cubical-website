@@ -13,11 +13,60 @@ import PageOrderSection from '../../components/PageOrderSection'
 import PageReferenceSection from '../../components/PageReferenceSection'
 import PageOffsetCardsSection from '../../components/PageOffsetCardsSection'
 import PageRichTextSection from '../../components/PageRichTextSection'
+import SEO from '../../components/SEO'
 
 const Page = ({data}) => {
 
     return(
         <React.Fragment>
+            <SEO>
+                {
+                    data.prismicPage.data.seo_lang_code &&
+                    <html lang={data.prismicPage.data.seo_lang_code} />
+                }
+                {
+                    data.prismicPage.data.seo_title &&
+                        <title>{data.prismicPage.data.seo_title}</title>
+                }
+                {
+                    data.prismicPage.data.seo_title &&
+                        <meta property="og:title" content={data.prismicPage.data.seo_title} />
+                }
+                {
+                    data.prismicPage.data.seo_description &&
+                    <meta name="description" content={data.prismicPage.data.seo_description} />
+                }
+                {
+                    data.prismicPage.data.icon && data.prismicPage.data.icon.url &&
+                        <link rel="apple-touch-icon" sizes="180x180" href={data.prismicPage.data.icon.url} />}
+                {
+                    data.prismicPage.data.icon && data.prismicPage.data.icon.url &&
+                        <link rel="icon" type="image/png" href={data.prismicPage.data.icon.url} sizes="32x32" />
+                    }
+                {
+                    data.prismicPage.data.icon && data.prismicPage.data.icon.url &&
+                        <link rel="icon" type="image/png" href={data.prismicPage.data.icon.url} sizes="16x16" />
+                }
+                {
+                    data.prismicPage.data.icon && data.prismicPage.data.icon.url &&
+                        <link rel="mask-icon" href={data.prismicPage.data.icon.url} color="#ff4400" />
+                }
+                {
+                    data.prismicPage.data.icon && data.prismicPage.data.icon.url &&
+                        <meta property="og:image" content={data.prismicPage.data.icon.url} />
+                }
+                {
+                    data.prismicPage.data.theme_color &&                    
+                    <meta name="theme-color" content={data.prismicPage.data.theme_color} />
+                }
+
+                <meta property="og:type" content="business.business" />
+
+                {
+                    data.prismicPage.data.website_url && data.prismicPage.data.website_url.url &&
+                    <meta property="og:url" content={data.prismicPage.data.website_url.url} />
+                }
+            </SEO>
             {   
                 data.prismicPage.data.body &&
                 data.prismicPage.data.body.length > 0 &&
@@ -75,6 +124,11 @@ export const PageQuery = graphql`
               ribbon_text
               ribbon_link{
                   url
+                  document{
+                    data{
+                      page_path
+                    }
+                  }
               }
             }
             slice_type
@@ -99,6 +153,11 @@ export const PageQuery = graphql`
               }
               card_link{
                   url
+                  document{
+                    data{
+                      page_path
+                    }
+                  }
               }
             }
             primary {
@@ -124,6 +183,11 @@ export const PageQuery = graphql`
               }
               card_link{
                   url
+                  document{
+                    data{
+                      page_path
+                    }
+                  }
               }
               card_image {
                 localFile {
@@ -156,6 +220,11 @@ export const PageQuery = graphql`
               card_small_heading
               card_link {
                 url
+                document{
+                  data{
+                    page_path
+                  }
+                }
               }
               card_cover {
                 localFile {
@@ -188,6 +257,11 @@ export const PageQuery = graphql`
               }
               button_link {
                 url
+                document{
+                  data{
+                    page_path
+                  }
+                }
               }
               button_text
               cardHeading:heading
@@ -210,6 +284,16 @@ export const PageQuery = graphql`
               select_heading_content_heading
             }
           }
+        }
+        icon {
+          url
+        }
+        seo_description
+        seo_lang_code
+        seo_title
+        theme_color
+        website_url {
+            url
         }
       }
     }

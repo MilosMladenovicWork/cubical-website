@@ -20,7 +20,7 @@ const ImageInfoItem = ({heading, title, image, children, link, data}) => {
                 data &&
                 <AppearOnViewContainer>
                     <TiltableContainer>
-                        <Link to={data.card_link && data.card_link.url}>
+                        <Link to={(data.card_link) && ((data.card_link.document && data.card_link.document[0].data.page_path) ? data.card_link.document[0].data.page_path : data.card_link.url)}>
                             <article>
                                 {   data.small_heading &&
                                     <h5><RoofSVG/>{data.small_heading}</h5>
