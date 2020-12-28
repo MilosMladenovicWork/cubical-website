@@ -11,6 +11,8 @@ import styles from './page-order-section.module.scss'
 
 const PageOrderSection = ({data}) => {
 
+  console.log(data)
+
   return(
     <Section>
       <TextImageBox image={data.primary.image && data.primary.image.localFile && data.primary.image.localFile.childImageSharp.fluid} alt={data.primary.image && data.primary.image.localFile && data.primary.image.alt}>

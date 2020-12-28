@@ -55,7 +55,7 @@ const FilterPropertySection = ({kaufenProperties, mietenProperties}) => {
         </div>
         <div className={styles.properties}>
           <div className={`${styles.infoAndSorting} ${styles.rowSpaced}`}>
-            <h2>{dummyArray.length} Immobilien gefunded</h2>
+            <h2>{dummyArray.length} Immobilien gefunden</h2>
             <PropertySorting sorting={sorting} setSorting={setSorting}/>
           </div>
           {dummyArray.map((item, index) => {
