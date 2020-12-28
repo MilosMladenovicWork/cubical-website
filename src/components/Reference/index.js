@@ -51,7 +51,7 @@ const Reference = ({videoLink, image, quote, text, alt}) => {
                                     <button onClick={() => setSeeMore(prevState => !prevState)}>
                                         <img src={seeMore ? seeLessIcon : seeMoreIcon} alt=''/>
                                         {
-                                            seeMore ? 'SEE LESS' : 'SEE MORE'
+                                            seeMore ? 'WENIGER SEHEN' : 'MEHR SEHEN'
                                         }
                                     </button>
                                     {/* <button onClick={() => setShowVideo(true)}>
