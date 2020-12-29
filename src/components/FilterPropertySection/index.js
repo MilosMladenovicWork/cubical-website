@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react'
+import {animated, useTransition} from 'react-spring'
+
 import PropertyFilter from '../PropertyFilter'
 import Section from '../Section'
 import TextImageBox from '../TextImageBox'
@@ -13,6 +15,7 @@ import PropertySorting from '../PropertySorting'
 
 const dummyArray = [
     {
+      id:'1',
       filterung: 'Bauland',
       zimmer: 1,
       ort: 'North Switzerland',
@@ -20,6 +23,7 @@ const dummyArray = [
       wohnflache: 100
     },
     {
+      id:'2',
       filterung: 'Bauland',
       zimmer: 2,
       ort: 'South Switzerland',
@@ -27,6 +31,7 @@ const dummyArray = [
       wohnflache: 200
     },
     {
+      id:'3',
       filterung: 'Wohnung',
       zimmer: 0.5,
       ort: 'North Switzerland',
@@ -34,6 +39,7 @@ const dummyArray = [
       wohnflache: 10
     },
     {
+      id:'4',
       filterung: 'Wohnunh',
       zimmer: 0.5,
       ort: 'South Switzerland',
@@ -49,6 +55,12 @@ const FilterPropertySection = ({kaufenProperties, mietenProperties}) => {
   const [filters, setFilters] = useState({})
   const [sorting, setSorting] = useState({})
   const [filteredData, setFilteredData] = useState([])
+
+  const transitions = useTransition(filteredData, item => item.id, {
+    from: { maxHeight: '0vh', overflow:'hidden', opacity:0 },
+    enter: { maxHeight: '250vh', overflow:'hidden', opacity:1 },
+    leave: { maxHeight: '0vh', overflow:'hidden', opacity:0 },
+    })
 
   console.log(sorting)
 
@@ -152,29 +164,37 @@ const FilterPropertySection = ({kaufenProperties, mietenProperties}) => {
             <h2>{filteredData.length} Immobilien gefunden</h2>
             <PropertySorting sorting={sorting} setSorting={setSorting}/>
           </div>
-          {filteredData.map((item, index) => {
+          {transitions.map(({item, props, key}, index) => {
                 if(index < numOfLoadedItems){
-                    return <TextImageBox image={property}>
-                    <h3>Some text about properties...</h3>
-                    <BottomBorderedContainer>
-                        <SpacedItemsContainer>
-                            <p>Adresse</p>
-                            <p>8200 Schaffhausen</p>
-                        </SpacedItemsContainer>
-                    </BottomBorderedContainer>
-                    <BottomBorderedContainer>
-                        <SpacedItemsContainer>
-                            <p>Adresse</p>
-                            <p>8200 Schaffhausen</p>
-                        </SpacedItemsContainer>
-                    </BottomBorderedContainer>
-                    <BottomBorderedContainer>
-                        <SpacedItemsContainer>
-                            <p>Adresse</p>
-                            <p>8200 Schaffhausen</p>
-                        </SpacedItemsContainer>
-                    </BottomBorderedContainer>
-                </TextImageBox> 
+                    return <animated.div style={props} key={key}>
+                          <TextImageBox image={property}>
+                          <h3>Some text about properties...</h3>
+                          <BottomBorderedContainer>
+                              <SpacedItemsContainer>
+                                  <p>Filterung</p>
+                                  <p>{item.filterung}</p>
+                              </SpacedItemsContainer>
+                          </BottomBorderedContainer>
+                          <BottomBorderedContainer>
+                              <SpacedItemsContainer>
+                                  <p>Zimmer</p>
+                                  <p>{item.zimmer}</p>
+                              </SpacedItemsContainer>
+                          </BottomBorderedContainer>
+                          <BottomBorderedContainer>
+                              <SpacedItemsContainer>
+                                  <p>Ort</p>
+                                  <p>{item.ort}</p>
+                              </SpacedItemsContainer>
+                          </BottomBorderedContainer>
+                          <BottomBorderedContainer>
+                              <SpacedItemsContainer>
+                                  <p>Preis</p>
+                                  <p>{item.preis}</p>
+                              </SpacedItemsContainer>
+                          </BottomBorderedContainer>
+                      </TextImageBox> 
+                    </animated.div>
                 }
             })}
             {
