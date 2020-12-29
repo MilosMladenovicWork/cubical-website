@@ -55,6 +55,14 @@ exports.createSchemaCustomization = ({ actions }) => {
       document: [DocumentLink]
     }
 
+    type PrismicPageBodyOffsetCardsItemsCard_link implements Node {
+      document: [DocumentLink]
+    }
+
+    type PrismicPageBodySimpleOrderSectionPrimaryButton_link implements Node {
+      document: [DocumentLink]
+    }
+
     type PrismicPageBodyIrregularCardsItemsCard_link implements Node {
       document: [DocumentLink]
     }
