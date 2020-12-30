@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {animated, useTransition} from 'react-spring'
+import {Link} from 'gatsby'
 
 import PropertyFilter from '../PropertyFilter'
 import Section from '../Section'
@@ -166,34 +167,36 @@ const FilterPropertySection = ({kaufenProperties, mietenProperties}) => {
           </div>
           {transitions.map(({item, props, key}, index) => {
                 if(index < numOfLoadedItems){
-                    return <animated.div style={props} key={key}>
-                          <TextImageBox image={property}>
-                          <h3>Some text about properties...</h3>
-                          <BottomBorderedContainer>
-                              <SpacedItemsContainer>
-                                  <p>Filterung</p>
-                                  <p>{item.filterung}</p>
-                              </SpacedItemsContainer>
-                          </BottomBorderedContainer>
-                          <BottomBorderedContainer>
-                              <SpacedItemsContainer>
-                                  <p>Zimmer</p>
-                                  <p>{item.zimmer}</p>
-                              </SpacedItemsContainer>
-                          </BottomBorderedContainer>
-                          <BottomBorderedContainer>
-                              <SpacedItemsContainer>
-                                  <p>Ort</p>
-                                  <p>{item.ort}</p>
-                              </SpacedItemsContainer>
-                          </BottomBorderedContainer>
-                          <BottomBorderedContainer>
-                              <SpacedItemsContainer>
-                                  <p>Preis</p>
-                                  <p>{item.preis}</p>
-                              </SpacedItemsContainer>
-                          </BottomBorderedContainer>
-                      </TextImageBox> 
+                    return <animated.div style={props} className={styles.property} key={key}>
+                              <Link to='/immobilien-entry/'>
+                                <TextImageBox image={property}>
+                                <h3>Some text about properties...</h3>
+                                <BottomBorderedContainer>
+                                    <SpacedItemsContainer>
+                                        <p>Filterung</p>
+                                        <p>{item.filterung}</p>
+                                    </SpacedItemsContainer>
+                                </BottomBorderedContainer>
+                                <BottomBorderedContainer>
+                                    <SpacedItemsContainer>
+                                        <p>Zimmer</p>
+                                        <p>{item.zimmer}</p>
+                                    </SpacedItemsContainer>
+                                </BottomBorderedContainer>
+                                <BottomBorderedContainer>
+                                    <SpacedItemsContainer>
+                                        <p>Ort</p>
+                                        <p>{item.ort}</p>
+                                    </SpacedItemsContainer>
+                                </BottomBorderedContainer>
+                                <BottomBorderedContainer>
+                                    <SpacedItemsContainer>
+                                        <p>Preis</p>
+                                        <p>{item.preis}</p>
+                                    </SpacedItemsContainer>
+                                </BottomBorderedContainer>
+                            </TextImageBox> 
+                          </Link>
                     </animated.div>
                 }
             })}

@@ -26,7 +26,7 @@ const ImmobilienEntry = () => {
             <MarginContainer/>
             <Section>
                 <AppearOnViewContainer>
-                    <h3>FÜR GROSS UND KLEIN, SCHÖNE UND BARRIEREFREIE WOHNOASE IM GRÜNEN</h3>
+                    <h1 className={styles.propertyTitle}>FÜR GROSS UND KLEIN, SCHÖNE UND BARRIEREFREIE WOHNOASE IM GRÜNEN</h1>
                 </AppearOnViewContainer>
                 <div className={styles.rowBorderLayout}>
                     <AppearOnViewContainer>
