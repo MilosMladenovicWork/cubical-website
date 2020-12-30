@@ -92,7 +92,6 @@ module.exports = {
         windowKey: '__PRELOADED_STATE__',
       },
     },
-    'gatsby-plugin-sitemap',
     // Must be placed at the end
     'gatsby-plugin-netlify',
   ],
