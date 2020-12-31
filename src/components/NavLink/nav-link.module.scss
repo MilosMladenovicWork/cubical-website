@@ -45,12 +45,7 @@
     background:rgba(255, 255, 255, 0.8);
     a {
         font-size: 1.3rem;
-        padding-right:15px;
-        display: flex;
-        align-items:center;
-        > svg{
-            width:25px;
-        }
+        margin-right:15px;
     }
 }
 .nav-link:hover{
