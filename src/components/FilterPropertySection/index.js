@@ -41,7 +41,7 @@ const dummyArray = [
     },
     {
       id:'4',
-      filterung: 'Wohnunh',
+      filterung: 'Haus',
       zimmer: 0.5,
       ort: 'South Switzerland',
       preis: 1500000,

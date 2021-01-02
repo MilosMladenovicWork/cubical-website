@@ -83,7 +83,7 @@ const PropertyFilter = ({data, filters, setFilters}) => {
     <TiltableContainer>
       <form className={styles.propertyFilter}>
         <fieldset>
-          <h5><RoofSVG/>Filterung</h5>
+          <h5><RoofSVG/>Art</h5>
           {
             filterungArray.map(filter => {
               return <label>
@@ -121,11 +121,11 @@ const PropertyFilter = ({data, filters, setFilters}) => {
           <h5><RoofSVG/>Preis</h5>
           <div className={styles.rowSpacedBetween}>
             <label>
-              From 
+              Von
               <input onChange={setStringValues} type='text' name='priceFrom' className={styles.shortUnderlineInput}/>
             </label>
             <label>
-              To
+              Bis
               <input onChange={setStringValues} type='text' name='priceTo' className={styles.shortUnderlineInput}/>
             </label>
           </div>

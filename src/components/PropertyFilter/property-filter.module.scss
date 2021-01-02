@@ -3,9 +3,11 @@
   padding:20px;
   min-width:170px;
   label {
+    padding-left:10px;
     display: flex;
     align-items: center;
     margin-bottom:10px;
+    font-size:1.3rem;
     > input{
       margin-right: 5px;
     }
@@ -13,7 +15,11 @@
 
   select{
     width:100%;
+    width:calc(100% - 20px);
     padding:7.5px;
+    margin-left:10px;
+    margin-right:10px;
+    font-size:1.3rem;
   }
   
   fieldset{
