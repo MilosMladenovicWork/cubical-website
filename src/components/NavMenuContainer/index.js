@@ -2,12 +2,13 @@ import React, {useState, useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {animated, useSpring} from 'react-spring'
 import useMeasure from 'react-use-measure'
+import { ResizeObserver } from '@juggle/resize-observer'
 
 import styles from './nav-menu-container.module.scss'
 
 const NavMenuContainer = ({children}) => {
     
-    const [ref, { height }] = useMeasure();
+    const [ref, { height }] = useMeasure({ polyfill: ResizeObserver });
 
     const pageLoaded = useSelector(state => state.pageLoaded)
     const pageLoadedMinimal = useSelector(state => state.pageLoadedMinimal)
