@@ -171,19 +171,19 @@ const Layout = ({children, location}) => {
         }, 2500)
     }, [])
 
-    const navIconsTransition = useTransition(showNavIcons, null, {
+    const navIconsTransition = useTransition(showNavIcons, {
         from: {transform:'translate(-100%, -50%)'},
         enter: {transform: 'translate(0%, -50%)'},
         leave: {transform: 'translate(-100%, -50%)'}
     })
 
-    const rightNavIconsTransition = useTransition(showNavIcons, null, {
+    const rightNavIconsTransition = useTransition(showNavIcons,{
         from: {opacity: 0},
         enter: {opacity: 1},
         leave: {opacity: 0}
     })
 
-    const contactFormTransition = useTransition(contactButtonClicked, null, {
+    const contactFormTransition = useTransition(contactButtonClicked, {
         from: {opacity: '0'},
         enter: {opacity: '1'},
         leave: {opacity: '0'}
@@ -365,9 +365,9 @@ const Layout = ({children, location}) => {
             <main>
                 <div className={`${styles.mainContentNavigation}`}>
                     {
-                        navIconsTransition.map(({item, key, props}) => 
+                        navIconsTransition((style, item) => 
                             item && 
-                            <animated.div key={key} style={props} className={`${styles.navigationStickyContainer} ${styles.navigationStickyContainerLeft}`}>
+                            <animated.div style={style} className={`${styles.navigationStickyContainer} ${styles.navigationStickyContainerLeft}`}>
                                     {
                                         data.prismicLayout.data.left_side_links &&
                                         data.prismicLayout.data.left_side_links.length > 0 &&
@@ -393,8 +393,8 @@ const Layout = ({children, location}) => {
                 </div>
                 <div className={styles.mainContentNavigation}>
                     {
-                        rightNavIconsTransition.map(({item, key, props}) =>
-                        item && <animated.div key={key} style={props} className={styles.navigationStickyContainer}>
+                        rightNavIconsTransition((style, item) =>
+                        item && <animated.div style={style} className={styles.navigationStickyContainer}>
                             <AsideNavContainer rotated>
                                 {
                                     data.prismicLayout.data.right_side_links &&
@@ -437,7 +437,7 @@ const Layout = ({children, location}) => {
                         </div>
                     }
                 </div>
-                <div className={styles.horizontallyCentered} onClick={() => {dispatch({type:'toggle_contact_form'});window.scrollBy(0, -Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0))}}>
+                <div className={styles.horizontallyCentered} onClick={() => {dispatch({type:'toggle_contact_form'});}}>
                     <ButtonBordered>
                         Kontakt
                     </ButtonBordered>
@@ -483,9 +483,9 @@ const Layout = ({children, location}) => {
                 </div>
             </FooterContainer>
             {
-                contactFormTransition.map(({item, key, props}) => 
+                contactFormTransition((style, item) => 
                     item && 
-                    <animated.div key={key} style={props} className={styles.contactFormContainer}>
+                    <animated.div style={style} className={styles.contactFormContainer}>
                         <ContactForm>
                             <img style={{alignSelf:'flex-start', width:40, marginBottom:15, cursor:'pointer'}} src={closeBlue} alt='close' onClick={() => dispatch({type:'toggle_contact_form'})}/>
                         </ContactForm>
@@ -493,9 +493,9 @@ const Layout = ({children, location}) => {
 
                 )
             }
-            { contactFormTransition.map(({item, key, props}) => 
+            { contactFormTransition((style, item) => 
                 item &&
-                <animated.div style={props} key={key} className={styles.mobileForm}>
+                <animated.div style={style} className={styles.mobileForm}>
                         <ContactForm>
                             <img style={{alignSelf:'flex-start', width:40, marginBottom:15, cursor:'pointer'}} src={closeBlue} alt='close' onClick={() => dispatch({type:'toggle_contact_form'})}/>
                         </ContactForm>

@@ -57,7 +57,7 @@ const FilterPropertySection = ({kaufenProperties, mietenProperties}) => {
   const [sorting, setSorting] = useState({})
   const [filteredData, setFilteredData] = useState([])
 
-  const transitions = useTransition(filteredData, item => item.id, {
+  const transitions = useTransition(filteredData, {
     from: { maxHeight: '0vh', overflow:'hidden', opacity:0 },
     enter: { maxHeight: '250vh', overflow:'hidden', opacity:1 },
     leave: { maxHeight: '0vh', overflow:'hidden', opacity:0 },
@@ -165,9 +165,9 @@ const FilterPropertySection = ({kaufenProperties, mietenProperties}) => {
             <h2>{filteredData.length} Immobilien gefunden</h2>
             <PropertySorting sorting={sorting} setSorting={setSorting}/>
           </div>
-          {transitions.map(({item, props, key}, index) => {
+          {transitions((style, item, t, index) => {
                 if(index < numOfLoadedItems){
-                    return <animated.div style={props} className={styles.property} key={key}>
+                    return <animated.div style={style} className={styles.property}>
                               <Link to='/immobilien-entry/'>
                                 <TextImageBox image={property}>
                                 <h3>Some text about properties...</h3>
