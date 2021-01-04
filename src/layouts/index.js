@@ -171,19 +171,19 @@ const Layout = ({children, location}) => {
         }, 2500)
     }, [])
 
-    const navIconsTransition = useTransition(showNavIcons, null, {
+    const navIconsTransition = useTransition(showNavIcons, 'navIconsTransition', {
         from: {transform:'translate(-100%, -50%)'},
         enter: {transform: 'translate(0%, -50%)'},
         leave: {transform: 'translate(-100%, -50%)'}
     })
 
-    const rightNavIconsTransition = useTransition(showNavIcons, null, {
+    const rightNavIconsTransition = useTransition(showNavIcons, 'rightNavIconsTransition', {
         from: {opacity: 0},
         enter: {opacity: 1},
         leave: {opacity: 0}
     })
 
-    const contactFormTransition = useTransition(contactButtonClicked, null, {
+    const contactFormTransition = useTransition(contactButtonClicked, 'contactFormTransition', {
         from: {opacity: '0'},
         enter: {opacity: '1'},
         leave: {opacity: '0'}
