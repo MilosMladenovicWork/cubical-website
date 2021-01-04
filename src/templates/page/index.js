@@ -177,6 +177,9 @@ export const PageQuery = graphql`
           }
           ... on PrismicPageBodyRegularCards {
             id
+            primary{
+              section_heading
+            }
             items {
               card_body {
                 html
