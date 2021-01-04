@@ -56,6 +56,14 @@ exports.createSchemaCustomization = ({ actions }) => {
       document: [DocumentLink]
     }
 
+    type PrismicPageBodyRegularCards implements Node{
+      primary: PrismicPageBodyRegularCardsFields
+    }
+
+    type PrismicPageBodyRegularCardsFields {
+      section_heading: String
+    }
+
     type PrismicPageBodyOffsetCardsItemsCard_link implements Node {
       document: [DocumentLink]
     }

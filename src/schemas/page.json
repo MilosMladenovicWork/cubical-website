@@ -139,7 +139,14 @@
             "description": "Symetric card section",
             "icon": "crop_square",
             "display": "list",
-            "non-repeat": {},
+            "non-repeat": {
+              "section_heading": {
+                "type": "Text",
+                "config": {
+                  "label": "Section Heading"
+                }
+              }
+            },
             "repeat": {
               "card_image": {
                 "type": "Image",

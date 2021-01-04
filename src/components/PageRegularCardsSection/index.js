@@ -9,6 +9,10 @@ import popularSectionImg from '../../img/popular-section1.png'
 const PageRegularCardsSection = ({data}) => {
   return (
     <Section>
+        {
+            data.primary.section_heading &&
+            <h2 className={styles.sectionHeading}>{data.primary.section_heading}</h2>
+        }
         <ul className={styles.popularSectionsContainer}>
             {
                 data.items &&
