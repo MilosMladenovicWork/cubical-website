@@ -10,9 +10,11 @@
     margin-left:50px;
     @include breakpoint(sm){
         width:20vw;
+        margin-right: 5vw;
     }
     @include breakpoint(lg){
         width:12.5vw;
+        margin-right:unset;
     }
 }
 

@@ -1,4 +1,4 @@
-import React, {useRef} from 'react'
+import React, {useRef, useState} from 'react'
 import {Link, useStaticQuery, graphql} from 'gatsby'
 import {useSpring, animated, useChain} from 'react-spring'
 import {useSelector} from 'react-redux'
@@ -6,6 +6,7 @@ import {useSelector} from 'react-redux'
 import styles from './logo.module.scss'
 import logo from '../../img/logo.png'
 import logoMoto from '../../img/logo-moto.png'
+import AppearContainer from '../AppearContainer'
 
 
 const Logo = () => {
@@ -20,33 +21,30 @@ const Logo = () => {
                 url
               }
             }
-            logo_secondary_image {
-              alt
-              localFile {
-                url
-              }
-            }
+            logo_text
           }
         }
       }
-    `)
-
-    const pageLoaded = useSelector(state => state.pageLoaded)
-    const pageLoadedMinimal = useSelector(state => state.pageLoadedMinimal)
-
+      `)
+      
+      const pageLoaded = useSelector(state => state.pageLoaded)
+      const pageLoadedMinimal = useSelector(state => state.pageLoadedMinimal)
+      const [letterSprings, setLetterSprings] = useState([])
+      
     const motoRef = useRef()
     const motoProps = useSpring({
         from:{
             opacity: 0,
-            transform:'scale(0.5)'
+            transform:'scale(0.5) translate(-50%, 0%)'
         },
         to:{
             opacity: (pageLoaded && pageLoadedMinimal) ? 0 : 1,
-            transform: (pageLoaded && pageLoadedMinimal) ? 'scale(1)' : 'scale(1.75)' 
+            transform: (pageLoaded && pageLoadedMinimal) ? 'scale(1) translate(-50%, 0%)' : 'scale(1) translate(-50%, 0%)' 
         },
         delay:(pageLoaded && pageLoadedMinimal) ? 0 : 500,
         ref: motoRef
     })
+
 
     const logoRef = useRef()
     const logoProps = useSpring({
@@ -60,18 +58,33 @@ const Logo = () => {
         ref: logoRef
     })
 
-    useChain([logoRef, motoRef])
+    
+    function getSpring(reference){
+      setLetterSprings(prevState => [...prevState, reference])
+    }
+    
+    const formatedText = (text) => {
+      const letters = text.split('')
+      let elements = letters.map(letter => <AppearContainer getSpring={getSpring}><span>{letter}</span></AppearContainer>)
+      return elements
+    }
+    
+    useChain([logoRef, ...letterSprings])
 
     return(
         <div class0Name={styles.logo}>
             <Link to={'/'}>
                 {
-                    data.prismicLayout.data.logo_primary_image &&
-                    <animated.img style={logoProps} src={data.prismicLayout.data.logo_primary_image.localFile.url} alt='cubical.ag - the keys to your home'/>
-                }
-                {
-                    data.prismicLayout.data.logo_secondary_image &&
-                    <animated.img style={motoProps} src={data.prismicLayout.data.logo_secondary_image.localFile.url} alt={data.prismicLayout.data.logo_secondary_image.alt} className={styles.logoMoto}/>
+                  data.prismicLayout.data.logo_primary_image &&
+                  <animated.div style={logoProps}>
+                    <img className={styles.logoImage} src={data.prismicLayout.data.logo_primary_image.localFile.url} alt='cubical.ag - the keys to your home'/>
+                    {
+                      data.prismicLayout.data.logo_text &&
+                      <div className={styles.logoText}>
+                        {formatedText(data.prismicLayout.data.logo_text)}
+                      </div>
+                    }
+                  </animated.div>
                 }
             </Link>
         </div>

@@ -28,6 +28,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       links: [Link]
       right_side_link_hover_icons: [Link]
       sublinks: [Link]
+      logo_text: String
     }
 
     type PrismicLayout {

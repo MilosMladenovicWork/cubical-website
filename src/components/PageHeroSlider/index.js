@@ -36,7 +36,7 @@ const PageHeroSlider = ({data}) => {
                 </Slider>
                 {
                     data.fields.heading &&
-                    <MotoText text={data.fields.heading}/>
+                    <MotoText heading text={data.fields.heading}/>
                 }
                 {
                     data.fields.ribbon_text && data.fields.ribbon_link &&

@@ -99,12 +99,6 @@ const Layout = ({children, location}) => {
                 absolutePath
               }
             }
-            logo_secondary_image {
-              alt
-              localFile {
-                absolutePath
-              }
-            }
             right_side_link_hover_icons {
               image {
                 alt
@@ -174,7 +168,7 @@ const Layout = ({children, location}) => {
           
         setTimeout(() => {
             dispatch({type:'PAGE_LOADED_MINIMAL'})
-        }, 2000)
+        }, 2500)
     }, [])
 
     const navIconsTransition = useTransition(showNavIcons, null, {
