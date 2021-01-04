@@ -1,18 +1,21 @@
 @import '../../styles/utils/breakpoints.scss';
 
 .reference{
+    z-index:1;
     margin-top:75px;
     >h3{
         font-size:1.5rem;
         text-transform: uppercase;
     }
     .text-overlay{
+        z-index:4;
         width:100%;
         height:auto;
         transition:0.5s;
-        @include breakpoint(sm){
+        @include breakpoint(lg){
             min-height:10px;
-            width:380px;
+            width:25%;
+            min-width:250px;
             transform:translate(0, -50%);
             position:absolute;
             right:40px;
@@ -20,8 +23,9 @@
         }
     }
     .expanded{
+        z-index:100;
         transform:translate(0, -40px);
-        @include breakpoint(sm){
+        @include breakpoint(lg){
             transform:translate(0, -50%);
             width:60%;
             right:0;
@@ -30,6 +34,9 @@
     .reference-image{
         position: relative;
         transition:0.5s;
+        @include breakpoint(lg){
+            width:70%;
+        }
         .reference-video{
             @include breakpoint(xs){
                 display:block;
@@ -66,7 +73,7 @@
         }
     }
     figure > .reference-video{
-        @include breakpoint(sm){
+        @include breakpoint(lg){
             display: unset;
         }
     }
@@ -85,7 +92,7 @@
     button:hover{
         transform:scale(1.1);
     }
-    @include breakpoint(sm){
+    @include breakpoint(lg){
         position: relative;
     }
 }
@@ -104,7 +111,7 @@
 }
 
 .shrinked{
-    @include breakpoint(sm){
+    @include breakpoint(lg){
         transform: scale(0.7) translate(-50%, 0%);
     }
 }
