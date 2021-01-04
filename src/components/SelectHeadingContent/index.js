@@ -14,7 +14,7 @@ const SelectHeadingContent = ({column, data}) => {
                     {data.map((item, index) => {
                         if(item.select_heading_content_heading){
                             return <h5 onClick={() => setActiveHeading(index)} class={activeHeading === index && styles.activeHeading}>
-                                <RoofSVG/>
+                                
                                 {item.select_heading_content_heading}
                             </h5>
                         }

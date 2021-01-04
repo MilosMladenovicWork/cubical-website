@@ -27,7 +27,7 @@ const PartnerPage = () => {
                 <p>Für uns spre­chen viele Gründe. Aber was zählt, sind allein Sie, Ihre Immo­bilie und Ihr Vertrauen in uns. Anstatt auf Quan­tität setzen wir auf Qualität, damit wir jedem Objekt die Aufmerk­sam­keit schenken können, die es verdient. Eine klare Kommu­ni­ka­tion, Trans­pa­renz und direkte Wege liegen uns sehr am Herzen. Nur so können wir flexibel und ganz gezielt reagieren – auf Ihre Wünsche und Bedürf­nisse indi­vi­duell eingehen. Wir sind optimal vernetzt und begleiten Sie auf dem Weg zum erfolg­rei­chen Immo­bi­li­en­ver­kauf, und zwar mit starken Part­nern, viel Gespür für den Markt und einer Menge Leiden­schaft. Lernen Sie uns persön­lich kennen. Wir freuen uns auf Sie.</p>
             </Section>
             <Section>
-                <h5><RoofSVG/>NETZWERK</h5>
+                <h5>NETZWERK</h5>
                 <SquareContainer>
                     <SquareContainerItem>
                         <img src={partnerImg} alt=''/>

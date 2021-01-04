@@ -174,13 +174,19 @@ const Layout = ({children, location}) => {
           
         setTimeout(() => {
             dispatch({type:'PAGE_LOADED_MINIMAL'})
-        }, 1500)
+        }, 2000)
     }, [])
 
     const navIconsTransition = useTransition(showNavIcons, null, {
         from: {transform:'translate(-100%, -50%)'},
         enter: {transform: 'translate(0%, -50%)'},
         leave: {transform: 'translate(-100%, -50%)'}
+    })
+
+    const rightNavIconsTransition = useTransition(showNavIcons, null, {
+        from: {opacity: 0},
+        enter: {opacity: 1},
+        leave: {opacity: 0}
     })
 
     const contactFormTransition = useTransition(contactButtonClicked, null, {
@@ -310,7 +316,7 @@ const Layout = ({children, location}) => {
                     ]}/> */}
                 </animated.ul>
                 <animated.div style={linkListProps} className={styles.mobile}>
-                    <h5 onClick={() => setMobileMenuActive(true)}><RoofSVG/>Menü</h5>
+                    <h5 onClick={() => setMobileMenuActive(true)}>Menü</h5>
                     <div className={`${styles.mobileMenu} ${mobileMenuActive && styles.mobileMenuActive}`}>
                         <img className={styles.closeMobileMenuButton} style={{alignSelf:'flex-start', width:40, marginBottom:15, cursor:'pointer'}} src={close} alt='close' onClick={() => setMobileMenuActive(false)}/>
                         {/* <MobileMenuLink link={{href:'/kaufen/', text: 'kaufen'}} onClick={() => setMobileMenuActive(false)}/>
@@ -392,32 +398,36 @@ const Layout = ({children, location}) => {
                     {children}
                 </div>
                 <div className={styles.mainContentNavigation}>
-                    <div className={styles.navigationStickyContainer}>
-                        <AsideNavContainer rotated>
-                            {
-                                data.prismicLayout.data.right_side_links &&
-                                data.prismicLayout.data.right_side_links.length > 0 &&
-                                data.prismicLayout.data.right_side_links.map((link, index) => {
-                                    return <NavLinkVertical link={{href:(link.link) && ((link.link.document && link.link.document[0].data.page_path) ? link.link.document[0].data.page_path : link.link.url), text:link.link_text}}>
-                                        <div className={styles.socialIcons}>
-                                        {   
-                                            data.prismicLayout.data.right_side_link_hover_icons &&
-                                            data.prismicLayout.data.right_side_link_hover_icons.length > 0 &&
-                                            data.prismicLayout.data.right_side_link_hover_icons.filter(link => link.parent_link == index + 1).map(sublink => {
-                                                return <a href={(sublink.link) && ((sublink.link.document && sublink.link.document[0].data.page_path) ? sublink.link.document[0].data.page_path : sublink.link.url)}>
-                                                        {
-                                                            sublink.image && 
-                                                            <img src={sublink.image.localFile.url} alt={sublink.image.alt}/>
-                                                        }
-                                                    </a>
-                                            })
-                                        }
-                                        </div>
-                                    </NavLinkVertical>
-                                })
-                            }
-                        </AsideNavContainer>
-                    </div>
+                    {
+                        rightNavIconsTransition.map(({item, key, props}) =>
+                        item && <animated.div key={key} style={props} className={styles.navigationStickyContainer}>
+                            <AsideNavContainer rotated>
+                                {
+                                    data.prismicLayout.data.right_side_links &&
+                                    data.prismicLayout.data.right_side_links.length > 0 &&
+                                    data.prismicLayout.data.right_side_links.map((link, index) => {
+                                        return <NavLinkVertical link={{href:(link.link) && ((link.link.document && link.link.document[0].data.page_path) ? link.link.document[0].data.page_path : link.link.url), text:link.link_text}}>
+                                            <div className={styles.socialIcons}>
+                                            {   
+                                                data.prismicLayout.data.right_side_link_hover_icons &&
+                                                data.prismicLayout.data.right_side_link_hover_icons.length > 0 &&
+                                                data.prismicLayout.data.right_side_link_hover_icons.filter(link => link.parent_link == index + 1).map(sublink => {
+                                                    return <a href={(sublink.link) && ((sublink.link.document && sublink.link.document[0].data.page_path) ? sublink.link.document[0].data.page_path : sublink.link.url)}>
+                                                            {
+                                                                sublink.image && 
+                                                                <img src={sublink.image.localFile.url} alt={sublink.image.alt}/>
+                                                            }
+                                                        </a>
+                                                })
+                                            }
+                                            </div>
+                                        </NavLinkVertical>
+                                    })
+                                }
+                            </AsideNavContainer>
+                        </animated.div>
+                        )
+                    }
                 </div>
             </main>
             <FooterContainer>

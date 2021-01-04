@@ -23,7 +23,7 @@ const NavLink = ({link, subLinks, deactivated, onClick}) => {
     return(
         <li className={styles.navLink} onClick={() => onClick && onClick()}>
             <Link onClick={(e) => deactivated && e.preventDefault()} to={link.href} activeClassName={styles.active} partiallyActive={true}>
-                <RoofSVG/>
+                  
                 <span>
                     {link.text}
                 </span>
@@ -36,7 +36,7 @@ const NavLink = ({link, subLinks, deactivated, onClick}) => {
                         subLinks.map(link => {
                             return <li className={styles.subLinksLink}>
                                 <Link to={link.href} activeClassName={styles.active} partiallyActive={true}>
-                                    <RoofSVG/>
+                                    
                                     <span>
                                         {link.text}
                                     </span>

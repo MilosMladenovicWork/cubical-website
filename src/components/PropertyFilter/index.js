@@ -83,7 +83,7 @@ const PropertyFilter = ({data, filters, setFilters}) => {
     <TiltableContainer>
       <form className={styles.propertyFilter}>
         <fieldset>
-          <h5><RoofSVG/>Art</h5>
+          <h5>Art</h5>
           {
             filterungArray.map(filter => {
               return <label>
@@ -96,7 +96,7 @@ const PropertyFilter = ({data, filters, setFilters}) => {
           }
         </fieldset>
         <fieldset>
-          <h5><RoofSVG/>Zimmer</h5>
+          <h5>Zimmer</h5>
           <select onChange={setStringValues} name='zimmer'>
             <option value=''>Alle</option>
             {zimmerArray.map(zimmer => {
@@ -107,7 +107,7 @@ const PropertyFilter = ({data, filters, setFilters}) => {
           </select>
         </fieldset>
         <fieldset>
-          <h5><RoofSVG/>Ort</h5>
+          <h5>Ort</h5>
           <select onChange={setStringValues} name='ort'>
             <option value=''>Alle</option>
             {ortArray.map(ort => {
@@ -118,7 +118,7 @@ const PropertyFilter = ({data, filters, setFilters}) => {
           </select>
         </fieldset>
         <fieldset>
-          <h5><RoofSVG/>Preis</h5>
+          <h5>Preis</h5>
           <div className={styles.rowSpacedBetween}>
             <label>
               Von

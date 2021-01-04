@@ -46,3 +46,12 @@
     align-items: center;
     justify-content: center;
 }
+
+.relative-menu{
+    width:100%;
+    padding:10px 15px;
+    @include breakpoint(lg){
+        width:unset;
+        padding:unset;
+    }
+}

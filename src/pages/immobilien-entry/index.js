@@ -31,7 +31,7 @@ const ImmobilienEntry = () => {
                 <div className={styles.rowBorderLayout}>
                     <AppearOnViewContainer>
                         <div>
-                            <h5><RoofSVG/> AUF EINEN BLICK</h5>
+                            <h5> AUF EINEN BLICK</h5>
                             <div className={styles.infoList}>
                                 <span>Preis:</span>
                                 <span>CHF 500'000</span>
@@ -56,7 +56,7 @@ const ImmobilienEntry = () => {
                     </AppearOnViewContainer>
                     <AppearOnViewContainer>
                         <div>
-                            <h5><RoofSVG/> ANGABEN</h5>
+                            <h5> ANGABEN</h5>
                             <div className={styles.infoList}> 
                                 <span>PLZ/Ort:</span>
                                 <span>5316 Leuggern</span>
@@ -96,7 +96,7 @@ const ImmobilienEntry = () => {
                 <AppearOnViewContainer>
                     <SeeMoreContainer>
                         <div className={styles.content}>
-                            <h5><RoofSVG/> BESCHREIBUNG</h5>
+                            <h5> BESCHREIBUNG</h5>
                             <p>Dieses Zuhause mit gutem Preis-Leistungs-Verhältnis empfängt Jung und Alt auf behagliche, einfache und unkomplizierte Art und Weise - treten Sie ein!</p>
                             <p>Sie leben hier barrierefrei und an äusserst ruhiger Lage. Das Quartier ist sehr gepflegt, man kennt sich hier, weiss aber auch die nötige Privatsphäre zu wahren. Aber lassen Sie uns erst einmal die gute Stube betreten: Das Wohn- und Esszimmer überzeugt mit seiner hellen Atmosphäre und dem praktischen, pflegeleichten Plattenboden. Die geräumige Küche ist dank der neuen Geräte in sehr gutem Zustand; das angrenzende Reduit bietet viel Platz und beherbergt die Waschmaschine und den Tumbler.</p>
                             <p>In den Schlafzimmern wurde schönes Parkett verlegt, das den Räumen eine gemütliche Atmosphäre verleiht. Weiter finden Sie zwei Nasszellen: eine ist mit Badewanne ausgestattet, die andere verfügt über eine begehbare Dusche. Letztere wurde zudem 2019 komplett saniert.</p>
@@ -117,7 +117,7 @@ const ImmobilienEntry = () => {
                 <div className={styles.rowBorderLayout}>
                     <AppearOnViewContainer>
                         <div>
-                            <h5><RoofSVG/> BESICHTIGUNG</h5>
+                            <h5> BESICHTIGUNG</h5>
                             <p>Patrick Angioy +41 76 801 69 50</p>
                         </div>
                     </AppearOnViewContainer>
@@ -129,7 +129,7 @@ const ImmobilienEntry = () => {
                 </div>
             </Section>
             <Section>
-                <h5><RoofSVG/> LAGE</h5>
+                <h5> LAGE</h5>
                 <AppearOnViewContainer>
                     <div className={styles.mapContainer}>
                         <Map coords={[47.195602, 6.148113]} zoom={17}/>

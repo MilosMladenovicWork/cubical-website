@@ -15,7 +15,7 @@ const BlogEntryPage = () => {
                 <AppearOnViewContainer>
                     <div className={styles.miscInfo}>
                         <h5>
-                            <RoofSVG/> Real Estate
+                             Real Estate
                         </h5>
                         <p>
                             <small>12/10/2020</small>

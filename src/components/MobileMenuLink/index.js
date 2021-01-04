@@ -24,7 +24,7 @@ const MobileMenuLink = ({link, subLinks, deactivated, onClick, button}) => {
             partiallyActive={true}
             >
                 <div className={styles.primaryLinkContent}>
-                    <RoofSVG/>
+                    
                     {link.text}
                 </div>
                 {
@@ -54,8 +54,9 @@ const MobileMenuLink = ({link, subLinks, deactivated, onClick, button}) => {
                         subLinks.map(link => {
                             return <li onClick={() => onClick()}>
                                 <Link to={link.href} activeClassName={styles.active} partiallyActive={true}>
-                                    <RoofSVG/>
-                                    {link.text}
+                                    <div className={styles.sublinkContent}>
+                                        {link.text}
+                                    </div>
                                 </Link>
                             </li>
                         })

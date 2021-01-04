@@ -15,7 +15,7 @@ const SlidingOverlayItem = ({children, text, image, heading, link, alt}) => {
                         <article>
                             {
                                 heading &&
-                                <h5><RoofSVG/>{heading}</h5>
+                                <h5>{heading}</h5>
                             }
                             <TiltableContainer>
                             <div className={styles.itemContent}>
