@@ -6,5 +6,36 @@
     margin-top:50px;
     @include breakpoint(sm){
         width: 450px;
+        margin-top:0px;
+        padding-left:35px;
+        border-left:2px solid #009DFF;
+    }
+}
+
+.content-row{
+    display:flex;
+}
+
+.heading{
+    @include breakpoint(sm){
+        margin-right:30px;
+        h1{
+            font-size: 5rem;
+        }
+        h2{
+            font-size:4rem;
+        }
+        h3{
+            font-size:3rem;
+        }
+        h4{
+            font-size:2.5rem;
+        }
+        h5{
+            font-size:2rem;
+        }
+        h6{
+            font-size:1.75rem;
+        }
     }
 }
