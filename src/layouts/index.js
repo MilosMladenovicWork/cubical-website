@@ -192,7 +192,7 @@ const Layout = ({children, location}) => {
     useEffect(() => {
         if(typeof window != 'undefined'){
             window.addEventListener('scroll', () => {
-                let scrolledPixels = vhToPixel(75)
+                let scrolledPixels = vhToPixel(65)
                 if(window.scrollY > Number(scrolledPixels)){
                     setShowNavIcons(true)
                 }else{

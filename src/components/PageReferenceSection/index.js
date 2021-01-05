@@ -66,7 +66,7 @@ const PageReferenceSection = () => {
   ]
   
   return(
-    <Section>
+    <Section fullWidth>
         {data.references.edges && data.references.edges.map(({node:reference}, index) => {
             if(index < numOfLoadedItems){
                 return <div className={`${styles.referenceItem} ${styles.visibleItem}`}>

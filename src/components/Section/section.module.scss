@@ -13,3 +13,9 @@
         margin-bottom:130px;
     }
 }
+
+.full-width{
+    @include breakpoint(lg){
+        max-width:100%;
+    }
+}
