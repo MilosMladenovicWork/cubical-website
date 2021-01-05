@@ -47,15 +47,28 @@ const Logo = () => {
 
 
     const logoRef = useRef()
+    const wholeLogo = useRef()
+
     const logoProps = useSpring({
         from:{
             transform:'scale(0.5)'
         },
         to:{
-            transform: (pageLoaded && pageLoadedMinimal) ? 'scale(1)' : 'scale(1.75)'
+            transform: (pageLoaded && pageLoadedMinimal) ? 'scale(1)' : 'scale(1.75)',
         },
         delay: (pageLoaded && pageLoadedMinimal) ? 0 : 300,
         ref: logoRef
+    })
+
+    const paddingAnimation = useSpring({
+        from:{
+            paddingBottom:'1.5rem'
+        },
+        to:{
+          paddingBottom:(pageLoaded && pageLoadedMinimal) ? '0rem' : '1.5rem'
+        },
+        delay: (pageLoaded && pageLoadedMinimal) ? 0 : 300,
+        ref: wholeLogo
     })
 
     
@@ -69,10 +82,10 @@ const Logo = () => {
       return elements
     }
     
-    useChain([logoRef, ...letterSprings])
+    useChain([logoRef, ...letterSprings, wholeLogo])
 
     return(
-        <div class0Name={styles.logo}>
+        <animated.div className={styles.logo} style={paddingAnimation}>
             <Link to={'/'}>
                 {
                   data.prismicLayout.data.logo_primary_image &&
@@ -87,7 +100,7 @@ const Logo = () => {
                   </animated.div>
                 }
             </Link>
-        </div>
+        </animated.div>
     )
 }
 

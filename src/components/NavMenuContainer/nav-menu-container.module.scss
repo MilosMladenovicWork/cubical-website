@@ -50,6 +50,9 @@
 .relative-menu{
     width:100%;
     padding:10px 15px;
+    @include breakpoint(sm){
+        padding:10px 5vw;
+    }
     @include breakpoint(lg){
         width:unset;
         padding:unset;
