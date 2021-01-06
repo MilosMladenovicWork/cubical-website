@@ -1,0 +1,1554 @@
+/*
+		Designed by: Jarlan Perez
+		Original image: https://www.artstation.com/artwork/VdBllN
+*/
+
+
+// $bg-1: #322e4a;
+$bg-1: hsl(200, 28%, 60%);
+$bg-2: darken($bg-1, 15);
+
+$white-1: #26FAFF;
+$white-2: #26BAFF;
+$white-3: #1FA7E9;
+$white-4: #117FBA;
+
+$black-1: #093655;
+$black-2: darken($black-1, 10);
+$black-3: darken($black-2, 5);
+
+// $neon-1: #5474FB;
+// $neon-2: #283CD2;
+$neon-1: hsl(220, 95%, 65%);
+$neon-2: hsl(210, 68%, 49%);
+
+$cuadro-1: #093655;
+$cuadro-2: #0F1110;
+
+/***********************/
+/***********************/
+@mixin cube($width, $height, $depth) {
+    &__front{ @include cube-front($width, $height, $depth); }
+    &__back{ @include cube-back($width, $height, $depth); }
+    &__right{ @include cube-right($width, $height, $depth); }
+    &__left{ @include cube-left($width, $height, $depth); }
+    &__top{ @include cube-top($width, $height, $depth);}
+    &__bottom{ @include cube-bottom($width, $height, $depth); }
+}
+/************************/
+/* Mixin para crear cubo ( Caras siempre al frente ) */
+/************************/
+@mixin cube-front($width, $height, $depth) {
+    width: $width;
+    height: $height;
+    transform-origin: bottom left;
+    transform: rotateX(-90deg) translateZ( -($height - ($depth * 2) ) );
+}
+@mixin cube-back($width, $height, $depth) {
+    width: $width;
+    height: $height;
+    transform-origin: top left;
+    transform: rotateX(-90deg) rotateY(180deg) translateX(-$width) translateY(-$height) ;
+}
+@mixin cube-right($width, $height, $depth) {
+    width: $depth * 2;
+    height: $height;
+    transform-origin: top left;
+    transform: rotateY(90deg) rotateZ(-90deg) translateZ($width) translateX(-$depth * 2) translateY(-$height);
+}
+@mixin cube-left($width, $height, $depth) {
+    width: $depth * 2;
+    height: $height;
+    transform-origin: top left;
+    transform: rotateY(-90deg) rotateZ(90deg) translateY(-$height);
+}
+@mixin cube-top($width, $height, $depth) {
+    width: $width;
+    height: $depth * 2;
+    transform-origin: top left;
+    transform: translateZ($height) ;
+}
+@mixin cube-bottom($width, $height, $depth) {
+    width: $width;
+    height: $depth * 2;
+    transform-origin: top left;
+    transform: rotateY(180deg) translateX(-$width);
+}
+/***********************/
+/***********************/
+@mixin face-ani($animation, $time, $side, $width-el, $height-el, $depth-el) {
+
+    animation: #{$animation} #{$time} infinite ease;
+
+    @keyframes #{$animation} {
+        0%, 15%, 45%, 60%, 62%, 68%{
+            @if $side == "cube-front" { @include cube-front($width-el, $height-el, $depth-el); }
+            @else if $side == "cube-back" { @include cube-back($width-el, $height-el, $depth-el); }
+            @else if $side == "cube-right" { @include cube-right($width-el, $height-el, $depth-el); }
+            @else if $side == "cube-left" { @include cube-left($width-el, $height-el, $depth-el); }
+            @else if $side == "cube-top" { @include cube-top($width-el, $height-el, $depth-el); }
+        }
+        20%, 40%, 58%, 64%, 70%, 100%{
+            @if $side == "cube-front" { @include cube-front($width-el, $height-finish, $depth-el); }
+            @else if $side == "cube-back" { @include cube-back($width-el, $height-finish, $depth-el); }
+            @else if $side == "cube-right" { @include cube-right($width-el, $height-finish, $depth-el); }
+            @else if $side == "cube-left" { @include cube-left($width-el, $height-finish, $depth-el); }
+            @else if $side == "cube-top" { @include cube-top($width-el, $height-finish, $depth-el); }
+        }
+    }
+}
+/**/
+*, *::after, *::before {
+	box-sizing: border-box;
+}
+
+.face{ 
+  position: absolute;
+  &::after{
+    left:0;
+  }
+  &::before{
+    left:0;
+  }
+  *::before{
+    left:0;
+  }
+  *::after{
+    left:0;
+  }
+  .h-light{
+    &::before{
+      left:0;
+    }
+    &::after{
+      left:0;
+    }
+  }
+}
+
+/***************/
+.house{
+  font-size:0.75rem;
+  transform-style: preserve-3d;
+  * {
+    transform-style: preserve-3d;
+  }
+	position: absolute;
+    width: 28em;
+    height: 28em;
+
+	transform:
+		perspective(1250px)
+		rotateX(75deg)
+		rotateZ(45deg)
+        translateZ(-9em)
+	;
+
+}
+.h-shadow{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow:
+        1.5em -3em 3em $bg-2,
+        1.5em .5em 1.5em $bg-2
+    ;
+}
+.h-lights{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 45em;
+    height: 45em;
+
+}
+    .h-light{
+        position: absolute;
+        &:nth-of-type(1){
+            bottom: 5em;
+            right: 0;
+            width: 14em;
+            height: 14em;
+            border-radius: 50%;
+            background-image: radial-gradient( lighten($bg-1, 2) , transparent);
+            filter: blur(1em);
+        }
+        &:nth-of-type(2){
+            bottom: 18em;
+            right: -1em;
+            width: 2em;
+            height: 12em;
+            border-radius: 50%;
+            transform: rotateZ(-50deg);
+            background-image: radial-gradient( rgba($neon-1, .45) 50%, rgba($neon-2, .45),  transparent);
+            box-shadow: -1em -1em 2em 1em rgba(lighten($neon-1, 10), .1);
+            filter: blur(1em);
+        }
+        &:nth-of-type(3){
+            bottom: -2em;
+            right: 17em;
+            width: 5em;
+            height: 12em;
+            border-radius: 50%;
+            transform: rotateZ(-50deg);
+
+            background-image: radial-gradient( rgba($neon-1, .5) 50%, rgba($neon-2, .5),  transparent);
+            filter: blur(2em);
+
+            &::before,
+            &::after{
+                content: '';
+                position: absolute;
+                width: 200%;
+                top: -6em;
+                height: 400%;
+                background-image: linear-gradient(to bottom, rgba($neon-2, .1), rgba($neon-1, .1), transparent);
+                border-top-left-radius: 10em;
+                border-top-right-radius: 10em;
+                filter: blur(1.5em);
+            }
+            &::before{
+                right: -50%;
+                transform-origin: top right;
+                transform: rotateZ(15deg);
+                box-shadow: -2em -2em 0 rgba($neon-1, .075);
+
+            }
+            &::after{
+                left: -50%;
+                transform-origin: top left;
+                transform: rotateZ(-15deg);
+                box-shadow: 2em -2em 0 rgba($neon-1, .075);
+
+            }
+        }
+        &:nth-of-type(4){
+            bottom: 5em;
+            left: 8em;
+            width: 28em;
+            height: 4em;
+            transform-origin: top left;
+            transform: skewX(58deg);
+            background-image: linear-gradient(to right, rgba($neon-1, .075) 10%, transparent 25%,  transparent, rgba($bg-2, .15));
+            filter: blur(.25em);
+        }
+        &:nth-of-type(6){
+            bottom: 14em;
+            right: 2em;
+            width: 8em;
+            height: 16em;
+            transform-origin: bottom left;
+            transform: skewY(49deg);
+            background-image: linear-gradient(to left, rgba(darken(red, 50), .1), rgba(darken(red, 50), .7) );
+            filter: blur(.35em);
+        }
+    }
+/***************/
+/***************/
+.alt{
+	$width-el: 27em;
+	$height-el: .5em;
+  $depth-el: 13.5em;
+
+    @include cube($width-el, $height-el, $depth-el);
+	position: absolute;
+    left: 0;
+    top: 0;
+    width: 27em;
+    height: 27em;
+
+    &__front{ background-color: $white-2; }
+    &__back{ background-color: $white-3; }
+    &__right{ background-color: $white-3; }
+    &__left{ background-color: $white-1; }
+    &__top{
+        background-image: linear-gradient(to bottom, $black-3, $white-3 , $white-2);
+
+        .light:nth-of-type(1){
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-image: linear-gradient(to bottom, rgba( darken($neon-2, 25), .75), rgba($neon-1, .75), transparent);
+        }
+        .light:nth-of-type(2){
+            position: absolute;
+            left: 4em;
+            height: 100%;
+            width: 6em;
+            background-image: linear-gradient(to bottom, transparent 20%, rgba($neon-2, .75) , rgba($neon-1, .25) 80%);
+            filter: blur(.1em);
+        }
+        .light:nth-of-type(3){
+            position: absolute;
+            bottom: 10em;
+            left: 5em;
+            width: 6em;
+            height: 3em;
+            border-radius: 50%;
+            transform: rotateZ(42deg);
+            background-image: radial-gradient( rgba( lighten($neon-1, 10), .75) 50%, rgba( darken($neon-2, 10), .75));
+            filter: blur(.55em);
+        }
+        .light:nth-of-type(4){
+            position: absolute;
+            bottom: 7em;
+            left: 4em;
+            width: 8.5em;
+            height: 2em;
+            border-radius: 50%;
+            transform: rotateZ(40deg);
+            background-image: radial-gradient( rgba( lighten($neon-1, 10), .75) 50%, rgba( darken($neon-2, 10), .75));
+            filter: blur(.55em);
+        }
+        .light:nth-of-type(5){
+            position: absolute;
+            bottom: 3.5em;
+            left: 4.5em;
+            width: 6em;
+            height: 2em;
+            border-radius: 50%;
+            transform: rotateZ(40deg);
+            background-image: radial-gradient( rgba( lighten($neon-1, 12), .75) 50%, rgba( darken($neon-2, 10), .75));
+            filter: blur(.75em);
+        }
+        .light:nth-of-type(6){
+            position: absolute;
+            bottom: 3em;
+            left: .5em;
+            width: 4em;
+            height: 2em;
+            border-radius: 50%;
+            transform: rotateZ(40deg);
+            background-image: radial-gradient( rgba( lighten($neon-1, 12), .75) 50%, rgba( darken($neon-2, 10), .75));
+            filter: blur(.35em);
+        }
+        .light:nth-of-type(7){
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to right, darken($black-3, 10), $neon-1 10%, transparent 20%);
+            &::before{
+                content: '';
+                position: absolute;
+                width: 20%;
+                height: 100%;
+                background-image: linear-gradient(to right, rgba(darken($neon-1, 25), .6), transparent 60%);
+            }
+            &::after{
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 20%;
+                background-image: linear-gradient(to bottom, rgba(darken($neon-1, 20), .5), transparent 60%);
+            }
+        }
+        .light:nth-of-type(8){
+            position: absolute;
+            bottom: 5em;
+            left: 10em;
+            width: 6em;
+            height: 4em;
+            border-radius: 50%;
+            transform: rotateZ(40deg);
+            background-image: radial-gradient( rgba( lighten($white-1, 12), .1) 50%, rgba( darken($white-2, 10), .1));
+            filter: blur(.8em);
+        }
+    }
+    &__bottom{ background-color: $white-3; }
+}
+.alb{
+	$width-el: 27em;
+	$height-el: 2em;
+	$depth-el: .5em;
+
+    @include cube($width-el, $height-el, $depth-el);
+	position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 27em;
+    height: 1em;
+
+    &__front{ background-image: linear-gradient(to right, $white-2 40%, darken($white-2, 5) ); }
+    &__back{ background-color: $white-3; }
+    &__right{ background-color: $white-3; }
+    &__left{ background-color: $white-1; }
+    &__top{ background-image: linear-gradient(to right, $white-1 40%, darken($white-1, 5) );}
+    &__bottom{ background-color: $white-3; }
+}
+.arb{
+	$width-el: 1em;
+	$height-el: 2em;
+	$depth-el: 14em;
+
+    @include cube($width-el, $height-el, $depth-el);
+	position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 1em;
+    height: 28em;
+
+    &__front{ background-color: darken($white-2, 5); }
+    &__back{ background-color: $white-3; }
+    &__right{ background-image: linear-gradient(to right, $white-4 40%, darken($white-3, 20) ); }
+    &__left{ background-color: $white-2; }
+    &__top{
+        background-image: linear-gradient(to top, $white-1, lighten($white-4, 10) 25%,  darken($white-3, 5) 75%, $white-2 );
+        &::before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 30%;
+            top: 0;
+            background-image: linear-gradient(to bottom, transparent, rgba($neon-1, .85), transparent);
+        }
+    }
+    &__bottom{ background-color: $white-3; }
+}
+/***************/
+/***************/
+.blt{
+	$width-el: 1em;
+	$height-el: 20em;
+	$depth-el: 13.5em;
+
+    @include cube($width-el, $height-el, $depth-el);
+	position: absolute;
+    left: 0;
+    top: 0;
+    width: 1em;
+    height: 27em;
+
+    transform: translateZ(.5em);
+
+    &__front{ background-image: linear-gradient(to bottom, $white-3, $white-2); }
+    &__back{ background-color: $white-3; }
+    &__right{
+        background-image: linear-gradient(to bottom, darken($white-4, 10), $white-3, $white-3 90%, darken($white-4, 2));
+        &::before{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: .75em;
+            background-image: linear-gradient(to bottom, darken($white-2, 5), $neon-2 );
+            border-top: .1em solid $white-4;
+            border-bottom: .1em solid $white-4;
+        }
+        &::after{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to bottom, rgba(darken($neon-1, 20), .35), transparent 30%, transparent 70%, rgba($neon-2, .35) );
+        }
+    }
+    &__left{ background-color: $white-1; }
+    // &__top{ background-color: $white-1; }
+    &__bottom{ background-color: $white-3; }
+}
+    .blt2{
+    	$width-el: 2em;
+    	$height-el: .75em;
+    	$depth-el: 13.5em;
+
+        @include cube($width-el, $height-el, $depth-el);
+    	position: absolute;
+        left: 0;
+        top: 0;
+        width: 2em;
+        height: 27em;
+
+        transform: translateZ(20.5em);
+
+        &__front{ background-color: $white-3; }
+        &__back{ background-color: $white-3; }
+        &__right{
+            background-image: linear-gradient(to right, darken($white-2, 5), $white-2, darken($white-2, 15) );
+
+            &::before{
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                bottom: 0;
+                border-bottom: .1em solid rgba($white-1, .75);
+                background-image: linear-gradient(to top, rgba($neon-1, .35) , transparent);
+            }
+        }
+        &__left{ background-color: $white-1; }
+        &__top{ background-image: linear-gradient(to top, $white-2, $white-1); }
+        &__bottom{ background-color: $white-3; }
+    }
+.blb{
+	$width-el: 26em;
+	$height-el: 20em;
+	$depth-el: .5em;
+
+    @include cube($width-el, $height-el, $depth-el);
+	position: absolute;
+    left: 1em;
+    top: 0;
+    width: 26em;
+    height: 1em;
+
+    transform: translateZ(.5em);
+
+    &__front{
+        background-image: linear-gradient(to bottom, darken($white-2, 32), darken($white-2, 25) 20%, darken($white-2, 32));
+        &::before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(to bottom, rgba($neon-2, .25), transparent 20%, transparent 80%, rgba($neon-2, .5)),
+                linear-gradient(to right, rgba($black-1, .35), transparent ),
+                linear-gradient(to bottom, rgba($black-1, .35), transparent ),
+                linear-gradient(to bottom, rgba( darken($neon-2, 50), .5), transparent 20%, transparent 80%, rgba($neon-2, .25) )
+            ;
+        }
+        &::after{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: .75em;
+            background-image: linear-gradient(to bottom, darken($white-2, 5), $neon-2 );
+            border-top: .1em solid $white-4;
+            border-bottom: .1em solid $white-4;
+        }
+    }
+    &__back{ background-color: $white-3; }
+    &__right{ background-image: linear-gradient(to bottom, darken($white-4, 10), darken($white-3, 20) 80%, darken($white-4, 10)); }
+    // &__left{ background-color: $white-2; }
+    // &__top{ background-color: $white-1; }
+    &__bottom{ background-color: $white-3; }
+}
+    .blb2{
+    	$width-el: 25em;
+    	$height-el: .75em;
+    	$depth-el: 1em;
+
+        @include cube($width-el, $height-el, $depth-el);
+    	position: absolute;
+        left: 2em;
+        top: 0;
+        width: 25em;
+        height: 1em;
+
+        transform: translateZ(20.5em);
+
+        &__front{
+            background-image: linear-gradient(to right, darken($white-2, 15), $white-2, darken($white-2, 5) );
+            &::before{
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                bottom: 0;
+                border-bottom: .1em solid rgba($white-1, .75);
+                background-image: linear-gradient(to top, rgba($neon-2, .25) , transparent);
+            }
+        }
+        &__back{ background-color: $white-3; }
+        &__right{ background-color: darken($white-4, 10); }
+        &__left{ background-color: $white-2; }
+        &__top{ background-image: linear-gradient(to left, $white-2, $white-1); }
+        &__bottom{ background-color: $white-3; }
+    }
+/***************/
+/***************/
+.bocina-l,
+.bocina-r{
+    $width-el: .75em;
+    $height-el: 6em;
+    $depth-el: .75em;
+
+    @include cube($width-el, $height-el, $depth-el);
+
+    position: absolute;
+    left: 1.5em;
+    bottom: 5.25em;
+    width: .75em;
+    height: 1.5em;
+
+    transform: translateZ(8em);
+
+    &__right{ background-image: radial-gradient(darken($black-3, 10), darken($black-3, 15));}
+    &__top{ background-image: linear-gradient(to left,  darken($white-1, 10), $white-2, darken($white-2, 15)); }
+    &__bottom{ background-color: $white-3; }
+}
+.bocina-l{
+
+    &__front{ background-image: linear-gradient(to right, $neon-1, darken($white-2, 25) 30%, darken($white-1, 20)); }
+    &__back{
+        background-image: linear-gradient(to right, $white-3, darken($white-3, 10));
+        &::before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to right, rgba($neon-1, .35) 65%, rgba($neon-1, .95));
+        }
+    }
+    &__left{
+        background-color: $white-4;
+        &::before{
+            content: '';
+            position: absolute;
+            top: -10%;
+            left: 20%;
+            width: 120%;
+            height: 120%;
+            background-image: linear-gradient(to left, rgba(darken($neon-2, 40), .75), rgba(darken($black-3, 15) , .75) );
+            filter: blur(.5em);
+        }
+    }
+}
+.bocina-r{
+    top: 5.25em;
+
+    &__front{
+        background-image: linear-gradient(to right, $white-3, darken($white-3, 20));
+        &::before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to left, rgba($neon-1, .35) 65%, rgba($neon-1, .95));
+        }
+    }
+    &__back{ background-image: linear-gradient(to right, darken($white-2, 25), darken($white-1, 20)); }
+    &__left{
+        background-color: $white-4;
+        &::before{
+            content: '';
+            position: absolute;
+            top: -10%;
+            left: -20%;
+            width: 120%;
+            height: 120%;
+            background-image: linear-gradient(to right, rgba(darken($neon-2, 40), .75), rgba(darken($black-3, 15) , .75) );
+            filter: blur(.5em);
+        }
+    }
+}
+.repisa-t,
+.repisa-b{
+    $width-el: 1.5em;
+    $height-el: .25em;
+    $depth-el: 5em;
+
+    @include cube($width-el, $height-el, $depth-el);
+    position: absolute;
+    left: 1.5em;
+    top: 9em;
+    width: 1.5em;
+    height: 10em;
+
+    transform: translateZ(16em);
+
+    &__front{ background-color: $white-2; }
+    &__back{ background-color: $white-1; }
+    &__right{ background-color: darken($white-2, 10); }
+    &__left{ background-color: $white-1; }
+    &__top{
+        background-color: darken($white-1, 10);
+        &::before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to right, rgba(darken($neon-1, 20), .75), transparent);
+        }
+    }
+    &__bottom{
+        background-color: $white-3;
+        &::before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to right, rgba(darken($neon-1, 20), .75), transparent);
+        }
+    }
+}
+.repisa-b{ transform: translateZ(5em);}
+.tv{
+    $width-el: .5em;
+    $height-el: 6em;
+    $depth-el: 6em;
+
+    @include cube($width-el, $height-el, $depth-el);
+    position: absolute;
+    left: 1.51em;
+    top: 8em;
+    width: .5em;
+    height: 12em;
+
+    transform: translateZ(8em);
+
+    &__front{ background-color: $black-3; }
+    &__back{ background-color: $black-3; }
+    &__right{
+        background-color: lighten($neon-1, 15);
+        border: .125em solid darken($black-3, 10);
+        &::before{
+            content: '';
+            position: absolute;
+            left:0;
+            width: 100%;
+            height: 100%;
+            box-shadow:
+                .125em .125em 1em rgba($neon-1, .5),
+                -.125em .125em 1em rgba($neon-1, .5),
+                .125em -.125em 1em rgba($neon-1, .5),
+                -.125em -.125em 1em rgba($neon-1, .5)
+            ;
+
+            background-image: url('https://media.giphy.com/media/xUPGGuzpmG3jfeYWIg/giphy.gif');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: bottom;
+            opacity: .8;
+        }
+        animation: pantalla-tv .25s infinite alternate;
+
+    }
+    &__left{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $black-3;
+
+        &::before{
+            content: '';
+            position: absolute;
+            width: 13em;
+            height: 7em;
+            background-image: radial-gradient(rgba(darken($neon-2, 5), .95), rgba(darken($neon-1, 5), .95));
+            filter: blur(1.25em);
+
+            animation: luz-tv .25s infinite alternate;
+        }
+    }
+    &__top{ background-color: $black-3; }
+    &__bottom{ background-color: $black-3; }
+}
+.librero{
+    $width-el: 12em;
+    $height-el: .25em;
+    $depth-el: .75em;
+
+    @include cube($width-el, $height-el, $depth-el);
+    position: absolute;
+    left: 13em;
+    top: 1em;
+    width: 12em;
+    height: .5em;
+
+    transform: translateZ(7em);
+
+    &__front{ background-color: $white-2; }
+    &__back{
+        background-color: $white-3;
+        &::before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 4em;
+            border-radius: 50%;
+            background-image: radial-gradient( rgba( lighten($neon-1, 5), .7) 50%, rgba( darken($neon-2, 10), .6),  transparent);
+            filter: blur(1.25em);
+        }
+    }
+    &__right{ background-color: $white-3; }
+    &__left{ background-color: $white-2; }
+    &__top{
+        background-color: darken($white-1, 10);
+        &::before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to bottom, rgba(darken($neon-1, 10), .75), transparent);
+        }
+    }
+    &__bottom{
+        background-color: $white-3;
+
+        &::before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to bottom, rgba(darken($neon-1, 10), .75), transparent);
+        }
+    }
+}
+.libros{ position: absolute; }
+.libro{
+    $width-el: .5em;
+    $height-el: 1.5em;
+    $depth-el: .5em;
+
+    @include cube($width-el, $height-el, $depth-el);
+    position: absolute;
+    top: 1em;
+    width: .5em;
+    height: 1em;
+
+    transform: translateZ(7.25em);
+
+    &__front{
+        background-image: linear-gradient(to bottom, $white-2, darken($white-2, 10));
+        &::before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to bottom, rgba($neon-1, .4), transparent);
+        }
+    }
+    &__back{ background-color: $white-1; }
+    &__right{
+        background-color: darken($white-2, 20);
+        &::before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to bottom, rgba($neon-1, .85), rgba($neon-2, .35));
+        }
+    }
+    &__left{ background-color: $white-2; }
+    &__top{
+        background-color: darken($white-1, 10);
+        &::before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to bottom, rgba($neon-1, .85), rgba($neon-2, .35));
+        }
+    }
+    &__bottom{ background-color: lighten($white-3, 14); }
+
+    &:nth-of-type(1){
+        left: 16em;
+        transform-origin: left;
+        transform: translateZ(7.25em) rotateZ(-10deg);
+    }
+    &:nth-of-type(2){
+        left: 17em;
+        transform: translateZ(7.25em) rotateZ(2deg);
+    }
+    &:nth-of-type(3){
+        left: 17.75em;
+        transform: translateZ(7.25em) rotateZ(5deg);
+    }
+    &:nth-of-type(4){
+        left: 19em;
+        transform-origin: left;
+        transform: translateZ(7.25em) rotateZ(10deg);
+    }
+    &:nth-of-type(5){
+        left: 20em;
+        transform-origin: left;
+        transform: translateZ(7.25em) rotateZ(10deg);
+    }
+    &:nth-of-type(6){
+        left: 23em;
+        transform-origin: left;
+        transform: translateZ(7.25em) rotateY(-90deg);
+    }
+}
+.fotos{ position: absolute; }
+    .foto{
+        $width-el: .125em;
+        $height-el: 1.125em;
+        $depth-el: 1.125em;
+
+        @include cube($width-el, $height-el, $depth-el);
+        position: absolute;
+        width: .125em;
+        height: 2em;
+        left: 2em;
+        top: 11em;
+
+        transform: translateZ(5.26em);
+
+        &__front{
+            background-image: linear-gradient(to bottom, $white-2, darken($white-2, 10));
+            &::before{
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-image: linear-gradient(to bottom, rgba($neon-1, .4), transparent);
+            }
+        }
+        &__back{ background-color: $white-1; }
+        &__right{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: darken($white-2, 5);
+            border: .15em solid $black-1;
+            &::before{
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-image: repeating-linear-gradient(to bottom, $white-2 .1em, darken($white-1, 20) .2em);
+            }
+        }
+        &__left{ background-color: $white-2; }
+        &__top{
+            background-color: darken($white-1, 10);
+            &::before{
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-image: linear-gradient(to bottom, rgba($neon-1, .85), rgba($neon-2, .35));
+            }
+        }
+        &__bottom{
+            background-color: darken($white-2, 25);
+
+            &::before{
+                content: '';
+                position: absolute;
+                right: -100%;
+                width: 400%;
+                height: 100%;
+                background-color: rgba($black-3, .75);
+                filter: blur(.15em);
+            }
+        }
+        &:nth-of-type(1){
+            top: 10.5em;
+            transform: translateZ(5.26em) rotateZ(5deg);
+        }
+        &:nth-of-type(2){
+            top: 15em;
+            transform: translateZ(5.26em) rotateZ(-15deg);
+        }
+    }
+
+.cajas{ position: absolute; }
+    .caja{
+        $width-el: 1em;
+        $height-el: .75em;
+        $depth-el: .75em;
+
+        @include cube($width-el, $height-el, $depth-el);
+        position: absolute;
+        width: 1em;
+        height: 1.5em;
+        left: 2em;
+
+        transform: translateZ(16.35em);
+
+        &__front{
+            background-image: linear-gradient(to bottom, $white-2, darken($white-2, 10));
+            &::before{
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-image: linear-gradient(to bottom, rgba($neon-1, .4), transparent);
+            }
+        }
+        &__back{
+            background-color: $white-2;
+        }
+        &__right{
+            background-color: darken($white-2, 20);
+            &::before{
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-image: linear-gradient(to bottom, rgba($neon-1, .85), rgba($neon-2, .35));
+            }
+        }
+        &__left{ background-color: $white-2; }
+        &__top{
+            background-color: darken($white-1, 10);
+            &::before{
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-image: linear-gradient(to bottom, rgba($neon-1, .85), rgba($neon-2, .35));
+            }
+        }
+        &__bottom{
+            background-color: darken($white-2, 25);
+
+            &::before{
+                content: '';
+                position: absolute;
+                right: -50%;
+                width: 150%;
+                height: 120%;
+                background-color: rgba($black-1, .5);
+                filter: blur(.15em);
+            }
+        }
+        &:nth-of-type(1){ top: 11.6em; }
+        &:nth-of-type(2){ top: 13.5em; }
+        &:nth-of-type(3){ top: 17em; }
+    }
+.cuadro-l,
+.cuadro-r{
+    $width-el: 5em;
+    $height-el: 7em;
+    $depth-el: .125em;
+
+    @include cube($width-el, $height-el, $depth-el);
+    position: absolute;
+    left: 13em;
+    top: 1em;
+    width: 5em;
+    height: .5em;
+
+    transform: translateZ(10em);
+
+    &__front{
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+    }
+    &__back{
+        background-color: $white-3;
+        box-shadow:
+            .35em .35em .35em rgba($neon-1, .2),
+            -.35em .35em .35em rgba($neon-1, .2),
+            -.35em -.35em .35em rgba($neon-1, .2),
+            .35em -.35em .35em rgba($neon-1, .2)
+        ;
+    }
+    &__right{ background-color: $white-3; }
+    &__left{ background-color: $white-2; }
+    &__top{ background-color: $white-2; }
+    &__bottom{ background-color: $white-3; }
+}
+    .cuadro-l{
+        &__front{
+            background-image: url('https://cdn.pixabay.com/photo/2017/01/31/22/47/nature-2027899_960_720.png');
+            background-color: $cuadro-1;
+            border: 1em solid $cuadro-1;
+
+            &::before{
+                content: '';
+                position: absolute;
+                top: -1em;
+                left: -1em;
+                width: 5em;
+                height: 7em;
+                background-origin: padding-box;
+                background-image: linear-gradient(to bottom, rgba($neon-2, .15), rgba($neon-2, .15));
+            }
+        }
+    }
+    .cuadro-r{
+        left: 20em;
+        &__front{
+            background-image: url('https://cdn.pixabay.com/photo/2017/01/23/16/35/home-2003067_960_720.png');
+            background-color: $cuadro-2;
+            border: .5em solid $cuadro-2;
+            &::before{
+                content: '';
+                position: absolute;
+                top: -.5em;
+                left: -.5em;
+                width: 5em;
+                height: 7em;
+                background-origin: padding-box;
+                background-image: linear-gradient(to bottom, rgba($neon-2, .15), rgba($neon-2, .15));
+            }
+        }
+    }
+.puerta-c{
+
+    position: absolute;
+    left: 3em;
+    top: 1em;
+    width: 8em;
+    height: .5em;
+    transform: translateZ(.5em);
+
+    &::before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 200%;
+        background-color: rgba( darken($black-3, 10), .65);
+        filter: blur(.5em);
+    }
+}
+    .puerta{
+        $width-el: 7em;
+        $height-el: 16em;
+        $depth-el: .125em;
+
+        @include cube($width-el, $height-el, $depth-el);
+        position: absolute;
+        left: .5em;
+        top: 0;
+        width: 7em;
+        height: .5em;
+
+        &__front{
+            background-image: linear-gradient(to bottom, $cuadro-2, $black-2);
+            border: .125em solid $neon-1;
+            &::before{
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-image: radial-gradient(transparent 50%, rgba( darken($neon-1, 30), .25));
+
+                box-shadow:
+                    .65em .65em .5em rgba($neon-1, .6),
+                    -.65em .65em .5em rgba($neon-1, .6),
+                    -.65em -.65em .5em rgba($neon-1, .6),
+                    .65em -.65em .5em rgba($neon-1, .6)
+                ;
+            }
+            &::after{
+                content: '';
+                position: absolute;
+                top: 50%;
+                right: .75em;
+                width: 1em;
+                height: .25em;
+                background-color: $white-2;
+                box-shadow:
+                    .125em .125em .25em rgba($neon-1, .6),
+                    -.125em .125em .25em rgba($neon-1, .6),
+                    -.125em -.125em .25em rgba($neon-1, .6),
+                    .125em -.125em .25em rgba($neon-1, .6)
+                ;
+            }
+        }
+        // &__back{ background-color: $white-3; }
+        // &__right{ background-color: $white-3; }
+        // &__left{ background-color: $white-2; }
+        // &__top{ background-color: $white-1; }
+        // &__bottom{ background-color: $white-3; }
+    }
+    .puerta-l,
+    .puerta-r{
+        $width-el: .5em;
+        $height-el: 16em;
+        $depth-el: .25em;
+
+        @include cube($width-el, $height-el, $depth-el);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: .5em;
+        height: .5em;
+
+        &__front{ background-color: darken($black-1, 10); }
+        &__back{ background-color: $black-3; }
+        &__right{ background-color: $black-3; }
+        &__left{ background-color: $black-2; }
+        // &__top{ background-color: $white-1; }
+        &__bottom{ background-color: $black-3; }
+    }
+    .puerta-r{ left: calc(100% - .5em); }
+    .puerta-t{
+        $width-el: 8em;
+        $height-el: .5em;
+        $depth-el: .25em;
+
+        @include cube($width-el, $height-el, $depth-el);
+
+        left: 0;
+        top: 0;
+        width: 8em;
+        height: .5em;
+
+        transform: translateZ(16em);
+
+        &__front{ background-color: darken($black-1, 10); }
+        &__back{ background-color: $black-3; }
+        &__right{ background-color: $black-3; }
+        &__left{ background-color: $black-2; }
+        &__top{ background-color: $black-1; }
+        &__bottom{ background-color: $black-3; }
+    }
+.muro{
+    $width-el: .5em;
+    $height-el: 18em;
+    $depth-el: 8em;
+
+    @include cube($width-el, $height-el, $depth-el);
+    position: absolute;
+    left: 1em;
+    top: 6em;
+    width: .5em;
+    height: 16em;
+
+    transform: translateZ(.51em);
+
+    &__front{ background-color: $black-3; }
+    &__back{ background-color: $black-3; }
+    &__right{
+        display: flex;
+        justify-content: center;
+        background-image: radial-gradient(circle, $black-1, darken($black-1, 15));
+        overflow: hidden;
+
+        &::before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to bottom, rgba($neon-2, .25), transparent 30%, transparent 70%, rgba($neon-2, .15) );
+        }
+        &::after{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 5%;
+            width: 90%;
+            height: 25%;
+            background-image: linear-gradient(to bottom, rgba(darken($black-3, 5), .75), rgba(darken($black-3, 5), .95));
+            filter: blur(.75em);
+        }
+    }
+    &__left{
+        background-color: $black-3;
+        box-shadow:
+            .5em .5em .6em rgba($neon-1, .3),
+            .5em -.5em .6em rgba($neon-1, .3),
+            -.5em .5em .6em rgba($neon-1, .3),
+            -.5em -.5em .6em rgba($neon-1, .3)
+        ;
+    }
+    &__top{
+        background-color: $black-3;
+        &::before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            bottom: 0;
+            background-image: linear-gradient(to left, rgba($neon-2, .5) , rgba($neon-1, .25));
+        }
+    }
+    &__bottom{
+        background-color: $black-3;
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 5em;
+            height: 100%;
+            background-image: linear-gradient(to left, $black-3, transparent 50%);
+            transform-origin: right bottom;
+            transform: skewY(-20deg);
+            filter: blur(.25em);
+        }
+    }
+}
+.sillon-c{
+	position: absolute;
+    right: 2em;
+    bottom: 6em;
+    width: 6em;
+    height: 16em;
+
+    transform: translateZ(.5em);
+
+    &::before{
+        content: '';
+        position: absolute;
+        top: -10%;
+        left: -10%;
+        width: 120%;
+        height: 120%;
+        background-color: rgba($black-3, .85);
+        filter: blur(.75em);
+    }
+}
+    .sillon-b{
+        $width-el: 6em;
+        $height-el: 3em;
+        $depth-el: 7em;
+
+        @include cube($width-el, $height-el, $depth-el);
+        position: absolute;
+        left: 0;
+        top: 1em;
+        width: 6em;
+        height: 14em;
+
+        &__front{ background-color: $black-2; }
+        &__back{ background-color: $black-3; }
+        &__right{ background-color: $black-3; }
+        &__left{
+            background-image: linear-gradient(to bottom, $black-2, darken($black-2, 5) );
+            &::before{
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-image: linear-gradient(to bottom, rgba($neon-2, .1), transparent);
+            }
+        }
+        &__top{
+            background-image: linear-gradient(to right, $black-1, $black-2 );
+            border-left: .1em solid rgba($white-2, .5);
+
+            &::before{
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-image: linear-gradient(to right, rgba($neon-2, .25), transparent);
+            }
+        }
+        &__bottom{ background-color: $black-3; }
+    }
+    .sillon-l,
+    .sillon-r{
+        $width-el: 6em;
+        $height-el: 4.5em;
+        $depth-el: .5em;
+
+        @include cube($width-el, $height-el, $depth-el);
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 6em;
+        height: 1em;
+
+        &__front{ background-image: linear-gradient(to bottom, $black-2, $black-3) ; }
+        &__back{ background-color: $black-3; }
+        &__right{ background-image: linear-gradient(to bottom, $black-3, darken($black-3, 20) ); }
+        &__left{  background-image: linear-gradient(to bottom, $black-2, darken($black-2, 5) ); }
+        &__top{
+            background-image: linear-gradient(to right, $black-1, darken($black-2, 2) );
+            border-bottom: .1em solid rgba($white-2, .5);
+
+            &::before{
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-image: linear-gradient(to right, rgba($neon-2, .75), transparent);
+            }
+        }
+        &__bottom{ background-color: $black-3; }
+    }
+    .sillon-r{ top: 0; }
+    .sillon-t{
+        $width-el: 1em;
+        $height-el: 6.5em;
+        $depth-el: 7em;
+
+        @include cube($width-el, $height-el, $depth-el);
+        position: absolute;
+        right: 0;
+        top: 1em;
+        width: 1em;
+        height: 1em;
+
+        transform-origin: right;
+        transform: rotateY(7deg);
+
+        &__front{ background-image: linear-gradient(to bottom, $black-3, darken($black-2, 8)) ;}
+        &__back{ background-image: linear-gradient(to bottom, darken($black-2, 5), $black-3) ;}
+        &__right{ background-image: linear-gradient(to bottom, darken($black-2, 5), darken($black-3, 20) ); }
+        &__left{ background-color: $black-2; }
+        &__top{
+            background-image: linear-gradient(to right, $black-1, darken($black-2, 2) );
+            border-bottom: .1em solid rgba($white-2, .5);
+
+            &::before{
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-image: linear-gradient(to right, rgba($neon-2, .5), transparent);
+            }
+        }
+        &__bottom{ background-color: $black-3; }
+    }
+.mesa-c{
+	position: absolute;
+    left: 7em;
+    top: 9.5em;
+    width: 10em;
+    height: 9em;
+
+    transform: translateZ(.5em);
+}
+    .mesa-shadow{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+
+        border-radius: 10%;
+        background-color: rgba($black-3, .95);
+        filter: blur(1em);
+        transform: translateZ(0);
+    }
+    .mesa{
+        $width-el: 10em;
+        $height-el: .5em;
+        $depth-el: 4.5em;
+
+        @include cube($width-el, $height-el, $depth-el);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 10em;
+        height: 9em;
+
+        transform: translateZ(2em);
+
+        &__front{
+            background-image: linear-gradient(to right, darken($black-2, 5), darken($black-2, 20));
+            &::before{
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-image: linear-gradient(45deg, rgba($neon-1, .125), rgba( lighten($neon-1, 20), .25), transparent 55%);
+            }
+        }
+        &__back{ background-color: $black-3; }
+        &__right{ background-color: darken($black-3, 20); }
+        &__left{ background-color: $black-2; }
+        &__top{
+            background-image: linear-gradient(45deg, darken($black-2, 3), darken($black-3, 5));
+            overflow: hidden;
+
+            &::before{
+                content: '';
+                position: absolute;
+                bottom: 0;
+                width: 50%;
+                height: 50%;
+                background-image: linear-gradient(45deg, rgba($neon-1, .5), rgba($white-1, .125) 50%, transparent 55%);
+                filter: blur(.5em);
+            }
+            &::after{
+                content: '';
+                position: absolute;
+                left: 2em;
+                top: 2em;
+                width: 20%;
+                height: 50%;
+                border-radius: 50%;
+                background-color: rgba($neon-2, .079);
+                transform: rotateZ(-40deg);
+                filter: blur(.75em);
+            }
+        }
+        &__bottom{ background-color: $black-3; }
+    }
+    .mesa-p{
+        $width-el: .25em;
+        $height-el: 1.75em;
+        $depth-el: .125em;
+
+        @include cube($width-el, $height-el, $depth-el);
+        position: absolute;
+        width: .25em;
+        height: .25em;
+
+        &__front{ background-color: $black-3; }
+        &__back{ background-color: $black-3; }
+        &__right{ background-color: darken($black-3, 20); }
+        &__left{ background-color: $black-2; }
+        &__top{ background-color: $black-1; }
+        &__bottom{
+            background-color: $black-3;
+            &::before{
+                content: '';
+                position: absolute;
+                width: 600%;
+                height: 200%;
+                top: 0;
+                right: 0;
+                border-radius: 10%;
+                transform: translateZ(-.1em);
+                background-color: rgba(darken($black-3, 30), .75);
+                filter: blur(.35em);
+            }
+        }
+        &:nth-of-type(1){ left: .5em; top: .5em; }
+        &:nth-of-type(2){ right: .5em; top: .5em; }
+        &:nth-of-type(3){ left: .5em; bottom: .5em; }
+        &:nth-of-type(4){ right: .5em; bottom: .5em; }
+    }
+.tablet{
+    $width-el: 2em;
+    $height-el: .125em;
+    $depth-el: 1.25em;
+
+    @include cube($width-el, $height-el, $depth-el);
+    position: absolute;
+    left: 13em;
+    top: 12em;
+    width: 2em;
+    height: 2.5em;
+
+    transform: translateZ(3.01em) rotateZ(15deg);
+
+
+    &__front{ background-color: darken($white-2, 10); }
+    &__back{ background-color: $white-3; }
+    &__right{ background-color: $white-3; }
+    &__left{ background-color: $white-2; }
+    &__top{
+        background-color: lighten($neon-1, 10);
+        border: .2em solid rgba($neon-1, .25);
+        animation: pantalla-tablet .25s infinite;
+    }
+    &__bottom{
+        background-color: darken($black-3, 40);
+        box-shadow:
+            .25em .25em .5em rgba(darken($neon-2, 20), .75),
+            -.25em .25em .5em rgba(darken($neon-2, 20), .75),
+            -.25em -.25em .5em rgba(darken($neon-2, 20), .75),
+            .25em -.25em .5em rgba(darken($neon-2, 20), .75)
+        ;
+    }
+}
+/**********************/
+/**********************/
+@keyframes pantalla-tablet {
+    from{ background-color: lighten($neon-1, 5); }
+}
+@keyframes pantalla-tv{
+    from{
+        background-color: lighten($neon-1, 5);
+        box-shadow:
+            .125em .125em 0em rgba($neon-1, 0),
+            -.125em .125em 0em rgba($neon-1, 0),
+            .125em -.125em 0em rgba($neon-1, 0),
+            -.125em -.125em 0em rgba($neon-1, 0)
+        ;
+    }
+}
+@keyframes luz-tv{
+    from{
+        background-image: radial-gradient(rgba(darken($neon-2, 5), .8), rgba(darken($neon-1, 5), .8));
+    }
+}

@@ -19,6 +19,7 @@ import ButtonBordered from '../components/ButtonBordered'
 import RoofSVG from '../components/RoofSVG'
 import MobileMenuLink from '../components/MobileMenuLink'
 import SEO from '../components/SEO'
+import FooterIcon from '../components/FooterIcon'
 
 const Layout = ({children, location}) => {
 
@@ -429,8 +430,10 @@ const Layout = ({children, location}) => {
                     data.prismicLayout.data.background_image &&
                     <BackgroundImage image={data.prismicLayout.data.background_image.localFile.childImageSharp.fluid}/>
                 }
+                <div className={styles.footerIconContainer}>
+                    <FooterIcon/>
+                </div>
                 <div className={styles.footerInfoContent}>
-                    <img src={flagImg} alt=''/>
                     {
                         data.prismicLayout.data.footer_content &&
                         <div dangerouslySetInnerHTML={{__html:data.prismicLayout.data.footer_content.html}}>
