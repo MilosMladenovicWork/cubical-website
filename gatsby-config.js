@@ -93,6 +93,7 @@ module.exports = {
       },
     },
     // Must be placed at the end
+    'gatsby-plugin-remove-serviceworker',
     'gatsby-plugin-netlify',
   ],
 }
