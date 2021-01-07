@@ -10,6 +10,9 @@
     justify-content: center;
     flex-direction: column;
     @include breakpoint(sm){
-        height:90vh;
+        height:100vh;
+    }
+    @include breakpoint(lg){
+        height:110vh;
     }
 }
