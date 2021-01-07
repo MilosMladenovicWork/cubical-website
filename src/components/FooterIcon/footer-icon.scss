@@ -362,6 +362,7 @@ $cuadro-2: #0F1110;
     &__bottom{ background-color: $white-3; }
 }
 .alb{
+    transition:0.5s;
 	$width-el: 27em;
 	$height-el: 2em;
 	$depth-el: .5em;
@@ -380,7 +381,13 @@ $cuadro-2: #0F1110;
     &__top{ background-image: linear-gradient(to right, $white-1 40%, darken($white-1, 5) );}
     &__bottom{ background-color: $white-3; }
 }
+
+.alb:hover{
+    transform:scale3d(1.2,1,1.2);
+}
+
 .arb{
+    transition:0.5s;
 	$width-el: 1em;
 	$height-el: 2em;
 	$depth-el: 14em;
@@ -409,9 +416,14 @@ $cuadro-2: #0F1110;
     }
     &__bottom{ background-color: $white-3; }
 }
+
+.arb:hover{
+    transform: scale3d(1.2,1,1.2);
+}
 /***************/
 /***************/
 .blt{
+    transition:0.5s;
 	$width-el: 1em;
 	$height-el: 20em;
 	$depth-el: 13.5em;
@@ -451,7 +463,12 @@ $cuadro-2: #0F1110;
     // &__top{ background-color: $white-1; }
     &__bottom{ background-color: $white-3; }
 }
+
+.blt:hover{
+    transform: scale3d(1.2,1.2,1.2);
+}
     .blt2{
+        transition:0.5s;
     	$width-el: 2em;
     	$height-el: .75em;
     	$depth-el: 13.5em;
@@ -484,7 +501,13 @@ $cuadro-2: #0F1110;
         &__top{ background-image: linear-gradient(to top, $white-2, $white-1); }
         &__bottom{ background-color: $white-3; }
     }
+
+    .blt2:hover{
+        transform: translateZ(20.5em) scale3d(1.2,1.2,1.2);
+    }
+
 .blb{
+    transition:0.5s;
 	$width-el: 26em;
 	$height-el: 20em;
 	$depth-el: .5em;
@@ -529,7 +552,12 @@ $cuadro-2: #0F1110;
     // &__top{ background-color: $white-1; }
     &__bottom{ background-color: $white-3; }
 }
+
+.blb:hover{
+    transform: translateZ(.5em) scale3d(1.2,1.2,1.2);
+}
     .blb2{
+        transition:0.5s;
     	$width-el: 25em;
     	$height-el: .75em;
     	$depth-el: 1em;
@@ -561,10 +589,15 @@ $cuadro-2: #0F1110;
         &__top{ background-image: linear-gradient(to left, $white-2, $white-1); }
         &__bottom{ background-color: $white-3; }
     }
+
+    .blb2:hover{
+        transform: translateZ(20.5em) scale3d(1.2, 1.2, 1.2);
+    }
 /***************/
 /***************/
 .bocina-l,
 .bocina-r{
+    transition:0.5s;
     $width-el: .75em;
     $height-el: 6em;
     $depth-el: .75em;
@@ -610,9 +643,10 @@ $cuadro-2: #0F1110;
         }
     }
 }
+
 .bocina-r{
     top: 5.25em;
-
+    
     &__front{
         background-image: linear-gradient(to right, $white-3, darken($white-3, 20));
         &::before{
@@ -638,12 +672,16 @@ $cuadro-2: #0F1110;
         }
     }
 }
+.bocina-l:hover, .bocina-r:hover{
+    transform: translateZ(8em) scale3d(1.2,1.2,1.2);
+}
 .repisa-t,
 .repisa-b{
+    transition:0.5s;
     $width-el: 1.5em;
     $height-el: .25em;
     $depth-el: 5em;
-
+    
     @include cube($width-el, $height-el, $depth-el);
     position: absolute;
     left: 1.5em;
@@ -679,20 +717,26 @@ $cuadro-2: #0F1110;
     }
 }
 .repisa-b{ transform: translateZ(5em);}
+.repisa-t:hover{
+    transform: translateZ(16em) scale3d(1.2,1.2,1.2);
+}
+.repisa-b:hover{
+    transform: translateZ(5em) scale3d(1.2,1.2,1.2);
+}
 .tv{
     $width-el: .5em;
     $height-el: 6em;
     $depth-el: 6em;
-
+    
     @include cube($width-el, $height-el, $depth-el);
     position: absolute;
     left: 1.51em;
     top: 8em;
     width: .5em;
     height: 12em;
-
+    
     transform: translateZ(8em);
-
+    
     &__front{ background-color: $black-3; }
     &__back{ background-color: $black-3; }
     &__right{
@@ -705,12 +749,12 @@ $cuadro-2: #0F1110;
             width: 100%;
             height: 100%;
             box-shadow:
-                .125em .125em 1em rgba($neon-1, .5),
-                -.125em .125em 1em rgba($neon-1, .5),
-                .125em -.125em 1em rgba($neon-1, .5),
-                -.125em -.125em 1em rgba($neon-1, .5)
+            .125em .125em 1em rgba($neon-1, .5),
+            -.125em .125em 1em rgba($neon-1, .5),
+            .125em -.125em 1em rgba($neon-1, .5),
+            -.125em -.125em 1em rgba($neon-1, .5)
             ;
-
+            
             background-image: url('https://media.giphy.com/media/xUPGGuzpmG3jfeYWIg/giphy.gif');
             background-size: cover;
             background-repeat: no-repeat;
@@ -718,14 +762,14 @@ $cuadro-2: #0F1110;
             opacity: .8;
         }
         animation: pantalla-tv .25s infinite alternate;
-
+        
     }
     &__left{
         display: flex;
         justify-content: center;
         align-items: center;
         background-color: $black-3;
-
+        
         &::before{
             content: '';
             position: absolute;
@@ -733,18 +777,23 @@ $cuadro-2: #0F1110;
             height: 7em;
             background-image: radial-gradient(rgba(darken($neon-2, 5), .95), rgba(darken($neon-1, 5), .95));
             filter: blur(1.25em);
-
+            
             animation: luz-tv .25s infinite alternate;
         }
     }
     &__top{ background-color: $black-3; }
     &__bottom{ background-color: $black-3; }
+    transition:0.5s;
+}
+.tv:hover{
+    transform: translateZ(8em) scale3d(1.2, 1.2, 1.2);
 }
 .librero{
+    transition:0.5s;
     $width-el: 12em;
     $height-el: .25em;
     $depth-el: .75em;
-
+    
     @include cube($width-el, $height-el, $depth-el);
     position: absolute;
     left: 13em;
@@ -791,8 +840,14 @@ $cuadro-2: #0F1110;
         }
     }
 }
+
+.librero:hover{
+    transform:translateZ(7em) scale3d(1.2, 1.2, 1.2)
+}
+
 .libros{ position: absolute; }
 .libro{
+    transition:0.5s;
     $width-el: .5em;
     $height-el: 1.5em;
     $depth-el: .5em;
@@ -868,8 +923,12 @@ $cuadro-2: #0F1110;
         transform: translateZ(7.25em) rotateY(-90deg);
     }
 }
+.libro:hover{
+    transform: translateZ(7.25em) scale3d(1.2,1.2,1.2);
+}
 .fotos{ position: absolute; }
     .foto{
+        transition:0.5s;
         $width-el: .125em;
         $height-el: 1.125em;
         $depth-el: 1.125em;
@@ -941,9 +1000,13 @@ $cuadro-2: #0F1110;
             transform: translateZ(5.26em) rotateZ(-15deg);
         }
     }
+    .foto:hover{
+        transform: translateZ(5.26em) scale3d(1.2,1.2,1.2);
+    }
 
 .cajas{ position: absolute; }
     .caja{
+        transition:0.5s;
         $width-el: 1em;
         $height-el: .75em;
         $depth-el: .75em;
@@ -1007,8 +1070,12 @@ $cuadro-2: #0F1110;
         &:nth-of-type(2){ top: 13.5em; }
         &:nth-of-type(3){ top: 17em; }
     }
+    .caja:hover{
+        transform: translateZ(16.35em) scale3d(1.2,1.2,1.2);
+    }
 .cuadro-l,
 .cuadro-r{
+    transition:0.5s;
     $width-el: 5em;
     $height-el: 7em;
     $depth-el: .125em;
@@ -1077,8 +1144,12 @@ $cuadro-2: #0F1110;
             }
         }
     }
-.puerta-c{
 
+    .cuadro-l:hover, .cuadro-r:hover{
+        transform: translateZ(10em) scale3d(1.2,1.2,1.2);
+    }
+.puerta-c{
+    transition:0.5s;
     position: absolute;
     left: 3em;
     top: 1em;
@@ -1094,6 +1165,10 @@ $cuadro-2: #0F1110;
         background-color: rgba( darken($black-3, 10), .65);
         filter: blur(.5em);
     }
+}
+
+.puerta-c:hover{
+    transform: translateZ(.5em) scale3d(1.2,1.2,1.2);
 }
     .puerta{
         $width-el: 7em;
@@ -1151,14 +1226,14 @@ $cuadro-2: #0F1110;
         $width-el: .5em;
         $height-el: 16em;
         $depth-el: .25em;
-
+        
         @include cube($width-el, $height-el, $depth-el);
         position: absolute;
         left: 0;
         top: 0;
         width: .5em;
         height: .5em;
-
+        
         &__front{ background-color: darken($black-1, 10); }
         &__back{ background-color: $black-3; }
         &__right{ background-color: $black-3; }
@@ -1171,16 +1246,16 @@ $cuadro-2: #0F1110;
         $width-el: 8em;
         $height-el: .5em;
         $depth-el: .25em;
-
+        
         @include cube($width-el, $height-el, $depth-el);
-
+        
         left: 0;
         top: 0;
         width: 8em;
         height: .5em;
-
+        
         transform: translateZ(16em);
-
+        
         &__front{ background-color: darken($black-1, 10); }
         &__back{ background-color: $black-3; }
         &__right{ background-color: $black-3; }
@@ -1188,15 +1263,19 @@ $cuadro-2: #0F1110;
         &__top{ background-color: $black-1; }
         &__bottom{ background-color: $black-3; }
     }
-.muro{
-    $width-el: .5em;
-    $height-el: 18em;
-    $depth-el: 8em;
-
-    @include cube($width-el, $height-el, $depth-el);
-    position: absolute;
-    left: 1em;
-    top: 6em;
+    .puerta-t:hover{
+        transform: translateZ(16em) scale3d(1.2,1.2,1.2);
+    }
+    .muro{
+        transition:0.5s;
+        $width-el: .5em;
+        $height-el: 18em;
+        $depth-el: 8em;
+        
+        @include cube($width-el, $height-el, $depth-el);
+        position: absolute;
+        left: 1em;
+        top: 6em;
     width: .5em;
     height: 16em;
 
@@ -1264,7 +1343,11 @@ $cuadro-2: #0F1110;
         }
     }
 }
+.muro{
+    transform: translateZ(.51em) scale(1.2,1.2,1.2);
+}
 .sillon-c{
+    transition:0.5s;
 	position: absolute;
     right: 2em;
     bottom: 6em;
@@ -1283,6 +1366,10 @@ $cuadro-2: #0F1110;
         background-color: rgba($black-3, .85);
         filter: blur(.75em);
     }
+}
+
+.sillon-c:hover{
+    transform: translateZ(.5em) scale3d(1.2,1.2,1.2);
 }
     .sillon-b{
         $width-el: 6em;
@@ -1389,6 +1476,7 @@ $cuadro-2: #0F1110;
         &__bottom{ background-color: $black-3; }
     }
 .mesa-c{
+    transition:0.5s;
 	position: absolute;
     left: 7em;
     top: 9.5em;
@@ -1396,6 +1484,9 @@ $cuadro-2: #0F1110;
     height: 9em;
 
     transform: translateZ(.5em);
+}
+.mesa-c:hover{
+    transform: translateZ(.5em) scale(1.2,1.2,1.2);
 }
     .mesa-shadow{
         position: absolute;
@@ -1408,6 +1499,7 @@ $cuadro-2: #0F1110;
         transform: translateZ(0);
     }
     .mesa{
+        transition:0.5s;
         $width-el: 10em;
         $height-el: .5em;
         $depth-el: 4.5em;
@@ -1462,6 +1554,9 @@ $cuadro-2: #0F1110;
         }
         &__bottom{ background-color: $black-3; }
     }
+    .mesa:hover{
+        transform: translateZ(2em) scale3d(1.2,1.2,1.2);
+    }
     .mesa-p{
         $width-el: .25em;
         $height-el: 1.75em;
@@ -1498,6 +1593,7 @@ $cuadro-2: #0F1110;
         &:nth-of-type(4){ right: .5em; bottom: .5em; }
     }
 .tablet{
+    transition:0.5s;
     $width-el: 2em;
     $height-el: .125em;
     $depth-el: 1.25em;
@@ -1530,6 +1626,9 @@ $cuadro-2: #0F1110;
             .25em -.25em .5em rgba(darken($neon-2, 20), .75)
         ;
     }
+}
+.tablet:hover{
+    transform: translateZ(3.01em) rotateZ(15deg) scale3d(1.2,1.2,1.2);
 }
 /**********************/
 /**********************/
