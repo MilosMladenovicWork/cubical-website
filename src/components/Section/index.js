@@ -2,9 +2,9 @@ import React from 'react'
 
 import styles from './section.module.scss'
 
-const Section = ({children, fullWidth}) => {
+const Section = ({children, fullWidth, ...rest}) => {
     return(
-        <section className={`${styles.section} ${fullWidth && styles.fullWidth}`}>
+        <section {...rest} className={`${styles.section} ${fullWidth && styles.fullWidth}`}>
             {children}
         </section>
     )

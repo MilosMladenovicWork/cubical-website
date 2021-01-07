@@ -76,6 +76,12 @@
             "icon": "airplay",
             "display": "list",
             "non-repeat": {
+              "section_id": {
+                "type": "Text",
+                "config": {
+                  "label": "Section ID"
+                }
+              },
               "heading": {
                 "type": "Text",
                 "config": {
@@ -116,6 +122,12 @@
             "icon": "format_align_center",
             "display": "grid",
             "non-repeat": {
+              "section_id": {
+                "type": "Text",
+                "config": {
+                  "label": "Section ID"
+                }
+              },
               "heading": {
                 "type": "StructuredText",
                 "config": {
@@ -140,6 +152,12 @@
             "icon": "crop_square",
             "display": "list",
             "non-repeat": {
+              "section_id": {
+                "type": "Text",
+                "config": {
+                  "label": "Section ID"
+                }
+              },
               "section_heading": {
                 "type": "Text",
                 "config": {
@@ -196,6 +214,12 @@
             "icon": "branding_watermark",
             "display": "list",
             "non-repeat": {
+              "section_id": {
+                "type": "Text",
+                "config": {
+                  "label": "Section ID"
+                }
+              },
               "section_heading": {
                 "type": "Text",
                 "config": {
@@ -242,7 +266,14 @@
             "description": "Section with filters and properties for kaufen properties",
             "icon": "account_balance",
             "display": "list",
-            "non-repeat": {},
+            "non-repeat": {
+              "section_id": {
+                "type": "Text",
+                "config": {
+                  "label": "Section ID"
+                }
+              }
+            },
             "repeat": {}
           },
           "mieten_property": {
@@ -251,7 +282,14 @@
             "description": "Section with filters and properties for mieten properties",
             "icon": "business",
             "display": "list",
-            "non-repeat": {},
+            "non-repeat": {
+              "section_id": {
+                "type": "Text",
+                "config": {
+                  "label": "Section ID"
+                }
+              }
+            },
             "repeat": {}
           },
           "simple_order_section": {
@@ -261,6 +299,12 @@
             "icon": "format_list_numbered",
             "display": "list",
             "non-repeat": {
+              "section_id": {
+                "type": "Text",
+                "config": {
+                  "label": "Section ID"
+                }
+              },
               "order_number": {
                 "type": "Number",
                 "config": {
@@ -327,7 +371,14 @@
             "description": "Section with references and button to show more",
             "icon": "contacts",
             "display": "list",
-            "non-repeat": {},
+            "non-repeat": {
+              "section_id": {
+                "type": "Text",
+                "config": {
+                  "label": "Section ID"
+                }
+              }
+            },
             "repeat": {}
           },
           "offset_cards": {
@@ -337,6 +388,12 @@
             "icon": "dashboard",
             "display": "list",
             "non-repeat": {
+              "section_id": {
+                "type": "Text",
+                "config": {
+                  "label": "Section ID"
+                }
+              },
               "section_heading": {
                 "type": "Text",
                 "config": {
@@ -383,6 +440,12 @@
             "icon": "short_text",
             "display": "list",
             "non-repeat": {
+              "section_id": {
+                "type": "Text",
+                "config": {
+                  "label": "Section ID"
+                }
+              },
               "body1": {
                 "type": "StructuredText",
                 "config": {

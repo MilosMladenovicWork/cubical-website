@@ -8,7 +8,7 @@ import referenceImg from '../../img/background1.jpg'
 
 import styles from './page-reference-section.module.scss'
 
-const PageReferenceSection = () => {
+const PageReferenceSection = ({data:sliceData}) => {
   
   const [numOfLoadedItems, setNumOfLoadedItems] = useState(1)
   const [scrollFromTop, setScrollFromTop] = useState(0)
@@ -66,7 +66,7 @@ const PageReferenceSection = () => {
   ]
   
   return(
-    <Section fullWidth>
+    <Section id={(sliceData && sliceData.primary && sliceData.primary.section_id) ? data.primary.section_id : ''} fullWidth>
         {data.references.edges && data.references.edges.map(({node:reference}, index) => {
             if(index < numOfLoadedItems){
                 return <div className={`${styles.referenceItem} ${styles.visibleItem}`}>

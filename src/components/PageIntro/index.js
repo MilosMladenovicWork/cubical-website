@@ -8,7 +8,7 @@ const PageIntro = ({data, children}) => {
 
     if(data){
         return(
-            <Section>
+            <Section id={(data.primary && data.primary.section_id) ? data.primary.section_id : ''}>
                 <div className={styles.contentRow}>
                     {data.primary.heading &&
                         <AppearOnViewContainer>

@@ -62,6 +62,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type PrismicPageBodyRegularCardsFields {
       section_heading: String
+      section_id: String
     }
 
     type PrismicPageBodyOffsetCardsItemsCard_link implements Node {
@@ -82,6 +83,70 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type PrismicPage{
       data:PageFields
+    }
+
+    type PrismicPageBodyHeroSliderPrimary implements Node{
+      section_id: String
+    }
+
+    type PrismicPageBodyIntroTextPrimary implements Node{
+      section_id: String
+    }
+
+    type PrismicPageBodyIrregularCardsPrimary implements Node{
+      section_id: String
+    }
+
+    type PrismicPageBodyRegularCardsFieldsPrimary implements Node{
+      section_id: String
+    }
+
+    type PrismicPageBodyKaufenPropertySection implements Node{
+      section_id: String
+    }
+
+    type PrismicPageBodyMietenProperty implements Node{
+      section_id: String
+    }
+
+    type PrismicPageBodyOffsetCardsPrimary implements Node{
+      section_id: String
+    }
+
+    type PrismicPageBodyReferenceSection implements Node{
+      section_id: String
+    }
+
+    type PrismicPageBodyRichTextSectionPrimary implements Node{
+      section_id: String
+    }
+
+    type PrismicPageBodySimpleOrderSectionPrimary implements Node{
+      section_id: String
+    }
+
+    type PrismicPageBodyHeroSliderPrimary implements Node{
+      section_id: String
+    }
+
+    type PrismicPageBodyReferenceSection{
+      primary: PrimaryForSectionIdOnlySlices
+    }
+
+    type PrismicPageBodyMietenProperty{
+      primary: PrimaryForSectionIdOnlySlices
+    }
+
+    type PrismicPageBodyKaufenPropertySection{
+      primary: PrimaryForSectionIdOnlySlices
+    }
+
+    type PrismicPageBodyRegularCardsFields{
+      primary: PrimaryForSectionIdOnlySlices
+    }
+
+    type PrimaryForSectionIdOnlySlices{
+      section_id: String
     }
   `
   createTypes(typeDefs)

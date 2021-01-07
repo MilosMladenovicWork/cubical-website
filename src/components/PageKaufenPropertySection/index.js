@@ -1,9 +1,9 @@
 import React from 'react'
 import FilterPropertySection from '../FilterPropertySection'
 
-const PageKaufenPropertySection = () => {
+const PageKaufenPropertySection = ({data}) => {
   return(
-    <FilterPropertySection kaufenProperties/>
+    <FilterPropertySection id={(data && data.primary && data.primary.section_id) ? data.primary.section_id : ''} kaufenProperties/>
   )
 }
 

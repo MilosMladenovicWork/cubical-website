@@ -12,7 +12,7 @@ import styles from './page-order-section.module.scss'
 const PageOrderSection = ({data}) => {
 
   return(
-    <Section>
+    <Section id={(data && data.primary && data.primary.section_id) ? data.primary.section_id : ''}>
       <TextImageBox image={data.primary.image && data.primary.image.localFile && data.primary.image.localFile.childImageSharp.fluid} alt={data.primary.image && data.primary.image.localFile && data.primary.image.alt}>
           <h3>
             {

@@ -120,6 +120,7 @@ export const PageQuery = graphql`
               }
             }
             fields: primary {
+              section_id
               heading
               ribbon_text
               ribbon_link{
@@ -135,6 +136,7 @@ export const PageQuery = graphql`
           }
           ... on PrismicPageBodyIntroText {
             primary {
+              section_id
               body1 {
                 html
               }
@@ -161,6 +163,7 @@ export const PageQuery = graphql`
               }
             }
             primary {
+              section_id
               background_image {
                 localFile {
                   childImageSharp {
@@ -178,6 +181,7 @@ export const PageQuery = graphql`
           ... on PrismicPageBodyRegularCards {
             id
             primary{
+              section_id
               section_heading
             }
             items {
@@ -209,13 +213,20 @@ export const PageQuery = graphql`
           }
           ... on PrismicPageBodyKaufenPropertySection {
             slice_type
+            primary{
+              section_id
+            }
           }
           ... on PrismicPageBodyMietenProperty {
             slice_type
+            primary{
+              section_id
+            }
           }
           ... on PrismicPageBodyOffsetCards {
             slice_type
             primary {
+              section_id
               section_heading
             }
             items {
@@ -243,10 +254,14 @@ export const PageQuery = graphql`
           }
           ... on PrismicPageBodyReferenceSection {
             slice_type
+            primary{
+              section_id
+            }
           }
           ... on PrismicPageBodyRichTextSection {
             slice_type
             primary {
+              section_id
               body1 {
                 html
               }
@@ -255,6 +270,7 @@ export const PageQuery = graphql`
           ... on PrismicPageBodySimpleOrderSection {
             slice_type
             primary {
+              section_id
               body1 {
                 html
               }
@@ -287,16 +303,6 @@ export const PageQuery = graphql`
               select_heading_content_heading
             }
           }
-        }
-        icon {
-          url
-        }
-        seo_description
-        seo_lang_code
-        seo_title
-        theme_color
-        website_url {
-            url
         }
       }
     }

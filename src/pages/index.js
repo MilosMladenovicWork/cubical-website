@@ -35,6 +35,7 @@ const HomePage = () => {
                     }
                   }
                   fields: primary {
+                    section_id
                     heading
                     ribbon_text
                     ribbon_link{
@@ -50,6 +51,7 @@ const HomePage = () => {
                 }
                 ... on PrismicPageBodyIntroText {
                   primary {
+                    section_id
                     body1 {
                       html
                     }
@@ -76,6 +78,7 @@ const HomePage = () => {
                     }
                   }
                   primary {
+                    section_id
                     background_image {
                       localFile {
                         childImageSharp {
@@ -93,6 +96,7 @@ const HomePage = () => {
                 ... on PrismicPageBodyRegularCards {
                   id
                   primary{
+                    section_id
                     section_heading
                   }
                   items {
@@ -124,13 +128,20 @@ const HomePage = () => {
                 }
                 ... on PrismicPageBodyKaufenPropertySection {
                   slice_type
+                  primary{
+                    section_id
+                  }
                 }
                 ... on PrismicPageBodyMietenProperty {
                   slice_type
+                  primary{
+                    section_id
+                  }
                 }
                 ... on PrismicPageBodyOffsetCards {
                   slice_type
                   primary {
+                    section_id
                     section_heading
                   }
                   items {
@@ -158,10 +169,14 @@ const HomePage = () => {
                 }
                 ... on PrismicPageBodyReferenceSection {
                   slice_type
+                  primary{
+                    section_id
+                  }
                 }
                 ... on PrismicPageBodyRichTextSection {
                   slice_type
                   primary {
+                    section_id
                     body1 {
                       html
                     }
@@ -170,6 +185,7 @@ const HomePage = () => {
                 ... on PrismicPageBodySimpleOrderSection {
                   slice_type
                   primary {
+                    section_id
                     body1 {
                       html
                     }
@@ -226,13 +242,13 @@ const HomePage = () => {
                         case 'irregular_cards':
                             return <PageIrregularCardsSection data={slice}/>
                         case 'kaufen_property_section':
-                            return <PageKaufenPropertySection/>
+                            return <PageKaufenPropertySection data={slice}/>
                         case 'mieten_property':
-                            return <PageMietenProperty/>
+                            return <PageMietenProperty data={slice}/>
                         case 'simple_order_section':
                             return <PageOrderSection data={slice}/>
                         case 'reference_section':
-                            return <PageReferenceSection/>
+                            return <PageReferenceSection data={slice}/>
                         case 'offset_cards':
                             return <PageOffsetCardsSection data={slice}/>
                         case 'rich_text_section':

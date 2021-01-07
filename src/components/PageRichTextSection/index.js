@@ -8,7 +8,7 @@ const PageRichTextSection = ({data}) => {
   return(
     <React.Fragment>
       <MarginContainer/>
-      <Section>
+      <Section id={(data && data.primary && data.primary.section_id) ? data.primary.section_id : ''}>
           <div className={styles.content} dangerouslySetInnerHTML={{__html:data.primary.body1 && data.primary.body1.html}}>
           </div>
       </Section>

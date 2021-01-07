@@ -21,7 +21,7 @@ const PageOffsetCardsSection = ({data}) => {
     }, [numOfLoadedItems])
 
   return (
-    <Section>
+    <Section id={(data && data.primary && data.primary.section_id) ? data.primary.section_id : ''}>
       {
         data.primary.section_heading &&
         <h1>{data.primary.section_heading}</h1>

@@ -8,7 +8,7 @@ import popularSectionImg from '../../img/popular-section1.png'
 
 const PageRegularCardsSection = ({data}) => {
   return (
-    <Section>
+    <Section id={(data && data.primary && data.primary.section_id) ? data.primary.section_id : ''}>
         {
             data.primary.section_heading &&
             <h2 className={styles.sectionHeading}>{data.primary.section_heading}</h2>

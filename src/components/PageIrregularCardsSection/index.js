@@ -9,7 +9,7 @@ const PageIrregularCardsSection = ({data}) => {
   
   if(data){
       return(
-        <BigImageSection image={data.primary.background_image && data.primary.background_image.localFile.childImageSharp.fluid}>
+        <BigImageSection id={(data && data.primary && data.primary.section_id) ? data.primary.section_id : ''} image={data.primary.background_image && data.primary.background_image.localFile.childImageSharp.fluid}>
             {
                 data.primary.section_heading &&
                 <h2>{data.primary.section_heading}</h2>

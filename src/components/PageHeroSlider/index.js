@@ -18,7 +18,7 @@ const PageHeroSlider = ({data}) => {
         {
             data &&
             <>
-                <Slider>
+                <Slider id={(data.fields && data.fields.section_id) ? data.fields.section_id : ''}>
                     {data.items &&
                     data.items.length > 0 &&
                         data.items.map(image => {
