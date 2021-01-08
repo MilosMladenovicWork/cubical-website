@@ -20,17 +20,17 @@
     transform: translate(-50%, 0%);
     div{
         display: inline;
-        border-image-width: 0px 0px 0px 0px;
+        border: 1px solid white;
     }
   span{
       font-family: 'Tactic Round Ext Exd Blk';
       background-image: linear-gradient(45deg, #26baff 30%, #004d80);
-      border-image-width: 0px 0px 0px 0px;
       background-size: 100%;
       border:0px solid white;
       background-repeat: repeat;
       color:black;
       background-clip: text;
+      border: 1px solid white;
       -webkit-text-fill-color: transparent;
       -moz-text-fill-color: transparent;
       font-size:0.75rem;
