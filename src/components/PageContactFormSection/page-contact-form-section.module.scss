@@ -1,13 +1,66 @@
 @import '../../styles/utils/breakpoints.scss';
 
 .contact-form-section{
-  height:80vh;
+  min-height:80vh;
   position: relative;
+  margin-bottom:240px;
+  @include breakpoint(sm){
+    padding-bottom: 0;
+  }
 }
 
 .contact-heading{
   font-size:2rem;
   color:#1995D2;
+}
+
+@keyframes sun {
+  0%   {transform: translateY(0)}
+  25%  {transform: translateY(85px)}
+  75%  {transform: translateY(-15px)}
+  100% {transform: translateY(0)}
+}
+
+.sun {
+  animation: sun 10s linear infinite;
+}
+
+@keyframes lights
+{0% {opacity:1;} 50%{opacity:0;} 100%{opacity:1;}} 
+
+.lights {
+  animation: lights 2s infinite ease-in-out; }
+
+
+@keyframes star {
+  0%   {transform: translateY(0)}
+  25%  {transform: translateY(15px)}
+  75%  {transform: translateY(-15px)}
+  100% {transform: translateY(0)}
+}
+
+.star {
+  animation: star 10s linear infinite;
+}
+
+.illustration{
+  position:absolute;
+  width:100%;
+  opacity:0.5;
+  overflow: hidden;
+  bottom:0;
+  left:50%;
+  transform: translate(-50%, 85%);
+  @include breakpoint(sm){
+    bottom:unset;
+    width:100%;
+    transform: translate(-50%, -50%);
+    top:50%;
+    left:50%;
+  }
+  @include breakpoint(lg){
+    width:120vh;
+  }
 }
 
 .contact-form-container{
