@@ -8,20 +8,27 @@ import styles from './appear-on-view-container.module.scss'
 const AppearOnViewContainer = ({children}) => {
     
     const [visible, setVisible] = useState(false)
+    const [seen, setSeen] = useState(false)
+
 
     const {translateY, opacity } = useSpring({
         from: {
-          translateY: visible ?  150 : 0,
-          opacity: visible ? 0 : 1,
+          translateY: (visible || seen) ?  150 : 0,
+          opacity: (visible || seen) ? 0 : 1,
         },
         to: {
-          translateY: visible ? 0 : 150,
-          opacity: visible ? 1 : 0,
+          translateY: (visible || seen) ? 0 : 150,
+          opacity: (visible || seen) ? 1 : 0,
         },
     })
 
     const handleVisibility = (isVisible) => {
         setVisible(isVisible)
+        if(isVisible){
+          if(!seen){
+            setSeen(true)
+          }
+        }
     }
     
     return(
