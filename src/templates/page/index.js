@@ -14,6 +14,7 @@ import PageReferenceSection from '../../components/PageReferenceSection'
 import PageOffsetCardsSection from '../../components/PageOffsetCardsSection'
 import PageRichTextSection from '../../components/PageRichTextSection'
 import SEO from '../../components/SEO'
+import PageContactFormSection from '../../components/PageContactFormSection'
 
 const Page = ({data}) => {
 
@@ -92,6 +93,8 @@ const Page = ({data}) => {
                             return <PageOffsetCardsSection data={slice}/>
                         case 'rich_text_section':
                             return <PageRichTextSection data={slice}/>
+                        case 'contact_form_section':
+                            return <PageContactFormSection data={slice}/>
                         default:
                             return
                     }
@@ -301,6 +304,12 @@ export const PageQuery = graphql`
                 html
               }
               select_heading_content_heading
+            }
+          }
+          ... on PrismicPageBodyContactFormSection{
+            slice_type
+            primary{
+              section_id
             }
           }
         }

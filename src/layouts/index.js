@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {animated, useSpring, useTransition} from 'react-spring'
-import {useStaticQuery, graphql} from 'gatsby'
+import {useStaticQuery, graphql, Link} from 'gatsby'
 
 import NavMenuContainer from '../components/NavMenuContainer'
 import NavLink from '../components/NavLink'
@@ -38,6 +38,17 @@ const Layout = ({children, location}) => {
             }
             footer_content {
               html
+            }
+            footer_buttons{
+              button_text
+              button_link {
+                url
+                document {
+                    data {
+                      page_path
+                    }
+                }
+              }
             }
             footer_links {
               link {
@@ -283,7 +294,7 @@ const Layout = ({children, location}) => {
                             return <NavLink link={{href:(link.link) && ((link.link.document && link.link.document[0].data.page_path) ? link.link.document[0].data.page_path : link.link.url), text: link.link_text}} subLinks={sublinks}/>
                         })
                     }
-                    <NavLink link={{href:'/kontakt/', text: 'kontakt'}} deactivated onClick={() => dispatch({type:'toggle_contact_form'})}/>
+                    {/* <NavLink link={{href:'/kontakt/', text: 'kontakt'}} deactivated onClick={() => dispatch({type:'toggle_contact_form'})}/> */}
                     {/* <NavLink link={{href:'/immobilien/', text: 'immobilien'}} subLinks={[
                         {href:'/immobilien/kaufen/', text: 'kaufen'},
                         {href:'/immobilien/mieten/', text: 'mieten'},
@@ -331,7 +342,7 @@ const Layout = ({children, location}) => {
                                 return <MobileMenuLink link={{href:(link.link) && ((link.link.document && link.link.document[0].data.page_path) ? link.link.document[0].data.page_path : link.link.url), text: link.link_text}} subLinks={sublinks} onClick={()=> setMobileMenuActive(false)}/>
                             })
                         }
-                        <MobileMenuLink link={{href:'/kontakt/', text: 'kontakt'}} button onClick={() => {dispatch({type:'toggle_contact_form'});setMobileMenuActive(false); console.log('activated')}}/>
+                        {/* <MobileMenuLink link={{href:'/kontakt/', text: 'kontakt'}} button onClick={() => {dispatch({type:'toggle_contact_form'});setMobileMenuActive(false); console.log('activated')}}/> */}
                         {/* <MobileMenuLink link={{href:'/immobilien/', text: 'immobilien'}} onClick={() => setMobileMenuActive(false)}/>
                         <MobileMenuLink link={{href:'/blog/', text: 'blog'}} onClick={() => setMobileMenuActive(false)}/>
                         <MobileMenuLink deactivated link={{href:'/dienstleistungen/', text: 'dienstleistungen'}} subLinks={[
@@ -440,11 +451,15 @@ const Layout = ({children, location}) => {
                         </div>
                     }
                 </div>
-                <div className={styles.horizontallyCentered} onClick={() => {dispatch({type:'toggle_contact_form'});}}>
+                {data.prismicLayout.data.footer_buttons && 
+                data.prismicLayout.data.footer_buttons.length > 0 &&
+                data.prismicLayout.data.footer_buttons.map(button => {
+                    return <Link to={(button.button_link) && ((button.button_link.document && button.button_link.document[0].data.page_path) ? button.button_link.document[0].data.page_path : button.button_link.url)} className={styles.horizontallyCentered} >
                     <ButtonBordered>
-                        Kontakt
+                        {button.button_text}
                     </ButtonBordered>
-                </div>
+                </Link>
+                })}
                 <div className={styles.footerNavigation}>
                     <AsideNavContainer rotated>
                         {

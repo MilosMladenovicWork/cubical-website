@@ -93,6 +93,26 @@
         "label": "Footer Content"
       }
     },
+    "footer_buttons": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "button_text": {
+            "type": "Text",
+            "config": {
+              "label": "Button Text"
+            }
+          },
+          "button_link": {
+            "type": "Link",
+            "config": {
+              "label": "Button Link"
+            }
+          }
+        },
+        "label": "Footer Buttons"
+      }
+    },
     "footer_links": {
       "type": "Group",
       "config": {

@@ -1,0 +1,39 @@
+@import '../../styles/utils/breakpoints.scss';
+
+.contact-form-section{
+  height:80vh;
+  position: relative;
+}
+
+.contact-heading{
+  font-size:2rem;
+  color:#1995D2;
+}
+
+.contact-form-container{
+  display: none;
+  @include breakpoint(sm){
+    display: flex;
+      position: absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%);
+      height:auto;
+      z-index:1;
+  }
+}
+
+.mobile-form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index:1;
+  background:white;
+  position: absolute;;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  @include breakpoint(sm){
+      display:none;
+  }
+}

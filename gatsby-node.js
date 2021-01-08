@@ -18,11 +18,18 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type Link{
       link: Url
+      button_text: String
+    }
+
+    type ButtonLink{
+      button_link: Url
+      button_text: String
     }
 
     type Fields{
       right_side_links: [Link]
       footer_links: [Link]
+      footer_buttons: [ButtonLink]
       left_side_links: [Link]
       link_hover_icons: [Link]
       links: [Link]
@@ -142,6 +149,10 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 
     type PrismicPageBodyRegularCardsFields{
+      primary: PrimaryForSectionIdOnlySlices
+    }
+
+    type PrismicPageBodyContactFormSection implements Node{
       primary: PrimaryForSectionIdOnlySlices
     }
 

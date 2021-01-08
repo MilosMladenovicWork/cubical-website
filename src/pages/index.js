@@ -13,6 +13,7 @@ import PageOrderSection from '../components/PageOrderSection'
 import PageReferenceSection from '../components/PageReferenceSection'
 import PageOffsetCardsSection from '../components/PageOffsetCardsSection'
 import PageRichTextSection from '../components/PageRichTextSection'
+import PageContactFormSection from '../components/PageContactFormSection'
 
 const HomePage = () => {
 
@@ -218,6 +219,12 @@ const HomePage = () => {
                     select_heading_content_heading
                   }
                 }
+                ... on PrismicPageBodyContactFormSection{
+                  slice_type
+                  primary{
+                    section_id
+                  }
+                }
               }
             }
         }
@@ -253,6 +260,8 @@ const HomePage = () => {
                             return <PageOffsetCardsSection data={slice}/>
                         case 'rich_text_section':
                             return <PageRichTextSection data={slice}/>
+                        case 'contact_form_section':
+                            return <PageContactFormSection data={slice}/>
                         default:
                             return
                     }
