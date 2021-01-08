@@ -180,7 +180,7 @@ const Layout = ({children, location}) => {
           
         setTimeout(() => {
             dispatch({type:'PAGE_LOADED_MINIMAL'})
-        }, 2500)
+        }, 52500)
     }, [])
 
     const navIconsTransition = useTransition(showNavIcons, {
