@@ -27,9 +27,9 @@ const Logo = () => {
       }
       `)
       
-      const pageLoaded = useSelector(state => state.pageLoaded)
-      const pageLoadedMinimal = useSelector(state => state.pageLoadedMinimal)
-      const [letterSprings, setLetterSprings] = useState([])
+    const pageLoaded = useSelector(state => state.pageLoaded)
+    const pageLoadedMinimal = useSelector(state => state.pageLoadedMinimal)
+    const [letterSprings, setLetterSprings] = useState([])
       
     const motoRef = useRef()
     const motoProps = useSpring({
