@@ -62,13 +62,9 @@ const Layout = ({children, location}) => {
               link_text
             }
             left_side_links {
-              link {
-                url
-                document {
-                    data {
-                      page_path
-                    }
-                }
+              content_background_color
+              link_content{
+                  html
               }
               image {
                 localFile {
@@ -386,12 +382,18 @@ const Layout = ({children, location}) => {
                                         <AsideNavContainer>
                                             {
                                                 data.prismicLayout.data.left_side_links.map(link => {
-                                                    return <a href={(link.link) && ((link.link.document && link.link.document[0].data.page_path) ? link.link.document[0].data.page_path : link.link.url)}>
-                                                        {
-                                                            link.image && 
-                                                            <img src={link.image.localFile.url} alt={link.image.alt}/>
-                                                        }
-                                                    </a>
+                                                    if(link.link_content && link.link_content.html){
+                                                        return <div className={styles.leftSideLink} href={(link.link) && ((link.link.document && link.link.document[0].data.page_path) ? link.link.document[0].data.page_path : link.link.url)}>
+                                                                <div style={{
+                                                                    backgroundColor:link.content_background_color
+                                                                }} className={styles.linkContent} dangerouslySetInnerHTML={{__html:link.link_content && link.link_content.html}}>
+                                                                </div>
+                                                            {
+                                                                link.image && 
+                                                                <img src={link.image.localFile.url} alt={link.image.alt}/>
+                                                            }
+                                                        </div>
+                                                    }
                                                 })
                                             }
                                         </AsideNavContainer>

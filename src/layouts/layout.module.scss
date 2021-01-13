@@ -110,6 +110,33 @@
     }
 }
 
+.left-side-link{
+    display: flex;
+    transform:translate(calc(55px - 100%), 0);
+    margin-bottom:10px;
+    transition:0.3s;
+    .link-content{
+        width:260px;
+        height:55px;
+        background:#2597D0;
+        padding:3px 20px;
+        * {
+            color:white;
+            text-decoration:none;
+            margin:0;
+        }
+        a {
+            text-decoration: underline;
+        }
+    }
+    img{
+        width:55px;
+    }
+    &:hover{
+        transform:translate(calc(260px - 100%), 0);
+    }
+}
+
 .main-content{
     flex-grow: 1;
     width: 100%;

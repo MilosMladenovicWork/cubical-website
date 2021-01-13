@@ -26,11 +26,20 @@ exports.createSchemaCustomization = ({ actions }) => {
       button_text: String
     }
 
+    type HTML{
+      html: String
+    }
+
+    type LeftSideLinks{
+      content_background_color:String
+      link_content: HTML
+    }
+
     type Fields{
       right_side_links: [Link]
       footer_links: [Link]
       footer_buttons: [ButtonLink]
-      left_side_links: [Link]
+      left_side_links: [LeftSideLinks]
       link_hover_icons: [Link]
       links: [Link]
       right_side_link_hover_icons: [Link]
