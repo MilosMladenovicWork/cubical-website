@@ -18,24 +18,26 @@ module.exports.handler = async function (event, context) {
     from: SENDGRID_TO_EMAIL,
     subject: 'Cubical Kontakt',
     html: `
-        <h1>Cubical Kontakt Form</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Telefonnummer</th>
-                        <th>Gewünschte Anrufzeit</th>
-                    </tr>
-                </thead>
+        <h1 style='color: #1995D2;'>Cubical Kontakt Form</h1>
+            <table style='margin-bottom:15px; border:1px solid #1995D2;border-collapse: collapse'>
                 <tr>
-                    <td>${data.name}</td>
-                    <td>${data.email}</td>
-                    <td>${data.tel}</td>
-                    <td>${data.callTime}</td>
-                    </tr>
-                    </table>                
-                <p>${data.msg}</p>
+                  <th style='padding:2.5px; border:1px solid #1995D2; text-align:center;background: #1995D2; color: white'>Name</th>
+                  <td style='padding:2.5px; border:1px solid #1995D2; text-align:center; color: #1995D2;'>${data.name}</td>
+                </tr>
+                <tr>
+                  <th style='padding:2.5px; border:1px solid #1995D2; text-align:center;background: #1995D2; color: white'>Email</th>
+                  <td style='padding:2.5px; border:1px solid #1995D2; text-align:center; color: #1995D2;'>${data.email}</td>
+                </tr>
+                <tr>
+                  <th style='padding:2.5px; border:1px solid #1995D2; text-align:center;background: #1995D2; color: white'>Telefonnummer</th>
+                  <td style='padding:2.5px; border:1px solid #1995D2; text-align:center; color: #1995D2;'>${data.tel}</td>
+                </tr>
+                <tr>
+                  <th style='padding:2.5px; border:1px solid #1995D2; text-align:center;background: #1995D2; color: white'>Gewünschte Anrufzeit</th>
+                  <td style='padding:2.5px; border:1px solid #1995D2; text-align:center; color: #1995D2;'>${data.callTime}</td>
+                </tr>       
+            </table>         
+        <p style='color: #1995D2;'>Message: ${data.msg}</p>
         `
   };
 
