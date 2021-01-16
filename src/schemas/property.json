@@ -1,0 +1,151 @@
+{
+  "Main": {
+    "property_heading": {
+      "type": "Text",
+      "config": {
+        "label": "Property Heading"
+      }
+    },
+    "type_of_property": {
+      "type": "Boolean",
+      "config": {
+        "placeholder_false": "Kaufen",
+        "placeholder_true": "Mieten",
+        "default_value": false,
+        "label": "Type of property"
+      }
+    },
+    "category": {
+      "type": "Text",
+      "config": {
+        "label": "Category",
+        "placeholder": "Bauland"
+      }
+    },
+    "preis": {
+      "type": "Number",
+      "config": {
+        "label": "Preis"
+      }
+    },
+    "wohnflache": {
+      "type": "Number",
+      "config": {
+        "label": "Wohnflache",
+        "placeholder": "100"
+      }
+    },
+    "zimmer": {
+      "type": "Number",
+      "config": {
+        "label": "Zimmer"
+      }
+    },
+    "ort": {
+      "type": "Text",
+      "config": {
+        "label": "Ort",
+        "placeholder": "North Switzerland"
+      }
+    },
+    "important_information": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "information_name": {
+            "type": "Text",
+            "config": {
+              "label": "Information name"
+            }
+          },
+          "information_value": {
+            "type": "Text",
+            "config": {
+              "label": "Information value"
+            }
+          }
+        },
+        "label": "Important information"
+      }
+    },
+    "other_information": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "information_name": {
+            "type": "Text",
+            "config": {
+              "label": "Information name"
+            }
+          },
+          "information_value": {
+            "type": "Text",
+            "config": {
+              "label": "Information value"
+            }
+          }
+        },
+        "label": "Other Information"
+      }
+    },
+    "images": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "image": {
+            "type": "Image",
+            "config": {
+              "constraint": {
+                "width": 960,
+                "height": 720
+              },
+              "thumbnails": [],
+              "label": "Image"
+            }
+          }
+        },
+        "label": "Images"
+      }
+    },
+    "description": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Description"
+      }
+    },
+    "besichtigung_information": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Besichtigung information"
+      }
+    },
+    "property_document_card_text": {
+      "type": "Text",
+      "config": {
+        "label": "Property document card text"
+      }
+    },
+    "property_document": {
+      "type": "Link",
+      "config": {
+        "label": "Property Document"
+      }
+    },
+    "property_geocode": {
+      "type": "GeoPoint",
+      "config": {
+        "label": "Property Geocode"
+      }
+    }
+  },
+  "Other": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "UID"
+      }
+    }
+  }
+}

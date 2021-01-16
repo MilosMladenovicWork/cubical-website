@@ -22,6 +22,13 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-plugin-netlify-functions`,
+      options: {
+        functionsSrc: `${__dirname}/lambda`,
+        functionsOutput: `${__dirname}/functions`,
+      },
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-emotion',
     'gatsby-plugin-lodash',
@@ -38,6 +45,7 @@ module.exports = {
           page: require('./src/schemas/page.json'),
           layout: require('./src/schemas/layout.json'),
           reference: require('./src/schemas/reference.json'),
+          property: require('./src/schemas/property.json'),
         },
         shouldDownloadImage: ({ node, key, value }) => {
           return true

@@ -184,6 +184,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const pageTemplate = require.resolve('./src/templates/page/index.js')
+  const propertyTemplate = require.resolve('./src/templates/property/index.js')
   
   const result = await wrapper(
     graphql(`
@@ -194,6 +195,17 @@ exports.createPages = async ({ graphql, actions }) => {
               data {
                 page_path
               }
+            }
+          }
+        }
+
+        allPrismicProperty{
+          edges{
+            node{
+              data{
+                type_of_property
+              }
+              uid
             }
           }
         }
@@ -215,7 +227,25 @@ exports.createPages = async ({ graphql, actions }) => {
       })
     }
   })
+
+  const properties = result.data.allPrismicProperty.edges
+  
+  properties.forEach((edge) => {
+    if(edge.node.uid){
+      createPage({
+        path:`/${edge.node.data.type_of_property ? 'mieten' : 'kaufen'}/${edge.node.uid}`,
+        component: propertyTemplate,
+        context: {
+          uid: edge.node.uid
+        }
+      })
+    }
+  })
+
+
+
 }
+
 
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
   if (stage.startsWith("build-javascript")) {

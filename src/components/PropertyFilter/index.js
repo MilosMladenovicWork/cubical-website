@@ -53,25 +53,25 @@ const PropertyFilter = ({data, filters, setFilters}) => {
   }
 
   useEffect(() => {
-    let filterungSet = new Set(data.map(property => {
-      if(property.filterung){
-        return property.filterung
+    let filterungSet = new Set(data.map(({node:property}) => {
+      if(property.data.category){
+        return property.data.category
       }
     }))
 
     setFilterungArray([...filterungSet])
     
-    let zimmerSet = new Set(data.map(property => {
-      if(property.zimmer){
-        return property.zimmer
+    let zimmerSet = new Set(data.map(({node:property}) => {
+      if(property.data.zimmer){
+        return property.data.zimmer
       }
     }))
 
     setZimmerArray([...zimmerSet])
     
-    let ortSet = new Set(data.map(property => {
-      if(property.ort){
-        return property.ort
+    let ortSet = new Set(data.map(({node:property}) => {
+      if(property.data.ort){
+        return property.data.ort
       }
     }))
 
