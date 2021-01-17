@@ -2,6 +2,7 @@
 
 .sorting-settings{
   > label{
+    flex-shrink:1;
     display:flex;
     flex-direction: column;
     @include breakpoint(lg){
@@ -22,8 +23,6 @@
     padding: 0px 10px;
     width:100%;
     line-height:25px;
-    min-width: max-content;
-    max-width: max-content;
   }
 
   .sorting-description{
