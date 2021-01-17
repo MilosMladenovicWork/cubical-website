@@ -39,7 +39,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-prismic',
       options: {
-        repositoryName: 'mladenovic',
+        repositoryName: 'cubical',
         accessToken: `${process.env.PRISMIC_API_KEY}`,
         schemas: {
           page: require('./src/schemas/page.json'),
