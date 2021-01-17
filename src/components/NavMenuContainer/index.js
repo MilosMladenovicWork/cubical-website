@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {animated, useSpring} from 'react-spring'
 import useMeasure from 'react-use-measure'
@@ -6,7 +6,7 @@ import { ResizeObserver } from '@juggle/resize-observer'
 
 import styles from './nav-menu-container.module.scss'
 
-const NavMenuContainer = ({children}) => {
+const NavMenuContainer = ({children, navMenuContainerAnimationRef}) => {
     
     const [ref, { height }] = useMeasure({ polyfill: ResizeObserver });
 
@@ -16,7 +16,8 @@ const NavMenuContainer = ({children}) => {
     const vhToPixel = value => `${typeof window != 'undefined' && (window.innerHeight * value) / 100}px`
     
     const props = useSpring({
-        height: (pageLoaded && pageLoadedMinimal) ? `${height}px` : vhToPixel(100)
+        height: (pageLoaded && pageLoadedMinimal) ? `${height}px` : vhToPixel(100),
+        ref: navMenuContainerAnimationRef
     })
     
     const dispatch = useDispatch()
@@ -25,8 +26,8 @@ const NavMenuContainer = ({children}) => {
         window.addEventListener('scroll', () =>{
             dispatch({type:'SCROLL_FROM_TOP_CHANGE', payload:window.pageYOffset})
         })
-    }    
-    
+    }
+
     let pageOffset = useSelector(state => state.scrollFromTop)
     
     

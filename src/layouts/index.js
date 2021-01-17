@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {animated, useSpring, useTransition} from 'react-spring'
 import {useStaticQuery, graphql, Link} from 'gatsby'
@@ -165,9 +165,13 @@ const Layout = ({children, location}) => {
 
     const dispatch = useDispatch()
 
+    const logoPropsRef = useRef()
+    const linkListPropsRef = useRef()
+
     let contactButtonClicked = useSelector(state => state.contactFormOpened)
 
     const [showNavIcons, setShowNavIcons] = useState(false)
+    const navMenuContainerAnimationRef = useRef()
 
     const vhToPixel = value => `${typeof window != 'undefined' && (window.innerHeight * value) / 100}`
 
@@ -214,14 +218,16 @@ const Layout = ({children, location}) => {
     const pageLoadedMinimal = useSelector(state => state.pageLoadedMinimal)
 
     const linkListProps = useSpring({
-        opacity: (pageLoaded && pageLoadedMinimal) ? 1 : 0
+        opacity: (pageLoaded && pageLoadedMinimal) ? 1 : 0,
+        ref: linkListPropsRef
     })
 
     const logoProps = useSpring({
         position:'absolute',
         top: (pageLoaded && pageLoadedMinimal) ? '0%' : '-50%',
         right: (pageLoaded && pageLoadedMinimal) ? '0%' : '50%',
-        transform: (pageLoaded && pageLoadedMinimal) ? 'translateX(0%)' :'translateX(50%)'
+        transform: (pageLoaded && pageLoadedMinimal) ? 'translateX(0%)' :'translateX(50%)',
+        ref: logoPropsRef
     })
 
     const [mobileMenuActive, setMobileMenuActive] = useState(false)
@@ -276,7 +282,7 @@ const Layout = ({children, location}) => {
                     <meta property="og:url" content={data.prismicLayout.data.website_url.url} />
                 }
             </SEO>
-            <NavMenuContainer>
+            <NavMenuContainer navMenuContainerAnimationRef={navMenuContainerAnimationRef}>
                 <animated.ul style={linkListProps}>
                     {
                         data.prismicLayout.data.links &&
@@ -362,7 +368,7 @@ const Layout = ({children, location}) => {
                     </div>
                 </animated.div>
                 <animated.div style={logoProps} className={styles.logoContainer}>
-                    <Logo/>
+                    <Logo afterLogoAnimations={[logoPropsRef, linkListPropsRef, navMenuContainerAnimationRef]}/>
                 </animated.div>
                 <div style={{
                     visibility:'hidden'

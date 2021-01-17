@@ -9,7 +9,7 @@ import logoMoto from '../../img/logo-moto.png'
 import AppearContainer from '../AppearContainer'
 
 
-const Logo = () => {
+const Logo = ({afterLogoAnimations = []}) => {
 
     const data = useStaticQuery(graphql`
     query LogoQuery {
@@ -82,7 +82,7 @@ const Logo = () => {
       return elements
     }
     
-    useChain([logoRef, ...letterSprings, wholeLogo])
+    useChain([logoRef, ...letterSprings, wholeLogo, ...afterLogoAnimations])
 
     return(
         <animated.div className={styles.logo} style={paddingAnimation}>
