@@ -6,7 +6,7 @@
   "version": "1.0.0",
   "author": "LekoArts <hello@lekoarts.de>",
   "scripts": {
-    "build": "gatsby build",
+    "build": "cross-env GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "dev": "gatsby develop -o",
     "develop": "gatsby develop",
     "serve": "gatsby serve",
@@ -79,7 +79,7 @@
   "devDependencies": {
     "@testing-library/cypress": "^6.0.0",
     "babel-eslint": "^10.1.0",
-    "cross-env": "^7.0.2",
+    "cross-env": "^7.0.3",
     "cypress": "^4.5.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
