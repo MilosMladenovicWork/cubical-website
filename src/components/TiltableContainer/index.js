@@ -3,7 +3,7 @@ import {useSpring, animated} from 'react-spring'
 
 import styles from './tiltable-container.module.scss'
 
-const TiltableContainer = ({children, roundedCorners}) => {
+const TiltableContainer = ({children, roundedCorners, className}) => {
     const [transform, set, stop] = useSpring(()=>(
         {
         transform:`scale(1) rotateX(0deg) rotateY(0deg) perspective(150px)`,
@@ -22,7 +22,7 @@ const TiltableContainer = ({children, roundedCorners}) => {
 
     return(
         <animated.div 
-            className={`${styles.tiltableContainer} ${roundedCorners && styles.roundedCorners}`}
+            className={`${styles.tiltableContainer} ${roundedCorners && styles.roundedCorners} ${className}`}
             style={transform}
             onPointerOut={() => {
                 set({

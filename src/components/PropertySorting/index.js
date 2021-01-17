@@ -23,12 +23,12 @@ const PropertySorting = ({sorting, setSorting}) => {
   return(
     <form className={styles.sortingSettings}>
       <label>
-      <TiltableContainer>
+      <TiltableContainer className={styles.sortingTiltableContainer}>
         <div className={styles.sortingDescription}>
           Sortieren nach:
         </div>
       </TiltableContainer>
-      <TiltableContainer>
+      <TiltableContainer className={styles.sortingTiltableContainer}>
         <div className={styles.selectContainer}>
           <select name='preis' onChange={setStringValues} value={sorting.preis || ''}>
             <option value=''>Preis</option>
@@ -37,7 +37,7 @@ const PropertySorting = ({sorting, setSorting}) => {
           </select>
         </div>
       </TiltableContainer>
-      <TiltableContainer>
+      <TiltableContainer className={styles.sortingTiltableContainer}>
         <div className={styles.selectContainer}>
           <select name='zimmer' onChange={setStringValues} value={sorting.zimmer || ''}>
             <option value=''>Zimmer</option>
@@ -46,7 +46,7 @@ const PropertySorting = ({sorting, setSorting}) => {
           </select>
         </div>
       </TiltableContainer>
-      <TiltableContainer>
+      <TiltableContainer className={styles.sortingTiltableContainer}>
         <div className={styles.selectContainer}>
           <select name='wohnflache' onChange={setStringValues} value={sorting.wohnflache || ''}>
             <option value=''>Wohnflache</option>
