@@ -23,7 +23,7 @@
     padding: 0px 10px;
     width:100%;
     line-height:25px;
-    flex-grow:1;
+    flex-shrink: 0;
   }
 
   .sorting-description{
