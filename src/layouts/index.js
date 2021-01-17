@@ -379,11 +379,11 @@ const Layout = ({children, location}) => {
                                     {
                                         data.prismicLayout.data.left_side_links &&
                                         data.prismicLayout.data.left_side_links.length > 0 &&
-                                        <AsideNavContainer>
+                                        <AsideNavContainer className={styles.leftSideNavContainer}>
                                             {
                                                 data.prismicLayout.data.left_side_links.map(link => {
                                                     if(link.link_content && link.link_content.html){
-                                                        return <div className={styles.leftSideLink} href={(link.link) && ((link.link.document && link.link.document[0].data.page_path) ? link.link.document[0].data.page_path : link.link.url)}>
+                                                        return <li className={styles.leftSideLink} href={(link.link) && ((link.link.document && link.link.document[0].data.page_path) ? link.link.document[0].data.page_path : link.link.url)}>
                                                                 <div style={{
                                                                     backgroundColor:link.content_background_color
                                                                 }} className={styles.linkContent} dangerouslySetInnerHTML={{__html:link.link_content && link.link_content.html}}>
@@ -392,7 +392,7 @@ const Layout = ({children, location}) => {
                                                                 link.image && 
                                                                 <img src={link.image.localFile.url} alt={link.image.alt}/>
                                                             }
-                                                        </div>
+                                                        </li>
                                                     }
                                                 })
                                             }

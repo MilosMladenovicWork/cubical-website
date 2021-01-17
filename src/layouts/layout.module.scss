@@ -112,7 +112,6 @@
 
 .left-side-link{
     display: flex;
-    transform:translate(calc(55px - 100%), 0);
     margin-bottom:10px;
     transition:0.3s;
     height:55px;
@@ -135,12 +134,16 @@
         height:55px;
     }
     &:hover{
-        transform:translate(calc(260px - 100%), 0);
+        transform:translate(calc(260px - 55px), 0);
     }
 }
 
-.main-content{
-    flex-grow: 1;
+.left-side-nav-container{
+    transform:translate(calc(55px - 100%), 0);
+}
+    
+    .main-content{
+        flex-grow: 1;
     width: 100%;
 }
 
