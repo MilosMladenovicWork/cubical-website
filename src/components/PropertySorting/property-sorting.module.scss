@@ -27,6 +27,9 @@
   .sorting-description{
     min-width: max-content;
     max-width: max-content;
+    @include breakpoint(lg){
+      min-width: 128px;
+    }
   }
   
   .select-container{
