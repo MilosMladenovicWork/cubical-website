@@ -2,7 +2,7 @@
 
 .sorting-settings{
   > label{
-    flex-shrink:1;
+    flex-grow: 0;
     display:flex;
     flex-direction: column;
     @include breakpoint(lg){
