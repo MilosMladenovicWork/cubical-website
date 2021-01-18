@@ -6,7 +6,7 @@
   "version": "1.0.0",
   "author": "LekoArts <hello@lekoarts.de>",
   "scripts": {
-    "build": "cross-env GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
+    "build": "gatsby build",
     "dev": "gatsby develop -o",
     "develop": "gatsby develop",
     "serve": "gatsby serve",
