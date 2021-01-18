@@ -9,6 +9,67 @@
   }
 }
 
+.info-content{
+  margin-top:20px;
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 10px;
+  position:relative;
+  .info-buttons{
+    button{
+      color:#1995D2;
+    }
+  }
+  img{
+    height:50px;
+    margin-bottom:20px;
+  }
+  h2{
+    font-size:3rem;
+  }
+  p{
+    font-size: 1.5rem;
+    color:#1995D2;
+    margin:0;
+  }
+  @include breakpoint(sm){
+    margin-top:0;
+  }
+}
+
+.info-buttons{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top:20px;
+}
+
+.contact-form-and-info-wrapper{
+  padding:40px 0px;
+  margin:0 auto;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+  width:100%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  margin-top:50px;
+  @include breakpoint(sm){
+    margin-top:0;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  @include breakpoint(lg){
+    width:800px;
+  }
+}
+
 .contact-heading{
   font-size:2rem;
   color:#1995D2;
@@ -46,7 +107,7 @@
 .illustration{
   position:absolute;
   width:100%;
-  opacity:0.5;
+  opacity:0.1;
   overflow: hidden;
   bottom:0;
   left:50%;
@@ -59,7 +120,7 @@
     left:50%;
   }
   @include breakpoint(lg){
-    width:120vh;
+    width:50vh;
   }
 }
 
@@ -67,10 +128,6 @@
   display: none;
   @include breakpoint(sm){
     display: flex;
-      position: absolute;
-      top:50%;
-      left:50%;
-      transform:translate(-50%, -50%);
       height:auto;
       z-index:1;
   }
@@ -82,10 +139,6 @@
   justify-content: center;
   z-index:1;
   background:white;
-  position: absolute;;
-  top:50%;
-  left:50%;
-  transform: translate(-50%, -50%);
   @include breakpoint(sm){
       display:none;
   }

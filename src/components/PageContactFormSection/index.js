@@ -1,10 +1,37 @@
 import React from 'react'
+import {useStaticQuery, graphql, Link} from 'gatsby'
 
 import styles from './page-contact-form-section.module.scss'
 import Section from '../Section'
 import ContactForm from '../ContactForm'
+import ButtonBordered from '../ButtonBordered'
 
 const PageContactFormSection = ({data}) => {
+
+  const queryData = useStaticQuery(graphql`
+    query ContactFormSectionQuery {
+        prismicLayout {
+          data {
+            footer_content {
+              html
+            }
+            footer_buttons{
+              button_text
+              button_link {
+                url
+                document {
+                    data {
+                      page_path
+                    }
+                }
+              }
+            }
+          }
+        }
+      }
+    `)
+
+
   return(
     <Section fullWidth id={(data.primary && data.primary.section_id) ? data.primary.section_id : ''}>
       <div className={styles.contactFormSection}>
@@ -186,15 +213,35 @@ const PageContactFormSection = ({data}) => {
             <circle cx="790" cy="240" r="2" fill="#fff" className={styles.star}></circle>
           </svg>
         </div>
-        <div className={styles.contactFormContainer}>
-            <ContactForm>
-                <h1 className={styles.contactHeading}>KONTAKT</h1>
-            </ContactForm>
-        </div>
-        <div className={styles.mobileForm}>
-            <ContactForm>
-                <h1 className={styles.contactHeading}>KONTAKT</h1>
-            </ContactForm>
+        <div className={styles.contactFormAndInfoWrapper}>
+          <div className={styles.contactFormContainer}>
+              <ContactForm>
+                  <h1 className={styles.contactHeading}>KONTAKT</h1>
+              </ContactForm>
+          </div>
+          <div className={styles.mobileForm}>
+              <ContactForm>
+                  <h1 className={styles.contactHeading}>KONTAKT</h1>
+              </ContactForm>
+          </div>
+          <div className={styles.infoContent}>
+              {
+                  queryData.prismicLayout.data.footer_content &&
+                  <div dangerouslySetInnerHTML={{__html:queryData.prismicLayout.data.footer_content.html}}>
+                  </div>
+              }
+              <div className={styles.infoButtons}>
+                  {queryData.prismicLayout.data.footer_buttons && 
+                  queryData.prismicLayout.data.footer_buttons.length > 0 &&
+                  queryData.prismicLayout.data.footer_buttons.map(button => {
+                      return <Link to={(button.button_link) && ((button.button_link.document && button.button_link.document[0].data.page_path) ? button.button_link.document[0].data.page_path : button.button_link.url)} className={styles.horizontallyCentered} >
+                      <ButtonBordered>
+                          {button.button_text}
+                      </ButtonBordered>
+                  </Link>
+                  })}
+              </div>
+          </div>
         </div>
       </div>
     </Section>
