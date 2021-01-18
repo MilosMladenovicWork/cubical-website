@@ -47,7 +47,7 @@ module.exports = {
           reference: require('./src/schemas/reference.json'),
           property: require('./src/schemas/property.json'),
         },
-        shouldDownloadImage: ({ node, key, value }) => {
+        shouldNormalizeImage: ({ node, key, value }) => {
           return true
         },
         // Get the correct URLs in blog posts

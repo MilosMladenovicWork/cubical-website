@@ -1,7 +1,8 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import FilterPropertySection from '../FilterPropertySection'
 
 const PageKaufenPropertySection = ({data}) => {
+
   return(
     <FilterPropertySection id={(data && data.primary && data.primary.section_id) ? data.primary.section_id : ''} kaufenProperties/>
   )

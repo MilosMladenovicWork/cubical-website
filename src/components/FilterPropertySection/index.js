@@ -150,8 +150,15 @@ const FilterPropertySection = ({kaufenProperties, mietenProperties}) => {
     //filtering function
     
     //filterung filter
-    
+    //filter for Prismic lost data that cannot be removed
     let filteredArray = properties.filter(({node:property}) => {
+      console.log(property)
+      if(property.uid != "familienhaus"){
+        return true
+      }
+    })
+
+    filteredArray = filteredArray.filter(({node:property}) => {
       if((filters.filterung && (filters.filterung.indexOf(property.data.category) != -1)) || (!filters.filterung || filters.filterung.length <= 0)){
         return true
       }

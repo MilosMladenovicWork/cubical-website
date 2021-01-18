@@ -9,6 +9,17 @@ const PropertyFilter = ({data, filters, setFilters}) => {
   const [filterungArray, setFilterungArray] = useState([])
   const [zimmerArray, setZimmerArray] = useState([])
   const [ortArray, setOrtArray] = useState([])
+  const [filteredData, setFilteredData] = useState([])
+
+  useEffect(() => {
+    const filteredArray = data.filter(({node:property}) => {
+      if(property.uid != "familienhaus"){
+        return true
+      }
+    })
+
+    setFilteredData(filteredArray)
+  }, [])
 
   const setArrayValues = (e) => {
     const targetName = e.target.name
@@ -53,7 +64,7 @@ const PropertyFilter = ({data, filters, setFilters}) => {
   }
 
   useEffect(() => {
-    let filterungSet = new Set(data.map(({node:property}) => {
+    let filterungSet = new Set(filteredData.map(({node:property}) => {
       if(property.data.category){
         return property.data.category
       }
@@ -61,7 +72,7 @@ const PropertyFilter = ({data, filters, setFilters}) => {
 
     setFilterungArray([...filterungSet])
     
-    let zimmerSet = new Set(data.map(({node:property}) => {
+    let zimmerSet = new Set(filteredData.map(({node:property}) => {
       if(property.data.zimmer){
         return property.data.zimmer
       }
@@ -69,7 +80,7 @@ const PropertyFilter = ({data, filters, setFilters}) => {
 
     setZimmerArray([...zimmerSet])
     
-    let ortSet = new Set(data.map(({node:property}) => {
+    let ortSet = new Set(filteredData.map(({node:property}) => {
       if(property.data.ort){
         return property.data.ort
       }
