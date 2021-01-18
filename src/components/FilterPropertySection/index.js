@@ -242,7 +242,7 @@ const FilterPropertySection = ({kaufenProperties, mietenProperties}) => {
                 if(index < numOfLoadedItems){
                     return <animated.div style={style} className={styles.property}>
                               <Link to={`/${item.data.type_of_property ? 'mieten' : 'kaufen'}/${item.uid}`}>
-                                <TextImageBox image={item.data.images[0].image.localFile.childImageSharp.fluid} alt={item.data.images[0].image.alt}>
+                                <TextImageBox image={item.data.images && item.data.images.length > 0 && item.data.images[0].image && item.data.images[0].image.localFile && item.data.images[0].image.localFile.childImageSharp.fluid} alt={item.data.images[0].image.alt}>
                                 <h3>{item.data.property_heading}</h3>
                                 <BottomBorderedContainer>
                                     <SpacedItemsContainer>
