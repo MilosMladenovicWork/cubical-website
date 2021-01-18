@@ -449,25 +449,29 @@ const Layout = ({children, location}) => {
                     data.prismicLayout.data.background_image &&
                     <BackgroundImage image={data.prismicLayout.data.background_image.localFile.childImageSharp.fluid}/>
                 }
-                <div className={styles.footerIconContainer}>
-                    <FooterIcon/>
-                </div>
-                <div className={styles.footerInfoContent}>
-                    {
-                        data.prismicLayout.data.footer_content &&
-                        <div dangerouslySetInnerHTML={{__html:data.prismicLayout.data.footer_content.html}}>
+                <div className={styles.footerContent}>
+                    <div className={styles.footerIconContainer}>
+                        <FooterIcon/>
+                    </div>
+                    <div className={styles.footerInfoContent}>
+                        {
+                            data.prismicLayout.data.footer_content &&
+                            <div dangerouslySetInnerHTML={{__html:data.prismicLayout.data.footer_content.html}}>
+                            </div>
+                        }
+                        <div className={styles.footerButtons}>
+                            {data.prismicLayout.data.footer_buttons && 
+                            data.prismicLayout.data.footer_buttons.length > 0 &&
+                            data.prismicLayout.data.footer_buttons.map(button => {
+                                return <Link to={(button.button_link) && ((button.button_link.document && button.button_link.document[0].data.page_path) ? button.button_link.document[0].data.page_path : button.button_link.url)} className={styles.horizontallyCentered} >
+                                <ButtonBordered>
+                                    {button.button_text}
+                                </ButtonBordered>
+                            </Link>
+                            })}
                         </div>
-                    }
+                    </div>
                 </div>
-                {data.prismicLayout.data.footer_buttons && 
-                data.prismicLayout.data.footer_buttons.length > 0 &&
-                data.prismicLayout.data.footer_buttons.map(button => {
-                    return <Link to={(button.button_link) && ((button.button_link.document && button.button_link.document[0].data.page_path) ? button.button_link.document[0].data.page_path : button.button_link.url)} className={styles.horizontallyCentered} >
-                    <ButtonBordered>
-                        {button.button_text}
-                    </ButtonBordered>
-                </Link>
-                })}
                 <div className={styles.footerNavigation}>
                     <AsideNavContainer rotated>
                         {
