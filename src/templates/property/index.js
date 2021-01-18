@@ -98,7 +98,7 @@ const ImmobilienEntry = ({data}) => {
                                 data.prismicProperty.data.images.map((image, index) => {
                                     return (
                                         <SwiperSlide key={index}>
-                                            <Image fluid={image.image && image.image.localFile.childImageSharp.fluid} alt={image.image && image.image.alt}/>
+                                            <Image fluid={image.image && image.image.localFile && image.image.localFile.childImageSharp.fluid} alt={image.image && image.image.alt}/>
                                         </SwiperSlide>
                                     )
                                 })
