@@ -70,6 +70,8 @@ const PropertyFilter = ({data, filters, setFilters}) => {
       }
     }))
 
+    console.log(filterungSet)
+
     setFilterungArray([...filterungSet])
     
     let zimmerSet = new Set(filteredData.map(({node:property}) => {
@@ -88,7 +90,7 @@ const PropertyFilter = ({data, filters, setFilters}) => {
 
     setOrtArray([...ortSet])
     
-  }, [])
+  }, [filteredData])
 
   return(
     <TiltableContainer>
