@@ -12,7 +12,7 @@ const SliderController = ({swiper, numberOfSlides, activeSlide}) => {
                 <img src={changeSlideArrow} alt='previous slide' />
             </button>
             {swiper &&
-                <p>{activeSlide + 1} / {numberOfSlides}</p>
+                <p>{activeSlide >= 0 ? (activeSlide + 1) : 1} / {numberOfSlides}</p>
             }
             <button className={styles.nextSlideButton} onClick={() => swiper.slideNext()}> 
                 <img src={changeSlideArrow} alt='next slide' />
