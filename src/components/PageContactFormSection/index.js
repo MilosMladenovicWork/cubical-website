@@ -230,7 +230,7 @@ const PageContactFormSection = ({data}) => {
                   <div dangerouslySetInnerHTML={{__html:queryData.prismicLayout.data.footer_content.html}}>
                   </div>
               }
-              <div className={styles.infoButtons}>
+              {/* <div className={styles.infoButtons}>
                   {queryData.prismicLayout.data.footer_buttons && 
                   queryData.prismicLayout.data.footer_buttons.length > 0 &&
                   queryData.prismicLayout.data.footer_buttons.map(button => {
@@ -240,7 +240,7 @@ const PageContactFormSection = ({data}) => {
                       </ButtonBordered>
                   </Link>
                   })}
-              </div>
+              </div> */}
           </div>
         </div>
       </div>
