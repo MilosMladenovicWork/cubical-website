@@ -95,9 +95,9 @@ const Logo = ({afterLogoAnimations = []}) => {
                     <img className={styles.logoImage} src={data.prismicLayout.data.logo_primary_image.localFile.url} alt='cubical.ag - the keys to your home'/>
                     {
                       data.prismicLayout.data.logo_text &&
-                      <p className={styles.logoText}>
+                      <h1 className={styles.logoText}>
                         {formatedText(data.prismicLayout.data.logo_text)}
-                      </p>
+                      </h1>
                     }
                   </animated.div>
                 }
