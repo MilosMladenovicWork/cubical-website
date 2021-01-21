@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from 'react'
 import { animated, useSpring } from 'react-spring'
 import {useSelector} from 'react-redux'
 
-const AppearContainer = ({children, getSpring}) => {
+const AppearContainer = ({children, getSpring, className, ...rest}) => {
 
   const container = useRef()
 
@@ -30,7 +30,7 @@ const AppearContainer = ({children, getSpring}) => {
   }, [])
 
   return (
-    <animated.div style={props}>
+    <animated.div className={className} {...rest} style={props}>
       {children}
     </animated.div>
   )
