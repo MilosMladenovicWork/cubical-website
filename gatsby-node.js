@@ -69,7 +69,8 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 
     type PrismicPageBodyRegularCardsItemsCard_link implements Node {
-      document: [DocumentLink]
+      document: [DocumentLink],
+      url: String
     }
 
     type PrismicPageBodyRegularCards implements Node{
@@ -159,6 +160,10 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type PrismicPageBodyRegularCardsFields{
       primary: PrimaryForSectionIdOnlySlices
+    }
+
+    type PrismicPageBodyRegularCardsItems{
+      card_link:PrismicPageBodyRegularCardsItemsCard_link
     }
 
     type PrismicPageBodyContactFormSection implements Node{
