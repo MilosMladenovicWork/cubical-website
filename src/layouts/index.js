@@ -371,7 +371,8 @@ const Layout = ({children, location}) => {
                     <Logo afterLogoAnimations={[logoPropsRef, linkListPropsRef, navMenuContainerAnimationRef]}/>
                 </animated.div>
                 <div style={{
-                    visibility:'hidden'
+                    visibility:'hidden',
+                    opacity:0
                 }} className={styles.logoContainer}>
                     <Logo/>
                 </div>

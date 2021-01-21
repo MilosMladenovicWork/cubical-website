@@ -11,10 +11,10 @@ const AppearContainer = ({children, getSpring, className, ...rest}) => {
 
   const props = useSpring({
       from:{
-          opacity: 0,
+          visibility: 'hidden',
       },
       to:{
-          opacity: (pageLoaded && pageLoadedMinimal) ? 0 : 1,
+          visibility: (pageLoaded && pageLoadedMinimal) ? 'hidden' : 'visible',
       },
       delay:0,
       config:{
