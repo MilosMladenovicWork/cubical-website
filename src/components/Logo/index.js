@@ -3,6 +3,7 @@ import {Link, useStaticQuery, graphql} from 'gatsby'
 import {useSpring, animated, useChain} from 'react-spring'
 import {useSelector} from 'react-redux'
 
+
 import styles from './logo.module.scss'
 import logo from '../../img/logo.png'
 import logoMoto from '../../img/logo-moto.png'
