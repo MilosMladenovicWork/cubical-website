@@ -80,7 +80,13 @@ const Logo = ({afterLogoAnimations = []}) => {
     const formatedText = (text) => {
       const letters = text.split('')
       console.log(letters)
-      let elements = letters.map(letter => <AppearContainer getSpring={getSpring} className={letter == ' ' && styles.emptyMotoLetter}>{letter}</AppearContainer>)
+      // let elements = letters.map(letter => <AppearContainer getSpring={getSpring} className={letter == ' ' && styles.emptyMotoLetter}>{letter}</AppearContainer>)
+      let elements = letters.map(letter => {
+        return <AppearContainer tspan getSpring={getSpring}>
+            <tspan fill="url(#gradient)">{letter}</tspan>
+          </AppearContainer>
+      }
+        )
       return elements
     }
     
@@ -96,7 +102,26 @@ const Logo = ({afterLogoAnimations = []}) => {
                     {
                       data.prismicLayout.data.logo_text &&
                       <h1 className={styles.logoText}>
-                        {formatedText(data.prismicLayout.data.logo_text)}
+                        <svg
+                          style={{
+                            width: 'auto',
+                            overflow:'visible',
+                            height:'1rem'
+                          }}>
+                          <defs>
+                            <linearGradient id="gradient" x1="0" x2="100%" y1="0" y2="0%">
+                              <stop stopColor="#26baff" offset="0%" />
+                              <stop stopColor="#004d80" offset="100%" />
+                            </linearGradient>
+                          </defs>
+                          <text
+                            x="50%" y="50%"
+                            fontSize='1rem'
+                            dominantBaseline="middle"
+                            textAnchor="middle">
+                              {formatedText(data.prismicLayout.data.logo_text)}
+                          </text>
+                        </svg>
                       </h1>
                     }
                   </animated.div>

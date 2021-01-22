@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from 'react'
 import { animated, useSpring } from 'react-spring'
 import {useSelector} from 'react-redux'
 
-const AppearContainer = ({children, getSpring, className, ...rest}) => {
+const AppearContainer = ({children, getSpring, className, tspan, ...rest}) => {
 
   const container = useRef()
 
@@ -29,11 +29,19 @@ const AppearContainer = ({children, getSpring, className, ...rest}) => {
     }
   }, [])
 
-  return (
-    <animated.div className={className} {...rest} style={props}>
-      {children}
-    </animated.div>
-  )
+  if(!tspan){
+    return (
+      <animated.div className={className} {...rest} style={props}>
+        {children}
+      </animated.div>
+    )
+  }else{
+    return (
+      <animated.tspan className={className} {...rest} style={props}>
+        {children}
+      </animated.tspan>
+    )
+  }
 }
 
 export default AppearContainer
