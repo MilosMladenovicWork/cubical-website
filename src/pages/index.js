@@ -4,18 +4,20 @@ import {useStaticQuery, graphql} from 'gatsby'
 import PageIntro from '../components/PageIntro'
 import Map from '../components/Map'
 import PageHeroSlider from '../components/PageHeroSlider'
-import PageRegularCardsSection from '../components/PageRegularCardsSection'
-import PageIrregularCardsSection from '../components/PageIrregularCardsSection'
+const LazyPageRegularCardsSection = React.lazy(() => import('../components/PageRegularCardsSection'))
+const LazyPageIrregularCardsSection = React.lazy(() => import('../components/PageIrregularCardsSection')) 
 import PageMapSection from '../components/PageMapSection'
-import PageKaufenPropertySection from '../components/PageKaufenPropertySection'
-import PageMietenProperty from '../components/PageMietenProperty'
-import PageOrderSection from '../components/PageOrderSection'
-import PageReferenceSection from '../components/PageReferenceSection'
-import PageOffsetCardsSection from '../components/PageOffsetCardsSection'
+const LazyPageKaufenPropertySection = React.lazy(() => import('../components/PageKaufenPropertySection')) 
+const LazyPageMietenProperty = React.lazy(() => import('../components/PageMietenProperty')) 
+const LazyPageOrderSection = React.lazy(() => import('../components/PageOrderSection')) 
+const LazyPageReferenceSection = React.lazy(() => import('../components/PageReferenceSection')) 
+const LazyPageOffsetCardsSection = React.lazy(() => import('../components/PageOffsetCardsSection')) 
 import PageRichTextSection from '../components/PageRichTextSection'
-import PageContactFormSection from '../components/PageContactFormSection'
+const LazyPageContactFormSection = React.lazy(() => import('../components/PageContactFormSection')) 
 
 const HomePage = () => {
+
+    const isSSR = typeof window === "undefined"
 
     const data = useStaticQuery(graphql`
     query HomePageQuery {
@@ -235,7 +237,7 @@ const HomePage = () => {
 
     return(
         <React.Fragment>
-            {   
+            {   !isSSR &&
                 data.prismicPage.data.body &&
                 data.prismicPage.data.body.length > 0 &&
                 data.prismicPage.data.body.map(slice => {
@@ -245,23 +247,39 @@ const HomePage = () => {
                         case 'intro_text':
                             return <PageIntro data={slice} />
                         case 'regular_cards':
-                            return  <PageRegularCardsSection data={slice}/>
+                            return  <React.Suspense fallback='Loading'>
+                                <LazyPageRegularCardsSection data={slice}/>
+                              </React.Suspense>
                         case 'irregular_cards':
-                            return <PageIrregularCardsSection data={slice}/>
+                          return  <React.Suspense fallback='Loading'>
+                              <LazyPageIrregularCardsSection data={slice}/>
+                            </React.Suspense> 
                         case 'kaufen_property_section':
-                            return <PageKaufenPropertySection data={slice}/>
+                          return  <React.Suspense fallback='Loading'>
+                                <LazyPageKaufenPropertySection data={slice}/>
+                            </React.Suspense> 
                         case 'mieten_property':
-                            return <PageMietenProperty data={slice}/>
+                          return  <React.Suspense fallback='Loading'>
+                            <LazyPageMietenProperty data={slice}/>
+                            </React.Suspense> 
                         case 'simple_order_section':
-                            return <PageOrderSection data={slice}/>
+                          return  <React.Suspense fallback='Loading'>
+                            <LazyPageOrderSection data={slice}/>
+                            </React.Suspense> 
                         case 'reference_section':
-                            return <PageReferenceSection data={slice}/>
+                          return  <React.Suspense fallback='Loading'>
+                              <LazyPageReferenceSection data={slice}/>
+                            </React.Suspense> 
                         case 'offset_cards':
-                            return <PageOffsetCardsSection data={slice}/>
+                          return  <React.Suspense fallback='Loading'>
+                              <LazyPageOffsetCardsSection data={slice}/>
+                            </React.Suspense> 
                         case 'rich_text_section':
-                            return <PageRichTextSection data={slice}/>
-                        case 'contact_form_section':
-                            return <PageContactFormSection data={slice}/>
+                          return <PageRichTextSection data={slice}/>
+                          case 'contact_form_section':
+                            return  <React.Suspense fallback='Loading'>
+                              <LazyPageContactFormSection data={slice}/>
+                            </React.Suspense> 
                         default:
                             return
                     }

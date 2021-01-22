@@ -19,9 +19,14 @@ import ButtonBordered from '../components/ButtonBordered'
 import RoofSVG from '../components/RoofSVG'
 import MobileMenuLink from '../components/MobileMenuLink'
 import SEO from '../components/SEO'
-import FooterIcon from '../components/FooterIcon'
+const LazyFooterIcon = React.lazy(() => 
+    import('../components/FooterIcon')
+) 
+
 
 const Layout = ({children, location}) => {
+
+    const isSSR = typeof window === "undefined"
 
     const data = useStaticQuery(graphql`
     query LayoutQuery {
@@ -452,7 +457,11 @@ const Layout = ({children, location}) => {
                 }
                 <div className={styles.footerContent}>
                     <div className={styles.footerIconContainer}>
-                        <FooterIcon/>
+                        {!isSSR && (
+                            <React.Suspense fallback={'Loading'}>
+                                <LazyFooterIcon/>
+                            </React.Suspense>
+                        )}
                     </div>
                     <div className={styles.footerInfoContent}>
                         {
