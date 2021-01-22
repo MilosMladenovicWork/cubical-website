@@ -19,6 +19,8 @@ const LazyPageContactFormSection = React.lazy(() => import('../../components/Pag
 import SEO from '../../components/SEO'
 
 const Page = ({data}) => {
+    
+    const isSSR = typeof window === "undefined"
 
     return(
         <React.Fragment>
@@ -70,7 +72,7 @@ const Page = ({data}) => {
                     <meta property="og:url" content={data.prismicPage.data.website_url.url} />
                 }
             </SEO>
-            {   
+            {   !isSSR &&
                 data.prismicPage.data.body &&
                 data.prismicPage.data.body.length > 0 &&
                 data.prismicPage.data.body.map(slice => {
