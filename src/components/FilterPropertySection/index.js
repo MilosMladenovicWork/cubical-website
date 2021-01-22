@@ -53,7 +53,7 @@ const FilterPropertySection = ({kaufenProperties, mietenProperties}) => {
   
   const data = useStaticQuery(graphql`
     query FilterPropertyQuery{
-      allPrismicProperty{
+      allPrismicProperty(sort: {order: DESC, fields: last_publication_date}){
         edges{
           node{
             data {
