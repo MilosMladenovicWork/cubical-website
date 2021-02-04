@@ -164,6 +164,11 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type PrismicPageBodyRegularCardsItems{
       card_link:PrismicPageBodyRegularCardsItemsCard_link
+      heading: String
+    }
+    
+    type PrismicPageBodyOffsetCardsItems{
+      card_link: PrismicPageBodyRegularCardsItemsCard_link
     }
 
     type PrismicPageBodyContactFormSection implements Node{
