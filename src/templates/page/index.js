@@ -171,7 +171,7 @@ export const PageQuery = graphql`
           }
           ... on PrismicPageBodyIrregularCards {
             id
-            items {
+            items1:items {
               card_heading
               card_body {
                 html

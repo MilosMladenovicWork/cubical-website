@@ -15,11 +15,11 @@ const PageIrregularCardsSection = ({data}) => {
                 <h2>{data.primary.section_heading}</h2>
             }
             {
-                data.items &&
-                data.items.length > 0 &&
+                data.items1 &&
+                data.items1.length > 0 &&
                 <ul className={styles.ourServicesContainer}>
                 {
-                    data.items.map(card => {
+                    data.items1.map(card => {
                         return <RandomWidthItem data={card} link='/dienstleistungen/verkaufen/' />
 
                     })

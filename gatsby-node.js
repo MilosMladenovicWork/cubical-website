@@ -4,21 +4,62 @@ const _ = require('lodash')
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
   const typeDefs = `
-    type PrismicLayout implements Node {
-      prismicLayout: PrismicLayout
+  type PrismicLayout implements Node {
+    prismicLayout: PrismicLayout
+  }
+  
+  type PrismicPage implements Node {
+    prismicPage: PrismicPage
+  }
+
+  type SliceItems @infer{
+    card_link: PrismicPageBodyRegularCardsItemsCard_link
+    card_text: String
+    card_small_heading: String
+    card_link: Url
+    card_cover: LocalImageWithAlt
+    select_heading_content_body: HTML
+    select_heading_content_heading: String
+    heading: String
+    card_heading: String
+    card_body: HTML
+    hero_images: [LocalImageWithAlt]
+    card_image: LocalImageWithAlt
+    heading: String
+    small_heading: String
+  }
+
+  type SliceItemsArray @infer{
+    card_link: PrismicPageBodyRegularCardsItemsCard_link
+    card_text: String
+    card_small_heading: String
+    card_link: Url
+    card_cover: LocalImageWithAlt
+    select_heading_content_body: HTML
+    select_heading_content_heading: String
+    heading: String
+    card_heading: String
+    card_body: HTML
+    hero_images: [LocalImageWithAlt]
+    card_image: LocalImageWithAlt
+    heading: String
+    small_heading: String
+  }
+  
+  type Url{
+    url: String
+      document: [DocumentLink]
     }
 
-    type PrismicPage implements Node {
-      prismicPage: PrismicPage
-    }
-
-    type Url{
+    type LinkSublink{
       url: String
+      document: DocumentLink
     }
 
     type Link{
       link: Url
       button_text: String
+      sublink: LinkSublink
     }
 
     type ButtonLink{
@@ -58,6 +99,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       seo_title: String
       theme_color: String
       website_url: Url
+      page_path: String
     }
 
     type PagePath{
@@ -75,6 +117,8 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type PrismicPageBodyRegularCards implements Node{
       primary: PrismicPageBodyRegularCardsFields
+      slice_type: String
+      items: SliceItems
     }
 
     type PrismicPageBodyRegularCardsFields {
@@ -86,12 +130,52 @@ exports.createSchemaCustomization = ({ actions }) => {
       document: [DocumentLink]
     }
 
+    type PrismicPageBodySimpleOrderSection implements Node{
+      slice_type: String
+      primary: PrismicPageBodySimpleOrderSectionPrimary
+      items: SliceItems
+    }
+
+
+    type PrismicPageBodySimpleOrderSectionPrimary{
+      section_id: String
+      body1: HTML
+      button_link: Url
+      button_text: String
+      heading: String
+      order_number: String
+      image: LocalImageWithAlt
+    }
+
     type PrismicPageBodySimpleOrderSectionPrimaryButton_link implements Node {
       document: [DocumentLink]
     }
 
     type PrismicPageBodyIrregularCardsItemsCard_link implements Node {
       document: [DocumentLink]
+    }
+
+    type HeroSliderPrimary{
+      section_id: String
+      heading: String
+      ribbon_text: String
+      ribbon_link: Url
+    }
+
+    type PrismicPageBodyHeroSlider implements Node{
+      slice_type: String
+      items: SliceItems
+      primary: HeroSliderPrimary
+    }
+
+    type PrismicReferenceData{
+      body: HTML
+      cover_image: LocalImageWithAlt
+      heading: String
+    }
+
+    type PrismicReference implements Node{
+      data:PrismicReferenceData
     }
     
     type PrismicPageBodyHeroSliderPrimaryRibbon_link implements Node{
@@ -106,12 +190,26 @@ exports.createSchemaCustomization = ({ actions }) => {
       section_id: String
     }
 
+    type PrismicPageBodyIntroText implements Node{
+      primary: PrismicPageBodyIntroTextPrimary 
+    }
+
     type PrismicPageBodyIntroTextPrimary implements Node{
       section_id: String
+      body1: HTML
+      heading: HTML
+      slice_type: String
+    }
+
+    type PrismicPageBodyIrregularCards implements Node{
+      items: [SliceItemsArray]
+      primary: PrismicPageBodyIrregularCardsPrimary
     }
 
     type PrismicPageBodyIrregularCardsPrimary implements Node{
       section_id: String
+      background_image: LocalImageWithAlt
+      section_heading: String
     }
 
     type PrismicPageBodyRegularCardsFieldsPrimary implements Node{
@@ -120,22 +218,38 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type PrismicPageBodyKaufenPropertySection implements Node{
       section_id: String
+      primary: PrimaryForSectionIdOnlySlices
+      slice_type: String
     }
 
     type PrismicPageBodyMietenProperty implements Node{
       section_id: String
+      slice_type: String
+    }
+
+    type PrismicPageBodyOffsetCards implements Node {
+      primary: PrismicPageBodyOffsetCardsPrimary
+      items: SliceItems
     }
 
     type PrismicPageBodyOffsetCardsPrimary implements Node{
       section_id: String
+      section_heading: String
     }
 
     type PrismicPageBodyReferenceSection implements Node{
       section_id: String
+      slice_type: String
+    }
+
+    type PrismicPageBodyRichTextSection implements Node{
+      slice_type: String
+      primary: PrismicPageBodyRichTextSectionPrimary
     }
 
     type PrismicPageBodyRichTextSectionPrimary implements Node{
       section_id: String
+      body1: HTML
     }
 
     type PrismicPageBodySimpleOrderSectionPrimary implements Node{
@@ -154,29 +268,58 @@ exports.createSchemaCustomization = ({ actions }) => {
       primary: PrimaryForSectionIdOnlySlices
     }
 
-    type PrismicPageBodyKaufenPropertySection{
-      primary: PrimaryForSectionIdOnlySlices
-    }
-
     type PrismicPageBodyRegularCardsFields{
       primary: PrimaryForSectionIdOnlySlices
     }
 
-    type PrismicPageBodyRegularCardsItems{
-      card_link:PrismicPageBodyRegularCardsItemsCard_link
-      heading: String
-    }
-    
-    type PrismicPageBodyOffsetCardsItems{
-      card_link: PrismicPageBodyRegularCardsItemsCard_link
-    }
-
     type PrismicPageBodyContactFormSection implements Node{
       primary: PrimaryForSectionIdOnlySlices
+      slice_type: String
     }
 
     type PrimaryForSectionIdOnlySlices{
       section_id: String
+    }
+
+    type OtherInformation{
+      information_name: String
+      information_value: String
+    }
+
+    type PropertyGeocode{
+      longitude: String
+      latitude: String
+    }
+
+    type ImportantInformation{
+      information_name: String
+      information_value: String
+    }
+
+    type LocalImageWithAlt @infer{
+      alt:String
+      localFile: File
+    }
+
+    type Image{
+      image: LocalImageWithAlt
+    }
+
+    type PrismicPropertyData{
+      zimmer: String
+      wohnflache: String
+      property_heading: String
+      property_geocode: PropertyGeocode
+      property_document_card_text: String
+      property_document: Url
+      preis: String
+      other_information: OtherInformation
+      ort: String
+      important_information: ImportantInformation
+      images: [Image]
+      description: HTML
+      category: String
+      besichtigung_information: HTML
     }
   `
   createTypes(typeDefs)
