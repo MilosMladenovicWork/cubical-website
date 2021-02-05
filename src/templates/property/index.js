@@ -117,6 +117,7 @@ const ImmobilienEntry = ({data}) => {
                             <div className={styles.content}>
                                 {
                                     data.prismicProperty.data.description &&
+                                    data.prismicProperty.data.description.html &&
                                     <React.Fragment>
                                         <h5> BESCHREIBUNG</h5>
                                         <div dangerouslySetInnerHTML={{__html:data.prismicProperty.data.description.html}}>
@@ -132,6 +133,7 @@ const ImmobilienEntry = ({data}) => {
                         <AppearOnViewContainer>
                             {
                                 data.prismicProperty.data.besichtigung_information &&
+                                data.prismicProperty.data.besichtigung_information.html &&
                                 <div>
                                     <h5> BESICHTIGUNG</h5>
                                     <div dangerouslySetInnerHTML={{__html:data.prismicProperty.data.besichtigung_information.html}}>

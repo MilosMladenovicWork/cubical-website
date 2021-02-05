@@ -48,18 +48,17 @@ exports.createSchemaCustomization = ({ actions }) => {
   
   type Url{
     url: String
-    document: [DocumentLink]
     absolutePath: String
     }
 
     type LinkSublink implements Node @infer{
       url: String
-      document: [DocumentLink]
+      document: [DocumentLink] @infer
     }
 
-    type TextImageInfoWithAlt{
+    type TextImageInfoWithAlt @fileByRelativePath{
       alt: String
-      localFile: Url
+      localFile: File
     }
 
     type Link implements Node @infer{
@@ -89,7 +88,6 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type NavSublinks @infer{
       parent_link: String
-      sublink: [LinkSublink] @infer
       sublink_text: String
     }
 
@@ -105,7 +103,6 @@ exports.createSchemaCustomization = ({ actions }) => {
       link_hover_icons: [Link] @infer
       links: [Link] @infer
       right_side_link_hover_icons: [Link] @infer
-      sublinks: [Link] @infer
       logo_text: String
       theme_color: String
       seo_title: String
@@ -134,7 +131,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       page_path: String
     }
 
-    type DocumentLink {
+    type DocumentLink @infer{
       data: PagePath @infer
     }
 

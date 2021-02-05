@@ -168,6 +168,8 @@ const Layout = ({children, location}) => {
       }
     `)
 
+    console.log(data)
+
     const dispatch = useDispatch()
 
     const logoPropsRef = useRef()
@@ -498,7 +500,8 @@ const Layout = ({children, location}) => {
                                         data.prismicLayout.data.link_hover_icons.filter(link => link.parent_link == index + 1).map(sublink => {
                                             return <a href={(sublink.link) && ((sublink.link.document && sublink.link.document[0].data.page_path) ? sublink.link.document[0].data.page_path : sublink.link.url)}>
                                                     {
-                                                        sublink.image && 
+                                                        sublink.image &&
+                                                        sublink.image.localFile && 
                                                         <img src={sublink.image.localFile.url} alt={sublink.image.alt}/>
                                                     }
                                                 </a>
