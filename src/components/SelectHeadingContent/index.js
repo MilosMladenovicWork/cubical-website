@@ -5,6 +5,8 @@ import styles from './select-heading-content.module.scss'
 
 const SelectHeadingContent = ({column, data}) => {
 
+    console.log(data)
+
     const [activeHeading, setActiveHeading] = useState(0)
 
     if(data.some(item => item.select_heading_content_heading != null)){

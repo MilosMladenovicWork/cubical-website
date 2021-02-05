@@ -26,7 +26,7 @@ const HomePage = () => {
               body {
                 ... on PrismicPageBodyHeroSlider {
                   id
-                  items {
+                  hero_images: items {
                     hero_images {
                       localFile {
                         childImageSharp {
@@ -214,7 +214,7 @@ const HomePage = () => {
                       }
                     }
                   }
-                  items {
+                  items1: items {
                     select_heading_content_body {
                       html
                     }

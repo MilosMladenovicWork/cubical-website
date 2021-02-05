@@ -237,6 +237,8 @@ const Layout = ({children, location}) => {
 
     const [mobileMenuActive, setMobileMenuActive] = useState(false)
 
+    console.log(data.prismicLayout.data)
+
     return(
         <div className={styles.layout}>
             <SEO>

@@ -131,7 +131,7 @@ export const PageQuery = graphql`
         body {
           ... on PrismicPageBodyHeroSlider {
             id
-            items {
+            hero_images: items {
               hero_images {
                 localFile {
                   childImageSharp {
@@ -319,7 +319,7 @@ export const PageQuery = graphql`
                 }
               }
             }
-            items {
+            items1: items {
               select_heading_content_body {
                 html
               }

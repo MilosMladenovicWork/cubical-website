@@ -19,9 +19,9 @@ const PageHeroSlider = ({data}) => {
             data &&
             <>
                 <Slider id={(data.fields && data.fields.section_id) ? data.fields.section_id : ''}>
-                    {data.items &&
-                    data.items.length > 0 &&
-                        data.items.map(image => {
+                    {data.hero_images &&
+                    data.hero_images.length > 0 &&
+                        data.hero_images.map(image => {
                             return <SwiperSlide>
                                 <div style={{height: '100vh'}}>
                                     { 

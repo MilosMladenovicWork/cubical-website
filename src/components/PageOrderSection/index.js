@@ -29,8 +29,8 @@ const PageOrderSection = ({data}) => {
             <div dangerouslySetInnerHTML={{__html:data.primary.body1.html}}></div>
           }
           {
-            data.items &&
-            <SelectHeadingContent column data={data.items}/>
+            data.items1 &&
+            <SelectHeadingContent column data={data.items1}/>
           }
           {
             data.primary.button_link &&

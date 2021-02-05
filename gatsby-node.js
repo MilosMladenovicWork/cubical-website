@@ -13,7 +13,7 @@ exports.createSchemaCustomization = ({ actions }) => {
   }
 
   type SliceItems @infer{
-    card_link: PrismicPageBodyRegularCardsItemsCard_link
+    card_link: PrismicPageBodyRegularCardsItemsCard_link @infer
     card_text: String
     card_small_heading: String
     card_link: Url
@@ -23,7 +23,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     heading: String
     card_heading: String
     card_body: HTML
-    hero_images: [LocalImageWithAlt]
+    hero_images: [LocalImageWithAlt] @infer
     card_image: LocalImageWithAlt
     heading: String
     small_heading: String
@@ -35,12 +35,12 @@ exports.createSchemaCustomization = ({ actions }) => {
     card_small_heading: String
     card_link: Url
     card_cover: LocalImageWithAlt
-    select_heading_content_body: HTML
-    select_heading_content_heading: String
+    select_heading_content_body: HTML @infer
+    select_heading_content_heading: String @infer
     heading: String
     card_heading: String
     card_body: HTML
-    hero_images: [LocalImageWithAlt]
+    hero_images: LocalImageWithAlt @infer
     card_image: LocalImageWithAlt
     heading: String
     small_heading: String
@@ -48,18 +48,16 @@ exports.createSchemaCustomization = ({ actions }) => {
   
   type Url{
     url: String
+    }
+
+    type LinkSublink implements Node @infer{
+      url: String
       document: [DocumentLink]
     }
 
-    type LinkSublink{
-      url: String
-      document: DocumentLink
-    }
-
-    type Link{
+    type Link implements Node @infer{
       link: Url
       button_text: String
-      sublink: LinkSublink
     }
 
     type ButtonLink{
@@ -76,15 +74,21 @@ exports.createSchemaCustomization = ({ actions }) => {
       link_content: HTML
     }
 
+    type NavSublinks @infer{
+      parent_link: String
+      sublink: [LinkSublink] @infer
+      sublink_text: String
+    }
+
     type Fields{
-      right_side_links: [Link]
-      footer_links: [Link]
-      footer_buttons: [ButtonLink]
-      left_side_links: [LeftSideLinks]
-      link_hover_icons: [Link]
-      links: [Link]
-      right_side_link_hover_icons: [Link]
-      sublinks: [Link]
+      right_side_links: [Link] @infer
+      footer_links: [Link] @infer
+      footer_buttons: [ButtonLink] @infer
+      left_side_links: [LeftSideLinks] @infer
+      link_hover_icons: [Link] @infer
+      links: [Link] @infer
+      right_side_link_hover_icons: [Link] @infer
+      sublinks: [Link] @infer
       logo_text: String
     }
 
@@ -107,11 +111,11 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 
     type DocumentLink {
-      data: PagePath
+      data: PagePath @infer
     }
 
     type PrismicPageBodyRegularCardsItemsCard_link implements Node {
-      document: [DocumentLink],
+      document: [DocumentLink] @infer 
       url: String
     }
 
@@ -127,20 +131,20 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 
     type PrismicPageBodyOffsetCardsItemsCard_link implements Node {
-      document: [DocumentLink]
+      document: [DocumentLink] @infer
     }
 
     type PrismicPageBodySimpleOrderSection implements Node{
       slice_type: String
       primary: PrismicPageBodySimpleOrderSectionPrimary
-      items: SliceItems
+      items: [SliceItemsArray]
     }
 
 
     type PrismicPageBodySimpleOrderSectionPrimary{
       section_id: String
       body1: HTML
-      button_link: Url
+      button_link: Url @infer
       button_text: String
       heading: String
       order_number: String
@@ -148,11 +152,11 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 
     type PrismicPageBodySimpleOrderSectionPrimaryButton_link implements Node {
-      document: [DocumentLink]
+      document: [DocumentLink] @infer
     }
 
     type PrismicPageBodyIrregularCardsItemsCard_link implements Node {
-      document: [DocumentLink]
+      document: [DocumentLink] @infer
     }
 
     type HeroSliderPrimary{
@@ -164,7 +168,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type PrismicPageBodyHeroSlider implements Node{
       slice_type: String
-      items: SliceItems
+      items: [SliceItemsArray]
       primary: HeroSliderPrimary
     }
 
@@ -179,7 +183,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
     
     type PrismicPageBodyHeroSliderPrimaryRibbon_link implements Node{
-      document: [DocumentLink]
+      document: [DocumentLink] @infer
     }
 
     type PrismicPage{
@@ -296,9 +300,9 @@ exports.createSchemaCustomization = ({ actions }) => {
       information_value: String
     }
 
-    type LocalImageWithAlt @infer{
+    type LocalImageWithAlt @fileByRelativePath{
       alt:String
-      localFile: File
+      localFile: File 
     }
 
     type Image{
