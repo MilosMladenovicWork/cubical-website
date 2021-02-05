@@ -120,8 +120,6 @@ const FilterPropertySection = ({kaufenProperties, mietenProperties}) => {
     leave: { maxHeight: '0vh', overflow:'hidden', opacity:0 },
     })
 
-  console.log(sorting)
-
   const setScrollPosition = () => {
       setScrollFromTop(window.pageYOffset)
   }
@@ -152,7 +150,6 @@ const FilterPropertySection = ({kaufenProperties, mietenProperties}) => {
     //filterung filter
     //filter for Prismic lost data that cannot be removed
     let filteredArray = properties.filter(({node:property}) => {
-      console.log(property)
       if(property.uid != "familienhaus"){
         return true
       }
@@ -226,8 +223,6 @@ const FilterPropertySection = ({kaufenProperties, mietenProperties}) => {
         return propertyB.data.wohnflache - propertyA.data.wohnflache
       })
     }
-
-    console.log(filteredArray)
 
     setFilteredData(filteredArray || data.allPrismicProperty.edges)
   }, [filters, sorting, properties])

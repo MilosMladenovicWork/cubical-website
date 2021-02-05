@@ -79,7 +79,6 @@ const Logo = ({afterLogoAnimations = []}) => {
     
     const formatedText = (text) => {
       const letters = text.split('')
-      console.log(letters)
       // let elements = letters.map(letter => <AppearContainer getSpring={getSpring} className={letter == ' ' && styles.emptyMotoLetter}>{letter}</AppearContainer>)
       let elements = letters.map(letter => {
         return <AppearContainer tspan getSpring={getSpring}>
@@ -98,7 +97,10 @@ const Logo = ({afterLogoAnimations = []}) => {
                 {
                   data.prismicLayout.data.logo_primary_image &&
                   <animated.div style={logoProps}>
-                    <img className={styles.logoImage} src={data.prismicLayout.data.logo_primary_image.localFile.url} alt='cubical.ag - the keys to your home'/>
+                    {
+                      data.prismicLayout.data.logo_primary_image.localFile && 
+                      <img className={styles.logoImage} src={data.prismicLayout.data.logo_primary_image.localFile.url} alt='cubical.ag - the keys to your home'/>
+                    }
                     {
                       data.prismicLayout.data.logo_text &&
                       <h1 className={styles.logoText}>

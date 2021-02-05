@@ -9,8 +9,6 @@ SwiperCore.use([Autoplay])
 
 const Slider  = ({children, setSwiper, setActiveSlide}) => {
     
-    console.log(children)
-    
     return(
         <div className={styles.slider}>
             <Swiper

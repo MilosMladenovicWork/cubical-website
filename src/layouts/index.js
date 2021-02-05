@@ -237,8 +237,6 @@ const Layout = ({children, location}) => {
 
     const [mobileMenuActive, setMobileMenuActive] = useState(false)
 
-    console.log(data.prismicLayout.data)
-
     return(
         <div className={styles.layout}>
             <SEO>
@@ -403,7 +401,8 @@ const Layout = ({children, location}) => {
                                                                 }} className={styles.linkContent} dangerouslySetInnerHTML={{__html:link.link_content && link.link_content.html}}>
                                                                 </div>
                                                             {
-                                                                link.image && 
+                                                                link.image &&
+                                                                link.image.localFile &&  
                                                                 <img src={link.image.localFile.url} alt={link.image.alt}/>
                                                             }
                                                         </li>
@@ -436,7 +435,8 @@ const Layout = ({children, location}) => {
                                                 data.prismicLayout.data.right_side_link_hover_icons.filter(link => link.parent_link == index + 1).map(sublink => {
                                                     return <a href={(sublink.link) && ((sublink.link.document && sublink.link.document[0].data.page_path) ? sublink.link.document[0].data.page_path : sublink.link.url)}>
                                                             {
-                                                                sublink.image && 
+                                                                sublink.image &&
+                                                                sublink.image.localFile && 
                                                                 <img src={sublink.image.localFile.url} alt={sublink.image.alt}/>
                                                             }
                                                         </a>
@@ -455,7 +455,7 @@ const Layout = ({children, location}) => {
             <FooterContainer>
                 {
                     data.prismicLayout.data.background_image &&
-                    <BackgroundImage image={data.prismicLayout.data.background_image.localFile.childImageSharp.fluid}/>
+                    <BackgroundImage image={data.prismicLayout.data.background_image && data.prismicLayout.data.background_image.localFile && data.prismicLayout.data.background_image.localFile.childImageSharp.fluid}/>
                 }
                 <div className={styles.footerContent}>
                     <div className={styles.footerIconContainer}>

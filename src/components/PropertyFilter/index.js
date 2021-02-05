@@ -70,7 +70,6 @@ const PropertyFilter = ({data, filters, setFilters}) => {
       }
     }))
 
-    console.log(filterungSet)
 
     setFilterungArray([...filterungSet])
     

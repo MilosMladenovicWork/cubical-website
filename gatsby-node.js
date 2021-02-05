@@ -48,6 +48,8 @@ exports.createSchemaCustomization = ({ actions }) => {
   
   type Url{
     url: String
+    document: [DocumentLink]
+    absolutePath: String
     }
 
     type LinkSublink implements Node @infer{
@@ -55,9 +57,19 @@ exports.createSchemaCustomization = ({ actions }) => {
       document: [DocumentLink]
     }
 
+    type TextImageInfoWithAlt{
+      alt: String
+      localFile: Url
+    }
+
     type Link implements Node @infer{
       link: Url
       button_text: String
+      sublink: LinkSublink @infer
+      sublink_text: String
+      parent_link: String
+      link_text: String
+      image: TextImageInfoWithAlt @infer
     }
 
     type ButtonLink{
@@ -72,12 +84,17 @@ exports.createSchemaCustomization = ({ actions }) => {
     type LeftSideLinks{
       content_background_color:String
       link_content: HTML
+      image: TextImageInfoWithAlt @infer
     }
 
     type NavSublinks @infer{
       parent_link: String
       sublink: [LinkSublink] @infer
       sublink_text: String
+    }
+
+    type PrismicLayoutDataWebsite_url{
+      url: String
     }
 
     type Fields{
@@ -90,6 +107,13 @@ exports.createSchemaCustomization = ({ actions }) => {
       right_side_link_hover_icons: [Link] @infer
       sublinks: [Link] @infer
       logo_text: String
+      theme_color: String
+      seo_title: String
+      seo_lang_code: String
+      seo_description: String
+      icon: Url
+      logo_primary_image: TextImageInfoWithAlt @infer
+      background_image: LocalImageWithAlt @infer
     }
 
     type PrismicLayout {

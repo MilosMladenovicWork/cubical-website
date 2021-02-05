@@ -233,11 +233,13 @@ const HomePage = () => {
       }
     `)
 
-      console.log(data)
-
     return(
         <React.Fragment>
-            {   !isSSR &&
+          {
+            data &&
+            data.prismicPage &&
+            data.prismicPage.data &&
+                !isSSR &&
                 data.prismicPage.data.body &&
                 data.prismicPage.data.body.length > 0 &&
                 data.prismicPage.data.body.map(slice => {

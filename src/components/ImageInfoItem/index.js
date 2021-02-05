@@ -11,8 +11,6 @@ import TiltableContainer from '../TiltableContainer'
 import AppearOnViewContainer from '../AppearOnViewContainer'
 
 const ImageInfoItem = ({heading, title, image, children, link, data}) => {
-    
-    console.log(data)
 
     return(
         <li className={styles.imageInfoItem}>
