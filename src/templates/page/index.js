@@ -252,7 +252,7 @@ export const PageQuery = graphql`
               section_id
               section_heading
             }
-            items {
+            offset_cards: items {
               card_text
               card_small_heading
               card_link {

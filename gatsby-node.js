@@ -254,7 +254,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type PrismicPageBodyOffsetCards implements Node {
       primary: PrismicPageBodyOffsetCardsPrimary
-      items: SliceItems
+      items: [SliceItemsArray]
     }
 
     type PrismicPageBodyOffsetCardsPrimary implements Node{

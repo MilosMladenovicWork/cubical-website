@@ -27,10 +27,10 @@ const PageOffsetCardsSection = ({data}) => {
         <h1>{data.primary.section_heading}</h1>
       }
       {
-        data.items &&
-        data.items.length > 0 &&
+        data.offset_cards &&
+        data.offset_cards.length > 0 &&
         <OffsetItemContainer>
-            {data.items.map((item, index) => {
+            {data.offset_cards.map((item, index) => {
                 if(index < numOfLoadedItems){
                     return <RealEstateItem 
                                 link={item.card_link && ((item.card_link.document && item.card_link.document[0].data.page_path) ? item.card_link.document[0].data.page_path : item.card_link.url)}
@@ -44,7 +44,7 @@ const PageOffsetCardsSection = ({data}) => {
         </OffsetItemContainer>
       }
       {
-        numOfLoadedItems < data.items.length &&
+        numOfLoadedItems < data.offset_cards.length &&
         <div className={styles.seeMoreButton}>
             <ButtonBordered onClick={() => {setScrollPosition();setNumOfLoadedItems(prevState => prevState + 5)}}>
                 Mehr Anzeigen
