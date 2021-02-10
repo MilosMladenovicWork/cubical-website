@@ -70,7 +70,6 @@
     @include breakpoint(sm){
         width:250px;
         margin-right:75px;
-        width:unset;
     }
     @include breakpoint(lg){
         margin-right:100px;
