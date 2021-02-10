@@ -14,41 +14,6 @@ import styles from './filter-property-section.module.scss'
 import TiltableContainer from '../TiltableContainer'
 import PropertySorting from '../PropertySorting'
 
-const dummyArray = [
-    {
-      id:'1',
-      filterung: 'Bauland',
-      zimmer: 1,
-      ort: 'North Switzerland',
-      preis: 100000,
-      wohnflache: 100
-    },
-    {
-      id:'2',
-      filterung: 'Bauland',
-      zimmer: 2,
-      ort: 'South Switzerland',
-      preis: 200000,
-      wohnflache: 200
-    },
-    {
-      id:'3',
-      filterung: 'Wohnung',
-      zimmer: 0.5,
-      ort: 'North Switzerland',
-      preis: 10000,
-      wohnflache: 10
-    },
-    {
-      id:'4',
-      filterung: 'Haus',
-      zimmer: 0.5,
-      ort: 'South Switzerland',
-      preis: 1500000,
-      wohnflache: 45
-    },
-]
-
 const FilterPropertySection = ({kaufenProperties, mietenProperties}) => {
   
   const data = useStaticQuery(graphql`
@@ -267,13 +232,13 @@ const FilterPropertySection = ({kaufenProperties, mietenProperties}) => {
                                 <BottomBorderedContainer>
                                     <SpacedItemsContainer>
                                         <p>Preis</p>
-                                        <p>{item.data.preis}</p>
+                                        <p>CHF {item.data.preis}</p>
                                     </SpacedItemsContainer>
                                 </BottomBorderedContainer>
                                 <BottomBorderedContainer>
                                     <SpacedItemsContainer>
-                                        <p>Wohnflache</p>
-                                        <p>{item.data.wohnflache}</p>
+                                        <p>Wohnfläche</p>
+                                        <p>{item.data.wohnflache} m<sup>2</sup></p>
                                     </SpacedItemsContainer>
                                 </BottomBorderedContainer>
                             </TextImageBox> 
