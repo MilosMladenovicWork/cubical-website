@@ -7,6 +7,9 @@ import ImageInfoItem from '../../components/ImageInfoItem'
 import popularSectionImg from '../../img/popular-section1.png'
 
 const PageRegularCardsSection = ({data}) => {
+
+  console.log(data)
+
   return (
     <Section id={(data && data.primary && data.primary.section_id) ? data.primary.section_id : ''}>
         {

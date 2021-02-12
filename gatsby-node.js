@@ -22,7 +22,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     select_heading_content_heading: String
     heading: String
     card_heading: String
-    card_body: HTML
+    card_body: HTML @infer
     hero_images: [LocalImageWithAlt] @infer
     card_image: LocalImageWithAlt
     heading: String
@@ -143,7 +143,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     type PrismicPageBodyRegularCards implements Node{
       primary: PrismicPageBodyRegularCardsFields
       slice_type: String
-      items: SliceItems
+      items: [SliceItemsArray]
     }
 
     type PrismicPageBodyRegularCardsFields {
@@ -229,6 +229,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     type PrismicPageBodyIrregularCards implements Node{
       items: [SliceItemsArray]
       primary: PrismicPageBodyIrregularCardsPrimary
+
     }
 
     type PrismicPageBodyIrregularCardsPrimary implements Node{
