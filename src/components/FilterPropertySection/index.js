@@ -71,7 +71,7 @@ const FilterPropertySection = ({kaufenProperties, mietenProperties}) => {
     }
   `)
 
-  const [numOfLoadedItems, setNumOfLoadedItems] = useState(1)
+  const [numOfLoadedItems, setNumOfLoadedItems] = useState(5)
   const [scrollFromTop, setScrollFromTop] = useState(0)
   const [filters, setFilters] = useState({})
   const [sorting, setSorting] = useState({})
@@ -249,7 +249,7 @@ const FilterPropertySection = ({kaufenProperties, mietenProperties}) => {
             {
           filteredData.length > numOfLoadedItems &&
           <div className={styles.seeMoreButton}>
-              <ButtonBordered onClick={() => {setScrollPosition();setNumOfLoadedItems(prevState => prevState + 2)}}>
+              <ButtonBordered onClick={() => {setScrollPosition();setNumOfLoadedItems(prevState => prevState + 5)}}>
                   Mehr Anzeigen
               </ButtonBordered>
           </div>
