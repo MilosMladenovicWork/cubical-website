@@ -10,17 +10,17 @@ const PropertyFilter = ({data, filters, setFilters}) => {
   const [zimmerArray, setZimmerArray] = useState([])
   const [ortArray, setOrtArray] = useState([])
   const [filteredData, setFilteredData] = useState([])
-
+  
   useEffect(() => {
     const filteredArray = data.filter(({node:property}) => {
       if(property.uid != "familienhaus"){
         return true
       }
     })
-
+    
     setFilteredData(filteredArray)
-  }, [])
-
+  }, [data])
+  
   const setArrayValues = (e) => {
     const targetName = e.target.name
     const targetValue = e.target.value
@@ -48,11 +48,11 @@ const PropertyFilter = ({data, filters, setFilters}) => {
       }
     }
   }
-
+  
   const setStringValues = (e) => {
     const targetName = e.target.name
     const targetValue = e.target.value
-
+    
     if(!filters[targetName]){
       setFilters(prevState => ({
         ...prevState,
@@ -62,7 +62,7 @@ const PropertyFilter = ({data, filters, setFilters}) => {
       setFilters(prevState => ({...prevState,[targetName]: targetValue}))
     }
   }
-
+  
   useEffect(() => {
     let filterungSet = new Set(filteredData.map(({node:property}) => {
       if(property.data.category){

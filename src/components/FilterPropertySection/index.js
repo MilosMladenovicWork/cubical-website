@@ -197,7 +197,7 @@ const FilterPropertySection = ({kaufenProperties, mietenProperties}) => {
       <div className={styles.row}>
         <div className={styles.stickyFilterContainer}>
           <div className={styles.filterContainer}>
-            <PropertyFilter data={data.allPrismicProperty.edges} filters={filters} setFilters={setFilters}/>
+            <PropertyFilter data={properties} filters={filters} setFilters={setFilters}/>
           </div>
         </div>
         <div className={styles.properties}>
