@@ -48,10 +48,10 @@ const Reference = ({videoLink, image, quote, text, alt}) => {
                                     <div className={`${styles.description} ${seeMore ? styles.visibleDescription : ''}`}>
                                         {text}
                                     </div>
-                                    <button onClick={() => setSeeMore(prevState => !prevState)}>
+                                    <button className={styles.infoButton} onClick={() => setSeeMore(prevState => !prevState)}>
                                         <img src={seeMore ? seeLessIcon : seeMoreIcon} alt=''/>
                                         {
-                                            seeMore ? 'WENIGER SEHEN' : 'MEHR SEHEN'
+                                            seeMore ? 'WENIGER SEHEN' : 'WEITERE INFOS'
                                         }
                                     </button>
                                     {/* <button onClick={() => setShowVideo(true)}>

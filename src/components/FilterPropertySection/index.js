@@ -203,7 +203,7 @@ const FilterPropertySection = ({kaufenProperties, mietenProperties}) => {
         <div className={styles.properties}>
           <div className={`${styles.infoAndSorting} ${styles.rowSpaced}`}>
             <h2>{filteredData.length} Immobilien gefunden</h2>
-            <PropertySorting sorting={sorting} setSorting={setSorting}/>
+            {/* <PropertySorting sorting={sorting} setSorting={setSorting}/> */}
           </div>
           {transitions((style, {node:item}, t, index) => {
                 if(index < numOfLoadedItems){
