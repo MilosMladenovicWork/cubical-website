@@ -74,13 +74,28 @@ const PropertyFilter = ({data, filters, setFilters}) => {
     setFilterungArray([...filterungSet])
     
     let zimmerSet = new Set(filteredData.map(({node:property}) => {
+      let zimmerMapping;
       if(property.data.zimmer){
-        return property.data.zimmer
+        let zimmerNumber = Number(property.data.zimmer)
+        if(zimmerNumber < 2){
+          zimmerMapping = 'bis zu Zimmer'
+        }else if(zimmerNumber >= 2 && zimmerNumber < 3){
+          zimmerMapping = '2-3 Zimmer' 
+        }else if(zimmerNumber >= 3 && zimmerNumber < 4){
+          zimmerMapping = '3-4 Zimmer' 
+        }else if(zimmerNumber >= 4 && zimmerNumber < 5){
+          zimmerMapping = '4-5 Zimmer' 
+        }else if(zimmerNumber >= 5){
+          zimmerMapping = 'über 5 Zimmer'
+        }
+      }
+      if(zimmerMapping){
+        return zimmerMapping
       }
     }))
 
     setZimmerArray([...zimmerSet])
-    
+
     let ortSet = new Set(filteredData.map(({node:property}) => {
       if(property.data.ort){
         return property.data.ort

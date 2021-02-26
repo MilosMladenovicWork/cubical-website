@@ -128,7 +128,24 @@ const FilterPropertySection = ({kaufenProperties, mietenProperties}) => {
     
     //zimmer filter
     filteredArray = filteredArray.filter(({node:property}) => {
-      if((property.data.zimmer && (filters.zimmer == property.data.zimmer)) || !filters.zimmer){
+
+      let numberOfRooms = Number(property.data.zimmer)
+
+      let zimmerMapping;
+
+      if(numberOfRooms < 2){
+        zimmerMapping = 'bis zu Zimmer'
+      }else if(numberOfRooms >= 2 && numberOfRooms < 3){
+        zimmerMapping = '2-3 Zimmer' 
+      }else if(numberOfRooms >= 3 && numberOfRooms < 4){
+        zimmerMapping = '3-4 Zimmer' 
+      }else if(numberOfRooms >= 4 && numberOfRooms < 5){
+        zimmerMapping = '4-5 Zimmer' 
+      }else if(numberOfRooms >= 5){
+        zimmerMapping = 'über 5 Zimmer'
+      }
+
+      if((property.data.zimmer && (filters.zimmer == zimmerMapping)) || !filters.zimmer){
         return true
       }
     })
