@@ -15,6 +15,7 @@ const LazyPageOffsetCardsSection = React.lazy(() => import('../components/PageOf
 import PageRichTextSection from '../components/PageRichTextSection'
 const LazyPageContactFormSection = React.lazy(() => import('../components/PageContactFormSection')) 
 const LazyPageIconsAndTextSection = React.lazy(() => import('../components/PageIconsAndTextSection'))
+const LazyPageImageSection = React.lazy(() => import('../components/PageImageSection'))
 
 const HomePage = () => {
 
@@ -230,6 +231,7 @@ const HomePage = () => {
                 }
                 ... on PrismicPageBodyIconsAndText {
                   slice_type
+                  section_id
                   items {
                     below_icon_text {
                       html
@@ -248,6 +250,25 @@ const HomePage = () => {
                   primary {
                     above_icons_text {
                       html
+                    }
+                  }
+                }
+                ... on PrismicPageBodyImage{
+                  slice_type
+                  section_id
+                  primary{
+                    above_image_text{
+                      html
+                    }
+                    image{
+                      alt
+                      localFile {
+                        childImageSharp {
+                          fluid(maxWidth: 1500, quality:100) {
+                            ...GatsbyImageSharpFluid_withWebp
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -309,6 +330,10 @@ const HomePage = () => {
                         case 'icons_and_text':
                           return <React.Suspense fallback='Loading'>
                             <LazyPageIconsAndTextSection data={slice}/>
+                          </React.Suspense>
+                        case 'image':
+                          return <React.Suspense fallback='Loading'>
+                            <LazyPageImageSection data={slice}/>
                           </React.Suspense> 
                         default:
                             return

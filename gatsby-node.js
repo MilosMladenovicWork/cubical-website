@@ -155,8 +155,20 @@ exports.createSchemaCustomization = ({ actions }) => {
       below_icon_text: HTML
     }
 
+    type PrismicPageBodyImagePrimary{
+      above_image_text: HTML
+      image: LocalImageWithAlt @infer
+    }
+
+    type PrismicPageBodyImage implements Node {
+      slice_type: String
+      section_id: String
+      primary: PrismicPageBodyImagePrimary
+    }
+    
     type PrismicPageBodyIconsAndText implements Node {
       slice_type: String
+      section_id: String
       primary: PrismicPageBodyIconsAndTextFields
       items: [PrismicPageBodyIconsAndTextItems] @infer
     }

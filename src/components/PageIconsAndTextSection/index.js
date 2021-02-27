@@ -9,7 +9,7 @@ const PageIconsAndTextSection = ({data}) => {
 
   return(
     data &&
-    <div className={styles.container}>
+    <div className={styles.container} id={(data && data.primary && data.primary.section_id) ? data.primary.section_id : ''}>
         {
           data.primary &&
           data.primary.above_icons_text &&
