@@ -26,8 +26,8 @@ const PageIconsAndTextSection = ({data}) => {
                 item.icon1 &&
                 item.icon1.localFile &&
                 item.icon1.localFile.childImageSharp &&
-                item.icon1.localFile.childImageSharp.fluid &&
-                <Image fluid={item.icon1.localFile.childImageSharp.fluid} alt={item.icon1.alt}/>
+                item.icon1.localFile.childImageSharp.fixed &&
+                <Image fixed={item.icon1.localFile.childImageSharp.fixed} alt={item.icon1.alt}/>
               }
               {
                 item.below_icon_text &&

@@ -238,8 +238,8 @@ const HomePage = () => {
                       alt
                       localFile {
                         childImageSharp {
-                          fluid(maxWidth: 400, quality: 100) {
-                            ...GatsbyImageSharpFluid_withWebp
+                          fixed(height: 250) {
+                            ...GatsbyImageSharpFixed_withWebp
                           }
                         }
                       }

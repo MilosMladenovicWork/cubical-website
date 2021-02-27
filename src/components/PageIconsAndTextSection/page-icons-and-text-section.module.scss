@@ -1,7 +1,10 @@
 @import '../../styles/utils/breakpoints.scss';
 
 .container{
-  padding:50px;
+  padding:25px 15px;
+  @include breakpoint(sm){
+    padding:50px 85px;
+  }
 }
 
 .icons-container{
@@ -12,6 +15,7 @@
   @include breakpoint(sm){
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
 }
 
@@ -23,10 +27,25 @@
   align-items: center;
   margin-bottom:50px;
   > div:first-of-type{
-    width:100%;
+    display: flex;
+    overflow: visible !important;
+    max-width: 100%;
+    @include breakpoint(sm){
+      max-width: unset;
+    }
+    img{
+      height:150px !important;
+      top:50% !important;
+      left:50% !important;
+      transform: translate(-50%, -50%);
+      width:auto !important;
+      @include breakpoint(sm){
+        height:195px !important;
+      }
+    }
   }
   @include breakpoint(sm){
-    width:20%;
-    padding:15px 2.5%;
+    width:22%;
+    padding:15px 1.5%;
   }
 }
