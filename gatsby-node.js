@@ -146,6 +146,21 @@ exports.createSchemaCustomization = ({ actions }) => {
       items: [SliceItemsArray]
     }
 
+    type PrismicPageBodyIconsAndTextFields{
+      above_icons_text: HTML
+    }
+
+    type PrismicPageBodyIconsAndTextItems{
+      icon1: LocalImageWithAlt @infer
+      below_icon_text: HTML
+    }
+
+    type PrismicPageBodyIconsAndText implements Node {
+      slice_type: String
+      primary: PrismicPageBodyIconsAndTextFields
+      items: [PrismicPageBodyIconsAndTextItems] @infer
+    }
+
     type PrismicPageBodyRegularCardsFields {
       section_heading: String
       section_id: String

@@ -14,6 +14,7 @@ const LazyPageReferenceSection = React.lazy(() => import('../components/PageRefe
 const LazyPageOffsetCardsSection = React.lazy(() => import('../components/PageOffsetCardsSection')) 
 import PageRichTextSection from '../components/PageRichTextSection'
 const LazyPageContactFormSection = React.lazy(() => import('../components/PageContactFormSection')) 
+const LazyPageIconsAndTextSection = React.lazy(() => import('../components/PageIconsAndTextSection'))
 
 const HomePage = () => {
 
@@ -227,6 +228,29 @@ const HomePage = () => {
                     section_id
                   }
                 }
+                ... on PrismicPageBodyIconsAndText {
+                  slice_type
+                  items {
+                    below_icon_text {
+                      html
+                    }
+                    icon1 {
+                      alt
+                      localFile {
+                        childImageSharp {
+                          fluid(maxWidth: 400, quality: 100) {
+                            ...GatsbyImageSharpFluid_withWebp
+                          }
+                        }
+                      }
+                    }
+                  }
+                  primary {
+                    above_icons_text {
+                      html
+                    }
+                  }
+                }
               }
             }
         }
@@ -278,10 +302,14 @@ const HomePage = () => {
                             </React.Suspense> 
                         case 'rich_text_section':
                           return <PageRichTextSection data={slice}/>
-                          case 'contact_form_section':
-                            return  <React.Suspense fallback='Loading'>
-                              <LazyPageContactFormSection data={slice}/>
-                            </React.Suspense> 
+                        case 'contact_form_section':
+                          return  <React.Suspense fallback='Loading'>
+                            <LazyPageContactFormSection data={slice}/>
+                          </React.Suspense>
+                        case 'icons_and_text':
+                          return <React.Suspense fallback='Loading'>
+                            <LazyPageIconsAndTextSection data={slice}/>
+                          </React.Suspense> 
                         default:
                             return
                     }

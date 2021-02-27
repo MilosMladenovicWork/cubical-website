@@ -52,6 +52,10 @@
           "contact_form_section" : [ {
             "name" : "contact_form",
             "display" : "Contact Form"
+          } ],
+          "icons_and_text" : [ {
+            "name" : "icons_and_text",
+            "display" : "icons_and_text"
           } ]
         },
         "choices" : {
@@ -454,6 +458,48 @@
                 "type" : "Text",
                 "config" : {
                   "label" : "Section ID"
+                }
+              }
+            }
+          },
+          "icons_and_text" : {
+            "type" : "Slice",
+            "fieldset" : "Icons And Text",
+            "description" : "Section with Icons and Text",
+            "icon" : "border_bottom",
+            "display" : "list",
+            "non-repeat" : {
+              "section_id" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Section ID"
+                }
+              },
+              "above_icons_text" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label" : "Above icons text"
+                }
+              }
+            },
+            "repeat" : {
+              "icon1" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 400,
+                    "height" : 400
+                  },
+                  "thumbnails" : [ ],
+                  "label" : "Icon"
+                }
+              },
+              "below_icon_text" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label" : "Below Icon Text"
                 }
               }
             }

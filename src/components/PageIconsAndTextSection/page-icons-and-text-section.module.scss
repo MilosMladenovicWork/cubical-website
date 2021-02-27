@@ -1,0 +1,32 @@
+@import '../../styles/utils/breakpoints.scss';
+
+.container{
+  padding:50px;
+}
+
+.icons-container{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  @include breakpoint(sm){
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.icon-card{
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex;
+  align-items: center;
+  margin-bottom:50px;
+  > div:first-of-type{
+    width:100%;
+  }
+  @include breakpoint(sm){
+    width:20%;
+    padding:15px 2.5%;
+  }
+}
