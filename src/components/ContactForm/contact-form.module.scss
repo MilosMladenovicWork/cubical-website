@@ -12,11 +12,16 @@
     max-width: 450px;
     min-width:300px;
     margin-bottom:0;
-    > input, > textarea{
+    > input, > textarea, > select{
         border-color:#1995D2;
         margin-bottom:10px;
         width:100%;
         color:#1995D2;
+    }
+    > select{
+        border-width: 2px;
+        padding:5px;
+        background: none;
     }
     .send-button{
         width:50px;

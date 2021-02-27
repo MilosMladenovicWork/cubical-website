@@ -36,6 +36,10 @@ module.exports.handler = async function (event, context) {
                   <th style='padding:2.5px; border:1px solid #1995D2; text-align:center;background: #1995D2; color: white'>Gewünschte Anrufzeit</th>
                   <td style='padding:2.5px; border:1px solid #1995D2; text-align:center; color: #1995D2;'>${data.callTime}</td>
                 </tr>       
+                <tr>
+                  <th style='padding:2.5px; border:1px solid #1995D2; text-align:center;background: #1995D2; color: white'>Grund für die Kontaktaufnahme</th>
+                  <td style='padding:2.5px; border:1px solid #1995D2; text-align:center; color: #1995D2;'>${data.reasonOfContact}</td>
+                </tr>       
             </table>         
         <p style='color: #1995D2;'>Message: ${data.msg}</p>
         `

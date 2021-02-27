@@ -12,6 +12,7 @@ const ContactForm = ({children}) => {
     const [tel, setTel] = useState('')
     const [callTime, setCallTime] = useState('')
     const [msg, setMsg] = useState('')
+    const [reasonOfContact, setReasonOfContact] = useState('')
 
     const [errorMessage, setErrorMessage] = useState(undefined)
     const [successMessage, setSuccessMessage] = useState(undefined)
@@ -22,6 +23,7 @@ const ContactForm = ({children}) => {
         setErrorMessage('')
         setSuccessMessage('')
         if (
+          !reasonOfContact ||
           !name ||
           !(
             email &&
@@ -35,7 +37,7 @@ const ContactForm = ({children}) => {
           setErrorMessage(undefined)
           setFetching(true)
           fetch(
-            `/.netlify/functions/contactForm?name=${name}&email=${email}&tel=${tel}&callTime=${callTime}&msg=${msg}`,
+            `/.netlify/functions/contactForm?name=${name}&email=${email}&tel=${tel}&callTime=${callTime}&reasonOfContact=${reasonOfContact}&msg=${msg}`,
             {
               headers: {
                 Accept: 'application/json',
@@ -63,6 +65,8 @@ const ContactForm = ({children}) => {
         }
       }
 
+      console.log(reasonOfContact)
+
     return(
             <form 
             className={styles.contactForm}
@@ -74,6 +78,12 @@ const ContactForm = ({children}) => {
                 <TextInputField placeholder='E-Mail' type='email' name='email' value={email} onChange={setEmail}/>
                 <TextInputField placeholder='Telefonnummer' name='tel' value={tel} onChange={setTel}/>
                 <TextInputField placeholder='Gewünschte Anrufzeit' name='callTime' value={callTime} onChange={setCallTime}/>
+                <select name="reasonOfContact" onChange={(e) => setReasonOfContact(e.target.value)}>
+                  <option value="">Grund für die Kontaktaufnahme</option>
+                  <option value="Verkaufen - Kontakt">Verkaufen - Kontakt</option>
+                  <option value="Kaufen - Kontakt ">Kaufen - Kontakt</option>
+                  <option value="Mieten - Kontakt">Mieten - Kontakt</option>
+                </select>
                 <TextareaField placeholder='Ihre Nachricht' name='msg' value={msg} onChange={setMsg}/>
                 <button 
                     className={styles.sendButton} 
