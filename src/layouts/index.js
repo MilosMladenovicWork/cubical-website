@@ -460,13 +460,13 @@ const Layout = ({children, location}) => {
                     <BackgroundImage image={data.prismicLayout.data.background_image && data.prismicLayout.data.background_image.localFile && data.prismicLayout.data.background_image.localFile.childImageSharp.fluid}/>
                 }
                 <div className={styles.footerContent}>
-                    <div className={styles.footerIconContainer}>
+                    {/* <div className={styles.footerIconContainer}>
                         {!isSSR && (
                             <React.Suspense fallback={'Loading'}>
                                 <LazyFooterIcon/>
                             </React.Suspense>
                         )}
-                    </div>
+                    </div> */}
                     <div className={styles.footerInfoContent}>
                         {
                             data.prismicLayout.data.footer_content &&
