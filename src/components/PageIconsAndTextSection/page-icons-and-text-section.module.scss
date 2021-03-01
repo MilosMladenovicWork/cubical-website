@@ -4,6 +4,7 @@
   padding:25px 15px;
   @include breakpoint(sm){
     padding:50px 85px;
+    overflow: hidden;
   }
 }
 
@@ -32,6 +33,11 @@
     max-width: 100%;
     @include breakpoint(sm){
       max-width: unset;
+      height:150px !important;
+    }
+    @include breakpoint(lg){
+      height: 250px !important;
+      max-width: unset;
     }
     img{
       height:150px !important;
@@ -40,6 +46,12 @@
       transform: translate(-50%, -50%);
       width:auto !important;
       @include breakpoint(sm){
+        height:100px !important;
+        bottom:0%;
+        transform: translate(-50%, 0);
+        top:unset !important;
+      }
+      @include breakpoint(lg){
         height:195px !important;
       }
     }

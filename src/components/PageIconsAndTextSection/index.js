@@ -6,8 +6,6 @@ import AppearOnViewContainer from '../AppearOnViewContainer'
 
 const PageIconsAndTextSection = ({data}) => {
 
-  console.log(data)
-
   return(
     data &&
     <AppearOnViewContainer>
