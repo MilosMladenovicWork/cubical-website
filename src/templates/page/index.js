@@ -374,7 +374,11 @@ export const PageQuery = graphql`
               }
               image{
                 alt
+                dimensions{
+                  width
+                }
                 localFile {
+                  url
                   childImageSharp {
                     fluid(maxWidth: 1500, quality:100) {
                       ...GatsbyImageSharpFluid_withWebp
@@ -382,6 +386,12 @@ export const PageQuery = graphql`
                   }
                 }
               }
+            }
+            items {
+              after_click_content {
+                html
+              }
+              image_poly_coordinates
             }
           }
         }

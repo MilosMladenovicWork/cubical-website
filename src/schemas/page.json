@@ -561,7 +561,23 @@
                 }
               }
             },
-            "repeat": {}
+            "repeat": {
+              "image_poly_coordinates": {
+                "type": "Text",
+                "config": {
+                  "label": "Image Poly Coordinates",
+                  "placeholder": "x,y,x,y,...(0,0,10,0,0,20,10,20)"
+                }
+              },
+              "after_click_content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label": "After click content",
+                  "placeholder": "Some text to appear after image is clicked"
+                }
+              }
+            }
           }
         }
       }

@@ -262,7 +262,11 @@ const HomePage = () => {
                     }
                     image{
                       alt
+                      dimensions{
+                        width
+                      }
                       localFile {
+                        url
                         childImageSharp {
                           fluid(maxWidth: 1500, quality:100) {
                             ...GatsbyImageSharpFluid_withWebp
@@ -270,6 +274,12 @@ const HomePage = () => {
                         }
                       }
                     }
+                  }
+                  items {
+                    after_click_content {
+                      html
+                    }
+                    image_poly_coordinates
                   }
                 }
               }

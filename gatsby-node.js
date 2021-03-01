@@ -160,10 +160,16 @@ exports.createSchemaCustomization = ({ actions }) => {
       image: LocalImageWithAlt @infer
     }
 
+    type PrismicPageBodyImageItems{
+      image_poly_coordinates: String
+      after_click_content: HTML
+    }
+
     type PrismicPageBodyImage implements Node {
       slice_type: String
       section_id: String
       primary: PrismicPageBodyImagePrimary
+      items: [PrismicPageBodyImageItems]
     }
     
     type PrismicPageBodyIconsAndText implements Node {

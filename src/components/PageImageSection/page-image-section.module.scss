@@ -10,7 +10,26 @@
 .image{
   width:100%;
   margin:auto;
+  area{
+    cursor: pointer;
+  }
+  >img{
+    width:100%;
+    margin-bottom:40px;
+    @include breakpoint(sm){
+      margin-bottom: 50px;
+    }
+  }
   @include breakpoint(sm){
     width:70%;
+  }
+}
+
+.section-container{
+  .content{
+    display: none;
+  }
+  .active-content{
+    display: block;
   }
 }
