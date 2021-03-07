@@ -10,18 +10,17 @@
 .image{
   width:100%;
   margin:auto;
+  position: relative;
   area{
     cursor: pointer;
   }
   >img{
     width:100%;
-    margin-bottom:40px;
-    @include breakpoint(sm){
-      margin-bottom: 50px;
-    }
   }
+  margin-bottom:40px;
   @include breakpoint(sm){
     width:70%;
+    margin-bottom: 50px;
   }
 }
 
@@ -31,5 +30,28 @@
   }
   .active-content{
     display: block;
+  }
+}
+
+.overlays{
+  position:absolute;
+  display: flex;
+  flex-wrap: wrap;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  > div{
+    background:rgba(255, 255, 255, 0.6);
+    width:50%;
+    height:50%;
+    transition:0.3s;
+    cursor: pointer;
+    &:hover{
+      background:rgba(255, 255, 255, 0);
+    }
+    &.active-overlay{
+      background:rgba(255, 255, 255, 0);
+    }
   }
 }

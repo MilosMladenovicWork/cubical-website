@@ -63,6 +63,12 @@ const PageImageSection = ({data}) => {
                 alt={data.primary.image.alt}
                 usemap="#imagemap"
               />
+              <div className={styles.overlays}>
+                <div onClick={() => setOpenContentIndex(0)} className={`${openContentIndex === 0 && styles.activeOverlay}`}></div>
+                <div onClick={() => setOpenContentIndex(1)} className={`${openContentIndex === 1 && styles.activeOverlay}`}></div>
+                <div onClick={() => setOpenContentIndex(2)} className={`${openContentIndex === 2 && styles.activeOverlay}`}></div>
+                <div onClick={() => setOpenContentIndex(3)} className={`${openContentIndex === 3 && styles.activeOverlay}`}></div>
+              </div>
               <map name="imagemap">
                 {
                   data &&
