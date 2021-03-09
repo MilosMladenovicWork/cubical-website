@@ -80,9 +80,11 @@ const ContactForm = ({children}) => {
                 <TextInputField placeholder='Gewünschte Anrufzeit' name='callTime' value={callTime} onChange={setCallTime}/>
                 <select name="reasonOfContact" onChange={(e) => setReasonOfContact(e.target.value)}>
                   <option value="">Grund für die Kontaktaufnahme</option>
-                  <option value="Verkaufen - Kontakt">Verkaufen - Kontakt</option>
-                  <option value="Kaufen - Kontakt ">Kaufen - Kontakt</option>
-                  <option value="Mieten - Kontakt">Mieten - Kontakt</option>
+                  <option value="Verkaufen">Verkaufen</option>
+                  <option value="Kaufen">Kaufen</option>
+                  <option value="Mieten">Mieten</option>
+                  <option value="Finanzierungsberatung">Finanzierungsberatung</option>
+                  <option value="Immobilienbewertung">Immobilienbewertung</option>
                 </select>
                 <TextareaField placeholder='Ihre Nachricht' name='msg' value={msg} onChange={setMsg}/>
                 <button 
