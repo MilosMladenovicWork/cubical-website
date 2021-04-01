@@ -1,8 +1,8 @@
-const _ = require('lodash')
+const _ = require("lodash");
 
 // graphql function doesn't throw an error so we have to check to check for the result.errors to throw manually
 exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions
+  const { createTypes } = actions;
   const typeDefs = `
   type PrismicLayout implements Node {
     prismicLayout: PrismicLayout
@@ -374,34 +374,34 @@ exports.createSchemaCustomization = ({ actions }) => {
       preis: String
       other_information: OtherInformation
       ort: String
-      important_information: ImportantInformation
+      important_information: [ImportantInformation]
       images: [Image]
       description: HTML
       category: String
       besichtigung_information: HTML
     }
-  `
-  createTypes(typeDefs)
-}
+  `;
+  createTypes(typeDefs);
+};
 
 const wrapper = (promise) =>
   promise.then((result) => {
     if (result.errors) {
-      throw result.errors
+      throw result.errors;
     }
-    return result
-  })
+    return result;
+  });
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
-  const pageTemplate = require.resolve('./src/templates/page/index.js')
-  const propertyTemplate = require.resolve('./src/templates/property/index.js')
-  
+  const pageTemplate = require.resolve("./src/templates/page/index.js");
+  const propertyTemplate = require.resolve("./src/templates/property/index.js");
+
   const result = await wrapper(
     graphql(`
       {
-        allPrismicPage(filter: {data: {page_path: {ne: "/"}}}) {
+        allPrismicPage(filter: { data: { page_path: { ne: "/" } } }) {
           edges {
             node {
               data {
@@ -411,10 +411,10 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
 
-        allPrismicProperty{
-          edges{
-            node{
-              data{
+        allPrismicProperty {
+          edges {
+            node {
+              data {
                 type_of_property
               }
               uid
@@ -423,41 +423,38 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     `)
-  )
+  );
 
-  const pages = result.data.allPrismicPage.edges
+  const pages = result.data.allPrismicPage.edges;
 
   pages.forEach((edge) => {
-    
-    if(edge.node.data.page_path){
+    if (edge.node.data.page_path) {
       createPage({
         path: `${edge.node.data.page_path}`,
         component: pageTemplate,
         context: {
           page_path: edge.node.data.page_path,
         },
-      })
+      });
     }
-  })
+  });
 
-  const properties = result.data.allPrismicProperty.edges
-  
+  const properties = result.data.allPrismicProperty.edges;
+
   properties.forEach((edge) => {
-    if(edge.node.uid){
+    if (edge.node.uid) {
       createPage({
-        path:`/${edge.node.data.type_of_property ? 'mieten' : 'kaufen'}/${edge.node.uid}`,
+        path: `/${edge.node.data.type_of_property ? "mieten" : "kaufen"}/${
+          edge.node.uid
+        }`,
         component: propertyTemplate,
         context: {
-          uid: edge.node.uid
-        }
-      })
+          uid: edge.node.uid,
+        },
+      });
     }
-  })
-
-
-
-}
-
+  });
+};
 
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
   if (stage.startsWith("build-javascript")) {
@@ -466,10 +463,10 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
         rules: [
           {
             test: /react-spring/,
-            sideEffects: true
-          }
-        ]
-      }
-    })
+            sideEffects: true,
+          },
+        ],
+      },
+    });
   }
-}
+};
